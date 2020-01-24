@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import time
 
+print("Initializing variables.")
+
 #Init spatial vars.
 lx = 10
 nx = 64
@@ -35,31 +37,54 @@ kxd = np.r_[np.ones(nx//3),np.zeros(nx//3+nx%3),np.ones(nx//3)]
 kyd = np.r_[np.ones(ny//3),np.zeros(ny//3+ny%3),np.ones(ny//3)]
 KXD,KYD = np.meshgrid(kxd,kyd)
 
-#Create a phi and take its fft. Shifting values in order of negative to positive.
-#waveFreq = 16
-#phi = np.cos(waveFreq*2*np.pi*Y/ly)*np.cos(waveFreq*2*np.pi*X/lx)
-#phi = np.exp(-((X-lx/2)**2 + (Y-ly/2)**2)/4)
-waveFreq = 5
-A=np.zeros((mx,my))+0.*1j
-phi=np.zeros((nx,ny))+0.*1j
+#Set up vars specific to routines.
+phi = np.zeros((nx,ny))
+plotRatio = 1
+waveFreq = 1
+initialCase = 3
+caseString = "Unspecified"
+#Allocate initial conditions.
+if (initialCase == 1):
+   #2 strong modes.
+   caseString = "TwoStrongModes"
+   waveFreq = 16
+   plotRatio = 7/4
+   phi = np.cos(waveFreq*2*np.pi*Y/ly)*np.cos(waveFreq*2*np.pi*X/lx)
+elif (initialCase == 2):
+   #Gaussian
+   caseString = "Gaussian"
+   waveFreq = 5
+   plotRatio = 3/2
+   phi = np.exp(-((X-lx/2)**2 + (Y-ly/2)**2)/4)
+elif (initialCase == 3):
+   #Random strong mode + random weaker modes + random phase shifts in each.
+   caseString = "StrongModeWithWeakerPerturbations"
+   waveFreq = 5
+   plotRatio = 3/2
+   A=np.zeros((mx,my))+0.*1j
+   phi=np.zeros((nx,ny))+0.*1j
+   A[0,2]=1.*np.exp(2.1J)
+   A[0,3]=0.1*np.exp(1.7J)
+   A[7,3]=0.05*np.exp(1.1J)
+   A[5,2]=0.05*np.exp(0.1J)
+   A[3,6]=0.05*np.exp(0.7J)
+   A[4,7]=0.05*np.exp(2.7J)
+   for i in range(nx):
+       for j in range(ny):
+           for m1 in range(mx):
+               for m2 in range(my):
+                   phi[i,j]= phi[i,j]+A[m1,m2]*np.exp(1j*kx[m1]*x[i]+1j*ky[m2]*y[j])
+   phi=np.transpose(np.real(phi))
+#elif (initialCase == 4):
+   #Load output from GENE.
 
-A[0,2]=1.*np.exp(2.1J)
-A[0,3]=0.1*np.exp(1.7J)
-A[7,3]=0.05*np.exp(1.1J)
-A[5,2]=0.05*np.exp(0.1J)
-A[3,6]=0.05*np.exp(0.7J)
-A[4,7]=0.05*np.exp(2.7J)
-for i in range(nx):
-    for j in range(ny):
-        for m1 in range(mx):
-            for m2 in range(my):
-                phi[i,j]= phi[i,j]+A[m1,m2]*np.exp(1j*kx[m1]*x[i]+1j*ky[m2]*y[j])
-phi=np.transpose(np.real(phi))
+print("Loading initial conditions: " + caseString)
 
 phik = np.fft.fft2(phi)
 
 #Allocate space for time routine.
 saveRate = 4
+print("Running for " + str(nt) + " frames and saving data every " + str(saveRate) + " frames.")
 numFrames = nt//saveRate #Save images once every twenty five dt's
 phit  = np.zeros((numFrames,nx,ny))
 phikt = np.zeros((numFrames,nx,ny))
@@ -86,24 +111,8 @@ def adv(phik):
    
    return derivative
 
-def update_anim(it):
-   fig.clf()
-   ax1 = fig.add_subplot(121)
-   ax2 = fig.add_subplot(122)
-   ax1.clear()
-   ax2.clear()
-   im1 = ax1.contourf(X,Y,phit[it,:,:])
-   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:])
-   ax1.grid()
-   ax2.grid()
-   plotRatio = 3/2
-   ax2.set_xlim(-plotRatio*waveFreq, plotRatio*waveFreq)
-   ax2.set_ylim(-plotRatio*waveFreq, plotRatio*waveFreq)
-   fig.colorbar(im1, ax=ax1)
-   fig.colorbar(im2, ax=ax2)
-   plt.tight_layout()
-
 #Main loop
+print("Starting main data loop.")
 for it in range(1,nt):
    rk1 = adv(phik)
    rk2 = adv(phik + 0.5*dt*rk1)
@@ -116,10 +125,28 @@ for it in range(1,nt):
    
    #Store plots as specified.
    if ((it%(saveRate))==0):
-      print("Data slot: " + str(it))
       phit[it//saveRate,:,:]  = np.real(np.fft.ifft2(phik))
       phikt[it//saveRate,:,:] = np.abs(np.fft.fftshift(phik))
 
+def update_anim(it):
+   fig.clf()   
+   ax1 = fig.add_subplot(121)
+   ax2 = fig.add_subplot(122)
+   ax1.clear()
+   ax2.clear()
+   im1 = ax1.contourf(X,Y,phit[it,:,:])
+   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:])
+   ax1.grid()
+   ax2.grid()
+   ax1.title.set_text("$\\phi$")
+   ax2.title.set_text("$\\phi_k$")
+   ax2.set_xlim(-plotRatio*waveFreq, plotRatio*waveFreq)
+   ax2.set_ylim(-plotRatio*waveFreq, plotRatio*waveFreq)
+   fig.colorbar(im1, ax=ax1)
+   fig.colorbar(im2, ax=ax2)
+   plt.tight_layout()
+
+print("Starting animation.")
 fig = plt.figure()
 anim=animation.FuncAnimation(fig,update_anim,frames=numFrames,repeat=False)
 plt.show()
