@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import time
+import sys
 
 print("Initializing variables.")
 
@@ -77,6 +77,9 @@ elif (initialCase == 3):
    phi=np.transpose(np.real(phi))
 #elif (initialCase == 4):
    #Load output from GENE.
+else:
+   sys.exit("Invalid initial conditions. Current value: " + caseString + ".")
+
 
 print("Loading initial conditions: " + caseString)
 
@@ -127,6 +130,7 @@ for it in range(1,nt):
    if ((it%(saveRate))==0):
       phit[it//saveRate,:,:]  = np.real(np.fft.ifft2(phik))
       phikt[it//saveRate,:,:] = np.abs(np.fft.fftshift(phik))
+print("Finished storing run data.")
 
 def update_anim(it):
    fig.clf()   
@@ -146,7 +150,11 @@ def update_anim(it):
    fig.colorbar(im2, ax=ax2)
    plt.tight_layout()
 
+   if ((it+1)==numFrames): #Since it index starts at 0. But numFrames is a count so doesn't include 0.
+      plt.close(fig)
+
 print("Starting animation.")
 fig = plt.figure()
 anim=animation.FuncAnimation(fig,update_anim,frames=numFrames,repeat=False)
 plt.show()
+sys.exit("Animation complete.")
