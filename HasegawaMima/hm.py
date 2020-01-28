@@ -150,7 +150,7 @@ def update_anim(it):
    fig.colorbar(im2, ax=ax2)
    plt.tight_layout()
 
-   if ((it+1)==numFrames): #Since it index starts at 0. But numFrames is a count so doesn't include 0.
+   if ((it+1)==numFrames): #Since it index starts at 0, but numFrames is a count so doesn't include 0.
       plt.close(fig)
 
 print("Starting animation.")
