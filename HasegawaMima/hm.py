@@ -16,7 +16,7 @@ dy = ly/ny
 kappa = .1
 
 #Init temporal grid.
-nt = 400
+nt = 2000
 dt = 2e-2 #Timestep taken from Numata code.
 
 #Create initial grids.
@@ -42,6 +42,8 @@ phi = np.zeros((nx,ny))
 plotRatio = 1
 waveFreq = 1
 initialCase = 3
+showPlot = True
+saveAnim = False
 caseString = "Unspecified"
 #Allocate initial conditions.
 if (initialCase == 1):
@@ -63,7 +65,7 @@ elif (initialCase == 3):
    plotRatio = 3/2
    A=np.zeros((mx,my))+0.*1j
    phi=np.zeros((nx,ny))+0.*1j
-   A[0,2]=1.*np.exp(2.1J)
+   A[0,2]=1*np.exp(2.1J)
    A[0,3]=0.1*np.exp(1.7J)
    A[7,3]=0.05*np.exp(1.1J)
    A[5,2]=0.05*np.exp(0.1J)
@@ -75,15 +77,15 @@ elif (initialCase == 3):
                for m2 in range(my):
                    phi[i,j]= phi[i,j]+A[m1,m2]*np.exp(1j*kx[m1]*x[i]+1j*ky[m2]*y[j])
    phi=np.transpose(np.real(phi))
+   scaleFactor = .6
+   phi = scaleFactor*phi
 #elif (initialCase == 4):
    #Load output from GENE.
 else:
    sys.exit("Invalid initial conditions. Current value: " + caseString + ".")
 
-
-print("Loading initial conditions: " + caseString)
-
 phik = np.fft.fft2(phi)
+print("Loaded initial conditions: " + caseString)
 
 #Allocate space for time routine.
 saveRate = 4
@@ -101,7 +103,6 @@ KX2, KY2 = np.meshgrid(kx2,ky2)
 kconst = 1/(1+KX2+KY2) #Save off const for later calculations.
 
 def adv(phik):
-   #zeta = del2(phi)
    zetak = -(KX2 + KY2)*phik
 
    #Define derivs for main equation.
@@ -155,10 +156,22 @@ def update_anim(it):
    plt.tight_layout()
 
    if ((it+1)==numFrames): #Since it index starts at 0, but numFrames is a count so doesn't include 0.
-      plt.close(fig)
+      if (showPlot):
+         plt.close(fig)
 
 print("Starting animation.")
+
+# Set up formatting for the movie files
+Writer = animation.writers['ffmpeg'] #Requires ffmpeg package on linux.
+writer = Writer(fps=15, bitrate=1800)
+
 fig = plt.figure()
 anim=animation.FuncAnimation(fig,update_anim,frames=numFrames,repeat=False)
-plt.show()
+
+if (showPlot):
+   plt.show()
+
+if (saveAnim):
+   print("Saving animation. This will take a few minutes...")
+   anim.save('hm.mp4', writer=writer)
 sys.exit("Animation complete.")
