@@ -204,7 +204,7 @@ print("Starting animation.")
 
 # Set up formatting for the movie files
 Writer = animation.writers['ffmpeg'] #Requires ffmpeg package on linux.
-writer = Writer(fps=15, bitrate=-1, codec='libx264')
+writer = Writer(fps=30, bitrate=-1, codec='h264')
 
 fig = plt.figure(num=None, figsize=(500,500)) #TODO: Remove this figsize???
 anim=animation.FuncAnimation(fig,update_anim,frames=numFrames,repeat=False)
@@ -215,5 +215,5 @@ if (showPlot):
 if (saveAnim):
    print("Saving animation. This will probably take a few minutes...")
    currentlySaving = True
-   anim.save('hm.mp4', writer=writer)
+   anim.save('HasegawaMima/hm.mp4', writer=writer)
 sys.exit("Animation complete.")

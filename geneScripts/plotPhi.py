@@ -100,4 +100,4 @@ if (showPlot):
    plt.show()
 
 currentlySaving = True
-anim.save('phi.mp4', writer=writer)
+anim.save('geneScripts/phi.mp4', writer=writer)
