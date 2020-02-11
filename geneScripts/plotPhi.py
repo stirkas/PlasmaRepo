@@ -1,10 +1,6 @@
 import numpy as np
-import matplotlib
 import matplotlib.animation as animation
-import matplotlib.colors as colors
 import matplotlib.pyplot as plt
-import scipy.interpolate
-import sys
 
 nt = 509
 nx = 194
