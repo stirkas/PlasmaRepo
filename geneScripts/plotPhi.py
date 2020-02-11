@@ -6,25 +6,25 @@ import matplotlib.pyplot as plt
 import scipy.interpolate
 import sys
 
-nt = 379
-nx = 196
+nt = 509
+nx = 194
 ny = 33
-nky = 31
+nkx = nx-2 #GENE seems to drop size by 2 for k-space. 
+nky = ny-2 #GENE seems to drop size by 2 for k-space.
 lx = 5.63558
 ly = 2.96377
 t = x = y = 0
 phit = np.zeros((nt,nx,ny)) #[t,x,y]
-phikt = np.zeros((nt,nx,nky))
+phikt = np.zeros((nt,nkx,nky))
 readingData = False
 currentlySaving = False
 showPlot = False
 xp = np.linspace(-lx/2, lx/2, nx)
 yp = np.linspace(-ly/2, ly/2, ny)
-xkp = (2*np.pi/lx)*np.linspace(-1/2,1/2,nx,endpoint=False)
-ykp = (2*np.pi/ly)*np.linspace(-1/2,1/2,nky,endpoint=False)
-
+xkp = (2*np.pi/lx)*np.linspace(-1/2+(1/nkx),1/2,nkx) #For some reason x needs to be offset by 1. TODO: Maybe something else is wrong...
+ykp = (2*np.pi/ly)*np.linspace(-1/2,1/2,nky)
 #Begin loading data.
-fileName = '/home/stirkas/Downloads/contelectrons_0021_0023.dat'
+fileName = '/home/stirkas/Workspace/GENE/phi_21-24_real.dat'
 f = open(fileName, 'r')
 
 for line in f.readlines():
@@ -41,7 +41,7 @@ f.close()
 
 readingData = False
 t = x = y = 0
-fileName = '/home/stirkas/Downloads/contelectrons_0021_0023_k.dat'
+fileName = '/home/stirkas/Workspace/GENE/phi_21-24_k.dat'
 f = open(fileName, 'r')
 
 for line in f.readlines():
@@ -58,8 +58,8 @@ f.close()
 
 def update_anim(it):
    fig.clf()   
-   ax1 = fig.add_subplot(121)
-   ax2 = fig.add_subplot(122)
+   ax1 = fig.add_subplot(211)
+   ax2 = fig.add_subplot(212)
    ax1.clear()
    ax2.clear()
    phi = np.transpose(phit[it,:,:])
@@ -72,10 +72,10 @@ def update_anim(it):
    ax2.title.set_text("$\\phi_k$")
    ax2.set_xlim(-.125, .125)
    ax1.set_xlabel("$k_x\\rho_i$")
-   ax2.set_xlabel("$k_x\\rho_i$")
+   ax2.set_xlabel("$k_x$")
    ax2.set_ylim(-.525, .525)
    ax1.set_ylabel("$k_y\\rho_i$")
-   ax2.set_ylabel("$k_y\\rho_i$")
+   ax2.set_ylabel("$k_y$")
    fig.colorbar(im1, ax=ax1)
    fig.colorbar(im2, ax=ax2)
    plt.tight_layout()
@@ -93,7 +93,7 @@ def update_anim(it):
 Writer = animation.writers['ffmpeg'] #Requires ffmpeg package on linux.
 writer = Writer(fps=15, bitrate=-1, codec='h264')
 
-fig = plt.figure(num=None, figsize=(8,4))
+fig = plt.figure(num=None, figsize=(10,6))
 anim=animation.FuncAnimation(fig,update_anim,frames=nt,repeat=False)
 
 if (showPlot):
