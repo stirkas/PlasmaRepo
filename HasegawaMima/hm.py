@@ -18,7 +18,7 @@ kappa = .1
 
 #Init temporal grid.
 nt = 200000
-dt = 2e-1 #Timestep taken from Numata code.
+dt = 2e-1 #May change below in cases as necessary.
 
 #Create initial grids.
 x = np.arange(nx)*dx
@@ -52,8 +52,9 @@ caseString = "Unspecified"
 if (initialCase == 1):
    #2 strong modes.
    caseString = "TwoStrongModes"
+   dt = 5e-2
    waveFreq = 16
-   plotRatio = 7/4
+   plotRatio = 1/2
    phi = np.cos(waveFreq*2*np.pi*Y/ly)*np.cos(waveFreq*2*np.pi*X/lx)
 elif (initialCase == 2):
    #Gaussian
@@ -215,5 +216,5 @@ if (showPlot):
 if (saveAnim):
    print("Saving animation. This will probably take a few minutes...")
    currentlySaving = True
-   anim.save('HasegawaMima/hm.mp4', writer=writer)
+   anim.save('HasegawaMima/hm_' + str(initialCase) + '.mp4', writer=writer)
 sys.exit("Animation complete.")
