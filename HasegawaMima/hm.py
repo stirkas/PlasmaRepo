@@ -17,8 +17,8 @@ dy = ly/ny
 kappa = .1
 
 #Init temporal grid.
-nt = 500000
-dt = 2e-2 #Timestep taken from Numata code.
+nt = 200000
+dt = 2e-1 #Timestep taken from Numata code.
 
 #Create initial grids.
 x = np.arange(nx)*dx
@@ -64,7 +64,7 @@ elif (initialCase == 2):
 elif (initialCase == 3):
    #Random strong mode + random weaker modes + random phase shifts in each.
    caseString = "StrongModeWithWeakerPerturbations"
-   waveFreq = 5
+   waveFreq = .75
    plotRatio = 3/2
    A=np.zeros((mx,my))+0.*1j
    phi=np.zeros((nx,ny))+0.*1j
@@ -146,7 +146,7 @@ def adv(phik):
    zetakx = 1j*KX*zetak; zetax = np.real(np.fft.ifft2(zetakx*KXD*KYD))
    zetaky = 1j*KY*zetak; zetay = np.real(np.fft.ifft2(zetaky*KXD*KYD))
 
-   derivative = kconst*(sf.fft2(phix*zetay-zetax*phiy) - kappa*phiky)
+   derivative = kconst*(np.fft.fft2(phix*zetay-zetax*phiy) - kappa*phiky)
    
    return derivative
 
@@ -206,7 +206,7 @@ print("Starting animation.")
 Writer = animation.writers['ffmpeg'] #Requires ffmpeg package on linux.
 writer = Writer(fps=30, bitrate=-1, codec='h264')
 
-fig = plt.figure(num=None, figsize=(500,500)) #TODO: Remove this figsize???
+fig = plt.figure(num=None, figsize=(10,5))
 anim=animation.FuncAnimation(fig,update_anim,frames=numFrames,repeat=False)
 
 if (showPlot):
