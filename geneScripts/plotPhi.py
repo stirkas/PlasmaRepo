@@ -67,11 +67,11 @@ def update_anim(it):
    ax1.title.set_text("$\\phi$")
    ax2.title.set_text("$\\phi_k$")
    ax2.set_xlim(-.125, .125)
-   ax1.set_xlabel("$k_x\\rho_i$")
-   ax2.set_xlabel("$k_x$")
+   ax1.set_xlabel("$x/\\rho_i$")
+   ax2.set_xlabel("$k_x\\rho_i$")
    ax2.set_ylim(-.525, .525)
-   ax1.set_ylabel("$k_y\\rho_i$")
-   ax2.set_ylabel("$k_y$")
+   ax1.set_ylabel("$y/\\rho_i$")
+   ax2.set_ylabel("$k_y\\rho_i$")
    fig.colorbar(im1, ax=ax1)
    fig.colorbar(im2, ax=ax2)
    plt.tight_layout()
@@ -89,7 +89,7 @@ def update_anim(it):
 Writer = animation.writers['ffmpeg'] #Requires ffmpeg package on linux.
 writer = Writer(fps=15, bitrate=-1, codec='h264')
 
-fig = plt.figure(num=None, figsize=(10,6))
+fig = plt.figure()
 anim=animation.FuncAnimation(fig,update_anim,frames=nt,repeat=False)
 
 if (showPlot):
