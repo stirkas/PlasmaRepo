@@ -17,8 +17,8 @@ dy = ly/ny
 kappa = .1
 
 #Init temporal grid.
-nt = 500000
-dt = 2e-2 #Timestep taken from Numata code.
+nt = 200000
+dt = 2e-1 #May change below in cases as necessary.
 
 #Create initial grids.
 x = np.arange(nx)*dx
@@ -52,8 +52,9 @@ caseString = "Unspecified"
 if (initialCase == 1):
    #2 strong modes.
    caseString = "TwoStrongModes"
+   dt = 5e-2
    waveFreq = 16
-   plotRatio = 7/4
+   plotRatio = 1/2
    phi = np.cos(waveFreq*2*np.pi*Y/ly)*np.cos(waveFreq*2*np.pi*X/lx)
 elif (initialCase == 2):
    #Gaussian
@@ -64,7 +65,7 @@ elif (initialCase == 2):
 elif (initialCase == 3):
    #Random strong mode + random weaker modes + random phase shifts in each.
    caseString = "StrongModeWithWeakerPerturbations"
-   waveFreq = 5
+   waveFreq = .75
    plotRatio = 3/2
    A=np.zeros((mx,my))+0.*1j
    phi=np.zeros((nx,ny))+0.*1j
@@ -146,7 +147,7 @@ def adv(phik):
    zetakx = 1j*KX*zetak; zetax = np.real(np.fft.ifft2(zetakx*KXD*KYD))
    zetaky = 1j*KY*zetak; zetay = np.real(np.fft.ifft2(zetaky*KXD*KYD))
 
-   derivative = kconst*(sf.fft2(phix*zetay-zetax*phiy) - kappa*phiky)
+   derivative = kconst*(np.fft.fft2(phix*zetay-zetax*phiy) - kappa*phiky)
    
    return derivative
 
@@ -206,7 +207,7 @@ print("Starting animation.")
 Writer = animation.writers['ffmpeg'] #Requires ffmpeg package on linux.
 writer = Writer(fps=30, bitrate=-1, codec='h264')
 
-fig = plt.figure(num=None, figsize=(500,500)) #TODO: Remove this figsize???
+fig = plt.figure(num=None, figsize=(10,5))
 anim=animation.FuncAnimation(fig,update_anim,frames=numFrames,repeat=False)
 
 if (showPlot):
@@ -215,5 +216,5 @@ if (showPlot):
 if (saveAnim):
    print("Saving animation. This will probably take a few minutes...")
    currentlySaving = True
-   anim.save('HasegawaMima/hm.mp4', writer=writer)
+   anim.save('HasegawaMima/hm_' + str(initialCase) + '.mp4', writer=writer)
 sys.exit("Animation complete.")
