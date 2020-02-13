@@ -17,10 +17,10 @@ currentlySaving = False
 showPlot = False
 xp = np.linspace(-lx/2, lx/2, nx)
 yp = np.linspace(-ly/2, ly/2, ny)
-xkp = (2*np.pi/lx)*np.linspace(-1/2+(1/nkx),1/2,nkx) #For some reason x needs to be offset by 1. TODO: Maybe something else is wrong...
-ykp = (2*np.pi/ly)*np.linspace(-1/2,1/2,nky)
+xkp = (2*np.pi*nkx/lx)*np.linspace(-1/2+(1/nkx),1/2,nkx) #For some reason x needs to be offset by 1.
+ykp = (2*np.pi*nky/ly)*np.linspace(-1/2,  1/2,nky)
 #Begin loading data.
-fileName = '/home/stirkas/Workspace/GENE/phi_21-24_real.dat'
+fileName = '/home/stirkas/Workspace/GENE/Output/phi_21-24_real.dat'
 f = open(fileName, 'r')
 
 for line in f.readlines():
@@ -37,7 +37,7 @@ f.close()
 
 readingData = False
 t = x = y = 0
-fileName = '/home/stirkas/Workspace/GENE/phi_21-24_k.dat'
+fileName = '/home/stirkas/Workspace/GENE/Output/phi_21-24_k.dat'
 f = open(fileName, 'r')
 
 for line in f.readlines():
@@ -66,10 +66,9 @@ def update_anim(it):
    ax2.grid()
    ax1.title.set_text("$\\phi$")
    ax2.title.set_text("$\\phi_k$")
-   ax2.set_xlim(-.125, .125)
+   ax2.set_xlim(-40, 40)
    ax1.set_xlabel("$x/\\rho_i$")
    ax2.set_xlabel("$k_x\\rho_i$")
-   ax2.set_ylim(-.525, .525)
    ax1.set_ylabel("$y/\\rho_i$")
    ax2.set_ylabel("$k_y\\rho_i$")
    fig.colorbar(im1, ax=ax1)
