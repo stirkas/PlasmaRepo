@@ -18,7 +18,7 @@ showPlot = False
 xp = np.linspace(-lx/2, lx/2, nx)
 yp = np.linspace(-ly/2, ly/2, ny)
 xkp = (2*np.pi*nkx/lx)*np.linspace(-1/2+(1/nkx),1/2,nkx) #For some reason x needs to be offset by 1.
-ykp = (2*np.pi*nky/ly)*np.linspace(-1/2,  1/2,nky)
+ykp = (2*np.pi*nky/ly)*np.linspace(-1,1,nky) #Need to double the range for y. Apparently GENE does the full range of modes positive, then reflects.
 #Begin loading data.
 fileName = '/home/stirkas/Workspace/GENE/Output/phi_21-24_real.dat'
 f = open(fileName, 'r')
