@@ -5,20 +5,21 @@ import matplotlib.pyplot as plt
 nt = 509
 nx = 192 + 1 #GENE uses 2 gridpoints per mode + origin(0).
 nky = 16
+nkyp = 2*nky - 1 #Num grid points in ky space. Not sure why -1.
 nkx = nx - 1 #Not sure why GENE data has 1 less point for nkx.
 ny = nky*2 + 1 #GENE uses 2 gridpoints per mode + origin(0).
 lx = 5.63558
 ly = 2.96377
 t = x = y = 0
 phit = np.zeros((nt,nx,ny)) #[t,x,y]
-phikt = np.zeros((nt,nkx,2*nky - 1)) #Not sure why GENE data has less points in k space.
+phikt = np.zeros((nt,nkx,nkyp))
 readingData = False
 currentlySaving = False
 showPlot = False
 xp = np.linspace(-lx/2, lx/2, nx)
 yp = np.linspace(-ly/2, ly/2, ny)
-xkp = (2*np.pi*nkx/lx)*np.linspace(-1/2,1/2,nkx) #For some reason x needs to be offset by 1.
-ykp = (2*np.pi*nky/ly)*np.linspace(-1,1,2*nky-1) #Need to double the range for y. Apparently GENE does the full range of modes positive, then reflects.
+kxp = (2*np.pi*nkx/lx)*np.linspace(-1/2,1/2,nkx) #For some reason x needs to be offset by 1.
+kyp = (2*np.pi*nky/ly)*np.linspace(-1,1,nkyp) #Need to double the range for y. Apparently GENE does the full range of modes positive, then reflects.
 #Begin loading data.
 fileName = '/home/stirkas/Workspace/GENE/Output/phi_21-24_real.dat'
 f = open(fileName, 'r')
@@ -63,7 +64,7 @@ def update_anim(it):
    phi = np.transpose(phit[it,:,:])
    phik = np.transpose(phikt[it,:,:])
    im1 = ax1.contourf(xp,yp,phi,20,cmap='jet') #20 for colormap resolution.
-   im2 = ax2.contourf(xkp,ykp,phik)
+   im2 = ax2.contourf(kxp,kyp,phik)
    ax1.grid()
    ax2.grid()
    ax1.title.set_text("$\\phi$")
