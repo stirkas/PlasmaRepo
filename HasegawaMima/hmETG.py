@@ -216,5 +216,5 @@ if (showPlot):
 if (saveAnim):
    print("Saving animation. This will probably take a few minutes...")
    currentlySaving = True
-   anim.save('HasegawaMima/hm_' + str(initialCase) + '.mp4', writer=writer)
+   anim.save('HasegawaMima/hmETG_' + str(initialCase) + '.mp4', writer=writer)
 sys.exit("Animation complete.")
