@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 
-nt = 509
+nt = 637
 nx = 192 + 1 #GENE uses 2 gridpoints per mode + origin(0).
 nky = 16
 nkyp = 2*nky - 1 #Num grid points in ky space. Not sure why -1.
@@ -21,7 +21,7 @@ yp = np.linspace(-ly/2, ly/2, ny)
 kxp = (2*np.pi*nkx/lx)*np.linspace(-1/2,1/2,nkx) #For some reason x needs to be offset by 1.
 kyp = (2*np.pi*nky/ly)*np.linspace(-1,1,nkyp) #Need to double the range for y. Apparently GENE does the full range of modes positive, then reflects.
 #Begin loading data.
-fileName = '/home/stirkas/Workspace/GENE/Output/phi_21-24_real.dat'
+fileName = '/home/stirkas/Workspace/GENE/phi_0021_0025_r.dat'
 f = open(fileName, 'r')
 
 count = 0
@@ -40,7 +40,7 @@ f.close()
 
 readingData = False
 t = x = y = 0
-fileName = '/home/stirkas/Workspace/GENE/Output/phi_21-24_k.dat'
+fileName = '/home/stirkas/Workspace/GENE/phi_0021_0025_k.dat'
 f = open(fileName, 'r')
 
 for line in f.readlines():
