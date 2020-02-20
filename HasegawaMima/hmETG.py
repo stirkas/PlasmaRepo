@@ -7,18 +7,24 @@ import random
 print("Initializing variables.")
 
 #Init spatial vars.
-lx = 2*np.pi/.15
+mRat = (1/2000) #m_e/m_i
+lxITG = (2*np.pi/.15)
+lx = lxITG*np.sqrt(mRat)
 nx = 256
 dx = lx/nx
-ly = 2*np.pi/.15
+lyITG = (2*np.pi/.15)
+ly = lyITG*np.sqrt(mRat)
 ny = 256
 mx = my = 8
 dy = ly/ny
-kappa = .1
+
+tau = 1 #T_e/T_i
+eta = 3 #r_n/r_t #Usually bigger than 1.
+rnByRhoE = 500*np.sqrt(1/mRat) #r_n/rho_e, 500 = Haotian's r_n/rho_i
 
 #Init temporal grid.
 nt = 200000
-dt = 2e-1 #May change below in cases as necessary.
+dt = (1/rnByRhoE) # rho_e/r_n
 
 #Create initial grids.
 x = np.arange(nx)*dx
@@ -44,7 +50,7 @@ phi = np.zeros((nx,ny))
 plotRatio = 1
 waveFreq = 1
 initialCase = 3
-showPlot = False
+showPlot = True
 saveAnim = True
 currentlySaving = False #Turn on once files are being saved.
 caseString = "Unspecified"
@@ -52,9 +58,8 @@ caseString = "Unspecified"
 if (initialCase == 1):
    #2 strong modes.
    caseString = "TwoStrongModes"
-   dt = 5e-2
    waveFreq = 16
-   plotRatio = 1/2
+   plotRatio = 12
    phi = np.cos(waveFreq*2*np.pi*Y/ly)*np.cos(waveFreq*2*np.pi*X/lx)
 elif (initialCase == 2):
    #Gaussian
@@ -66,7 +71,7 @@ elif (initialCase == 3):
    #Random strong mode + random weaker modes + random phase shifts in each.
    caseString = "StrongModeWithWeakerPerturbations"
    waveFreq = .75
-   plotRatio = 3/2
+   plotRatio = 3/2 * np.sqrt(1/mRat)
    A=np.zeros((mx,my))+0.*1j
    phi=np.zeros((nx,ny))+0.*1j
    A[0,2]=1*np.exp(2.1J)
@@ -120,6 +125,8 @@ elif (initialCase == 4): #Fredys ICs
 else:
    sys.exit("Invalid initial conditions. Current value: " + caseString + ".")
 
+#Normalize some things nicely for ETG.
+phi = phi*(10**-4) #TODO: Why does everything blow up much faster for ETG?
 phik = np.fft.fft2(phi)
 print("Loaded initial conditions: " + caseString)
 
@@ -136,7 +143,7 @@ phikt[0,:,:] = np.abs(np.fft.fftshift(phik))
 kx2 = kx**2
 ky2 = ky**2
 KX2, KY2 = np.meshgrid(kx2,ky2)
-kconst = 1/(1+KX2+KY2) #Save off const for later calculations.
+kconst = 1/(1-(1+tau)*(KX2+KY2)/(2*tau)) #Save off const for later calculations.
 
 def adv(phik):
    zetak = -(KX2+KY2)*phik
@@ -147,7 +154,10 @@ def adv(phik):
    zetakx = 1j*KX*zetak; zetax = np.real(np.fft.ifft2(zetakx*KXD*KYD))
    zetaky = 1j*KY*zetak; zetay = np.real(np.fft.ifft2(zetaky*KXD*KYD))
 
-   derivative = kconst*(np.fft.fft2(phix*zetay-zetax*phiy) - kappa*phiky)
+   term1 = ((1+tau)**2)*rnByRhoE/(4*(tau**2))
+   term2 = (1+eta)/(2*tau)
+   term3 = (1+tau)*(1+eta)/(4*tau)
+   derivative = kconst*(term1*np.fft.fft2(phix*zetay-zetax*phiy) + term2*phiky + term3*zetaky)
    
    return derivative
 
