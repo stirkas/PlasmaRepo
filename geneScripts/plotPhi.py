@@ -24,8 +24,6 @@ kyp = (2*np.pi*nky/ly)*np.linspace(-1,1,nkyp) #Need to double the range for y. A
 fileName = '/home/stirkas/Workspace/GENE/phi_0021_0025_r.dat'
 f = open(fileName, 'r')
 
-count = 0
-
 for line in f.readlines():
    if (line[0] == '#'):
       if (readingData): #Ignore comments at top of file. After, comments delineate timesteps.

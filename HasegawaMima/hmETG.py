@@ -3,18 +3,17 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import sys
 import random
+import time
 
 print("Initializing variables.")
 
 #Init spatial vars.
 mRat = (1/2000) #m_e/m_i
-lxITG = (2*np.pi/.15)
-lx = lxITG*np.sqrt(mRat)
-nx = 256
+lx = 5.63558 #(2*np.pi/.15)*np.sqrt(mRat)
+nx = 193
 dx = lx/nx
-lyITG = (2*np.pi/.15)
-ly = lyITG*np.sqrt(mRat)
-ny = 256
+ly = 2.96377 #(2*np.pi/.15)*np.sqrt(mRat)
+ny = 33
 mx = my = 8
 dy = ly/ny
 
@@ -23,8 +22,8 @@ eta = 3 #r_n/r_t #Usually bigger than 1.
 rnByRhoE = 500*np.sqrt(1/mRat) #r_n/rho_e, 500 = Haotian's r_n/rho_i
 
 #Init temporal grid.
-nt = 200000
-dt = (1/rnByRhoE) # rho_e/r_n
+nt = 100000
+dt = 0.0046332372 #(1/rnByRhoE) #rho_e/r_n
 
 #Create initial grids.
 x = np.arange(nx)*dx
@@ -32,8 +31,8 @@ y = np.arange(ny)*dy
 X,Y = np.meshgrid(x,y)
 
 #Create grid vals for fourier space. Note, drop end of linspace to match the fft of the arange in real space.
-kx = (2*np.pi*nx/lx)*np.linspace(-1/2,1/2,nx,endpoint=False)
-ky = (2*np.pi*ny/ly)*np.linspace(-1/2,1/2,ny,endpoint=False)
+kx = (2*np.pi*nx/lx)*np.linspace(-1/2 + (1/nx),1/2,nx,endpoint=False)
+ky = (2*np.pi*ny/ly)*np.linspace(-1/2 + (1/ny),1/2,ny,endpoint=False)
 #Shift to match fft output for calculations.
 kx = np.fft.ifftshift(kx)
 ky = np.fft.ifftshift(ky)
@@ -49,8 +48,8 @@ KXD,KYD = np.meshgrid(kxd,kyd)
 phi = np.zeros((nx,ny))
 plotRatio = 1
 waveFreq = 1
-initialCase = 3
-showPlot = True
+initialCase = 5
+showPlot = False
 saveAnim = True
 currentlySaving = False #Turn on once files are being saved.
 caseString = "Unspecified"
@@ -120,13 +119,36 @@ elif (initialCase == 4): #Fredys ICs
                    phi[i,j]=phi[i,j]+A[m1,m2]*np.exp(1j*px[m1]*x[i]+1j*py[m2]*y[j])
    phi=np.real(phi)
    phi=np.transpose(phi)
-#elif (initialCase == 5):
+elif (initialCase == 5):
    #Load output from GENE.
+   #Begin loading data.
+   fileName = '/home/stirkas/Workspace/GENE/phi_0021_0025_r.dat'
+   readingData = False
+   f = open(fileName, 'r')
+   t = x = y = 0
+   phit = np.zeros((637, 33, 193)) #[t,x,y]
+
+   for line in f.readlines():
+      if (line[0] == '#'):
+         if (readingData): #Ignore comments at top of file. After, comments delineate timesteps.
+            t = t + 1
+            x = 0
+      else:
+         if (t == 0): readingData = True
+         if (len(line.split()) > 0): #Ignore empty lines. Not sure why there are x-values with no corresponding y sometimes.
+            vals = line.split()
+            phit[t,:,x] = vals
+         x = x+1
+
+   f.close()
+
+   phi = phit[470,:,:]*(10**-2)
+
 else:
    sys.exit("Invalid initial conditions. Current value: " + caseString + ".")
 
 #Normalize some things nicely for ETG.
-phi = phi*(10**-4) #TODO: Why does everything blow up much faster for ETG?
+phi = phi*10**-4
 phik = np.fft.fft2(phi)
 print("Loaded initial conditions: " + caseString)
 
@@ -134,9 +156,9 @@ print("Loaded initial conditions: " + caseString)
 saveRate = 50
 print("Running for " + str(nt) + " frames and saving data every " + str(saveRate) + " frames.")
 numFrames = nt//saveRate #Save images once every twenty five dt's
-phit  = np.zeros((numFrames,nx,ny))
-phikt = np.zeros((numFrames,nx,ny))
-phit[0,:,:] = np.real(phi)
+phit  = np.zeros((numFrames,ny,nx))
+phikt = np.zeros((numFrames,ny,nx))
+phit[0,:,:]  = np.real(phi)
 phikt[0,:,:] = np.abs(np.fft.fftshift(phik))
 
 #Set up kx^2
@@ -158,7 +180,15 @@ def adv(phik):
    term2 = (1+eta)/(2*tau)
    term3 = (1+tau)*(1+eta)/(4*tau)
    derivative = kconst*(term1*np.fft.fft2(phix*zetay-zetax*phiy) + term2*phiky + term3*zetaky)
-   
+
+   #print('---')
+   #print(np.amax(phik))
+   #print(np.amax(phikx))
+   #print(np.amax(zetak))
+   #print(np.amax(zetakx))
+   #print(np.amax(derivative))
+   #time.sleep(.1)
+
    return derivative
 
 #Main loop
@@ -178,6 +208,7 @@ for it in range(1,nt+1):
       print("Storing frame data: " + str(it) + "/" + str(nt) + ".")
       phit[(it//saveRate)-1,:,:]  = np.real(np.fft.ifft2(phik))
       phikt[(it//saveRate)-1,:,:] = np.abs(np.fft.fftshift(phik))
+
 print("Finished storing run data.")
 
 def update_anim(it):
@@ -186,16 +217,19 @@ def update_anim(it):
    ax2 = fig.add_subplot(122)
    ax1.clear()
    ax2.clear()
-   im1 = ax1.contourf(X,Y,phit[it,:,:])
-   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:])
+   im1 = ax1.contourf(X,Y, phit[it,:,:], 20, cmap='jet')
+   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:], 20, cmap='jet')
    ax1.grid()
    ax2.grid()
    ax1.title.set_text("$\\phi$")
    ax2.title.set_text("$\\phi_k$")
-   ax2.set_xlim(-plotRatio*waveFreq, plotRatio*waveFreq)
+   plotSize = 20
+   ax2.set_xlim(-plotSize, plotSize)
+   #ax2.set_xlim(-plotRatio*waveFreq, plotRatio*waveFreq)
    ax1.set_xlabel("x")
    ax2.set_xlabel("$k_x$")
-   ax2.set_ylim(-plotRatio*waveFreq, plotRatio*waveFreq)
+   ax2.set_ylim(-plotSize, plotSize)
+   #ax2.set_ylim(-plotRatio*waveFreq, plotRatio*waveFreq)
    ax1.set_ylabel("y")
    ax2.set_ylabel("$k_y$")
    fig.colorbar(im1, ax=ax1)
