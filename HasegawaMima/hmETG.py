@@ -9,21 +9,21 @@ print("Initializing variables.")
 
 #Init spatial vars.
 mRat = (1/2000) #m_e/m_i
-lx = 5.63558 #(2*np.pi/.15)*np.sqrt(mRat)
-nx = 193
+lx = (2*np.pi/.15)*np.sqrt(mRat) #5.63558
+nx = 64 #193
 dx = lx/nx
-ly = 2.96377 #(2*np.pi/.15)*np.sqrt(mRat)
-ny = 33
+ly = (2*np.pi/.15)*np.sqrt(mRat) #2.96377
+ny = 64 #33
 mx = my = 8
 dy = ly/ny
 
 tau = 1 #T_e/T_i
-eta = 3 #r_n/r_t #Usually bigger than 1.
-rnByRhoE = 500*np.sqrt(1/mRat) #r_n/rho_e, 500 = Haotian's r_n/rho_i
+eta = 3.135 #r_n/r_t #Usually bigger than 1. #omt/omn in GENE.
+rnByRhoI = 213.6 #500*np.sqrt(1/mRat) = r_n/rho_e, 500 = Haotian's r_n/rho_i
 
 #Init temporal grid.
 nt = 100000
-dt = 0.0046332372 #(1/rnByRhoE) #rho_e/r_n
+dt = (1/rnByRhoI)*10e-3 #(1/rnByRhoI) = rho_i/r_n
 
 #Create initial grids.
 x = np.arange(nx)*dx
@@ -31,8 +31,11 @@ y = np.arange(ny)*dy
 X,Y = np.meshgrid(x,y)
 
 #Create grid vals for fourier space. Note, drop end of linspace to match the fft of the arange in real space.
-kx = (2*np.pi*nx/lx)*np.linspace(-1/2 + (1/nx),1/2,nx,endpoint=False)
-ky = (2*np.pi*ny/ly)*np.linspace(-1/2 + (1/ny),1/2,ny,endpoint=False)
+kx = (2*np.pi*nx/lx)*np.linspace(-1/2, 1/2, nx, endpoint=False)
+ky = (2*np.pi*ny/ly)*np.linspace(-1/2, 1/2, ny, endpoint=False)
+#For GENE - requires extra offset.
+#kx = (2*np.pi*nx/lx)*np.linspace(-1/2+1/nx, 1/2, nx, endpoint=False)
+#ky = (2*np.pi*ny/ly)*np.linspace(-1/2+1/ny, 1/2, ny, endpoint=False)
 #Shift to match fft output for calculations.
 kx = np.fft.ifftshift(kx)
 ky = np.fft.ifftshift(ky)
@@ -57,8 +60,8 @@ caseString = "Unspecified"
 if (initialCase == 1):
    #2 strong modes.
    caseString = "TwoStrongModes"
-   waveFreq = 16
-   plotRatio = 12
+   waveFreq = 8
+   plotRatio = 6
    phi = np.cos(waveFreq*2*np.pi*Y/ly)*np.cos(waveFreq*2*np.pi*X/lx)
 elif (initialCase == 2):
    #Gaussian
@@ -69,8 +72,8 @@ elif (initialCase == 2):
 elif (initialCase == 3):
    #Random strong mode + random weaker modes + random phase shifts in each.
    caseString = "StrongModeWithWeakerPerturbations"
-   waveFreq = .75
-   plotRatio = 3/2 * np.sqrt(1/mRat)
+   waveFreq = 1
+   plotRatio = 1
    A=np.zeros((mx,my))+0.*1j
    phi=np.zeros((nx,ny))+0.*1j
    A[0,2]=1*np.exp(2.1J)
@@ -85,8 +88,6 @@ elif (initialCase == 3):
                for m2 in range(my):
                    phi[i,j]= phi[i,j]+A[m1,m2]*np.exp(1j*kx[m1]*x[i]+1j*ky[m2]*y[j])
    phi=np.transpose(np.real(phi))
-   scaleFactor = 1 #.6
-   phi = scaleFactor*phi
 elif (initialCase == 4): #Fredys ICs
    mx = 16
    waveFreq = .4
@@ -126,7 +127,7 @@ elif (initialCase == 5):
    readingData = False
    f = open(fileName, 'r')
    t = x = y = 0
-   phit = np.zeros((637, 33, 193)) #[t,x,y]
+   phit = np.zeros((637, ny, nx)) #[t,x,y]
 
    for line in f.readlines():
       if (line[0] == '#'):
@@ -142,13 +143,14 @@ elif (initialCase == 5):
 
    f.close()
 
-   phi = phit[470,:,:]*(10**-2)
+   phi = phit[470,:,:]/474
 
 else:
    sys.exit("Invalid initial conditions. Current value: " + caseString + ".")
 
 #Normalize some things nicely for ETG.
-phi = phi*10**-4
+if (initialCase != 5):
+   phi = phi * 9*10e-4 #Convert to ITG norm scale.
 phik = np.fft.fft2(phi)
 print("Loaded initial conditions: " + caseString)
 
@@ -165,7 +167,7 @@ phikt[0,:,:] = np.abs(np.fft.fftshift(phik))
 kx2 = kx**2
 ky2 = ky**2
 KX2, KY2 = np.meshgrid(kx2,ky2)
-kconst = 1/(1-(1+tau)*(KX2+KY2)/(2*tau)) #Save off const for later calculations.
+kconst = 1/(1+(1+tau)*mRat*(KX2+KY2)/2) #Save off const for later calculations.
 
 def adv(phik):
    zetak = -(KX2+KY2)*phik
@@ -176,18 +178,10 @@ def adv(phik):
    zetakx = 1j*KX*zetak; zetax = np.real(np.fft.ifft2(zetakx*KXD*KYD))
    zetaky = 1j*KY*zetak; zetay = np.real(np.fft.ifft2(zetaky*KXD*KYD))
 
-   term1 = ((1+tau)**2)*rnByRhoE/(4*(tau**2))
-   term2 = (1+eta)/(2*tau)
-   term3 = (1+tau)*(1+eta)/(4*tau)
+   term1 = ((1+tau)**2)*mRat*rnByRhoI/4
+   term2 = (1+eta)/2
+   term3 = tau*(1+tau)*(1+eta)*mRat/4
    derivative = kconst*(term1*np.fft.fft2(phix*zetay-zetax*phiy) + term2*phiky + term3*zetaky)
-
-   #print('---')
-   #print(np.amax(phik))
-   #print(np.amax(phikx))
-   #print(np.amax(zetak))
-   #print(np.amax(zetakx))
-   #print(np.amax(derivative))
-   #time.sleep(.1)
 
    return derivative
 
@@ -223,13 +217,11 @@ def update_anim(it):
    ax2.grid()
    ax1.title.set_text("$\\phi$")
    ax2.title.set_text("$\\phi_k$")
-   plotSize = 20
+   plotSize = 25
    ax2.set_xlim(-plotSize, plotSize)
-   #ax2.set_xlim(-plotRatio*waveFreq, plotRatio*waveFreq)
    ax1.set_xlabel("x")
    ax2.set_xlabel("$k_x$")
    ax2.set_ylim(-plotSize, plotSize)
-   #ax2.set_ylim(-plotRatio*waveFreq, plotRatio*waveFreq)
    ax1.set_ylabel("y")
    ax2.set_ylabel("$k_y$")
    fig.colorbar(im1, ax=ax1)
