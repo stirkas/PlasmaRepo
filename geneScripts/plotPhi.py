@@ -56,10 +56,10 @@ def update_anim(it,fig,phit,phikt,nt,xp,yp,kxp,kyp,plot):
             plt.close(fig)
 
 def plotPhi(nt,nx,nky,lx,ly,rDataPath,kDataPath,plot=False,save=False,savefile=None):
-   nx   = nx    + 1 #GENE uses 2 gridpoints per mode + origin(0).
+   nx   = nx    + 1 #I think GENE uses 2 gridpoints per mode + origin(0).
    nkyp = 2*nky - 1 #Num grid points in ky space. Not sure why - 1.
    nkx  = nx    - 1 #Not sure why GENE data has 1 less point for nkx.
-   ny   = nky*2 + 1 #GENE uses 2 gridpoints per mode + origin(0).
+   ny   = nky*2 + 1 #I think GENE uses 2 gridpoints per mode + origin(0).
 
    phit  = np.zeros((nt,nx,ny))
    phikt = np.zeros((nt,nkx,nkyp))
