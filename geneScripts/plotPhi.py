@@ -104,4 +104,4 @@ if __name__ == "__main__":
       parser.error('--save and --savefile must be given together')
 
    plotPhi(args.nt, args.nx, args.nky, args.lx, args.ly,
-    args.realDataPath, args.kSpaceDataPath, plot=args.plot, save=args.save, savefile=args.savefile)
+      args.realDataPath, args.kSpaceDataPath, plot=args.plot, save=args.save, savefile=args.savefile)
