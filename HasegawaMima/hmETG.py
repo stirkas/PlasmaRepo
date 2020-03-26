@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import os
 import sys
 import random
 import time
@@ -9,11 +10,11 @@ print("Initializing variables.")
 
 #Init spatial vars.
 mRat = (1/2000) #m_e/m_i
-lx = (2*np.pi/.15)*np.sqrt(mRat) #5.63558
-nx = 64 #193
+lx = 5.63558 #(2*np.pi/.15)*np.sqrt(mRat) #5.63558
+nx = 193
 dx = lx/nx
-ly = (2*np.pi/.15)*np.sqrt(mRat) #2.96377
-ny = 64 #33
+ly = 2.96377 #(2*np.pi/.15)*np.sqrt(mRat) #2.96377
+ny = 33
 mx = my = 8
 dy = ly/ny
 
@@ -22,8 +23,9 @@ eta = 3.135 #r_n/r_t #Usually bigger than 1. #omt/omn in GENE.
 rnByRhoI = 213.6 #500*np.sqrt(1/mRat) = r_n/rho_e, 500 = Haotian's r_n/rho_i
 
 #Init temporal grid.
-nt = 100000
-dt = (1/rnByRhoI)*10e-3 #(1/rnByRhoI) = rho_i/r_n
+nt = 10000
+dt = (1/rnByRhoI) #(1/rnByRhoI) = rho_i/r_n
+#dt = dt * (10**-1) #Case 3
 
 #Create initial grids.
 x = np.arange(nx)*dx
@@ -52,8 +54,8 @@ phi = np.zeros((nx,ny))
 plotRatio = 1
 waveFreq = 1
 initialCase = 5
-showPlot = False
-saveAnim = True
+showPlot = True
+saveAnim = False
 currentlySaving = False #Turn on once files are being saved.
 caseString = "Unspecified"
 #Allocate initial conditions.
@@ -88,6 +90,7 @@ elif (initialCase == 3):
                for m2 in range(my):
                    phi[i,j]= phi[i,j]+A[m1,m2]*np.exp(1j*kx[m1]*x[i]+1j*ky[m2]*y[j])
    phi=np.transpose(np.real(phi))
+   phi = phi * 9*10e-4 #Scale to work nice in ETG realm.
 elif (initialCase == 4): #Fredys ICs
    mx = 16
    waveFreq = .4
@@ -123,7 +126,7 @@ elif (initialCase == 4): #Fredys ICs
 elif (initialCase == 5):
    #Load output from GENE.
    #Begin loading data.
-   fileName = '/home/stirkas/Workspace/GENE/phi_0021_0025_r.dat'
+   fileName = os.getcwd() + '/geneScripts/phi_0021_0025_r.dat'
    readingData = False
    f = open(fileName, 'r')
    t = x = y = 0
@@ -131,12 +134,12 @@ elif (initialCase == 5):
 
    for line in f.readlines():
       if (line[0] == '#'):
-         if (readingData): #Ignore comments at top of file. After, comments delineate timesteps.
+         if (readingData): #Ignore comments at top of file. Afterwards, comments delineate timesteps.
             t = t + 1
             x = 0
       else:
          if (t == 0): readingData = True
-         if (len(line.split()) > 0): #Ignore empty lines. Not sure why there are x-values with no corresponding y sometimes.
+         if (len(line.split()) > 0): #Ignore empty lines. Odd that this is necessary.
             vals = line.split()
             phit[t,:,x] = vals
          x = x+1
@@ -148,9 +151,6 @@ elif (initialCase == 5):
 else:
    sys.exit("Invalid initial conditions. Current value: " + caseString + ".")
 
-#Normalize some things nicely for ETG.
-if (initialCase != 5):
-   phi = phi * 9*10e-4 #Convert to ITG norm scale.
 phik = np.fft.fft2(phi)
 print("Loaded initial conditions: " + caseString)
 
@@ -212,16 +212,16 @@ def update_anim(it):
    ax1.clear()
    ax2.clear()
    im1 = ax1.contourf(X,Y, phit[it,:,:], 20, cmap='jet')
-   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:], 20, cmap='jet')
+   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:])#, 20, cmap='jet')
    ax1.grid()
    ax2.grid()
    ax1.title.set_text("$\\phi$")
    ax2.title.set_text("$\\phi_k$")
-   plotSize = 25
-   ax2.set_xlim(-plotSize, plotSize)
+   #plotSize = 40
+   #ax2.set_xlim(-plotSize, plotSize)
    ax1.set_xlabel("x")
    ax2.set_xlabel("$k_x$")
-   ax2.set_ylim(-plotSize, plotSize)
+   #ax2.set_ylim(-plotSize, plotSize)
    ax1.set_ylabel("y")
    ax2.set_ylabel("$k_y$")
    fig.colorbar(im1, ax=ax1)
