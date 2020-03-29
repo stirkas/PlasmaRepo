@@ -1,81 +1,102 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import scipy.interpolate as terp
 import os
 import sys
 import random
 import time
 
+#Add custom script dir.
+sys.path.append(os.getcwd())
+from geneScripts import plotPhi as genePlot
+
+def setMainVars(nx_, ny_, lx_, ly_, dt_, mRat_, tau_, eta_, rnByRhoI_):
+   global nx, ny, dx, dy, lx, ly, nt, dt, mRat, tau, eta, rnByRhoI, phi
+   nx = nx_
+   ny = ny_
+   lx = lx_
+   ly = ly_
+   dt = dt_
+   mRat = mRat_
+   tau = tau_
+   eta = eta_
+   rnByRhoI = rnByRhoI_
+
+   dx = lx/nx
+   dy = ly/ny
+
+   phi = np.zeros((nx,ny))
+
+def createGrid(kxOffset = 0, kyOffset = 0):
+   global nx, ny, dx, dy #Vars to use.
+   global x, y, kx, ky, kxd, kyd, X, Y, KX, KY, KXD, KYD #Vars to change.
+   
+   #Create initial grids.
+   x = np.arange(nx)*dx
+   y = np.arange(ny)*dy
+
+   #Create grid vals for fourier space. Note, drop end of linspace to match the fft of the arange in real space.
+   #For GENE - requires extra offset. 1/nx, 1/ny
+   kx = (2*np.pi*nx/lx)*np.linspace(-1/2+kxOffset, 1/2, nx, endpoint=False)
+   ky = (2*np.pi*ny/ly)*np.linspace(-1/2+kyOffset, 1/2, ny, endpoint=False)
+   #Shift to match fft output for calculations.
+   kx = np.fft.ifftshift(kx)
+   ky = np.fft.ifftshift(ky)
+
+   #Gather up alias vectors. They remove outer 1/3 of k-modes (on each side) to keep nonlinear vals in our k-range (2/3 rule)
+   #Store in nonshifted mode to use for calculations.
+   kxd = np.r_[np.ones(nx//3),np.zeros(nx//3+nx%3),np.ones(nx//3)]
+   kyd = np.r_[np.ones(ny//3),np.zeros(ny//3+ny%3),np.ones(ny//3)]
+
+   X,Y = np.meshgrid(x,y)
+   KX,KY = np.meshgrid(kx,ky)
+   KXD,KYD = np.meshgrid(kxd,kyd)
+
 print("Initializing variables.")
 
-#Init spatial vars.
-mRat = (1/2000) #m_e/m_i
-lx = 5.63558 #(2*np.pi/.15)*np.sqrt(mRat) #5.63558
-nx = 193
-dx = lx/nx
-ly = 2.96377 #(2*np.pi/.15)*np.sqrt(mRat) #2.96377
-ny = 33
-mx = my = 8
-dy = ly/ny
+#Init vars changed by each case.
+lx = dx = dy = lx = ly = nt = dt = tau = eta = rnByRhoI = 1
+nx = ny = 64 #Just a nice base grid size.
+mRat = 1/2000
+plotSize = waveFreq = 1
+x = y = kx = ky = kxd = kyd = np.zeros(1)
+X = Y = KX = KY = KXD = KYD = np.zeros(1)
+phi = np.zeros(1)
+caseString = "Unspecified"
 
-tau = 1 #T_e/T_i
-eta = 3.135 #r_n/r_t #Usually bigger than 1. #omt/omn in GENE.
-rnByRhoI = 213.6 #500*np.sqrt(1/mRat) = r_n/rho_e, 500 = Haotian's r_n/rho_i
-
-#Init temporal grid.
-nt = 10000
-dt = (1/rnByRhoI) #(1/rnByRhoI) = rho_i/r_n
-#dt = dt * (10**-1) #Case 3
-
-#Create initial grids.
-x = np.arange(nx)*dx
-y = np.arange(ny)*dy
-X,Y = np.meshgrid(x,y)
-
-#Create grid vals for fourier space. Note, drop end of linspace to match the fft of the arange in real space.
-kx = (2*np.pi*nx/lx)*np.linspace(-1/2, 1/2, nx, endpoint=False)
-ky = (2*np.pi*ny/ly)*np.linspace(-1/2, 1/2, ny, endpoint=False)
-#For GENE - requires extra offset.
-#kx = (2*np.pi*nx/lx)*np.linspace(-1/2+1/nx, 1/2, nx, endpoint=False)
-#ky = (2*np.pi*ny/ly)*np.linspace(-1/2+1/ny, 1/2, ny, endpoint=False)
-#Shift to match fft output for calculations.
-kx = np.fft.ifftshift(kx)
-ky = np.fft.ifftshift(ky)
-
-KX,KY = np.meshgrid(kx,ky)
-#Gather up alias vectors. They remove outer 1/3 of k-modes (on each side) to keep nonlinear vals in our k-range (2/3 rule)
-#Store in nonshifted mode to use for calculations.
-kxd = np.r_[np.ones(nx//3),np.zeros(nx//3+nx%3),np.ones(nx//3)]
-kyd = np.r_[np.ones(ny//3),np.zeros(ny//3+ny%3),np.ones(ny//3)]
-KXD,KYD = np.meshgrid(kxd,kyd)
+#Set vars shared among cases.
+nt = 75000
+initialCase = 5
+showPlot = False
+saveAnim = True
+currentlySaving = False #Turn on once files are being saved.
 
 #Set up vars specific to routines.
-phi = np.zeros((nx,ny))
-plotRatio = 1
-waveFreq = 1
-initialCase = 5
-showPlot = True
-saveAnim = False
-currentlySaving = False #Turn on once files are being saved.
-caseString = "Unspecified"
 #Allocate initial conditions.
 if (initialCase == 1):
    #2 strong modes.
    caseString = "TwoStrongModes"
-   waveFreq = 8
-   plotRatio = 6
+   plotSize = 40
+   setMainVars(nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
+   createGrid()
    phi = np.cos(waveFreq*2*np.pi*Y/ly)*np.cos(waveFreq*2*np.pi*X/lx)
 elif (initialCase == 2):
    #Gaussian
    caseString = "Gaussian"
-   waveFreq = 5
-   plotRatio = 3/2
+   plotSize = 3/2
+   setMainVars(nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
+   createGrid()
    phi = np.exp(-((X-lx/2)**2 + (Y-ly/2)**2)/4)
 elif (initialCase == 3):
    #Random strong mode + random weaker modes + random phase shifts in each.
    caseString = "StrongModeWithWeakerPerturbations"
-   waveFreq = 1
-   plotRatio = 1
+   plotSize = 40
+   mx = my = 8
+   nx = ny = 256
+   setMainVars(nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
+   createGrid()
+
    A=np.zeros((mx,my))+0.*1j
    phi=np.zeros((nx,ny))+0.*1j
    A[0,2]=1*np.exp(2.1J)
@@ -90,11 +111,13 @@ elif (initialCase == 3):
                for m2 in range(my):
                    phi[i,j]= phi[i,j]+A[m1,m2]*np.exp(1j*kx[m1]*x[i]+1j*ky[m2]*y[j])
    phi=np.transpose(np.real(phi))
-   phi = phi * 9*10e-4 #Scale to work nice in ETG realm.
+   phi = phi * 10e-3 #Scale to work nice in ETG realm.
 elif (initialCase == 4): #Fredys ICs
+   plotSize = 40
+   setMainVars(nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
+   createGrid()
+
    mx = 16
-   waveFreq = .4
-   plotRatio = 5
    px=np.linspace(-mx/2,mx/2,mx)*2.*np.pi/lx
    px[8]=0
    px[7]=0
@@ -109,44 +132,44 @@ elif (initialCase == 4): #Fredys ICs
        A[int(random.uniform(4,12)),int(random.uniform(0,8))]=random.uniform(0.08,0.15)*np.exp(1j*rand)
 
    A[8,int(random.uniform(3*my/8,4*my/8))] = 0.11*np.exp(1j*random.uniform(0,2*np.pi))
-
    rand=random.uniform(0,2*np.pi)
    A[8,int(my/4)]=1.*np.exp(1j*rand)  
 
-
    # Actual IC
-
    for i in range(nx):
        for j in range(ny):
            for m1 in range(mx):
                for m2 in range(my):
                    phi[i,j]=phi[i,j]+A[m1,m2]*np.exp(1j*px[m1]*x[i]+1j*py[m2]*y[j])
-   phi=np.real(phi)
-   phi=np.transpose(phi)
+   phi = np.transpose(np.real(phi))
 elif (initialCase == 5):
    #Load output from GENE.
+   #Setup sim vars.
+   plotSize = 40
+   rnByRhoI = 213.6 #500 = Haotian's r_n/rho_i #GENE - 213.6
+   setMainVars(512, 512, 5.63558, 2.96377, (1/rnByRhoI)*(3.5*10**-2), mRat, 1, 3.135, rnByRhoI)
+   createGrid()
+
    #Begin loading data.
-   fileName = os.getcwd() + '/geneScripts/phi_0021_0025_r.dat'
-   readingData = False
-   f = open(fileName, 'r')
-   t = x = y = 0
-   phit = np.zeros((637, ny, nx)) #[t,x,y]
+   geneTimesteps = 637
+   nxGene = 193
+   nyGene = 33
+   genePhi = np.zeros((geneTimesteps, nxGene, nyGene)) #[t,x,y]
+   genePlot.readPhi(os.getcwd() + '/geneScripts/GoerlerETG/phi_0021_0025_r.dat', genePhi)
+   #Normalize phi from GENE to Haotians ETG eqns. Just involves a factor of rho_star.
+   #Transpose because in a plot y is rows and x is columns.
+   phi = genePhi[136,:,:]/474
+   phi = np.transpose(phi)
 
-   for line in f.readlines():
-      if (line[0] == '#'):
-         if (readingData): #Ignore comments at top of file. Afterwards, comments delineate timesteps.
-            t = t + 1
-            x = 0
-      else:
-         if (t == 0): readingData = True
-         if (len(line.split()) > 0): #Ignore empty lines. Odd that this is necessary.
-            vals = line.split()
-            phit[t,:,x] = vals
-         x = x+1
+   #Finally, interpolate to get a grid of 256x128 so HM code works better.
+   dxGene = lx/nxGene
+   dyGene = ly/nyGene
+   xGene = np.arange(nxGene)*dxGene
+   yGene = np.arange(nyGene)*dyGene
+   XG, YG = np.meshgrid(xGene, yGene)
 
-   f.close()
-
-   phi = phit[470,:,:]/474
+   interpPhi = terp.interp2d(xGene, yGene, phi, kind='linear')
+   phi = interpPhi(x, y)
 
 else:
    sys.exit("Invalid initial conditions. Current value: " + caseString + ".")
@@ -211,17 +234,17 @@ def update_anim(it):
    ax2 = fig.add_subplot(122)
    ax1.clear()
    ax2.clear()
-   im1 = ax1.contourf(X,Y, phit[it,:,:], 20, cmap='jet')
-   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:])#, 20, cmap='jet')
+   im1 = ax1.contourf(X,Y, phit[it,:,:])
+   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:])
    ax1.grid()
    ax2.grid()
    ax1.title.set_text("$\\phi$")
    ax2.title.set_text("$\\phi_k$")
-   #plotSize = 40
-   #ax2.set_xlim(-plotSize, plotSize)
+   global plotSize
+   ax2.set_xlim(-plotSize, plotSize)
    ax1.set_xlabel("x")
    ax2.set_xlabel("$k_x$")
-   #ax2.set_ylim(-plotSize, plotSize)
+   ax2.set_ylim(-plotSize, plotSize)
    ax1.set_ylabel("y")
    ax2.set_ylabel("$k_y$")
    fig.colorbar(im1, ax=ax1)
