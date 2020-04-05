@@ -66,7 +66,7 @@ phi = np.zeros(1)
 caseString = "Unspecified"
 
 #Set vars shared among cases.
-nt = 75000
+nt = 150000
 initialCase = 5
 showPlot = False
 saveAnim = True
@@ -147,7 +147,9 @@ elif (initialCase == 5):
    #Setup sim vars.
    plotSize = 40
    rnByRhoI = 213.6 #500 = Haotian's r_n/rho_i #GENE - 213.6
-   setMainVars(512, 512, 5.63558, 2.96377, (1/rnByRhoI)*(3.5*10**-2), mRat, 1, 3.135, rnByRhoI)
+   dt = (1/rnByRhoI)*(3.5*10**-2)
+   dt = dt * .5
+   setMainVars(512, 512, 5.63558, 2.96377, dt, mRat, 1, 3.135, rnByRhoI)
    createGrid()
 
    #Begin loading data.
@@ -160,6 +162,8 @@ elif (initialCase == 5):
    #Transpose because in a plot y is rows and x is columns.
    phi = genePhi[136,:,:]/474
    phi = np.transpose(phi)
+
+   phi = phi*2
 
    #Finally, interpolate to get a grid of 256x128 so HM code works better.
    dxGene = lx/nxGene
@@ -234,8 +238,8 @@ def update_anim(it):
    ax2 = fig.add_subplot(122)
    ax1.clear()
    ax2.clear()
-   im1 = ax1.contourf(X,Y, phit[it,:,:])
-   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:])
+   im1 = ax1.contourf(X,Y, phit[it,:,:], 20, cmap='jet')
+   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:], 20, cmap='jet')
    ax1.grid()
    ax2.grid()
    ax1.title.set_text("$\\phi$")
