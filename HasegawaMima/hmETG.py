@@ -66,10 +66,10 @@ phi = np.zeros(1)
 caseString = "Unspecified"
 
 #Set vars shared among cases.
-nt = 150000
+nt = 1000
 initialCase = 5
-showPlot = False
-saveAnim = True
+showPlot = True
+saveAnim = False
 currentlySaving = False #Turn on once files are being saved.
 
 #Set up vars specific to routines.
@@ -148,7 +148,6 @@ elif (initialCase == 5):
    plotSize = 40
    rnByRhoI = 213.6 #500 = Haotian's r_n/rho_i #GENE - 213.6
    dt = (1/rnByRhoI)*(3.5*10**-2)
-   dt = dt * .5
    setMainVars(512, 512, 5.63558, 2.96377, dt, mRat, 1, 3.135, rnByRhoI)
    createGrid()
 
@@ -162,8 +161,6 @@ elif (initialCase == 5):
    #Transpose because in a plot y is rows and x is columns.
    phi = genePhi[136,:,:]/474
    phi = np.transpose(phi)
-
-   phi = phi*2
 
    #Finally, interpolate to get a grid of 256x128 so HM code works better.
    dxGene = lx/nxGene
