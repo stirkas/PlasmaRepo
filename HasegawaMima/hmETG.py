@@ -66,10 +66,10 @@ phi = np.zeros(1)
 caseString = "Unspecified"
 
 #Set vars shared among cases.
-nt = 1000
+nt = 300000
 initialCase = 5
-showPlot = True
-saveAnim = False
+showPlot = False
+saveAnim = True
 currentlySaving = False #Turn on once files are being saved.
 
 #Set up vars specific to routines.
