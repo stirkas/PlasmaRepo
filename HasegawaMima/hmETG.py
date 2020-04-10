@@ -11,8 +11,9 @@ import time
 sys.path.append(os.getcwd())
 from geneScripts import plotPhi as genePlot
 
-def setMainVars(nx_, ny_, lx_, ly_, dt_, mRat_, tau_, eta_, rnByRhoI_):
-   global nx, ny, dx, dy, lx, ly, nt, dt, mRat, tau, eta, rnByRhoI, phi
+def setMainVars(nt_, nx_, ny_, lx_, ly_, dt_, mRat_, tau_, eta_, rnByRhoI_):
+   global nt, nx, ny, dx, dy, lx, ly, nt, dt, mRat, tau, eta, rnByRhoI, phi
+   nt = nt_
    nx = nx_
    ny = ny_
    lx = lx_
@@ -66,11 +67,12 @@ phi = np.zeros(1)
 caseString = "Unspecified"
 
 #Set vars shared among cases.
-nt = 300000
+nt = 100000
 initialCase = 5
-showPlot = False
-saveAnim = True
-currentlySaving = False #Turn on once files are being saved.
+showPlot = True
+saveAnim = False
+currentlySavingVideo = False #Turn on once files are being saved.
+saveData = False
 
 #Set up vars specific to routines.
 #Allocate initial conditions.
@@ -78,14 +80,14 @@ if (initialCase == 1):
    #2 strong modes.
    caseString = "TwoStrongModes"
    plotSize = 40
-   setMainVars(nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
+   setMainVars(100000, nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
    createGrid()
    phi = np.cos(waveFreq*2*np.pi*Y/ly)*np.cos(waveFreq*2*np.pi*X/lx)
 elif (initialCase == 2):
    #Gaussian
    caseString = "Gaussian"
    plotSize = 3/2
-   setMainVars(nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
+   setMainVars(100000, nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
    createGrid()
    phi = np.exp(-((X-lx/2)**2 + (Y-ly/2)**2)/4)
 elif (initialCase == 3):
@@ -94,7 +96,7 @@ elif (initialCase == 3):
    plotSize = 40
    mx = my = 8
    nx = ny = 256
-   setMainVars(nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
+   setMainVars(100000, nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
    createGrid()
 
    A=np.zeros((mx,my))+0.*1j
@@ -114,7 +116,8 @@ elif (initialCase == 3):
    phi = phi * 10e-3 #Scale to work nice in ETG realm.
 elif (initialCase == 4): #Fredys ICs
    plotSize = 40
-   setMainVars(nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), 10**-5, mRat, 1, 3, 500)
+   dt = 10**-3 #5
+   setMainVars(100000, nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), dt, mRat, 1, 3, 500)
    createGrid()
 
    mx = 16
@@ -148,8 +151,8 @@ elif (initialCase == 5):
    plotSize = 40
    rnByRhoI = 213.6 #500 = Haotian's r_n/rho_i #GENE - 213.6
    dt = (1/rnByRhoI)*(3.5*10**-2)
-   setMainVars(512, 512, 5.63558, 2.96377, dt, mRat, 1, 3.135, rnByRhoI)
-   createGrid()
+   setMainVars(300000, 512, 512, 5.63558, 2.96377, dt, mRat, 1, 3.135, rnByRhoI)
+   createGrid(1/nx, 1/ny)
 
    #Begin loading data.
    geneTimesteps = 637
@@ -157,6 +160,7 @@ elif (initialCase == 5):
    nyGene = 33
    genePhi = np.zeros((geneTimesteps, nxGene, nyGene)) #[t,x,y]
    genePlot.readPhi(os.getcwd() + '/geneScripts/GoerlerETG/phi_0021_0025_r.dat', genePhi)
+
    #Normalize phi from GENE to Haotians ETG eqns. Just involves a factor of rho_star.
    #Transpose because in a plot y is rows and x is columns.
    phi = genePhi[136,:,:]/474
@@ -168,6 +172,16 @@ elif (initialCase == 5):
    xGene = np.arange(nxGene)*dxGene
    yGene = np.arange(nyGene)*dyGene
    XG, YG = np.meshgrid(xGene, yGene)
+
+   #TODO: Remove
+   plt.contourf(XG, YG, np.transpose(genePhi[136,:,:]), 20, cmap='jet')
+   #plt.rcParams.update({'font.size': 14})
+   plt.title("$\\phi$", fontsize=20)
+   plt.xlabel("x/$\\rho_i$", fontsize=14)
+   plt.ylabel("y/$\\rho_i$", fontsize=14)
+   plt.grid()
+   plt.tight_layout()
+   plt.show()
 
    interpPhi = terp.interp2d(xGene, yGene, phi, kind='linear')
    phi = interpPhi(x, y)
@@ -235,24 +249,25 @@ def update_anim(it):
    ax2 = fig.add_subplot(122)
    ax1.clear()
    ax2.clear()
-   im1 = ax1.contourf(X,Y, phit[it,:,:], 20, cmap='jet')
-   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:], 20, cmap='jet')
+   im1 = ax1.contourf(X,Y, phit[it,:,:])
+   im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[it,:,:])
    ax1.grid()
    ax2.grid()
    ax1.title.set_text("$\\phi$")
    ax2.title.set_text("$\\phi_k$")
    global plotSize
    ax2.set_xlim(-plotSize, plotSize)
-   ax1.set_xlabel("x")
-   ax2.set_xlabel("$k_x$")
+   ax1.set_xlabel("x/$\\rho_i$")
+   ax2.set_xlabel("$k_x$$\\rho_i$")
    ax2.set_ylim(-plotSize, plotSize)
-   ax1.set_ylabel("y")
-   ax2.set_ylabel("$k_y$")
-   fig.colorbar(im1, ax=ax1)
-   fig.colorbar(im2, ax=ax2)
+   ax1.set_ylabel("y/$\\rho_i$")
+   ax2.set_ylabel("$k_y$$\\rho_i$")
+   #fig.colorbar(im1, ax=ax1)
+   #fig.colorbar(im2, ax=ax2)
    plt.tight_layout()
+   plt.rcParams.update({'font.size': 12})
 
-   if (currentlySaving):
+   if (currentlySavingVideo):
       print("Saving frame: " + str(it+1) + "/" + str(numFrames) + ".")
    else:
       print("Displaying frame: " + str(it+1) + "/" + str(numFrames) + ".")
@@ -260,8 +275,6 @@ def update_anim(it):
    if ((it+1)==numFrames): #Since it index starts at 0, but numFrames is a count so doesn't include 0.
       if (showPlot):
          plt.close(fig)
-
-print("Starting animation.")
 
 # Set up formatting for the movie files
 Writer = animation.writers['ffmpeg'] #Requires ffmpeg package on linux.
@@ -272,6 +285,13 @@ anim=animation.FuncAnimation(fig,update_anim,frames=numFrames,repeat=False)
 
 if (showPlot):
    plt.show()
+
+if (saveData):
+   print('Saving data array.')
+   np.savez_compressed('HasegawaMima/hmETG_' + str(initialCase) + '.npz', phit)
+   np.savez_compressed('HasegawaMima/hmETG_' + str(initialCase) + '_k.npz', phikt)
+
+print("Starting animation.")
 
 if (saveAnim):
    print("Saving animation. This will probably take a few minutes...")
