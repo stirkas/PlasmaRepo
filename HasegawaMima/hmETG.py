@@ -116,6 +116,7 @@ elif (initialCase == 3):
    phi = phi * 10e-3 #Scale to work nice in ETG realm.
 elif (initialCase == 4): #Fredys ICs
    plotSize = 40
+   caseString = 'FredyICs'
    dt = 10**-3 #5
    setMainVars(100000, nx, ny, (2*np.pi/.15)*np.sqrt(mRat), (2*np.pi/.15)*np.sqrt(mRat), dt, mRat, 1, 3, 500)
    createGrid()
@@ -147,6 +148,7 @@ elif (initialCase == 4): #Fredys ICs
    phi = np.transpose(np.real(phi))
 elif (initialCase == 5):
    #Load output from GENE.
+   caseString = 'GENE'
    #Setup sim vars.
    plotSize = 40
    rnByRhoI = 213.6 #500 = Haotian's r_n/rho_i #GENE - 213.6
@@ -163,6 +165,7 @@ elif (initialCase == 5):
 
    #Normalize phi from GENE to Haotians ETG eqns. Just involves a factor of rho_star.
    #Transpose because in a plot y is rows and x is columns.
+   # 136, 485, 
    phi = genePhi[136,:,:]/474
    phi = np.transpose(phi)
 
@@ -176,7 +179,7 @@ elif (initialCase == 5):
    #Plotting useful for taking snapshots.
    #fig = plt.figure(num=None, figsize=(12,6), dpi=100)
    #plt.rcParams.update({'font.size': 30})
-   #plt.contourf(XG, YG, np.transpose(genePhi[136,:,:]), 20, cmap='jet')
+   #plt.contourf(XG, YG, np.transpose(genePhi[601,:,:]), 20, cmap='jet')
    #plt.title("$\\phi$", pad=20)
    #plt.xlabel("x/$\\rho_i$", labelpad=14)
    #plt.ylabel("y/$\\rho_i$", labelpad=14)
