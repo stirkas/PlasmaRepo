@@ -3,10 +3,11 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 
 initialCase = 3
+save = False
 phit = np.load('./HasegawaMima/hmETG_' + str(initialCase) + '.npz')['arr_0']
 phikt = np.load('./HasegawaMima/hmETG_' + str(initialCase) + '_k.npz')['arr_0']
 
-frame = 0 #1090
+frame = 1090
 
 plotSize = 40
 nx = ny = 256
@@ -42,8 +43,8 @@ ax1.clear()
 ax2.clear()
 im1 = ax1.contourf(X,Y, phit[frame,:,:]) #, 20, cmap='jet')
 im2 = ax2.contourf(np.fft.fftshift(KX), np.fft.fftshift(KY), phikt[frame,:,:]) #, 20, cmap='jet')
-#ax1.grid()
-#ax2.grid()
+ax1.grid()
+ax2.grid()
 ax1.set_title("$\\phi$",   pad=padding)
 ax2.set_title("$\\phi_k$", pad=padding)
 ax2.set_xlim(-plotSize, plotSize)
@@ -56,8 +57,11 @@ ax1.xaxis.set_tick_params(labelsize=smallText)
 ax1.yaxis.set_tick_params(labelsize=smallText)
 ax2.xaxis.set_tick_params(labelsize=smallText)
 ax2.yaxis.set_tick_params(labelsize=smallText)
-#fig.colorbar(im1, ax=ax1)
-#fig.colorbar(im2, ax=ax2)
+fig.colorbar(im1, ax=ax1)
+fig.colorbar(im2, ax=ax2)
 plt.tight_layout()
 
-plt.savefig('./HasegawaMima/hmPhiETG_' + str(initialCase) + '.pdf')
+if (save):
+   plt.savefig('./HasegawaMima/hmPhiETG_' + str(initialCase) + '.pdf')
+else:
+   plt.show()

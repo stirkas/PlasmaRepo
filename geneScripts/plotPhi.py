@@ -86,7 +86,7 @@ def plotPhi(nt,nx,nky,lx,ly,rDataPath,kDataPath,plot=False,save=False,savefile=N
          anim.save(savefile, writer=writer)
 
 if __name__ == "__main__":
-   parser = argparse.ArgumentParser("Script for plotting phi/phik GENE ASCII output.")
+   parser = argparse.ArgumentParser("Script for plotting/saving GENE ASCII phi/phik output.")
    parser.add_argument("nt",  help="Number of timesteps.",     type=int)
    parser.add_argument("nx",  help="Number of x grid points.", type=int)
    parser.add_argument("nky", help="Number of ky modes.",      type=int)
@@ -100,7 +100,7 @@ if __name__ == "__main__":
    args = parser.parse_args()
 
    #Require save and savefile together.
-   if len([x for x in (args.save,args.savefile) if x is not None]) == 1:
+   if (len([x for x in (args.save,args.savefile) if (x is not None) and (x is not False)]) == 1):
       parser.error('--save and --savefile must be given together')
 
    plotPhi(args.nt, args.nx, args.nky, args.lx, args.ly,
