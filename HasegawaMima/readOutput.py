@@ -6,7 +6,7 @@ initialCase = 3
 phit = np.load('./HasegawaMima/hmETG_' + str(initialCase) + '.npz')['arr_0']
 phikt = np.load('./HasegawaMima/hmETG_' + str(initialCase) + '_k.npz')['arr_0']
 
-frame = 1090
+frame = 0 #1090
 
 plotSize = 40
 nx = ny = 256

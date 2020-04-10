@@ -166,22 +166,25 @@ elif (initialCase == 5):
    phi = genePhi[136,:,:]/474
    phi = np.transpose(phi)
 
-   #Finally, interpolate to get a grid of 256x128 so HM code works better.
+   #Finally, interpolate to get a more symmetric grid so HM code works better.
    dxGene = lx/nxGene
    dyGene = ly/nyGene
    xGene = np.arange(nxGene)*dxGene
    yGene = np.arange(nyGene)*dyGene
    XG, YG = np.meshgrid(xGene, yGene)
 
-   #TODO: Remove
-   plt.contourf(XG, YG, np.transpose(genePhi[136,:,:]), 20, cmap='jet')
-   #plt.rcParams.update({'font.size': 14})
-   plt.title("$\\phi$", fontsize=20)
-   plt.xlabel("x/$\\rho_i$", fontsize=14)
-   plt.ylabel("y/$\\rho_i$", fontsize=14)
-   plt.grid()
-   plt.tight_layout()
-   plt.show()
+   #Plotting useful for taking snapshots.
+   #fig = plt.figure(num=None, figsize=(12,6), dpi=100)
+   #plt.rcParams.update({'font.size': 30})
+   #plt.contourf(XG, YG, np.transpose(genePhi[136,:,:]), 20, cmap='jet')
+   #plt.title("$\\phi$", pad=20)
+   #plt.xlabel("x/$\\rho_i$", labelpad=14)
+   #plt.ylabel("y/$\\rho_i$", labelpad=14)
+   #plt.xticks(fontsize=18)
+   #plt.yticks(fontsize=18)
+   #plt.grid()
+   #plt.tight_layout()
+   #plt.savefig('./HasegawaMima/genePhiETG.pdf')
 
    interpPhi = terp.interp2d(xGene, yGene, phi, kind='linear')
    phi = interpPhi(x, y)
