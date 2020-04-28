@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 import sys
 import numpy as np
@@ -14,14 +16,18 @@ def readPhiModes(fileName, data):
             data.append(line.split())
    f.close()
 
-def plotFlux(dataOne, dataTwo):
-   fig = plt.figure(num=None, figsize=(16,8), dpi=100)
-   padding   = 20
-   bigText   = 30
-   smallText = 18
+def plotFlux(dataOne, dataTwo, caseNumber):
+   fig = plt.figure(num=None, figsize=(6,6), dpi=100)
+   padding   = 10
+   bigText   = 20
+   smallText = 14
    plt.rcParams.update({'font.size': bigText})
+
    ax1 = fig.add_subplot(211)
-   ax2 = fig.add_subplot(212)
+   ax2 = fig.add_subplot(212, sharex=ax1)
+
+   fig.text(0.5, 0.01, "t / ($L_{ref}$/$c_s$)", ha='center', fontsize=bigText)
+   fig.text(0.01, 0.5, "|$\\phi$|", va='center', rotation='vertical', fontsize=bigText)
 
    t = np.zeros(np.shape(dataOne)[0])
    phiRealOne = np.zeros(np.shape(dataOne)[0])
@@ -46,32 +52,33 @@ def plotFlux(dataOne, dataTwo):
    
    p1 = ax1.plot(t, phiOne)
    p2 = ax1.plot(t, phiTwo)
-   ax1.set_xlabel("t / ($L_{ref}$/$c_s$)", fontsize=smallText, labelpad=padding)
-   ax1.set_ylabel("|$\\phi$|",             fontsize=smallText, labelpad=padding)
    ax1.xaxis.set_tick_params(labelsize=smallText)
    ax1.yaxis.set_tick_params(labelsize=smallText)
+   ax1.set_xlim(0,np.max(t))
  
    ax2.plot(t, phiOne)
    ax2.plot(t, phiTwo)
-   ax2.set_xlabel("t / ($L_{ref}$/$c_s$)", fontsize=smallText, labelpad=padding)
-   ax2.set_ylabel("|$\\phi$|",             fontsize=smallText, labelpad=padding)
    ax2.xaxis.set_tick_params(labelsize=smallText)
    ax2.yaxis.set_tick_params(labelsize=smallText)
    ax2.set_yscale('log')
    ax2.set_ylim(.001, 10)
+   ax2.set_xlim(0,np.max(t))
 
    ax1.grid()
    ax2.grid()
    #Add shared legend and shift things for it.
-   line_labels = ['$k_x$ = 0,                       $k_y$ = 6.36 [3*$k_{y,min}$]', '$k_x$ = 4.955 [4*$k_{x,min}$], $k_y$ = 0']
-   fig.legend([p1,p2],labels=line_labels,bbox_to_anchor=(1,-0.1), bbox_transform=ax2.transAxes, fontsize=18, framealpha=1)
+   #line_labels = ['$k_x$ = 0,                       $k_y$ = 6.36 [3*$k_{y,min}$]', '$k_x$ = 4.955 [4*$k_{x,min}$], $k_y$ = 0']
+   #line_labels = ['$k_x$ = 4.955 [4*$k_{x,min}$], $k_y$ = 0']
+   #fig.legend([p1,p2],labels=line_labels,bbox_to_anchor=(1,0), bbox_transform=ax2.transAxes, fontsize=smallText, framealpha=1)
+   #fig.legend([p1,p2],labels=line_labels,loc='upper center', fontsize=smallText, framealpha=1)
 
    plt.tight_layout()
    #plt.show()
-   plt.savefig('./geneScripts/GoerlerZonal/timeTracePlot.pdf')
+   plt.savefig('./geneScripts/GoerlerZonal/timeTracePlot_' + str(caseNumber) + '.pdf')
 
 data1 = []
 data2 = []
-readPhiModes('./geneScripts/GoerlerZonal/timetraceelectrons_0011_1.dat', data1)
-readPhiModes('./geneScripts/GoerlerZonal/timetraceelectrons_0011_2.dat', data2)
-plotFlux(data1, data2)
+caseNumber = '11'
+readPhiModes('./geneScripts/GoerlerZonal/timetraceelectrons_00' + str(caseNumber) + '_0.dat', data1)
+readPhiModes('./geneScripts/GoerlerZonal/timetraceelectrons_00' + str(caseNumber) + '_1.dat', data2)
+plotFlux(data1, data2, caseNumber)
