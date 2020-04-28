@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 import sys
 import numpy as np
@@ -41,7 +43,7 @@ def plotFlux(dataPath,fluxVal,title='FluxData',plot=False,save=False,savefile=No
    if (plot):
       plt.show()
    if (save):
-      plt.savefig(title + '.pdf')
+      plt.savefig(savefile + '.pdf')
 
 if __name__ == "__main__":
    parser = argparse.ArgumentParser("Script for plotting/saving GENE ASCII flux output.")
@@ -50,7 +52,7 @@ if __name__ == "__main__":
    parser.add_argument("-t", "--title",    help="Plot title. Involving particle species for instance.")
    parser.add_argument("-p", "--plot",     help="Show plot over time.",                      action="store_true")
    parser.add_argument("-s", "--save",     help="Save output file (pdf for lossless image)", action="store_true")
-   parser.add_argument("-f", "--savefile", help="Save filename.")
+   parser.add_argument("-f", "--savefile", help="Save filename.", type=str)
    args = parser.parse_args()
 
    #Require save and savefile together.
