@@ -16,48 +16,47 @@ def readPhiModes(fileName, data):
             data.append(line.split())
    f.close()
 
-def plotFlux(dataOne, dataTwo, caseNumber):
+def plotFlux(caseNumber, dataArray, labels, kmins):
    fig = plt.figure(num=None, figsize=(6,6), dpi=100)
    padding   = 10
    bigText   = 20
    smallText = 14
+   smallerText = 10
    plt.rcParams.update({'font.size': bigText})
-
+   
    ax1 = fig.add_subplot(211)
    ax2 = fig.add_subplot(212, sharex=ax1)
 
-   fig.text(0.5, 0.01, "t / ($L_{ref}$/$c_s$)", ha='center', fontsize=bigText)
-   fig.text(0.01, 0.5, "|$\\phi$|", va='center', rotation='vertical', fontsize=bigText)
+   title = 'k$_{x,min}$=' + kmins[0] + ', k$_{y,min}$=' + kmins[1]
+   plt.suptitle('k$_{x,min}$=1.24, k$_{y,min}$=29.68', fontsize=smallText, y=.995)
 
-   t = np.zeros(np.shape(dataOne)[0])
-   phiRealOne = np.zeros(np.shape(dataOne)[0])
-   phiImagOne = np.zeros(np.shape(dataOne)[0])
-   phiRealTwo = np.zeros(np.shape(dataTwo)[0])
-   phiImagTwo = np.zeros(np.shape(dataTwo)[0])
-   i = 0
+   fig.text(0.5, 0.01, "t / ($L_{ref}$/$c_s$)", ha='center', fontsize=smallText)
+   fig.text(0.01, 0.5, "|$\\phi$|", va='center', rotation='vertical', fontsize=smallText)
 
-   for datum in dataOne:
-      t[i] = (np.abs(float(datum[0])))
-      phiRealOne[i] = (np.abs(float(datum[1])))
-      phiImagOne[i] = (np.abs(float(datum[2])))
-      i = i + 1
-   i = 0
-   for datum in dataTwo:
-      phiRealTwo[i] = (np.abs(float(datum[1])))
-      phiImagTwo[i] = (np.abs(float(datum[2])))
-      i = i + 1
-
-   phiOne = np.sqrt(phiRealOne*phiRealOne + phiImagOne*np.conj(phiImagOne))
-   phiTwo = np.sqrt(phiRealTwo*phiRealTwo + phiImagTwo*np.conj(phiImagTwo))
+   #Plot each mode separately. (First index is number of data sets concat'd)
+   axisList = []
+   for i in range(np.shape(dataArray)[0]):
+      t       = np.zeros(np.shape(dataArray[i,:,:])[0]) #Get the data array sizes.
+      phiReal = np.zeros(np.shape(dataArray[i,:,:])[0]) #Plot should throw an error if they dont all match through all loops.
+      phiImag = np.zeros(np.shape(dataArray[i,:,:])[0])
+      
+      #Grab data for each mode plot j.
+      j = 0
+      for datum in dataArray[i,:,:]:
+         t[j] = (np.abs(float(datum[0])))
+         phiReal[j] = (np.abs(float(datum[1])))
+         phiImag[j] = (np.abs(float(datum[2])))
+         j = j + 1
    
-   p1 = ax1.plot(t, phiOne)
-   p2 = ax1.plot(t, phiTwo)
+      phi = np.sqrt(phiReal*phiReal + phiImag*np.conj(phiImag))
+   
+      #Plot data and save axis info for legend.
+      axisList.append(ax1.plot(t, phi))
+      ax2.plot(t, phi)
+      
    ax1.xaxis.set_tick_params(labelsize=smallText)
    ax1.yaxis.set_tick_params(labelsize=smallText)
    ax1.set_xlim(0,np.max(t))
- 
-   ax2.plot(t, phiOne)
-   ax2.plot(t, phiTwo)
    ax2.xaxis.set_tick_params(labelsize=smallText)
    ax2.yaxis.set_tick_params(labelsize=smallText)
    ax2.set_yscale('log')
@@ -66,19 +65,31 @@ def plotFlux(dataOne, dataTwo, caseNumber):
 
    ax1.grid()
    ax2.grid()
-   #Add shared legend and shift things for it.
-   #line_labels = ['$k_x$ = 0,                       $k_y$ = 6.36 [3*$k_{y,min}$]', '$k_x$ = 4.955 [4*$k_{x,min}$], $k_y$ = 0']
-   #line_labels = ['$k_x$ = 4.955 [4*$k_{x,min}$], $k_y$ = 0']
-   #fig.legend([p1,p2],labels=line_labels,bbox_to_anchor=(1,0), bbox_transform=ax2.transAxes, fontsize=smallText, framealpha=1)
-   #fig.legend([p1,p2],labels=line_labels,loc='upper center', fontsize=smallText, framealpha=1)
+   #Add shared legend and shift things for it if necessary.
+   #fig.legend([p1,p2],labels=labels,bbox_to_anchor=(1,0), bbox_transform=ax2.transAxes, fontsize=smallerText, framealpha=1)
+   fig.legend(axisList,labels=labels,loc='upper right', fontsize=smallerText, framealpha=1)
 
    plt.tight_layout()
-   #plt.show()
-   plt.savefig('./geneScripts/GoerlerZonal/timeTracePlot_' + str(caseNumber) + '.pdf')
+   plt.show()
+   #plt.savefig('./modes' + str(caseNumber) + '.pdf')
 
 data1 = []
 data2 = []
-caseNumber = '11'
-readPhiModes('./geneScripts/GoerlerZonal/timetraceelectrons_00' + str(caseNumber) + '_0.dat', data1)
-readPhiModes('./geneScripts/GoerlerZonal/timetraceelectrons_00' + str(caseNumber) + '_1.dat', data2)
-plotFlux(data1, data2, caseNumber)
+data3 = []
+data4 = []
+caseNumber = '18'
+readPhiModes('./kx0ky1_00' + str(caseNumber) + '.dat', data1)
+readPhiModes('./kx3ky0_00' + str(caseNumber) + '.dat', data2)
+readPhiModes('./kx4ky0_00' + str(caseNumber) + '.dat', data3)
+readPhiModes('./kx5ky0_00' + str(caseNumber) + '.dat', data4)
+dataArr = np.array([data1, data2, data3, data4])
+
+labelOne    = 'k$_{y,i}$ = 1'
+labelTwo    = 'k$_{x,i}$ = 3'
+labelThree  = 'k$_{x,i}$ = 4'
+labelFour   = 'k$_{x,i}$ = 5'
+labelArr = np.array([labelOne, labelTwo, labelThree, labelFour])
+
+kmins = ['1.24','21.2'] #[kxmin, kymin]
+
+plotFlux(caseNumber, dataArr, labelArr, kmins)
