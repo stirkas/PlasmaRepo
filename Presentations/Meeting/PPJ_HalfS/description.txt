@@ -1,9 +1,0 @@
-For time trace of phi modes:
-
-   Orange:   ky = 6.36 (3 * ky_min for original NL run), kx = 0
-   Blue:     ky = 0, kx = 2.389 (2*kx_min)
-   
-   IC: ppj = powjac, power law in kx, ky, powers of jacobian in z
-   
-   init amplitude = 1E-5
-   shat = .4185
