@@ -1,0 +1,9 @@
+set(SUBPROJECT_NAME "HM_C")
+message(STATUS "Configuring ${SUBPROJECT_NAME}")
+
+file(GLOB_RECURSE SRC_FILES *.cpp *.c)
+file(GLOB_RECURSE HDR_FILES *.hpp *.h)
+
+add_executable(${SUBPROJECT_NAME} ${HDR_FILES} ${SRC_FILES})
+
+install(TARGETS ${SUBPROJECT_NAME} DESTINATION ${INSTALL_DIR})
