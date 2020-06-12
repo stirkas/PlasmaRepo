@@ -4,8 +4,8 @@ import matplotlib.animation as animation
 
 initialCase = 3
 save = False
-phit = np.load('./HasegawaMima/hmETG_' + str(initialCase) + '.npz')['arr_0']
-phikt = np.load('./HasegawaMima/hmETG_' + str(initialCase) + '_k.npz')['arr_0']
+phit = np.load('./HasegawaMima/Python/hmETG_' + str(initialCase) + '.npz')['arr_0']
+phikt = np.load('./HasegawaMima/Python/hmETG_' + str(initialCase) + '_k.npz')['arr_0']
 
 frame = 1090
 

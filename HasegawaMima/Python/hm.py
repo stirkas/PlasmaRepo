@@ -44,8 +44,8 @@ phi = np.zeros((nx,ny))
 plotRatio = 1
 waveFreq = 1
 initialCase = 3
-showPlot = False
-saveAnim = True
+showPlot = True
+saveAnim = False
 currentlySaving = False #Turn on once files are being saved.
 caseString = "Unspecified"
 #Allocate initial conditions.
