@@ -2,6 +2,7 @@
 
 import numpy as np
 import numpy.polynomial.polynomial as poly
+import math
 import matplotlib.pyplot as plt
 from plotFlux import readFlux
 from plotFlux import getAverageVal
@@ -17,13 +18,15 @@ dataFiles = ["./GoerlerImpurities/nrgsummary_proton.dat",     "./GoerlerImpuriti
              "./GoerlerImpurities/nrgsummary_neon.dat",       "./GoerlerImpurities/nrgsummary_argon.dat",
              "./GoerlerImpurities/nrgsummary_molybdenum.dat", "./GoerlerImpurities/nrgsummary_tungsten.dat"]
 qmRat     = [1/1, 4/9.0121820, 10/20.17970, 15/39.948, 31/95.95, 40/183.84]
+startT    = [.53, .37, .16, .16, .13, .16] #% location to start at. For ignoring linear phase.
 
 for i,ion in enumerate(ions):
    data = []
    readFlux(dataFiles[i], data)
-   #if (i != 3):
-   #   data = data[len(data)//2:]
-   [t, fluxData] = getData(dataType, data[len(data)//2:])
+   #data = data[math.ceil(startT[i]*len(data))] #Get index closest to startT fraction of total time.
+   [t, fluxData] = getData(dataType, data)
+   startIndex = math.ceil(startT[i]*len(fluxData))
+   fluxData = fluxData[startIndex:]
    avgFlux.append(getAverageVal(fluxData))
    stdDev.append(getStdDev(fluxData))
 
