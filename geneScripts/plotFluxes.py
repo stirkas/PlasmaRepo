@@ -41,8 +41,8 @@ for i, txt in enumerate(ions):
     ax.annotate(txt, (qmRat[i], avgFlux[i] - stdDev[i])) #Offset y for readibility.
 
 #Generate line of best fit.
-qmRat_new = np.linspace(qmRat[len(qmRat)-1]/1.5, 1, 100)
-coeffs = poly.polyfit(qmRat, avgFlux, 2)
+qmRat_new = np.linspace(qmRat[len(qmRat)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
+coeffs = poly.polyfit(qmRat, avgFlux, 1)
 ffit   = poly.polyval(qmRat_new, coeffs)
 plt.plot(qmRat_new, ffit, color='r')
 
