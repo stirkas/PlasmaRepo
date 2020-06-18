@@ -2,5 +2,7 @@
    "cmake.sourceDirectory": "${workspaceFolder}/HasegawaMima/C",
    "cmake.buildDirectory": "${workspaceFolder}/HasegawaMima/C/build",
    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-   "python.envFile": "${workspaceFolder}/.env"
+   "python.envFile": "${workspaceFolder}/.env",
+   "python.linting.pylintEnabled": true,
+   "python.linting.enabled": true
 }
