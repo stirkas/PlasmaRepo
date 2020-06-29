@@ -66,11 +66,11 @@ for i, txt in enumerate(ions):
 qmRat_new = np.linspace(qmRat[len(qmRat)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
 coeffs = poly.polyfit(qmRat, avgFlux, 1)
 ffit   = poly.polyval(qmRat_new, coeffs)
-plt.plot(qmRat_new, ffit, color='r')
+plt.plot(qmRat_new, ffit, color='r', label='KineticEl')
 
 #Plot adiabatic ions and line of best fit.
 plt.scatter(qmRatAd, avgFluxAd)
-plt.errorbar(qmRatAd, avgFluxAd, yerr=stdDevAd, linestyle="None")
+plt.errorbar(qmRatAd, avgFluxAd, yerr=stdDevAd, linestyle="None", color='b')
 
 for i, txt in enumerate(adiabaticIons):
     ax.annotate(txt, (qmRatAd[i], avgFluxAd[i] - stdDevAd[i])) #Offset y for readibility.
@@ -79,7 +79,7 @@ for i, txt in enumerate(adiabaticIons):
 qmRat_newAd = np.linspace(qmRatAd[len(qmRatAd)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
 coeffsAd = poly.polyfit(qmRatAd, avgFluxAd, 1)
 ffit   = poly.polyval(qmRat_newAd, coeffsAd)
-plt.plot(qmRat_newAd, ffit, color='r')
+plt.plot(qmRat_newAd, ffit, color='orange', label='AdiabaticEl')
 
 plt.gca().invert_xaxis()
 plt.gca().invert_yaxis()
@@ -87,5 +87,6 @@ textSize = 12
 plt.xlabel("[q/m] / [q/m]$_{H^+}$", fontsize=textSize)
 plt.ylabel("<$\\Gamma$$_{ES}$>",    fontsize=textSize)
 plt.tight_layout()
+plt.legend(loc='upper left')
 plt.show()
 #plt.savefig('./GoerlerImpurities/FluxPlot_AllTime.pdf')
