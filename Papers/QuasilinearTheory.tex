@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+
+\usepackage{bm}
+\usepackage[superscript,biblabel]{cite}
+\usepackage{physics} 
+\usepackage{siunitx}
+\usepackage{esvect}
+\usepackage{enumerate}
+\usepackage{amsmath}  %I added this so that you can use the align tool for equations!
+\usepackage{wasysym}  %This package allows you to put emojis in your paper!!!!
+	
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\begin{document}
+
+\title{Quasilinear Theory of Anomalous Transport in Axisymmetric Tokamaks}
+\author{Stefan Tirkas}
+
+
+\date{University of Colorado, Boulder\\[2ex]%
+      \today}
+
+\maketitle
+
+
+\section{Introduction}
+
+
+\section{Tokamak Geometry}
+   \quad For simplicity, we consider an axisymmetric, large aspect-ratio, circular tokamak. This gives
+the following definition for the equilibrium magnetic field,
+
+   \begin{equation}
+      \bm{B} = B_\theta\bm{\hat{e}}_\theta + B_\zeta\bm{\hat{e}}_\zeta =
+               B_\theta\bm{\hat{e}}_\theta + B_0(1-\epsilon\cos\theta)\bm{\hat{e}}_\zeta =
+               B_0[\frac{\epsilon}{q}\bm{\hat{e}}_\theta + (1-\epsilon\cos\theta)\bm{\hat{e}}_\zeta],
+   \end{equation}
+   % for no indent next line.
+where $\epsilon=\frac{r}{R_0} \ll 1$ is the inverse aspect ratio, with $R=R_0+r\cos\theta$, for $r$ the minor radius,
+and $R_0$ the major radius, and q $\simeq\frac{rB_\zeta}{R_0B_\theta}\sim1$ is the safety factor - the number of
+toroidal turns required for one poloidal turn of magnetic field lines. The term $\epsilon\cos\theta$ in $R$ takes into
+account the change in toroidal radius along the tokamak midplane. Working to $\mathcal{O}(\epsilon)$ at the most, the
+magnetic field magnitude, magnetic field unit vector, and toroidal nablaient terms can be written as,
+   
+   \begin{equation}
+      B = \sqrt{\bm{B}\cdot\bm{B}} = \sqrt{B_0^2[(1-\epsilon\cos\theta)^2 + (\frac{\epsilon}{q})\strut^2]} =
+          B_0\sqrt{1-2\epsilon\cos\theta} \simeq B_0(1-\epsilon\cos\theta),
+   \end{equation}
+
+   \begin{equation}
+      \bm{\hat{b}} = \frac{\bm{B}}{B} = \frac{\frac{\epsilon}{q}\bm{\hat{e}}_\theta + (1-\epsilon\cos\theta)\bm{\hat{e}}_\zeta}
+                     {1-\epsilon\cos\theta} \simeq \frac{\epsilon}{q}(1+\epsilon\cos\theta)\bm{\hat{e}}_\theta + 
+                     \bm{\hat{e}}_\zeta \simeq \frac{\epsilon}{q}\bm{\hat{e}}_\theta + \bm{\hat{e}}_\zeta,
+   \end{equation}
+
+   \begin{equation}
+      \nabla = \partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta +
+               \frac{1}{R}\partial_\zeta\bm{\hat{e}}_\zeta = \partial_r\bm{\hat{e}}_r   +
+               \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta + \frac{1}{R_0 + r\cos\theta}\partial_\zeta\bm{\hat{e}}_\zeta\;.
+   \end{equation}
+
+\section{Gyrokinetics}
+   \quad $\bm{Talk about gyrophase-averaging and guiding center coordinates.}$
+
+\subsection{Vlasov Equation}
+   \quad The perturbed, gyrokinetic distribution function is given as a combination of adiabatic
+and non-adiabatic terms\cite{FriemanChen},
+
+   \begin{equation}
+      \delta F = \frac{q}{m}\delta F_a + \delta G,
+   \end{equation}
+   %
+where,
+    
+   \begin{equation}
+      \delta F_a = [\delta\Phi\frac{\partial}{\partial\epsilon^*} + (\delta\Phi - \frac{v_\parallel \delta A_\parallel}
+                   {c})\frac{\partial}{B\partial\mu}]F_0, 
+   \end{equation}
+   
+   \begin{equation}
+      \delta G_0 = -\frac{q}{m}\langle\delta L\rangle_\alpha\frac{\partial}{B\partial\mu} + \delta H_0,
+   \end{equation}
+
+   \begin{equation}
+      \langle\ldots\rangle_\alpha = \frac{1}{2\pi}\int_{0}^{2\pi}(\ldots)d\alpha,
+   \end{equation}
+   %
+with $\alpha$ as the gyro-phase angle, $\delta L = \delta\Phi - \frac{\bm{v}\cdot\delta\bm{A}}{c}$, $\epsilon^* = \frac{v^2}{2} + 
+\frac{q\Phi_0}{m}$, and $\mu = \frac{v_\perp^2}{2B}$. Higher order terms in $\delta G$, the perturbed, non-adiabatic distribution function,
+are dropped. We can simplify things further by choosing a Maxwellian equilibrium distribution function, $F_0$, so that it only depends
+on $\epsilon^*$ and not $\mu$. This gives us a final distribution function,
+
+   \begin{equation}
+      \delta F = \frac{q}{m}\delta\Phi\frac{\partial}{\partial\epsilon^*}F_0 + \delta H_0\;.
+   \end{equation}
+   %
+This distribution function can be plugged into the Vlasov equation and gyrophase-averaged to give the standard gyrokinetic Vlasov
+equation for a species j\cite{FriemanChen},
+
+   \begin{equation}
+   \begin{aligned}
+      \partial_t\delta H_0 + v_\parallel\nabla_\parallel\delta H_0 +
+      (\bm{v}_d + \frac{c\bm{\hat{b}}\times\nabla_X\langle\delta\Phi\rangle_\alpha}{B})\cdot\nabla_X\delta H_0 \\
+      = 
+      -\frac{e_j}{m_j}[\partial_t\langle\delta\Phi\rangle_\alpha\partial_{\epsilon^*} F_0
+      -\frac{1}{\omega_{cj}}(\nabla_X\langle\delta\Phi\rangle_\alpha\times\bm{\hat{b}})\cdot\nabla_X F_0],
+   \end{aligned}
+   \end{equation}
+   %
+where $\bm{v}_d$, the sum of magnetic curvature and gradient drift terms, is defined as,
+
+   \begin{equation}
+   \begin{aligned}
+      \bm{v}_d = \frac{v_\parallel^2 + \frac{1}{2} v_\perp^2}{\omega_{cj}}\frac{\bm{B}\times\nabla B}{B^2},
+   \end{aligned}
+   \end{equation}
+   %
+with, simplifyingto lowest order in $\epsilon$,
+   
+   \begin{equation}
+   \begin{aligned}
+      \frac{\bm{B}\times\nabla B}{B^2} &= \frac{B_0[(1-\epsilon\cos\theta)\bm{\hat{e}}_\zeta + \frac{\epsilon}{q}\bm{\hat{e}}_\theta]
+      \times(\partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta + \frac{1}{R}\partial_\zeta\bm{\hat{e}}_\zeta)
+      B_0(1-\epsilon\cos\theta)}{B_0^2(1-\epsilon\cos\theta)^2} \\ &=
+      \frac{[1-\epsilon\cos\theta)\bm{\hat{e}}_\zeta + \frac{\epsilon}{q}\bm{\hat{e}}_\theta]
+      \times[-\frac{1}{R_0}\cos\theta\bm{\hat{e}}_r + \frac{r}{r R_0}\sin\theta\bm{\hat{e}}_\theta]}{(1-\epsilon\cos\theta)^2} \\ &
+      \begin{aligned}
+         \;= \frac{1}{(1-\epsilon\cos\theta)^2}[&-\frac{(1-\epsilon\cos\theta)\cos\theta}{R_0}(\bm{\hat{e}}_\zeta\times\bm{\hat{e}}_r)
+                                               -\frac{(1-\epsilon\cos\theta)\cos\theta}{R_0}(\bm{\hat{e}}_\zeta\times\bm{\hat{e}}_\theta) \\
+                                              &-\frac{\epsilon}{q R_0}\cos\theta(\bm{\hat{e}}_\theta\times\bm{\hat{e}}_r)]
+      \end{aligned}         
+      \\ &\simeq (1+2\epsilon\cos\theta)[-\frac{\cos\theta}{R_0}\bm{\hat{e}}_\theta-\frac{\sin\theta}{R_0}\bm{\hat{e}}_r]
+          \simeq -\frac{1}{R_0}(\sin\theta\bm{\hat{e}}_r + \cos\theta\bm{\hat{e}}_\theta)          
+   \end{aligned}
+   \end{equation}
+   %
+The second and third terms on the left-hand side of (10) can be simplified to lowest order in $\epsilon$ using (1)-(4) and (11)-(12) as,
+   
+   \begin{equation}
+   \begin{aligned}
+      v_\parallel\nabla_\parallel &= 
+         v_\parallel(\bm{\hat{b}}\cdot\nabla) = v_\parallel(\frac{\epsilon}{q}\bm{\hat{e}}_\theta +
+         \bm{\hat{e}}_\zeta)\cdot(\partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta + \frac{1}{R_0 +
+         r\cos\theta}\partial_\zeta\bm{\hat{e}}_\zeta) \\ &= 
+         v_\parallel(\frac{\epsilon}{q r}\partial_\theta + \frac{1}{R}\partial_\zeta) = v_\parallel(\frac{1}{q R_0}\partial_\theta
+         + \frac{1}{R}\partial_\zeta) = \frac{v_\parallel}{q R}(\frac{R}{R_0}\partial_\theta + q\partial_\zeta) \\ &=
+         \frac{v_\parallel}{q R}((1+\epsilon\cos\theta)\partial_\theta + q\partial_\zeta)
+         \simeq \frac{v_\parallel}{q R}(\partial_\theta + q\partial_\zeta),
+   \end{aligned}
+   \end{equation}
+
+   \begin{equation}
+   \begin{aligned}
+      \bm{v}_d\cdot\nabla_X &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{cj}}(\sin\theta\bm{\hat{e}}_r + \cos\theta\bm{\hat{e}}_\theta)
+                              \cdot(\partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta) \\
+                            &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{cj}}(\sin\theta\partial_r + \frac{\cos\theta}{r}\partial_\theta)
+   \end{aligned}
+   \end{equation}
+   %
+Note that we have dropped the non-linear $\bm{E}\times\bm{B}$ drift term on the left-hand side of (10) because we are
+interested in linearizing this equation.
+
+\subsection{Non-Adiabatic Distribution Function}
+   \quad Using a WKB ansatz the gyrophase-averaged terms can be simplified as,
+   \begin{equation}
+      \langle A(\bm{x})\rangle_\alpha = J_0(\frac{k_\perp v_\perp}{\omega_{cj}}) A(\bm{X})
+   \end{equation}
+
+\begin{thebibliography}{0}
+	
+	\bibitem{FriemanChen} Frieman, Chen 1982
+	
+\end{thebibliography}
+    
+\end{document}

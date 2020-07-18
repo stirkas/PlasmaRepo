@@ -77,18 +77,18 @@ data1 = []
 data2 = []
 data3 = []
 data4 = []
-caseNumber = '18'
+caseNumber = '15'
 readPhiModes('./kx0ky1_00' + str(caseNumber) + '.dat', data1)
-readPhiModes('./kx3ky0_00' + str(caseNumber) + '.dat', data2)
-readPhiModes('./kx4ky0_00' + str(caseNumber) + '.dat', data3)
-readPhiModes('./kx5ky0_00' + str(caseNumber) + '.dat', data4)
-dataArr = np.array([data1, data2, data3, data4])
+readPhiModes('./kx2ky0_00' + str(caseNumber) + '.dat', data2)
+#readPhiModes('./kx4ky0_00' + str(caseNumber) + '.dat', data3)
+#readPhiModes('./kx5ky0_00' + str(caseNumber) + '.dat', data4)
+dataArr = np.array([data1, data2])
 
 labelOne    = 'k$_{y,i}$ = 1'
-labelTwo    = 'k$_{x,i}$ = 3'
-labelThree  = 'k$_{x,i}$ = 4'
-labelFour   = 'k$_{x,i}$ = 5'
-labelArr = np.array([labelOne, labelTwo, labelThree, labelFour])
+labelTwo    = 'k$_{x,i}$ = 2'
+#labelThree  = 'k$_{x,i}$ = 4'
+#labelFour   = 'k$_{x,i}$ = 5'
+labelArr = np.array([labelOne, labelTwo])
 
 kmins = ['1.24','21.2'] #[kxmin, kymin]
 

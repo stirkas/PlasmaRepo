@@ -1,0 +1,1022 @@
+
+ run 1:
+using GENE executable in bin /home/stirkas/Workspace/GENE/genecode/prob04
+gmake -f ../makefiles/rules.mk run
+gmake[1]: Entering directory '/home/stirkas/Workspace/GENE/genecode/prob04'
+Calling GENE with 24 MPI and 1 OpenMP thread(s)
+ MPI_THREAD_MULTIPLE initialized.
+
+*****************************************************
+***** This is GENE 11 (release 1.8 - patch 1) *******
+***** GIT branch hash: 41ff07b                *******
+***** GIT master hash:                        *******
+*****************************************************
+
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+WARNING: no dpdx_term treatment defined!!
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+Using a maximum of  1300.00 MB per core.
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+double precision computation
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+Kinetic electrons and ions
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     0.80
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     0.80
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     0.82
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+using additive Schwarz preconditioning with   3 blocks per processor
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 70752
+calculated      2 eigenvectors
+Time for checkpoint_0002 out:     0.006 sec
+Time for checkpoint_0002 out:     0.009 sec
+computed eigenvalues: 
+     0.13056098     0.20216006
+    -0.00139287     0.02012267
+time for eigenvalue computation: 94185.592 sec
+******************************************************
+Time for GENE simulation:  94187.988 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     0.95
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:  3203
+calculated      2 eigenvectors
+Time for checkpoint_0004 out:     0.014 sec
+Time for checkpoint_0004 out:     0.012 sec
+computed eigenvalues: 
+     0.34626328     0.51682812
+     0.01492039    -0.01941876
+time for eigenvalue computation:  4216.264 sec
+******************************************************
+Time for GENE simulation:   4219.286 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.02
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:  2340
+calculated      2 eigenvectors
+Time for checkpoint_0005 out:     0.016 sec
+Time for checkpoint_0005 out:     0.008 sec
+computed eigenvalues: 
+     0.44290219     0.70484765
+     0.01888493     0.03006718
+time for eigenvalue computation:  3082.775 sec
+******************************************************
+Time for GENE simulation:   3086.155 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     0.94
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:  3859
+calculated      2 eigenvectors
+Time for checkpoint_0006 out:     0.011 sec
+Time for checkpoint_0006 out:     0.017 sec
+computed eigenvalues: 
+     0.51179704     0.89474431
+     0.00712472     0.08997268
+time for eigenvalue computation:  5079.223 sec
+******************************************************
+Time for GENE simulation:   5082.165 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.04
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 21274
+calculated      2 eigenvectors
+Time for checkpoint_0007 out:     0.013 sec
+Time for checkpoint_0007 out:     0.013 sec
+computed eigenvalues: 
+     0.54687770     1.08037019
+    -0.00259977     0.04257661
+time for eigenvalue computation: 28005.651 sec
+******************************************************
+Time for GENE simulation:  28008.696 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.04
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:  1751
+calculated      2 eigenvectors
+Time for checkpoint_0008 out:     0.010 sec
+Time for checkpoint_0008 out:     0.020 sec
+computed eigenvalues: 
+     0.54940633     1.25861983
+     0.00307881     0.54148843
+time for eigenvalue computation:  2297.318 sec
+******************************************************
+Time for GENE simulation:   2300.756 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     0.94
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 13475
+calculated      2 eigenvectors
+Time for checkpoint_0009 out:     0.005 sec
+Time for checkpoint_0009 out:     0.010 sec
+computed eigenvalues: 
+     0.52372437     1.42741260
+    -0.00321594     0.02912355
+time for eigenvalue computation: 17732.700 sec
+******************************************************
+Time for GENE simulation:  17736.035 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.04
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 10713
+calculated      2 eigenvectors
+Time for checkpoint_0010 out:     0.019 sec
+Time for checkpoint_0010 out:     0.005 sec
+computed eigenvalues: 
+     0.47450153     1.58612213
+    -0.00331975     0.03236479
+time for eigenvalue computation: 14084.855 sec
+******************************************************
+Time for GENE simulation:  14087.565 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.03
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:  9694
+calculated      2 eigenvectors
+Time for checkpoint_0011 out:     0.016 sec
+Time for checkpoint_0011 out:     0.021 sec
+computed eigenvalues: 
+     0.40565318     1.73571926
+    -0.00342649     0.03560644
+time for eigenvalue computation: 12783.629 sec
+******************************************************
+Time for GENE simulation:  12786.360 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.09
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 13405
+calculated      2 eigenvectors
+Time for checkpoint_0012 out:     0.024 sec
+Time for checkpoint_0012 out:     0.015 sec
+computed eigenvalues: 
+     0.32199817     1.87660214
+    -0.00353911     0.03884918
+time for eigenvalue computation: 18039.293 sec
+******************************************************
+Time for GENE simulation:  18042.788 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.10
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 13182
+calculated      2 eigenvectors
+Time for checkpoint_0013 out:     0.019 sec
+Time for checkpoint_0013 out:     0.015 sec
+computed eigenvalues: 
+     0.22889551     2.00711160
+    -0.00365920     0.04209146
+time for eigenvalue computation: 17976.372 sec
+******************************************************
+Time for GENE simulation:  17980.251 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.01
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 13569
+calculated      2 eigenvectors
+Time for checkpoint_0014 out:     0.013 sec
+Time for checkpoint_0014 out:     0.022 sec
+computed eigenvalues: 
+    -0.00378675     0.04533228
+    -0.00543301     0.08488362
+time for eigenvalue computation: 18519.590 sec
+******************************************************
+Time for GENE simulation:  18522.884 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.08
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 15369
+calculated      2 eigenvectors
+Time for checkpoint_0015 out:     0.013 sec
+Time for checkpoint_0015 out:     0.011 sec
+computed eigenvalues: 
+    -0.00392169     0.04857135
+    -0.00629243     0.02017649
+time for eigenvalue computation: 20679.246 sec
+******************************************************
+Time for GENE simulation:  20682.852 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.04
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 19956
+calculated      2 eigenvectors
+Time for checkpoint_0016 out:     0.020 sec
+Time for checkpoint_0016 out:     0.013 sec
+computed eigenvalues: 
+    -0.00406420     0.05180852
+    -0.00635325     0.02155253
+time for eigenvalue computation: 26522.381 sec
+******************************************************
+Time for GENE simulation:  26525.134 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     0.97
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 17585
+calculated      2 eigenvectors
+Time for checkpoint_0017 out:     0.009 sec
+Time for checkpoint_0017 out:     0.012 sec
+computed eigenvalues: 
+    -0.00421454     0.05504355
+    -0.00641385     0.02292639
+time for eigenvalue computation: 23257.343 sec
+******************************************************
+Time for GENE simulation:  23260.617 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     0.99
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 14328
+calculated      2 eigenvectors
+Time for checkpoint_0018 out:     0.018 sec
+Time for checkpoint_0018 out:     0.011 sec
+computed eigenvalues: 
+    -0.00437292     0.05827610
+    -0.00647562     0.02429938
+time for eigenvalue computation: 18959.735 sec
+******************************************************
+Time for GENE simulation:  18962.433 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.04
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:251711
+calculated      2 eigenvectors
+Time for checkpoint_0001 out:     0.013 sec
+Time for checkpoint_0001 out:     0.010 sec
+computed eigenvalues: 
+     0.04990836     0.08939448
+    -0.00093160     0.01541059
+time for eigenvalue computation:337857.769 sec
+******************************************************
+Time for GENE simulation: 337860.119 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.03
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:  9647
+calculated      2 eigenvectors
+Time for checkpoint_0019 out:     0.012 sec
+Time for checkpoint_0019 out:     0.005 sec
+computed eigenvalues: 
+    -0.00453940     0.06150589
+    -0.00653917     0.02567265
+time for eigenvalue computation: 12758.414 sec
+******************************************************
+Time for GENE simulation:  12761.908 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.04
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:  7329
+calculated      2 eigenvectors
+Time for checkpoint_0020 out:     0.021 sec
+Time for checkpoint_0020 out:     0.007 sec
+computed eigenvalues: 
+    -0.00471411     0.06473258
+    -0.00660439     0.02704695
+time for eigenvalue computation:  9796.164 sec
+******************************************************
+Time for GENE simulation:   9798.926 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.03
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations: 10536
+calculated      2 eigenvectors
+Time for checkpoint_0021 out:     0.008 sec
+Time for checkpoint_0021 out:     0.016 sec
+computed eigenvalues: 
+    -0.00489715     0.06795596
+    -0.00667100     0.02842271
+time for eigenvalue computation: 14172.835 sec
+******************************************************
+Time for GENE simulation:  14175.920 sec
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+dpdx_pm taken from geometry:     0.000000
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+protons    :   72.58975
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:     9.45 MB per core
+Time to build explicit L_g:     1.08
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   3 blocks per processor
+number of iterations:  6965
+calculated      2 eigenvectors
+Time for checkpoint_0022 out:     0.015 sec
+Time for checkpoint_0022 out:     0.006 sec
+computed eigenvalues: 
+    -0.00508857     0.07117573
+    -0.00673868     0.02980002
+time for eigenvalue computation:  9453.306 sec
+******************************************************
+Time for GENE simulation:   9456.501 sec
+number of iterations:  7056
+calculated      2 eigenvectors
+Time for checkpoint_0023 out:     0.007 sec
+Time for checkpoint_0023 out:     0.010 sec
+computed eigenvalues: 
+    -0.00528844     0.07439162
+    -0.00680701     0.03117871
+time for eigenvalue computation:  7751.502 sec
+******************************************************
+Time for GENE simulation:   7754.281 sec
+number of iterations:761856
+calculated      1 eigenvectors
+Time for checkpoint_0003 out:     0.005 sec
+computed eigenvalues: 
+     0.23636796     0.34461104
+time for eigenvalue computation:580208.185 sec
+******************************************************
+Time for GENE simulation: 580210.483 sec
+Total wallclock time for GENE: 580210.486 sec
+Percentage of idle time at the end of the scan due to load imbalancing:     25.459 %
+gmake[1]: Leaving directory '/home/stirkas/Workspace/GENE/genecode/prob04'

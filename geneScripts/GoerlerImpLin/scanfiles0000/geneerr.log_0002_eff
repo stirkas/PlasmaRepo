@@ -1,0 +1,75 @@
+using GENE executable in bin /home/stirkas/Workspace/GENE/genecode/finalResults
+gmake -f ../makefiles/rules.mk run
+gmake[1]: Entering directory '/home/stirkas/Workspace/GENE/genecode/finalResults'
+Calling GENE with 16 MPI and 1 OpenMP thread(s)
+ MPI_THREAD_MULTIPLE initialized.
+
+*****************************************************
+***** This is GENE 11 (release 1.8 - patch 1) *******
+***** GIT branch hash: 99cb228                *******
+***** GIT master hash:                        *******
+*****************************************************
+
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+Using a maximum of  1300.00 MB per core.
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+Using a maximum of  1300.00 MB per core.
+using time step limit from parameters:  1.000E-06
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+4th order Runge-Kutta
+Time for s_checkpoint_0001 out:     0.016 sec
+
+*** entering time loop ***
+maximal          5 timesteps.
+Time for checkpoint_0001 out:     0.017 sec
+Total time of initial value computation:      0.273 sec
+Computed      5 time steps
+Time per time step:     0.055 sec
+Time for GENE simulation:      2.064 sec
+using time step limit from parameters:  1.000E-06
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+4th order Runge-Kutta
+Time for s_checkpoint_0002 out:     0.009 sec
+
+*** entering time loop ***
+maximal          5 timesteps.
+Time for checkpoint_0002 out:     0.015 sec
+Total time of initial value computation:      0.237 sec
+Computed      5 time steps
+Time per time step:     0.047 sec
+Time for GENE simulation:      4.257 sec
+Total wallclock time for GENE:      4.279 sec
+Percentage of idle time at the end of the scan due to load imbalancing:     25.849 %
+gmake[1]: Leaving directory '/home/stirkas/Workspace/GENE/genecode/finalResults'

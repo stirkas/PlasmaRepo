@@ -1,0 +1,759 @@
+
+ run 1:
+using GENE executable in bin /home/stirkas/Workspace/GENE/genecode/finalResults
+gmake -f ../makefiles/rules.mk run
+gmake[1]: Entering directory '/home/stirkas/Workspace/GENE/genecode/finalResults'
+Calling GENE with 16 MPI and 1 OpenMP thread(s)
+ MPI_THREAD_MULTIPLE initialized.
+
+*****************************************************
+***** This is GENE 11 (release 1.8 - patch 1) *******
+***** GIT branch hash: 99cb228                *******
+***** GIT master hash:                        *******
+*****************************************************
+
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+Using a maximum of  1300.00 MB per core.
+Using a maximum of  1300.00 MB per core.
+Using a maximum of  1300.00 MB per core.
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+*************************************************************
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  2.500E-02
+testing time step limit without hypz_compensation:
+time step limit set to  1.330E-02
+testing time step limit without hypz_compensation:
+time step limit set to  9.020E-03
+testing time step limit without hypz_compensation:
+time step limit set to  6.810E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.5000E-01!!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    2.500E-02 found with SLEPc
+calculated    4 eigenvectors
+time for computation of dt_max:    18.578 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0001 out:     0.019 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+   ***no eigenvalues computed for ky=  0.1000    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    1.330E-02 found with SLEPc
+calculated    3 eigenvectors
+time for computation of dt_max:    19.573 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0002 out:     0.030 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+   ***no eigenvalues computed for ky=  0.1500    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    9.020E-03 found with SLEPc
+calculated    4 eigenvectors
+time for computation of dt_max:    20.548 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0003 out:     0.038 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+   ***no eigenvalues computed for ky=  0.2000    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    6.810E-03 found with SLEPc
+calculated    4 eigenvectors
+time for computation of dt_max:    21.071 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0004 out:     0.035 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+Time for s_checkpoint_0001 out:     0.024 sec
+Time for s_checkpoint_0002 out:     0.036 sec
+Time for s_checkpoint_0004 out:     0.034 sec
+Time for s_checkpoint_0003 out:     0.036 sec
+ky= 0.05000 gamma =   0.035 omega=   0.075
+Time for s_checkpoint_0001 out:     0.031 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0001 out:     0.041 sec
+Total time of initial value computation:    641.035 sec
+Computed   5199 time steps
+Time per time step:     0.123 sec
+Time for GENE simulation:    659.791 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  5.470E-03
+testing time step limit without hypz_compensation:
+ky= 0.15000 gamma =   0.157 omega=   0.257
+Time for s_checkpoint_0003 out:     0.032 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0003 out:     0.027 sec
+Total time of initial value computation:    653.156 sec
+Computed   5199 time steps
+Time per time step:     0.126 sec
+Time for GENE simulation:    673.961 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+ky= 0.10000 gamma =   0.088 omega=   0.161
+Time for s_checkpoint_0002 out:     0.013 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0002 out:     0.020 sec
+Total time of initial value computation:    655.868 sec
+Computed   5279 time steps
+Time per time step:     0.124 sec
+Time for GENE simulation:    675.647 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+ky= 0.20000 gamma =   0.227 omega=   0.363
+Time for s_checkpoint_0004 out:     0.027 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0004 out:     0.032 sec
+Total time of initial value computation:    655.977 sec
+Computed   5299 time steps
+Time per time step:     0.124 sec
+Time for GENE simulation:    677.299 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  4.560E-03
+testing time step limit without hypz_compensation:
+time step limit set to  3.920E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.2500    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    5.470E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    21.861 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0005 out:     0.029 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+time step limit set to  3.430E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.3000    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    4.560E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    18.236 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0006 out:     0.027 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+   ***no eigenvalues computed for ky=  0.3500    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    3.920E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    17.989 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0007 out:     0.016 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+   ***no eigenvalues computed for ky=  0.4000    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    3.430E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    18.307 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0008 out:     0.037 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+Time for s_checkpoint_0005 out:     0.033 sec
+Time for s_checkpoint_0008 out:     0.037 sec
+Time for s_checkpoint_0006 out:     0.029 sec
+Time for s_checkpoint_0007 out:     0.036 sec
+ky= 0.25000 gamma =   0.286 omega=   0.479
+Time for s_checkpoint_0005 out:     0.033 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0005 out:     0.037 sec
+Total time of initial value computation:    695.339 sec
+Computed   5559 time steps
+Time per time step:     0.125 sec
+Time for GENE simulation:    717.438 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  3.050E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.4500    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    3.050E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    19.226 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0009 out:     0.041 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+ky= 0.30000 gamma =   0.330 omega=   0.599
+Time for s_checkpoint_0006 out:     0.034 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0006 out:     0.042 sec
+Total time of initial value computation:    779.689 sec
+Computed   6259 time steps
+Time per time step:     0.125 sec
+Time for GENE simulation:    798.187 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  2.740E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.5000    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    2.740E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    19.801 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0010 out:     0.037 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+ky= 0.35000 gamma =   0.357 omega=   0.721
+Time for s_checkpoint_0007 out:     0.033 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0007 out:     0.041 sec
+Total time of initial value computation:    836.884 sec
+Computed   6719 time steps
+Time per time step:     0.125 sec
+Time for GENE simulation:    855.049 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  2.490E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.5500    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    2.490E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    19.216 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0011 out:     0.044 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+ky= 0.40000 gamma =   0.366 omega=   0.842
+Time for s_checkpoint_0008 out:     0.024 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0008 out:     0.026 sec
+Total time of initial value computation:    935.000 sec
+Computed   7559 time steps
+Time per time step:     0.124 sec
+Time for GENE simulation:    953.562 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  2.290E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.6000    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    2.290E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    18.755 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0012 out:     0.028 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+Time for s_checkpoint_0009 out:     0.027 sec
+Time for s_checkpoint_0010 out:     0.037 sec
+Time for s_checkpoint_0011 out:     0.038 sec
+Time for s_checkpoint_0012 out:     0.027 sec
+ky= 0.45000 gamma =   0.361 omega=   0.959
+Time for s_checkpoint_0009 out:     0.019 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0009 out:     0.025 sec
+Total time of initial value computation:   1067.978 sec
+Computed   8679 time steps
+Time per time step:     0.123 sec
+Time for GENE simulation:   1087.436 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  2.110E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.6500    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    2.110E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    19.041 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0013 out:     0.030 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+Time for s_checkpoint_0010 out:     0.037 sec
+ky= 0.50000 gamma =   0.341 omega=   1.071
+Time for s_checkpoint_0010 out:     0.033 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0010 out:     0.040 sec
+Total time of initial value computation:   1271.710 sec
+Computed  10239 time steps
+Time per time step:     0.124 sec
+Time for GENE simulation:   1291.764 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  1.960E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.7000    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    1.960E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    19.282 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0014 out:     0.039 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+Time for s_checkpoint_0011 out:     0.034 sec
+Time for s_checkpoint_0012 out:     0.031 sec
+Time for s_checkpoint_0013 out:     0.023 sec
+ky= 0.55000 gamma =   0.309 omega=   1.178
+Time for s_checkpoint_0011 out:     0.034 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0011 out:     0.040 sec
+Total time of initial value computation:   1556.668 sec
+Computed  12279 time steps
+Time per time step:     0.127 sec
+Time for GENE simulation:   1576.133 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  1.830E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.7500    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    1.830E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    18.737 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0015 out:     0.028 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+Time for s_checkpoint_0014 out:     0.022 sec
+Time for s_checkpoint_0012 out:     0.027 sec
+ky= 0.60000 gamma =   0.267 omega=   1.278
+Time for s_checkpoint_0012 out:     0.036 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0012 out:     0.040 sec
+Total time of initial value computation:   1908.625 sec
+Computed  15439 time steps
+Time per time step:     0.124 sec
+Time for GENE simulation:   1927.612 sec
+Using a maximum of  1300.00 MB per core.
+*************************************************************
+Starting time step computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+time step limit set to  1.710E-03
+testing time step limit without hypz_compensation:
+   ***no eigenvalues computed for ky=  0.8000    !!***
+  number of ev iterations:    12
+  no additional restriction due to small real eigenvalue found.
+  not using hyp_z compensation.
+dt_max =    1.710E-03 found with SLEPc
+calculated    2 eigenvectors
+time for computation of dt_max:    18.875 sec
+******************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   46.65027
+Electrons are adiabatic, beta is set to zero
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+linear computation
+Time for s_checkpoint_0016 out:     0.039 sec
+
+*** entering time loop ***
+maximal    1000000 timesteps.
+Time for s_checkpoint_0013 out:     0.039 sec
+Time for s_checkpoint_0015 out:     0.023 sec
+Time for s_checkpoint_0014 out:     0.037 sec
+Time for s_checkpoint_0016 out:     0.027 sec
+Time for s_checkpoint_0013 out:     0.021 sec
+Time for s_checkpoint_0015 out:     0.035 sec
+Time for s_checkpoint_0014 out:     0.037 sec
+Time for s_checkpoint_0016 out:     0.021 sec
+Time for s_checkpoint_0013 out:     0.039 sec
+ky= 0.65000 gamma =   0.215 omega=   1.370
+Time for s_checkpoint_0013 out:     0.039 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0013 out:     0.046 sec
+Total time of initial value computation:   2480.647 sec
+Computed  20059 time steps
+Time per time step:     0.124 sec
+Time for GENE simulation:   2499.916 sec
+Time for s_checkpoint_0015 out:     0.020 sec
+Time for s_checkpoint_0014 out:     0.019 sec
+Time for s_checkpoint_0016 out:     0.020 sec
+Time for s_checkpoint_0015 out:     0.019 sec
+Time for s_checkpoint_0014 out:     0.019 sec
+Time for s_checkpoint_0016 out:     0.020 sec
+Time for s_checkpoint_0015 out:     0.025 sec
+ky= 0.70000 gamma =   0.155 omega=   1.456
+Time for s_checkpoint_0014 out:     0.020 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0014 out:     0.022 sec
+Total time of initial value computation:   3162.760 sec
+Computed  27939 time steps
+Time per time step:     0.113 sec
+Time for GENE simulation:   3182.285 sec
+Time for s_checkpoint_0016 out:     0.014 sec
+Time for s_checkpoint_0015 out:     0.013 sec
+Time for s_checkpoint_0016 out:     0.014 sec
+Time for s_checkpoint_0015 out:     0.013 sec
+Time for s_checkpoint_0016 out:     0.012 sec
+Time for s_checkpoint_0015 out:     0.013 sec
+Time for s_checkpoint_0016 out:     0.011 sec
+Time for s_checkpoint_0015 out:     0.013 sec
+ky= 0.75000 gamma =   0.081 omega=   1.529
+Time for s_checkpoint_0015 out:     0.014 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0015 out:     0.015 sec
+Total time of initial value computation:   3991.582 sec
+Computed  47319 time steps
+Time per time step:     0.084 sec
+Time for GENE simulation:   4010.520 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.005 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.005 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.005 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+Time for s_checkpoint_0016 out:     0.006 sec
+ky= 0.80000 gamma =   0.013 omega=   1.555
+Time for s_checkpoint_0016 out:     0.006 sec
+Linear growth rate is converged, exiting time loop
+Time for checkpoint_0016 out:     0.008 sec
+Total time of initial value computation:   6502.880 sec
+Computed 144279 time steps
+Time per time step:     0.045 sec
+Time for GENE simulation:   6521.958 sec
+Total wallclock time for GENE:  10080.443 sec
+Percentage of idle time at the end of the scan due to load imbalancing:     30.289 %
+gmake[1]: Leaving directory '/home/stirkas/Workspace/GENE/genecode/finalResults'

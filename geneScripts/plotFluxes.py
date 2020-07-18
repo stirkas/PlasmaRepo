@@ -12,7 +12,7 @@ from plotFlux import getStdDev
 dataType  = 0 #Particle flux.
 avgFlux   = []
 stdDev    = []
-ions      = ["H$^+$", "Custom", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{+15}$", "Mo$^{+31}$", "W$^{+40}$"]
+ions      = ["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{+15}$", "Mo$^{+31}$", "W$^{+40}$"]
 dataFiles = ["./GoerlerImpurities/nrgsummary_proton.dat",     "./GoerlerImpurities/nrgsummary_custom.dat",
              "./GoerlerImpurities/nrgsummary_beryllium.dat",  "./GoerlerImpurities/nrgsummary_neon.dat",
              "./GoerlerImpurities/nrgsummary_argon.dat",      "./GoerlerImpurities/nrgsummary_molybdenum.dat",
@@ -23,12 +23,13 @@ ltRat     = [6.96, 6.96, 6.96, 6.96, 6.96, 6.96, 6.96] #Ratio of R/L_T = omt to 
 densRat   = [.001, .001, .001, .001, .001, .001, .001] #Ratio of n_imp/n_e to normalize flux to impurities unlike e- from GENE.
 
 #Add some adiabatic info too.
-adiabaticIons = ["H$^+$", "W$^{+40}$"]
-adiabaticDataFiles = ["./GoerlerImpurities/nrgsummary_proton_ad.dat", "./GoerlerImpurities/nrgsummary_tungsten_ad.dat"]
-qmRatAd   = [1/1, 40/183.84]
-startTAd  = [0, 0]
-ltRatAd   = [6.96, 6.96]
-densRatAd = [.001, .001]
+adiabaticIons = ["H$^+$", "Ne$^{+10}$", "W$^{+40}$"]
+adiabaticDataFiles = ["./GoerlerImpurities/nrgsummary_proton_ad.dat", "./GoerlerImpurities/nrgsummary_neon_ad.dat",
+                      "./GoerlerImpurities/nrgsummary_tungsten_ad.dat"]
+qmRatAd   = [1/1, 10/20.17970, 40/183.84]
+startTAd  = [.114, .25, .118]
+ltRatAd   = [6.96, 6.96, 6.96]
+densRatAd = [.001, .001, .001]
 avgFluxAd = []
 stdDevAd  = []
 
@@ -39,7 +40,7 @@ for i,ion in enumerate(ions):
    startIndex = math.ceil(startT[i]*len(fluxData)) #Get index closest to startT fraction of total time.
    fluxData = fluxData[startIndex:]
    fluxData = np.array(fluxData) #Need to make a numpy array to perform multiplication by a scalar...
-   fluxData = fluxData * ((1/ltRat[i])**2) * (1/densRat[i]) #Normalize flux for L_T and n_imp.
+   fluxData = fluxData #* ((1/ltRat[i])**2) * (1/densRat[i]) #Normalize flux for L_T and n_imp.
    avgFlux.append(getAverageVal(fluxData))
    stdDev.append(getStdDev(fluxData))
 
@@ -50,7 +51,7 @@ for i, ion in enumerate(adiabaticIons):
    startIndex = math.ceil(startT[i]*len(fluxDataAd)) #Get index closest to startT fraction of total time.
    fluxDataAd = fluxDataAd[startIndex:]
    fluxDataAd = np.array(fluxDataAd) #Need to make a numpy array to perform multiplication by a scalar...
-   fluxDataAd = fluxDataAd * ((1/ltRatAd[i])**2) * (1/densRatAd[i]) #Normalize flux for L_T and n_imp.
+   fluxDataAd = fluxDataAd #* ((1/ltRatAd[i])**2) * (1/densRatAd[i]) #Normalize flux for L_T and n_imp.
    avgFluxAd.append(getAverageVal(fluxDataAd))
    stdDevAd.append(getStdDev(fluxDataAd))
 
@@ -63,23 +64,23 @@ for i, txt in enumerate(ions):
     ax.annotate(txt, (qmRat[i], avgFlux[i] - stdDev[i])) #Offset y for readibility.
 
 #Generate line of best fit.
-qmRat_new = np.linspace(qmRat[len(qmRat)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
+qmRatNew = np.linspace(qmRat[len(qmRat)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
 coeffs = poly.polyfit(qmRat, avgFlux, 1)
-ffit   = poly.polyval(qmRat_new, coeffs)
-plt.plot(qmRat_new, ffit, color='r', label='KineticEl')
+ffit   = poly.polyval(qmRatNew, coeffs)
+plt.plot(qmRatNew, ffit, color='r', label='KineticEl')
 
 #Plot adiabatic ions and line of best fit.
-plt.scatter(qmRatAd, avgFluxAd)
-plt.errorbar(qmRatAd, avgFluxAd, yerr=stdDevAd, linestyle="None", color='b')
+plt.scatter(qmRatAd, avgFluxAd, color='red')
+plt.errorbar(qmRatAd, avgFluxAd, yerr=stdDevAd, linestyle="None", color='red')
 
 for i, txt in enumerate(adiabaticIons):
     ax.annotate(txt, (qmRatAd[i], avgFluxAd[i] - stdDevAd[i])) #Offset y for readibility.
 
 #Generate line of best fit.
-qmRat_newAd = np.linspace(qmRatAd[len(qmRatAd)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
+qmRatAdNew = np.linspace(qmRatAd[len(qmRatAd)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
 coeffsAd = poly.polyfit(qmRatAd, avgFluxAd, 1)
-ffit   = poly.polyval(qmRat_newAd, coeffsAd)
-plt.plot(qmRat_newAd, ffit, color='orange', label='AdiabaticEl')
+ffit   = poly.polyval(qmRatAdNew, coeffsAd)
+plt.plot(qmRatAdNew, ffit, color='blue', label='AdiabaticEl')
 
 plt.gca().invert_xaxis()
 plt.gca().invert_yaxis()
@@ -89,4 +90,4 @@ plt.ylabel("<$\\Gamma$$_{ES}$>",    fontsize=textSize)
 plt.tight_layout()
 plt.legend(loc='upper left')
 plt.show()
-#plt.savefig('./GoerlerImpurities/FluxPlot_AllTime.pdf')
+#plt.savefig('./GoerlerImpurities/FluxPlotAdKin.pdf')

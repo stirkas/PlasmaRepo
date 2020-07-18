@@ -25,26 +25,31 @@ def readGrowthRates(fileName, data):
       kyRhoi.append(float(dataArray[0]))
       gamma.append(float(dataArray[1]))
       omega.append(float(dataArray[2]))
+      #TODO: Add more modes if necessary.
 
    return [kyRhoi, gamma, omega]
 
 if __name__ == "__main__":
-   data = []
-   [kyRhoi, gamma, omega] = readGrowthRates('./GoerlerETG/scanGoerlerETG.log', data)
+   runs = ['adElPure', 'adElProt', 'kinElPure', 'kinElProt']
+   dataFiles = ['./GoerlerImpLin/scanfiles0000/scan.log', './GoerlerImpLin/scanfiles0001/scan.log',
+                './GoerlerImpLin/scanfiles0004/scan.log', './GoerlerImpLin/scanfiles0005/scan.log']
 
    fig,axs = plt.subplots(2,1)
-   scaleFactor = 1.05
-   axs[0].plot(kyRhoi, gamma, marker='*')
-   axs[0].set_xlabel('k$_y$$\\rho_i$')
-   axs[0].set_ylabel('$\\gamma$')
-   axs[0].set_xlim([0, np.max(kyRhoi)*scaleFactor])
-   axs[0].set_ylim([0, np.max(gamma)*scaleFactor])
-   axs[0].grid()
-   axs[1].plot(kyRhoi, omega, marker='*')
-   axs[1].set_xlabel('k$_y$$\\rho_i$')
-   axs[1].set_ylabel('$\\omega$')
-   axs[1].set_xlim([0, np.max(kyRhoi)*scaleFactor])
-   axs[1].set_ylim([np.min(omega)*scaleFactor, 0])
-   axs[1].grid()
+
+   for i, run in enumerate(runs):
+      data = []
+      [kyRhoi, gamma, omega] = readGrowthRates(dataFiles[i], data)
+   
+      scaleFactor = 1.05
+      axs[0].plot(kyRhoi, gamma, marker='*', label=runs[i])
+      axs[0].set_xlabel('k$_y$$\\rho_i$')
+      axs[0].set_ylabel('$\\gamma$')
+      axs[0].grid()
+      axs[1].plot(kyRhoi, omega, marker='*', label=runs[i])
+      axs[1].set_xlabel('k$_y$$\\rho_i$')
+      axs[1].set_ylabel('$\\omega$')
+      axs[1].grid()
+   
+   plt.legend(loc='upper right')
    plt.tight_layout()
    plt.show()
