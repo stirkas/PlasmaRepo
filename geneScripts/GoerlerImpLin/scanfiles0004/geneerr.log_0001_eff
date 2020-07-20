@@ -1,19 +1,31 @@
-using GENE executable in bin /home/stirkas/Workspace/GENE/genecode/finalResults
+using GENE executable in bin /home/stirkas/Workspace/GENE/genecode/prob05
 gmake -f ../makefiles/rules.mk run
-gmake[1]: Entering directory '/home/stirkas/Workspace/GENE/genecode/finalResults'
-Calling GENE with 16 MPI and 1 OpenMP thread(s)
+gmake[1]: Entering directory '/home/stirkas/Workspace/GENE/genecode/prob05'
+Calling GENE with 24 MPI and 1 OpenMP thread(s)
  MPI_THREAD_MULTIPLE initialized.
 
 *****************************************************
 ***** This is GENE 11 (release 1.8 - patch 1) *******
-***** GIT branch hash: 99cb228                *******
+***** GIT branch hash: 41ff07b                *******
 ***** GIT master hash:                        *******
 *****************************************************
 
 WARNING: no dpdx_term treatment defined!!
          Setting dpdx_term = 'gradB_eq_curv' ... 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
 no which_ev given in parameters, using jd
 decreasing nx0 by 1 to have all kx physical for full matrix computations
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+adapted autoparallelization ranges to optimize preconditioner
 Using a maximum of  1300.00 MB per core.
 adapted autoparallelization ranges to optimize preconditioner
 N for parallel boundary condition: 1
@@ -42,18 +54,94 @@ precision:   0.1000E-03
 
 Creating explicit representation of the linear operator without the field part
 Rank of the linear operator:   253952
-Memory requirements:     3.15 MB per core
-Time to build explicit L_g:     0.23
+Memory requirements:     6.30 MB per core
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    253952, i.e.    0.00MB
+precision:   0.1000E-03
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   253952
+Memory requirements:     6.30 MB per core
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+
+recurrence times for the different species:
+ions       :   22.95490
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.7.7/SLEPc-3.7.4
+*************************************************************
+
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    253952, i.e.    0.00MB
+precision:   0.1000E-03
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   253952
+Memory requirements:     6.30 MB per core
+Time to build explicit L_g:     0.33
 
 --------------------------------------------------------------
 
-using additive Schwarz preconditioning with   1 blocks per processor
+using additive Schwarz preconditioning with   2 blocks per processor
+Time to build explicit L_g:     0.49
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   2 blocks per processor
+Time to build explicit L_g:     0.50
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   2 blocks per processor
 number of iterations:    10
 calculated      0 eigenvectors
 ***NO EIGENVALUES CALCULATED***
-time for eigenvalue computation:     3.735 sec
+time for eigenvalue computation:     9.370 sec
 ******************************************************
-Time for GENE simulation:      5.007 sec
-Total wallclock time for GENE:      5.009 sec
-Percentage of idle time at the end of the scan due to load imbalancing:      0.000 %
-gmake[1]: Leaving directory '/home/stirkas/Workspace/GENE/genecode/finalResults'
+Time for GENE simulation:     10.882 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.856 sec
+******************************************************
+Time for GENE simulation:     11.746 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:    10.019 sec
+******************************************************
+Time for GENE simulation:     11.858 sec
+Total wallclock time for GENE:     11.861 sec
+Percentage of idle time at the end of the scan due to load imbalancing:      3.055 %
+gmake[1]: Leaving directory '/home/stirkas/Workspace/GENE/genecode/prob05'

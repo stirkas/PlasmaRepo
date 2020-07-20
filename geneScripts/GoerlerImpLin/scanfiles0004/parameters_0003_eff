@@ -1,12 +1,12 @@
 &parallelization
-n_procs_s =   2
+n_procs_s =   1
 n_procs_v =   1
 n_procs_w =   2
 n_procs_x =   1
 n_procs_y =   1
 n_procs_z =   1
-n_procs_sim =      4
-n_parallel_sims =      4
+n_procs_sim =      2
+n_parallel_sims =     12
 /
 
 &box
@@ -25,7 +25,7 @@ ky0_ind =   1
 /
 
 &in_out
-diagdir = './scanfiles0000/'
+diagdir = './scanfiles0002/'
 
 read_checkpoint  = F
 write_checkpoint = T
@@ -44,8 +44,8 @@ write_std = T
 &general
 nonlinear =   F
 comp_type = 'EV'
-perf_vec  =  1 1 2 1 1 1 1 1 1
-nblocks   =      64
+perf_vec  =  1 1 1 1 1 1 1 1 1
+nblocks   =    2048
 hypz_opt =   F
 hypz_compensation =   F
 
@@ -82,7 +82,7 @@ sign_Bt_CW =       1
 
 &species
 name   = 'ions'
-omn    =    2.2300000    
+omn    =    2.2200000    
 omt    =    6.9600000    
 
 mass   =    1.0000000    
@@ -93,8 +93,8 @@ charge =  1
 
 &species
 name   = 'electrons'
-omn    =    2.2300000    
-omt    =    6.9600000    
+omn    =    2.2200000    
+omt    =    0.0000000    
 
 mass   =   0.54461700E-03
 temp   =    1.0000000    
@@ -104,8 +104,8 @@ charge = -1
 
 &info
 iterations for eigenvalue calculation =      10
-time for eigenvalue solver =    14.2049
-init_time =     1.0355
+time for eigenvalue solver =    41.8397
+init_time =     5.6587
 n_fields = 2
 n_moms   =  0
 nrgcols  = 10
@@ -113,8 +113,8 @@ lx =   23.8949
 ly =   125.664    
 PRECISION  = DOUBLE
 ENDIANNESS = LITTLE
-OMP_NUM_THREADS =  16
-GIT_BRANCH = 99cb2288a6551c5603747aa82515c8dd8044d664                    
+OMP_NUM_THREADS =  24
+GIT_BRANCH = 41ff07bdfbcbe13ca5854f1a8f04702af082609c                    
 RELEASE = 1.8 - patch 1
 /
 

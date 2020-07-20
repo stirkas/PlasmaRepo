@@ -1,0 +1,20 @@
+parallelization:    s   v   w   x   y   z
+parallelization:    2   1   4   1   1   1  nblocks:    64
+   1 1 1 1 1 1 1 1 1 :    6.4861 MB, t =  1.855E-02 sec
+   2 1 1 1 1 1 1 1 1 :    6.9691 MB, t =  2.843E-02 sec
+   1 2 1 1 1 1 1 1 1 :    6.9781 MB, t =  2.118E-02 sec
+   1 1 2 1 1 1 1 1 1 :    5.3221 MB, t =  2.570E-02 sec
+   1 1 1 1 1 2 1 1 1 :    6.4861 MB, t =  1.696E-02 sec
+   1 1 1 1 1 2 2 1 1 :    6.4861 MB, t =  1.577E-02 sec
+   1 1 1 1 1 2 2 1 2 :    6.9705 MB, t =  1.347E-02 sec
+   best perf_vec      min. WCT     mem_min  mem_max deficit(byte) data segment (MB)
+   1 1 1 1 1 2 2 1 2   1.3473E-02     5.32     6.98      151152    14.239
+parallelization:    1   1   8   1   1   1  nblocks:   128
+   1 1 1 1 1 1 1 1 1 :    6.6512 MB, t =  2.964E-02 sec
+skipped parallelization    1   1   8   1   1   1 based on speed of first perf_vec
+-------------------------------------------------------
+Choice for parallelization:    2   1   4   1   1   1
+Choice for alternative routines:  1 1 1 1 1 2 2 1 2
+nblocks =       64
+Time for chosen settings:  1.3473E-02
+using BLAS routines for (i,j) loops: yes

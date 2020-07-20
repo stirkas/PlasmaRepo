@@ -1,0 +1,1243 @@
+ MPI_THREAD_SINGLE initialized.
+ 
+*****************************************************
+***** This is GENE 11 (release 1.8 - patch 1) *******
+***** GIT branch hash: 99cb228                *******
+***** GIT master hash:                        *******
+*****************************************************
+ 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+Using a maximum of  1300.00 MB per core.
+no which_ev given in parameters, using jd
+adapted autoparallelization ranges to optimize preconditioner
+no auto-parallelization possible for given parameters
+maximum nr of processes in each direction:
+   s   v   w   x   y   z   total
+no auto-parallelization possible for given parameters
+   1   2   8   1   1   1     16
+no auto-parallelization possible for given parameters
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+no auto-parallelization possible for given parameters
+no auto-parallelization possible for given parameters
+Rank 1 [Sun Jul 19 23:42:10 2020] [c5-1c2s7n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 1
+no auto-parallelization possible for given parameters
+Rank 3 [Sun Jul 19 23:42:10 2020] [c5-1c2s7n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 3
+no auto-parallelization possible for given parameters
+Rank 29 [Sun Jul 19 23:42:10 2020] [c11-1c0s1n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 29
+no auto-parallelization possible for given parameters
+Rank 0 [Sun Jul 19 23:42:10 2020] [c5-1c2s6n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 0
+no auto-parallelization possible for given parameters
+Rank 25 [Sun Jul 19 23:42:10 2020] [c5-1c2s13n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 25
+no auto-parallelization possible for given parameters
+Rank 5 [Sun Jul 19 23:42:10 2020] [c5-1c2s8n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 5
+no auto-parallelization possible for given parameters
+Rank 13 [Sun Jul 19 23:42:10 2020] [c5-1c2s10n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 13
+no auto-parallelization possible for given parameters
+Rank 7 [Sun Jul 19 23:42:10 2020] [c5-1c2s8n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 7
+no auto-parallelization possible for given parameters
+Rank 15 [Sun Jul 19 23:42:10 2020] [c5-1c2s10n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 15
+no auto-parallelization possible for given parameters
+Rank 20 [Sun Jul 19 23:42:10 2020] [c5-1c2s11n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 20
+no auto-parallelization possible for given parameters
+Rank 2 [Sun Jul 19 23:42:10 2020] [c5-1c2s7n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 2
+no auto-parallelization possible for given parameters
+Rank 8 [Sun Jul 19 23:42:10 2020] [c5-1c2s8n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 8
+no auto-parallelization possible for given parameters
+Rank 11 [Sun Jul 19 23:42:10 2020] [c5-1c2s9n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 11
+no auto-parallelization possible for given parameters
+Rank 17 [Sun Jul 19 23:42:10 2020] [c5-1c2s11n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 17
+no auto-parallelization possible for given parameters
+Rank 23 [Sun Jul 19 23:42:10 2020] [c5-1c2s12n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 23
+no auto-parallelization possible for given parameters
+Rank 24 [Sun Jul 19 23:42:10 2020] [c5-1c2s12n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 24
+no auto-parallelization possible for given parameters
+Rank 28 [Sun Jul 19 23:42:10 2020] [c11-1c0s1n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 28
+no auto-parallelization possible for given parameters
+Rank 21 [Sun Jul 19 23:42:10 2020] [c5-1c2s12n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 21
+no auto-parallelization possible for given parameters
+Rank 14 [Sun Jul 19 23:42:10 2020] [c5-1c2s10n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 14
+no auto-parallelization possible for given parameters
+Rank 30 [Sun Jul 19 23:42:10 2020] [c11-1c0s2n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 30
+no auto-parallelization possible for given parameters
+Rank 18 [Sun Jul 19 23:42:10 2020] [c5-1c2s11n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 18
+no auto-parallelization possible for given parameters
+Rank 19 [Sun Jul 19 23:42:10 2020] [c5-1c2s11n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 19
+no auto-parallelization possible for given parameters
+Rank 16 [Sun Jul 19 23:42:10 2020] [c5-1c2s10n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 16
+no auto-parallelization possible for given parameters
+Rank 6 [Sun Jul 19 23:42:10 2020] [c5-1c2s8n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 6
+no auto-parallelization possible for given parameters
+Rank 10 [Sun Jul 19 23:42:10 2020] [c5-1c2s9n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 10
+no auto-parallelization possible for given parameters
+Rank 26 [Sun Jul 19 23:42:10 2020] [c5-1c2s13n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 26
+no auto-parallelization possible for given parameters
+Rank 9 [Sun Jul 19 23:42:10 2020] [c5-1c2s9n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 9
+no auto-parallelization possible for given parameters
+Rank 4 [Sun Jul 19 23:42:10 2020] [c5-1c2s7n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 4
+Rank 12 [Sun Jul 19 23:42:10 2020] [c5-1c2s9n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 12
+Rank 22 [Sun Jul 19 23:42:10 2020] [c5-1c2s12n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 22
+Rank 31 [Sun Jul 19 23:42:10 2020] [c11-1c0s2n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 31
+Rank 27 [Sun Jul 19 23:42:10 2020] [c11-1c0s1n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 27
+Using a maximum of  1300.00 MB per core.
+no auto-parallelization possible for given parameters
+adapted autoparallelization ranges to optimize preconditioner
+no auto-parallelization possible for given parameters
+no auto-parallelization possible for given parameters
+maximum nr of processes in each direction:
+   s   v   w   x   y   z   total
+   1   2   8   1   1   1     16
+no auto-parallelization possible for given parameters
+no auto-parallelization possible for given parameters
+no auto-parallelization possible for given parameters
+Rank 39 [Sun Jul 19 23:42:10 2020] [c11-1c0s5n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 39
+no auto-parallelization possible for given parameters
+Rank 36 [Sun Jul 19 23:42:10 2020] [c11-1c0s4n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 36
+no auto-parallelization possible for given parameters
+no auto-parallelization possible for given parameters
+no auto-parallelization possible for given parameters
+Rank 32 [Sun Jul 19 23:42:10 2020] [c11-1c0s2n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 32
+no auto-parallelization possible for given parameters
+Rank 35 [Sun Jul 19 23:42:10 2020] [c11-1c0s4n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 35
+no auto-parallelization possible for given parameters
+Rank 56 [Sun Jul 19 23:42:10 2020] [c1-4c1s12n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 56
+no auto-parallelization possible for given parameters
+Rank 59 [Sun Jul 19 23:42:10 2020] [c1-4c1s13n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 59
+no auto-parallelization possible for given parameters
+Rank 49 [Sun Jul 19 23:42:10 2020] [c11-1c0s7n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 49
+no auto-parallelization possible for given parameters
+Rank 50 [Sun Jul 19 23:42:10 2020] [c11-1c0s8n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 50
+no auto-parallelization possible for given parameters
+Rank 37 [Sun Jul 19 23:42:10 2020] [c11-1c0s4n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 37
+no auto-parallelization possible for given parameters
+Rank 43 [Sun Jul 19 23:42:10 2020] [c11-1c0s6n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 43
+no auto-parallelization possible for given parameters
+Rank 33 [Sun Jul 19 23:42:10 2020] [c11-1c0s2n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 33
+no auto-parallelization possible for given parameters
+Rank 41 [Sun Jul 19 23:42:10 2020] [c11-1c0s5n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 41
+no auto-parallelization possible for given parameters
+Rank 51 [Sun Jul 19 23:42:10 2020] [c1-4c1s11n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 51
+no auto-parallelization possible for given parameters
+Rank 57 [Sun Jul 19 23:42:10 2020] [c1-4c1s12n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 57
+no auto-parallelization possible for given parameters
+Rank 58 [Sun Jul 19 23:42:10 2020] [c1-4c1s12n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 58
+no auto-parallelization possible for given parameters
+Rank 47 [Sun Jul 19 23:42:10 2020] [c11-1c0s7n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 47
+no auto-parallelization possible for given parameters
+Rank 61 [Sun Jul 19 23:42:10 2020] [c1-4c1s13n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 61
+no auto-parallelization possible for given parameters
+Rank 34 [Sun Jul 19 23:42:10 2020] [c11-1c0s4n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 34
+no auto-parallelization possible for given parameters
+Rank 38 [Sun Jul 19 23:42:10 2020] [c11-1c0s5n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 38
+no auto-parallelization possible for given parameters
+Rank 52 [Sun Jul 19 23:42:10 2020] [c1-4c1s11n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 52
+no auto-parallelization possible for given parameters
+Rank 60 [Sun Jul 19 23:42:10 2020] [c1-4c1s13n1] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 60
+no auto-parallelization possible for given parameters
+Rank 53 [Sun Jul 19 23:42:10 2020] [c1-4c1s11n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 53
+no auto-parallelization possible for given parameters
+Rank 44 [Sun Jul 19 23:42:10 2020] [c11-1c0s6n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 44
+no auto-parallelization possible for given parameters
+Rank 54 [Sun Jul 19 23:42:10 2020] [c1-4c1s11n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 54
+no auto-parallelization possible for given parameters
+Rank 42 [Sun Jul 19 23:42:10 2020] [c11-1c0s6n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 42
+Rank 40 [Sun Jul 19 23:42:10 2020] [c11-1c0s5n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 40
+Rank 48 [Sun Jul 19 23:42:10 2020] [c11-1c0s7n2] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 48
+Rank 55 [Sun Jul 19 23:42:10 2020] [c1-4c1s12n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 55
+Rank 45 [Sun Jul 19 23:42:10 2020] [c11-1c0s6n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 45
+Rank 46 [Sun Jul 19 23:42:10 2020] [c11-1c0s7n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 46
+Rank 62 [Sun Jul 19 23:42:10 2020] [c1-4c1s13n3] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 62
+Rank 63 [Sun Jul 19 23:42:10 2020] [c1-4c1s14n0] application called MPI_Abort(MPI_COMM_WORLD, 42) - process 63
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+forrtl: error (76): Abort trap signal
+Image              PC                Routine            Line        Source             
+gene_cori          00000000261E4D84  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A70  Unknown               Unknown  Unknown
+gene_cori          0000000025E04A20  Unknown               Unknown  Unknown
+gene_cori          00000000262E7E81  Unknown               Unknown  Unknown
+gene_cori          00000000260039C2  Unknown               Unknown  Unknown
+gene_cori          0000000025FA3DEB  Unknown               Unknown  Unknown
+gene_cori          0000000021E573C5  Unknown               Unknown  Unknown
+gene_cori          00000000206BBDDE  Unknown               Unknown  Unknown
+gene_cori          0000000020538209  Unknown               Unknown  Unknown
+gene_cori          0000000020533A3C  Unknown               Unknown  Unknown
+gene_cori          0000000020878A00  Unknown               Unknown  Unknown
+gene_cori          00000000200098F2  Unknown               Unknown  Unknown
+gene_cori          00000000262E08CF  Unknown               Unknown  Unknown
+gene_cori          00000000200097DA  Unknown               Unknown  Unknown
+srun: error: nid03432: task 13: Aborted
+srun: Terminating job step 32650906.1
+srun: error: nid03439: task 20: Aborted
+srun: error: nid04425: task 31: Aborted
+srun: error: nid03420: task 1: Aborted
+srun: error: nid03427: task 8: Aborted
+srun: error: nid03426: task 7: Aborted
+srun: error: nid03435: task 16: Aborted
+srun: error: nid03444: task 25: Aborted
+srun: error: nid03425: task 6: Aborted
+srun: error: nid03436: task 17: Aborted
+srun: error: nid03443: task 24: Aborted
+srun: error: nid04423: task 29: Aborted
+srun: error: nid03429: task 10: Aborted
+srun: error: nid03423: task 4: Aborted
+srun: error: nid03440: task 21: Aborted
+srun: error: nid03442: task 23: Aborted
+srun: error: nid03431: task 12: Aborted
+srun: error: nid04421: task 27: Aborted
+srun: error: nid03421: task 2: Aborted
+srun: error: nid03434: task 15: Aborted
+srun: error: nid03430: task 11: Aborted
+srun: error: nid03437: task 18: Aborted
+srun: error: nid03438: task 19: Aborted
+srun: error: nid03441: task 22: Aborted
+srun: error: nid03422: task 3: Aborted
+srun: error: nid03424: task 5: Aborted
+srun: error: nid04424: task 30: Aborted
+srun: error: nid04422: task 28: Aborted
+srun: error: nid03445: task 26: Aborted
+srun: error: nid03433: task 14: Aborted
+srun: error: nid03428: task 9: Aborted
+srun: error: nid03419: task 0: Aborted
+srun: error: nid09524: task 59: Aborted
+srun: error: nid04445: task 47: Aborted
+srun: error: nid09525: task 60: Aborted
+srun: error: nid09520: task 55: Aborted
+srun: error: nid09517: task 52: Aborted
+srun: error: nid04434: task 36: Aborted
+srun: error: nid04436: task 38: Aborted
+srun: error: nid04427: task 33: Aborted
+srun: error: nid09519: task 54: Aborted
+srun: error: nid09527: task 62: Aborted
+srun: error: nid04441: task 43: Aborted
+srun: error: nid04435: task 37: Aborted
+srun: error: nid04444: task 46: Aborted
+srun: error: nid09518: task 53: Aborted
+srun: error: nid09528: task 63: Aborted
+srun: error: nid04433: task 35: Aborted
+srun: error: nid04437: task 39: Aborted
+srun: error: nid04442: task 44: Aborted
+srun: error: nid04448: task 50: Aborted
+srun: error: nid09522: task 57: Aborted
+srun: error: nid04438: task 40: Aborted
+srun: error: nid09521: task 56: Aborted
+srun: error: nid09523: task 58: Aborted
+srun: error: nid04440: task 42: Aborted
+srun: error: nid04446: task 48: Aborted
+srun: error: nid04443: task 45: Aborted
+srun: error: nid04426: task 32: Aborted
+srun: error: nid09516: task 51: Aborted
+srun: error: nid09526: task 61: Aborted
+srun: error: nid04432: task 34: Aborted
+srun: error: nid04447: task 49: Aborted
+srun: error: nid04439: task 41: Aborted

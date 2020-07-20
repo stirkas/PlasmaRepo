@@ -6,3 +6,5 @@ Run3: Run0 but with tungsten impurities.
 
 Run4: Kin el, no imp. Goerler ITG linear case. Need to remove el omt!!!
 Run5: Kin el, proton imps. Goerler ITG linear.
+Run6: Kin el, neon imps. Goerler ITG linear.
+Run7: Kin el, tungsten imps. Goerler ITG linear.

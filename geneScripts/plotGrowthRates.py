@@ -30,9 +30,13 @@ def readGrowthRates(fileName, data):
    return [kyRhoi, gamma, omega]
 
 if __name__ == "__main__":
-   runs = ['adElPure', 'adElProt', 'kinElPure', 'kinElProt']
+   runs = ['adElPure', 'adElProt', 'adElNeon', 'kinElPure', 'kinElProt', 'kinElTung']
    dataFiles = ['./GoerlerImpLin/scanfiles0000/scan.log', './GoerlerImpLin/scanfiles0001/scan.log',
-                './GoerlerImpLin/scanfiles0004/scan.log', './GoerlerImpLin/scanfiles0005/scan.log']
+                './GoerlerImpLin/scanfiles0002/scan.log', './GoerlerImpLin/scanfiles0004/scan.log',
+                './GoerlerImpLin/scanfiles0005/scan.log', './GoerlerImpLin/scanfiles0007/scan.log']
+
+   #runs = runs[:3]
+   #dataFiles = dataFiles[:3]
 
    fig,axs = plt.subplots(2,1)
 

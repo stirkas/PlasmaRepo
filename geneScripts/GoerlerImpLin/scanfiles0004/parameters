@@ -52,7 +52,7 @@ adapt_lx = T
 
 &in_out
 ! where to write output files ?
-diagdir = './scanfiles0000' 
+diagdir = './scanfiles0002' 
 
 ! start from checkpoint file ?
 read_checkpoint  = F
@@ -130,7 +130,7 @@ sign_Bt_CW = 1 !Clock-wise toroidal magnetic field orientation
 
 &species
 name   = 'ions'
-omn    =    2.230    !L_ref/L_n
+omn    =    2.220    !L_ref/L_n
 omt    =    6.960    !L_ref/L_T
 
 mass   =    1.000    !mass in units of m_ref
@@ -143,8 +143,8 @@ charge =  1 	     !charge in elementary charge units
 !set n_spec = 2 to consider electrons
 &species
 name   = 'electrons'
-omn    =    2.230     !L_ref/L_n
-omt    =    6.960     !L_ref/L_T
+omn    =    2.220     !L_ref/L_n
+omt    =    0.000     !L_ref/L_T
 
 mass   =    5.44617E-4 !mass in units of m_ref
 temp   =    1.000     !temperature in units of T_ref
@@ -164,9 +164,7 @@ charge =  -1 	      !charge in elementary charge units
 !(*) will be overwritten by efit and chease interface
 /
 
-/
-
 &scan
 scan_dims = 23
-par_in_dir = './scanfiles0000/in_par'
+par_in_dir = './scanfiles0002/in_par'
 /
