@@ -33,7 +33,7 @@ write_checkpoint = T
 istep_field  =       1
 istep_mom    =       1
 istep_nrg    =       1
-istep_omega  =      20
+istep_omega  =       0
 istep_vsp    =       1
 istep_schpt  =       0
 istep_energy =       1
@@ -102,11 +102,11 @@ charge = -1
 /
 
 &info
-iterations for eigenvalue calculation =      -1
-time for eigenvalue solver =     0.0000
+iterations for eigenvalue calculation =  415662
+time for eigenvalue solver = **********
 init_time =     0.0069
 n_fields = 2
-n_moms   =  0
+n_moms   =  6
 nrgcols  = 10
 lx =   11.9474    
 ly =   62.8319    

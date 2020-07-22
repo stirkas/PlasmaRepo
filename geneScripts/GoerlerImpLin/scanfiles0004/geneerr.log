@@ -1,3 +1,5 @@
+
+ run 1:
 using GENE executable in bin /home/stirkas/Workspace/GENE/genecode/prob05
 gmake -f ../makefiles/rules.mk run
 gmake[1]: Entering directory '/home/stirkas/Workspace/GENE/genecode/prob05'
@@ -1002,3 +1004,16 @@ computed eigenvalues:
 time for eigenvalue computation:109326.976 sec
 ******************************************************
 Time for GENE simulation: 109330.330 sec
+number of iterations:415662
+calculated      2 eigenvectors
+Time for checkpoint_0002 out:     0.003 sec
+Time for checkpoint_0002 out:     0.002 sec
+computed eigenvalues: 
+     0.13077714     0.20214912
+    -0.00248047     0.24972804
+time for eigenvalue computation:256018.543 sec
+******************************************************
+Time for GENE simulation: 256021.380 sec
+Total wallclock time for GENE: 256021.383 sec
+Percentage of idle time at the end of the scan due to load imbalancing:     49.138 %
+gmake[1]: Leaving directory '/home/stirkas/Workspace/GENE/genecode/prob05'

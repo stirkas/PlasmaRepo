@@ -31,6 +31,7 @@
 
 \section{Introduction}
 
+\section{Quasilinear Theory}
 
 \section{Tokamak Geometry}
    \quad For simplicity, we consider an axisymmetric, large aspect-ratio, circular tokamak. This gives
@@ -66,7 +67,7 @@ magnitude, magnetic field unit vector, and toroidal gradient terms can be writte
    \end{equation}
 
 \section{Gyrokinetics}
-   \quad $\bm{Talk about gyrophase-averaging and guiding center coordinates.}$
+   \quad $\textbf{Talk about gyrophase-averaging and guiding center coordinates.}$
 
 \subsection{Vlasov Equation}
    \quad The perturbed, gyrokinetic distribution function is given as a combination of adiabatic
@@ -105,7 +106,7 @@ equation for a species j\cite{FriemanChen},
 
    \begin{equation}
    \begin{aligned}
-      \partial_t\delta H_0 + v_\parallel\nabla_\parallel\delta H_0 +
+      \partial_t\delta H_0 + v_\parallel\nabla_{X_\parallel}\delta H_0 +
       (\bm{v}_d + \frac{c\bm{\hat{b}}\times\nabla_X\langle\delta\Phi\rangle_\alpha}{B})\cdot\nabla_X\delta H_0 \\
       = 
       -\frac{e_j}{m_j}[\partial_t\langle\delta\Phi\rangle_\alpha\partial_{\epsilon^*} f_M
@@ -144,32 +145,163 @@ The second and third terms on the left-hand side of (10) can be simplified to lo
    
    \begin{equation}
    \begin{aligned}
-      v_\parallel\nabla_\parallel &= 
+      v_\parallel\nabla_{X_\parallel} \simeq v_\parallel\nabla_\parallel &= 
          v_\parallel(\bm{\hat{b}}\cdot\nabla) = v_\parallel(\frac{\epsilon}{q}\bm{\hat{e}}_\theta +
          \bm{\hat{e}}_\zeta)\cdot(\partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta + \frac{1}{R_0 +
          r\cos\theta}\partial_\zeta\bm{\hat{e}}_\zeta) \\ &= 
          v_\parallel(\frac{\epsilon}{q r}\partial_\theta + \frac{1}{R}\partial_\zeta) = v_\parallel(\frac{1}{q R_0}\partial_\theta
          + \frac{1}{R}\partial_\zeta) = \frac{v_\parallel}{q R}(\frac{R}{R_0}\partial_\theta + q\partial_\zeta) \\ &=
          \frac{v_\parallel}{q R}((1+\epsilon\cos\theta)\partial_\theta + q\partial_\zeta)
-         \simeq \frac{v_\parallel}{q R}(\partial_\theta + q\partial_\zeta),
+         \simeq \frac{v_\parallel}{q R}(\partial_\theta + q\partial_\zeta) = v_\parallel\frac{\partial}{\partial l},
    \end{aligned}
    \end{equation}
 
    \begin{equation}
    \begin{aligned}
-      \bm{v}_d\cdot\nabla_X &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{cj}}(\sin\theta\bm{\hat{e}}_r + \cos\theta\bm{\hat{e}}_\theta)
-                              \cdot(\partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta) \\
-                            &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{cj}}(\sin\theta\partial_r + \frac{\cos\theta}{r}\partial_\theta)\;.
+      \bm{v}_d\cdot\nabla_X \simeq \bm{v}_d\cdot\nabla &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{cj}}
+      (\sin\theta\bm{\hat{e}}_r + \cos\theta\bm{\hat{e}}_\theta)
+      \cdot(\partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta) \\
+      &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{cj}R_0}(\sin\theta\partial_r + \frac{\cos\theta}{r}\partial_\theta),
    \end{aligned}
    \end{equation}
    %
-Note that we have dropped the non-linear $\bm{E}\times\bm{B}$ drift term on the left-hand side of (10) because we are
-interested in linearizing this equation.
+with $l$ being the infinitesimal length along the field lines. Note that we have dropped the non-linear $\bm{E}\times\bm{B}$ drift term on the left-hand
+side of (10) because we are interested in linearizing this equation.
 
 \subsection{Non-Adiabatic Distribution Function}
    \quad Using a WKB ansatz the gyrophase-averaged terms can be simplified as,
+   
    \begin{equation}
-      \langle A(\bm{x})\rangle_\alpha = J_0(\frac{k_\perp v_\perp}{\omega_{cj}}) A(\bm{X})
+      \langle A(\bm{x})\rangle_\alpha = J_0(\sqrt{m_j}\frac{k_\perp v_{\perp j}}{\omega_{cj}}) A(\bm{X}) = J_0(z_j)A(\bm{X})\;.
+   \end{equation}
+   %
+Then, simplifying (10) using (13)-(15) and taking the Fourier transform, gives,
+
+   \begin{equation}
+   \begin{aligned}
+      -i\omega\delta\widetilde{H} + v_\parallel\frac{\partial}{\partial l}\delta\widetilde{H} + i \bm{v}_d\cdot\bm{k}_X\delta\widetilde{H} &=
+      -\frac{e_j}{m_j}[-i\omega J_0(z_j)\delta\widetilde{\Phi}\partial_{\epsilon^*}f_M \\
+      -\frac{i}{\omega_{cj}}J_0(z_j)\delta\widetilde{\Phi}(\bm{k}\times\bm{\hat{b}})\cdot\frac{d}{dr} f_M\bm{\hat{e}}_r] &=
+      i\frac{e_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{cj}}\frac{d}{dr}]f_M,
+   \end{aligned}
+   \end{equation}
+
+   \begin{equation}
+      \Rightarrow\; (v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H} =
+      i\frac{e_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{cj}}\frac{d}{dr}]f_M,
+   \end{equation}
+   %
+with the following definitions,
+
+   \begin{equation}
+   \begin{aligned}
+      \bar{\omega}_{dj} = -\bm{v}_d\cdot\bm{k} &= \frac{k_\theta(v_\parallel^2 + \frac{1}{2}v_\perp^2)}{\omega_{cj}R_0}(\cos\theta
+                          + \frac{k_r}{k_\theta}\sin\theta) \\
+                       &= \frac{\omega_{dj}}{2}(\left(\frac{v_\parallel}{v_{Tj}}\right)^2 + \frac{1}{2}\left(\frac{v_\perp}{v_{Tj}}\right)^2)
+                          (\cos\theta + \frac{k_r}{k_\theta}\sin\theta),  
+   \end{aligned}
+   \end{equation}
+
+   \begin{equation}
+      \bm{k}\times\bm{\hat{b}} = (k_r\bm{\hat{e}}_r + k_\theta\bm{\hat{e}}_\theta + k_\zeta\bm{\hat{e}}_\zeta)\times
+      (\frac{\epsilon}{q}\bm{\hat{e}}_\theta + \bm{\hat{e}}_\zeta) \simeq -k_r\bm{\hat{e}}_\theta + k_\theta\bm{\hat{e}}_r,
+   \end{equation}
+   %
+where $\omega_{dj}$ represents the magnetic curvature drift frequency,
+   
+   \begin{equation}
+      \omega_{dj} = 2\frac{n}{dn/dr}\frac{\omega_{*j}}{R_0},
+   \end{equation}
+   %
+and $\omega_{*j}$ the diamagnetic drift frequency,
+
+   \begin{equation}
+      \omega_{*j} = \frac{k_\theta T_j}{q_j B}\frac{1}{n}\frac{dn}{dr}\;.
+   \end{equation}
+   %
+Note that $f_M$ depends only on r due to it being a function of $n_j(r)$ and $T_j(r)$ which are only changing across the circular
+flux-surfaces - therefore only functions of radius - and that $\nabla_X \simeq \nabla$ to lowest order for the perturbed distribution
+functions and potential. Next, we can simplify further by plugging in the definition of the Maxwellian, with $k_B T_j \Rightarrow T_j$,
+
+   \begin{equation}
+      f_M(r) = n_j(r)\left(\frac{m_j}{2\pi T_j(r)}\right)^{3/2}e^{-\frac{m_j \epsilon^*}{T_j(r)}},
+   \end{equation}
+   %
+giving the following values for derivatives,
+
+   \begin{equation}
+      \partial_{\epsilon^*}f_M = -\frac{m_j}{T_j}n_j\left(\frac{m_j}{2\pi T_j}\right)^{3/2}e^{-\frac{m_j \epsilon^*}{T_j(r)}} =
+                                 -\frac{m_j}{T_j}f_M,
+   \end{equation}
+   
+   \begin{equation}
+   \begin{aligned}
+      \frac{d}{dr}f_M &= \frac{dn}{dr}\frac{d}{dn}f_M + \frac{dT}{dr}\frac{d}{dT}f_M = 
+                         \frac{dn}{dr}e^{-\frac{m_j \epsilon^*}{T_j(r)}} + 
+                         \frac{dT}{dr}\frac{du}{dT}\frac{d}{du}[n_j\left(\frac{m_j u(T(r))}{2\pi}\right)^{3/2}e^{-m_j \epsilon^* u(T_j(r))}] \\
+                      &= \frac{1}{n}\frac{dn}{dr}f_M + \frac{dT}{dr}\frac{du}{dT}n_j[\frac{3}{2}\left(\frac{m_ju}{2\pi}\right)^{1/2}
+                         \left(\frac{m_j}{2\pi}\right) - m_j\epsilon^*\left(\frac{m_ju}{2\pi}\right)^{3/2}]e^{-m_j \epsilon^* u(T_j(r))} \\
+                      &= \frac{1}{n}\frac{dn}{dr}f_M + \frac{dT}{dr}\frac{du}{dT}[\frac{3}{2}u^{-1} - m_j\epsilon^*]f_M
+                       = [\frac{1}{n}\frac{dn}{dr} + \frac{dT}{dr}(-\frac{1}{T^2})(\frac{3}{2}u^{-1} - m_j\epsilon^*)]f_M \\
+                      &= [\frac{1}{n}\frac{dn}{dr} - \frac{1}{T}\frac{dT}{dr}(\frac{3}{2} - \frac{m_jv^2}{2T_j})]f_M
+                       = [\frac{1}{n}\frac{dn}{dr} - \frac{1}{T}\frac{dT}{dr}(\frac{3}{2} - \frac{v^2}{2v_{Tj}^2})]f_M \\
+                      &= \frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2 - \frac{3}{2})\eta_j]f_M,
+   \end{aligned}
+   \end{equation}
+   %
+given that $u = T^{-1}$, $du = -T^{-2}dT$, $v_{Tj} = \sqrt{\frac{T_j}{m_j}}$, and $\eta_j = \frac{n}{T}\frac{dT}{dn}$. Putting these
+derivatives into (17) then gives,
+   
+   \begin{equation}
+   \begin{aligned}
+      &(v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H} = i\frac{e_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}
+      [-\frac{m_j}{T_j}\omega + \frac{k_\theta}{\omega_{cj}}\frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2
+                                                                                     - \frac{3}{2})\eta_j]]f_M \\
+      \Rightarrow\; &(v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H} = -i\frac{e_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}
+      [\omega - \frac{k_\theta T_j m_j}{q_j B m_j}\frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2
+                                                                                     - \frac{3}{2})\eta_j]]f_M \\
+      \Rightarrow\; &(-v_\parallel\partial_l + i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H} = i\frac{e_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}
+      [\omega - \omega_{*j}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2- \frac{3}{2})\eta_j]]f_M
+   \end{aligned}
+   \end{equation}
+
+   \begin{equation}
+      \Rightarrow\; (-v_\parallel\partial_l + i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}
+      = i\frac{e_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}[\omega - \omega_{*j}^T]f_M,
+   \end{equation}
+   %
+with the following definition,
+   \begin{equation}
+      \omega_{*j}^T = \omega_{*j}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2-\frac{3}{2})\eta_j]\;.
+   \end{equation}
+   %
+Then (26) can be simplified further and solved for $\delta\widetilde{H}$ if a few physical assumptions are made for electron drift and ITG modes.
+First off, trapped particle effects are neglected, i.e.,
+   \begin{equation}
+      \omega \gg \omega_{bj},
+   \end{equation}
+   %
+for $\omega_{bj}$ as the trapped particle frequency. We also assume electrons move rapidly in response to the electrostatic potential,
+   \begin{equation}
+      k_\parallel v_{Te} \gg \omega \gg k_\parallel v_{Ti},
+   \end{equation}
+   %
+noting that $v_{Tj} \simeq v_{\parallel j}$. Finally we assume that the frequency associated with magnetic drifts of ions is much smaller than
+that of the perturbed modes,
+   \begin{equation}
+      \omega \gg \omega_{di}\;.
+   \end{equation}
+   %
+Now, (29) and (30) allow the left-hand side of (26) to be rewritten for ions as,
+   \begin{equation}
+      i(\omega-\bar{\omega}_{di})(1+i\frac{v_\parallel}{\omega-\omega_{di}}\frac{\partial}{\partial l}) \simeq
+      i(\omega-\bar{\omega}_{di})(1+\frac{k_\parallel v_{\parallel i}}{\omega}) \simeq i(\omega-\bar{\omega}_{di})\;.
+   \end{equation}
+   %
+Finally we can solve for $\delta\widetilde{H}$ explicitly by replacing the left-hand side of (26) with (31), giving
+the perturbed, non-adiabatic distribution function for ions,
+   \begin{equation}
+      \delta\widetilde{H} = \frac{e_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}f_M\frac{\omega-\omega_{*i}^T}{\omega-\bar{\omega}_{di}}\;.
    \end{equation}
 
 \begin{thebibliography}{0}
