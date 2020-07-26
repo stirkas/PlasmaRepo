@@ -7,8 +7,9 @@
 \usepackage{esvect}
 \usepackage{enumerate}
 \usepackage{amsmath}  %I added this so that you can use the align tool for equations!
+\usepackage{amssymb}
 \usepackage{wasysym}  %This package allows you to put emojis in your paper!!!!
-	
+
 \usepackage{geometry}
  \geometry{
  a4paper,
@@ -16,6 +17,8 @@
  left=20mm,
  top=20mm,
  }
+
+\numberwithin{equation}{section}
 
 \begin{document}
 
@@ -30,21 +33,105 @@
 
 
 \section{Introduction}
+   \quad Impurity transport is an important issue for fusion plasmas as it can strongly affect the plasma performance.
+In order to achieve continuous operation, particle control is essential\cite{ITER}. For D-T burning plasmas, helium ash exhaust is
+an important requirement; the helium density as well as impurity ion density must be kept sufficiently low in order to
+minimize the dilution of fuel ions. The requirement that the fraction of helium ash remains acceptable ($\lesssim 10\%$) can
+only be met if the outward transport of helium is sufficiently rapid\cite{WessonA}. Impurity accumulation also leads to radiative
+losses and radiative instabilities, which will further lower confinement times and fusion power output. The neoclassical theory of
+impurity transport is highly developed, and it provides a model for the transport of particles, heat, and momentum due to Coulomb
+collisions; however, predictions by this theory are rarely well-matched by experiment. A simple representation of particle flux can
+be expressed as the sum of a diffusive and convective term,
+
+   \begin{equation}
+      \Gamma = -D\frac{dn}{dr} - vn,
+   \end{equation}
+   %
+where $D$ is the diffusivity, and the second term describes an inward pinch with velocity $v$. Diffusivities are generally observed
+to be much larger than the neoclassical values, and experiments on JET, for instance, indicate a sharp transition from approximately
+neoclassical values of $D$ in the core to very anomalous values in the outer region\cite{WessonB}. Turbulent transport is considered
+a plausible candidate for explaining this anomalous transport. 
+
 
 \section{Quasilinear Theory}
+   \quad The theoretical picture of turbulent transport is that the free energy released by an instability drives a steady level of
+fluctuations in associated perturbed quantities, which results in radial transport of particles and energy. Precise relationships
+between the fluctuations and the corresponding transport can be obtained by quasi-linear theory.\cite{WessonC}. In quasi-linear
+theory, it is assumed that the plasma is weakly unstable, and that the instability leads to a broad spectrum of waves that modify
+the background plasma in a self-consistent way via nonlinear interactions\cite{GurnBhatA}. Generally, quantities of interest are taken to be a main
+spatially-averaged part which varies slowly with time compared to the frequency of perturbations, summed with a fluctuation quantity.
+Within our plasma description, the density and velocity contributing to the flux are written as,
+   
+   \begin{equation}
+      n = \langle n \rangle + \delta n,
+   \end{equation}
+
+   \begin{equation}
+      \bm{v} = \delta \bm{v},
+   \end{equation}
+   %
+where $\langle ... \rangle$ represents a flux-surface average, and $\delta \bm{v}$ represents a velocity due to fluctuating quantities.
+These two quantities together give a possibility for the anomalous transport, namely,
+   
+   \begin{equation}
+      \Gamma_r = \langle\delta v_r \delta n\rangle,
+   \end{equation}
+   %
+noting that we are considering flow in the radial direction, so averaging over the poloidal angle when considering the tokamak
+geometry described in the following section. Also, the lowest order term involves a second-order perturbation because
+$\langle \langle n \rangle \delta v_r \rangle = \langle n \rangle \langle \delta v_r \rangle = 0$, since the average of an averaged
+quantity is itself, and the average of truly random fluctuations is zero. The density perturbation can be written in terms of a
+perturbed distribution function integrated over all velocity space, and the perturbed velocity as an $\bm{E}\times\bm{B}$ drift
+where the perturbed $\bm{E}$ field and the background $\bm{B}$ field are used. Taking the poloidal average and bringing the drift
+velocity into the velocity-space integral, we get the following result for the quasi-linear particle flux,
+   
+   \begin{equation}
+      \Gamma_r = \frac{1}{2\pi}\int_{0}^{2\pi} \int_{-\infty}^{\infty}\delta f \frac{\delta E_\theta}{B}d\theta d^{3}v \;.
+   \end{equation}
+   %
+Note there is a subtle point that only the $\theta$-component of $\delta E$ remains because we have dropped the higher order
+term of $\mathcal{O}(\epsilon)$ in the cross product with (3.8). We take the distribution function to be the standard adiabatic form for now, with plans
+to update the perturbed distribution function with gyrokinetic effects as well as with trapped or passing particle dynamics.
+We start by assuming a Maxwellian distribution and calculating the species density by integrating over velocity-space,
+with $k_B T_j \Rightarrow T_j$,
+
+   \begin{equation}
+      f_{M,j} = n_j\left(\frac{m_j}{2\pi T_j}\right)^{3/2}e^{-\frac{m_j \epsilon^*_j}{T_j}},
+   \end{equation}
+
+   \begin{equation}
+      \Phi = \delta\Phi
+   \end{equation}
+
+   \begin{equation}
+      n_j = \int_{-\infty}^{\infty}f_M d^{3}v = n_0e^{-\frac{q\delta\Phi}{T_j}} \simeq n_0(1-\frac{q\delta\Phi}{T_j}),
+   \end{equation}
+   %
+with $\epsilon^*_j = \frac{v^2}{2} + \frac{q_j\Phi}{m_j}$, the particle energy per unit mass, and the following assumptions:
+the approximation that $\frac{q\delta\Phi}{T_j} \ll 1$, and that of quasi-neutrality, i.e. $n_e = n_i$. (2.7) makes clear the following
+definition for the total distribution function,
+   \begin{equation}
+      f_j = f_{0,j} + \delta f_j = f_{0,j} - \frac{q_j\delta\Phi}{T_j}f_0,
+   \end{equation}
+   %
+or, more generally as given by Frieman and Chen\cite{FriemanChen},
+   \begin{equation}
+      \delta f_j = -\frac{q_j}{m_j}\delta\Phi\partial_{\epsilon^*_j}f_{0,j}\;.
+   \end{equation}
+
 
 \section{Tokamak Geometry}
-   \quad For simplicity, we consider an axisymmetric, large aspect-ratio, circular tokamak. This gives
-the following definition for the equilibrium magnetic field,
+   \quad For simplicity, we consider an axisymmetric, large aspect-ratio, circular tokamak. Using the Grad-Shafranov
+equation, the following definition for the equilibrium magnetic field can be found,
 
    \begin{equation}
       \bm{B} = B_\theta\bm{\hat{e}}_\theta + B_\zeta\bm{\hat{e}}_\zeta =
                B_\theta\bm{\hat{e}}_\theta + B_0(1-\epsilon\cos\theta)\bm{\hat{e}}_\zeta =
                B_0[\frac{\epsilon}{q}\bm{\hat{e}}_\theta + (1-\epsilon\cos\theta)\bm{\hat{e}}_\zeta],
    \end{equation}
-   % for no indent next line.
+   %
 where $\epsilon=\frac{r}{R_0} \ll 1$ is the inverse aspect ratio, with $R=R_0+r\cos\theta$, for $r$ the minor radius,
-and $R_0$ the major radius, and q $\simeq\frac{rB_\zeta}{R_0B_\theta}\sim1$ is the safety factor\cite{Wesson} - the number of
+and $R_0$ the major radius, and q $\simeq\frac{rB_\zeta}{R_0B_\theta}\sim1$ is the safety factor - the number of
 toroidal turns required for one poloidal turn of magnetic field lines. The term $\epsilon\cos\theta$ in $R$ takes into
 account the change in toroidal radius along the tokamak midplane. Working to $\mathcal{O}(\epsilon)$, the magnetic field
 magnitude, magnetic field unit vector, and toroidal gradient terms can be written as,
@@ -66,6 +153,7 @@ magnitude, magnetic field unit vector, and toroidal gradient terms can be writte
                \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta + \frac{1}{R_0 + r\cos\theta}\partial_\zeta\bm{\hat{e}}_\zeta\;.
    \end{equation}
 
+
 \section{Gyrokinetics}
    \quad $\textbf{Talk about gyrophase-averaging and guiding center coordinates.}$
 
@@ -85,17 +173,16 @@ where,
    \end{equation}
    
    \begin{equation}
-      \delta G_0 = -\frac{q}{m}\langle\delta L\rangle_\alpha\frac{\partial}{B\partial\mu} + \delta H_0,
+      \delta G_0 = -\frac{q}{m}\langle\delta L\rangle_\alpha\frac{\partial F_0}{B\partial\mu} + \delta H_0,
    \end{equation}
 
    \begin{equation}
       \langle\ldots\rangle_\alpha = \frac{1}{2\pi}\int_{0}^{2\pi}(\ldots)d\alpha,
    \end{equation}
    %
-with $\alpha$ as the gyro-phase angle, $\delta L = \delta\Phi - \frac{\bm{v}\cdot\delta\bm{A}}{c}$, $\epsilon^* = \frac{v^2}{2} + 
-\frac{q\Phi_0}{m}$, and $\mu = \frac{v_\perp^2}{2B}$. Higher order terms in $\delta G$, the perturbed, non-adiabatic distribution function,
-are dropped. We can simplify things further by choosing for $F_0$ a Maxwellian equilibrium distribution function, $f_M$, so that it only depends
-on $\epsilon^*$ and not $\mu$. This gives us a final distribution function,
+with $\alpha$ as the gyro-phase angle, $\delta L = \delta\Phi - \frac{\bm{v}\cdot\delta\bm{A}}{c}$, $\epsilon^*$ defined in section 2, and $\mu = \frac{v_\perp^2}{2B}$.
+Higher order terms in $\delta G$, the perturbed, non-adiabatic distribution function, are dropped. We can simplify things further by choosing for $f_0$ a Maxwellian
+equilibrium distribution function, $f_M$, so that it only depends on $\epsilon^*$ and not $\mu$. This gives us a final distribution function,
 
    \begin{equation}
       \delta F = \frac{q}{m}\delta\Phi\frac{\partial}{\partial\epsilon^*}f_M + \delta H_0\;.
@@ -141,7 +228,8 @@ with, simplifying to lowest order in $\epsilon$,
    \end{aligned}
    \end{equation}
    %
-The second and third terms on the left-hand side of (10) can be simplified to lowest order in $\epsilon$ using (1)-(4) and (11)-(12) as,
+The second and third terms on the left-hand side of (4.6) can be simplified to lowest order in $\epsilon$ using (3.1)-(3.4) and
+(4.6)-(4.7) as,
    
    \begin{equation}
    \begin{aligned}
@@ -165,8 +253,8 @@ The second and third terms on the left-hand side of (10) can be simplified to lo
    \end{aligned}
    \end{equation}
    %
-with $l$ being the infinitesimal length along the field lines. Note that we have dropped the non-linear $\bm{E}\times\bm{B}$ drift term on the left-hand
-side of (10) because we are interested in linearizing this equation.
+with $l$ being the length along the field lines. Note that we have dropped the non-linear $\bm{E}\times\bm{B}$ drift term on the left-hand
+side of (4.6) because we are interested in linearizing this equation.
 
 \subsection{Non-Adiabatic Distribution Function}
    \quad Using a WKB ansatz the gyrophase-averaged terms can be simplified as,
@@ -175,7 +263,7 @@ side of (10) because we are interested in linearizing this equation.
       \langle A(\bm{x})\rangle_\alpha = J_0(\sqrt{m_j}\frac{k_\perp v_{\perp j}}{\omega_{cj}}) A(\bm{X}) = J_0(z_j)A(\bm{X})\;.
    \end{equation}
    %
-Then, simplifying (10) using (13)-(15) and taking the Fourier transform, gives,
+Then, simplifying (4.6) using (4.9)-(4.11) and taking the Fourier transform, gives,
 
    \begin{equation}
    \begin{aligned}
@@ -195,10 +283,10 @@ with the following definitions,
 
    \begin{equation}
    \begin{aligned}
-      \bar{\omega}_{dj} = -\bm{v}_d\cdot\bm{k} &= \frac{k_\theta(v_\parallel^2 + \frac{1}{2}v_\perp^2)}{\omega_{cj}R_0}(\cos\theta
-                          + \frac{k_r}{k_\theta}\sin\theta) \\
-                       &= \frac{\omega_{dj}}{2}(\left(\frac{v_\parallel}{v_{Tj}}\right)^2 + \frac{1}{2}\left(\frac{v_\perp}{v_{Tj}}\right)^2)
-                          (\cos\theta + \frac{k_r}{k_\theta}\sin\theta),  
+      \bar{\omega}_{dj} &= -\bm{v}_d\cdot\bm{k} = \frac{k_\theta(v_\parallel^2 + \frac{1}{2}v_\perp^2)}{\omega_{cj}R_0}(\cos\theta
+                           + \frac{k_r}{k_\theta}\sin\theta) \\
+                        &= \frac{\omega_{dj}}{2}(\left(\frac{v_\parallel}{v_{Tj}}\right)^2 + \frac{1}{2}\left(\frac{v_\perp}{v_{Tj}}\right)^2)
+                           (\cos\theta + \frac{k_r}{k_\theta}\sin\theta),  
    \end{aligned}
    \end{equation}
 
@@ -221,13 +309,8 @@ and $\omega_{*j}$ the diamagnetic drift frequency,
    %
 Note that $f_M$ depends only on r due to it being a function of $n_j(r)$ and $T_j(r)$ which are only changing across the circular
 flux-surfaces - therefore only functions of radius - and that $\nabla_X \simeq \nabla$ to lowest order for the perturbed distribution
-functions and potential. Next, we can simplify further by plugging in the definition of the Maxwellian, with $k_B T_j \Rightarrow T_j$,
-
-   \begin{equation}
-      f_M(r) = n_j(r)\left(\frac{m_j}{2\pi T_j(r)}\right)^{3/2}e^{-\frac{m_j \epsilon^*}{T_j(r)}},
-   \end{equation}
-   %
-giving the following values for derivatives,
+functions and potential. Next, we can simplify further by plugging in the definition of the Maxwellian, giving the following values for
+derivatives,
 
    \begin{equation}
       \partial_{\epsilon^*}f_M = -\frac{m_j}{T_j}n_j\left(\frac{m_j}{2\pi T_j}\right)^{3/2}e^{-\frac{m_j \epsilon^*}{T_j(r)}} =
@@ -250,7 +333,7 @@ giving the following values for derivatives,
    \end{equation}
    %
 given that $u = T^{-1}$, $du = -T^{-2}dT$, $v_{Tj} = \sqrt{\frac{T_j}{m_j}}$, and $\eta_j = \frac{n}{T}\frac{dT}{dn}$. Putting these
-derivatives into (17) then gives,
+derivatives into (4.13) then gives,
    
    \begin{equation}
    \begin{aligned}
@@ -275,13 +358,13 @@ with the following definition,
       \omega_{*j}^T = \omega_{*j}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2-\frac{3}{2})\eta_j]\;.
    \end{equation}
    %
-Then (26) can be simplified further and solved for $\delta\widetilde{H}$ if a few physical assumptions are made for electron drift and ITG modes.
+Then (4.21) can be simplified further and solved for $\delta\widetilde{H}$ if a few physical assumptions are made for electron drift and ITG modes.
 First off, trapped particle effects are neglected, i.e.,
    \begin{equation}
       \omega \gg \omega_{bj},
    \end{equation}
    %
-for $\omega_{bj}$ as the trapped particle frequency. We also assume electrons move rapidly in response to the electrostatic potential,
+for $\omega_{bj}$ as the bounce frequency. We also assume electrons move rapidly in response to the electrostatic potential,
    \begin{equation}
       k_\parallel v_{Te} \gg \omega \gg k_\parallel v_{Ti},
    \end{equation}
@@ -292,22 +375,27 @@ that of the perturbed modes,
       \omega \gg \omega_{di}\;.
    \end{equation}
    %
-Now, (29) and (30) allow the left-hand side of (26) to be rewritten for ions as,
+Now, (4.24) and (4.25) allow the left-hand side of (4.21) to be rewritten for ions as,
    \begin{equation}
       i(\omega-\bar{\omega}_{di})(1+i\frac{v_\parallel}{\omega-\omega_{di}}\frac{\partial}{\partial l}) \simeq
-      i(\omega-\bar{\omega}_{di})(1+\frac{k_\parallel v_{\parallel i}}{\omega}) \simeq i(\omega-\bar{\omega}_{di})\;.
+      i(\omega-\bar{\omega}_{di})(1-\frac{k_\parallel v_{\parallel i}}{\omega}) \simeq i(\omega-\bar{\omega}_{di})\;.
    \end{equation}
    %
-Finally we can solve for $\delta\widetilde{H}$ explicitly by replacing the left-hand side of (26) with (31), giving
+Finally we can solve for $\delta\widetilde{H}$ explicitly by replacing the left-hand side of (4.21) with (4.26), giving
 the perturbed, non-adiabatic distribution function for ions,
    \begin{equation}
       \delta\widetilde{H} = \frac{e_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}f_M\frac{\omega-\omega_{*i}^T}{\omega-\bar{\omega}_{di}}\;.
    \end{equation}
 
 \begin{thebibliography}{0}
-	
-   \bibitem{Wesson} Wesson 2004
-   \bibitem{FriemanChen} Frieman, Chen 1982
+   
+   \bibitem{ITER} ITER Physics Expert Groups on Confinement and Transport and Confine-ment Modelling and Database, Nucl. Fusion \textbf{39}, 2175 (1999).
+   \bibitem{WessonA} Wesson J., \& Campbell D. J., \textit{Tokamaks} (Oxford: Clarendon Press, 2004), p.219
+   \bibitem{WessonB} Wesson J., \& Campbell D. J., \textit{Tokamaks} (Oxford: Clarendon Press, 2004), p.196-197
+   \bibitem{WessonC} Wesson J., \& Campbell D. J., \textit{Tokamaks} (Oxford: Clarendon Press, 2004), p.202-210
+   \bibitem{GurnBhatA} Gurnett, D., \& Bhattacharjee, A., \textit{Introduction to Plasma Physics: With Space and Laboratory Applications}, (Cambridge: Cambridge University Press 2005), p.428
+   \bibitem{FriemanChen} Frieman E. A., Chen L., The Physics of Fluids \textbf{25}, 502 (1982).
+   \bibitem{WessonD} Wesson J., \& Campbell D. J., \textit{Tokamaks} (Oxford: Clarendon Press, 2004), p.112
 	
 \end{thebibliography}
     
