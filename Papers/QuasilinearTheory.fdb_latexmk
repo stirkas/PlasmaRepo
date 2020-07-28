@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1595748022 "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.tex" "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.pdf" "QuasilinearTheory" 1595748022
+["pdflatex"] 1595954530 "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.tex" "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.pdf" "QuasilinearTheory" 1595954530
   "/etc/texmf/web2c/texmf.cnf" 1581302440 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.aux" 1595748022 733 52f9e6c8455515f6e86ffd46f879b307 ""
-  "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.tex" 1595748021 22609 433494044871393fe5537b15b7c540d8 ""
+  "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.aux" 1595954530 1635 30498d46921465e5598973f0eba444f6 ""
+  "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.tex" 1595954529 28867 cb384630e7d166705fcdb76438941476 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1480098698 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1480098698 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -64,6 +64,8 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1480098733 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1480098733 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1480098733 36118 fad905eba93cff5bce1e185fe980a177 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1480098733 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb" 1480098733 38151 b99966dad75d57fae7995e2606557fa7 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb" 1480098733 35479 892d27442ef9ef29ce1ee57aa0e8a665 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1480098733 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1480098815 1458 43ab4710dc82f3edeabecd0d099626b2 ""
@@ -107,11 +109,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1581304821 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1581304851 4126505 80dbf0447577103115828e6845e6643e ""
-  "QuasilinearTheory.aux" 1595748022 733 52f9e6c8455515f6e86ffd46f879b307 ""
-  "QuasilinearTheory.tex" 1595748021 22609 433494044871393fe5537b15b7c540d8 ""
+  "QuasilinearTheory.aux" 1595954530 1635 30498d46921465e5598973f0eba444f6 ""
+  "QuasilinearTheory.tex" 1595954529 28867 cb384630e7d166705fcdb76438941476 ""
   (generated)
-  "QuasilinearTheory.pdf"
   "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.pdf"
+  "QuasilinearTheory.pdf"
   "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.log"
   "QuasilinearTheory.aux"
   "QuasilinearTheory.log"
