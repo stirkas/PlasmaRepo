@@ -57,23 +57,20 @@ is considered a plausible candidate for explaining this anomalous transport.
    \quad Perhaps the most important piece of information used here is the particle distribution function - the function that describes the
 probability of finding particles at a certain position with a certain velocity in 6-D phase space. The distribution function is taken to be
 the standard adiabatic form for now, with plans to update the perturbed distribution function with gyrokinetic effects as well as with trapped
-or passing particle dynamics as necessary. We start by assuming a Maxwellian distribution and calculating the species density by integrating over
-velocity-space, with $k_B T_j \Rightarrow T_j$,
+or passing particle dynamics as necessary. We start by assuming a Maxwellian distribution modified by a potential term and with $T_j$ represented
+in terms of energy, i.e. $k_B T_j \Rightarrow T_j$,
    \begin{equation}
-      f_{M,j} = n_j\left(\frac{m_j}{2\pi T_j}\right)^{3/2}e^{-\frac{m_j \epsilon^*_j}{T_j}},
+      f_{0,j} = n_j\left(\frac{m_j}{2\pi T_j}\right)^{3/2}e^{-\frac{m_j \epsilon^*_j}{T_j}}
+              = f_{M,j}e^{-\frac{q_j\delta\Phi}{T_j}} \simeq f_{M,j}(1-\frac{q_j\delta\Phi}{T_j}),
    \end{equation}
    
    \begin{equation}
       \Phi = \delta\Phi
    \end{equation}
-   
-   \begin{equation}
-      n_j = \int_{-\infty}^{\infty}f_M d^{3}v = n_0e^{-\frac{q\delta\Phi}{T_j}} \simeq n_0(1-\frac{q\delta\Phi}{T_j}),
-   \end{equation}
    %
-with $\epsilon^*_j \equiv \frac{v^2}{2} + \frac{q_j\Phi}{m_j}$, the particle energy per unit mass, and the following assumptions:
-the approximation that $\frac{q\delta\Phi}{T_j} \ll 1$, and that of quasi-neutrality, i.e. $n_e = n_i = n_0$. (1.2.3) makes
-clear the following definition for the total distribution function in the case of a Maxwellian,
+with $\epsilon^*_j \equiv \frac{v^2}{2} + \frac{q_j\Phi}{m_j}$, the particle energy per unit mass, and the approximation that
+that $\frac{q\delta\Phi}{T_j} \ll 1$. (1.2.1) makes clear the following definition for the total distribution function in the
+case of a Maxwellian,
    \begin{equation}
       f_j = f_{0,j} + \delta f_j = f_{M,j} - \frac{q_j\delta\Phi}{T_j}f_{M,j},
    \end{equation}
@@ -231,7 +228,7 @@ equation for a species j\cite{FriemanChen},
    \begin{aligned}
         \partial_t\delta H_0 + v_\parallel\nabla_{X_\parallel}\delta H_0 +
         (\bm{v}_d + \frac{\bm{\hat{b}}\times\nabla_X\langle\delta\Phi\rangle_\alpha}{B})\cdot\nabla_X\delta H_0 \\
-      = -\frac{e_j}{m_j}[\partial_t\langle\delta\Phi\rangle_\alpha\partial_{\epsilon^*} f_M
+      = -\frac{q_j}{m_j}[\partial_t\langle\delta\Phi\rangle_\alpha\partial_{\epsilon^*} f_M
         -\frac{1}{\omega_{cj}}(\nabla_X\langle\delta\Phi\rangle_\alpha\times\bm{\hat{b}})\cdot\nabla_X f_M],
    \end{aligned}
    \end{equation}
@@ -335,15 +332,15 @@ with the following definition for the zeroth-order Bessel function,
    \begin{equation}
    \begin{aligned}
       (-i\omega\delta + v_\parallel\frac{\partial}{\partial l} + i \bm{v}_d\cdot\bm{k}_X)\delta\widetilde{H}_0 &=
-      -\frac{e_j}{m_j}[-i\omega J_0(z_j)\delta\widetilde{\Phi}\partial_{\epsilon^*}f_M \\
+      -\frac{q_j}{m_j}[-i\omega J_0(z_j)\delta\widetilde{\Phi}\partial_{\epsilon^*}f_M \\
       -\frac{i}{\omega_{cj}}J_0(z_j)\delta\widetilde{\Phi}(\bm{k}\times\bm{\hat{b}})\cdot\frac{d}{dr} f_M\bm{\hat{e}}_r] &=
-      i\frac{e_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{cj}}\frac{d}{dr}]f_M,
+      i\frac{q_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{cj}}\frac{d}{dr}]f_M,
    \end{aligned}
    \end{equation}
 
    \begin{equation}
       \Rightarrow\; (v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 =
-      i\frac{e_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{cj}}\frac{d}{dr}]f_M,
+      i\frac{q_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{cj}}\frac{d}{dr}]f_M,
    \end{equation}
    %
 with the following definitions,
@@ -399,18 +396,18 @@ given that $u = T^{-1}$, $du = -T^{-2}dT$, $v_{Tj} \equiv \sqrt{\frac{T_j}{m_j}}
 derivatives into (3.2.2) then gives,
    \begin{equation}
    \begin{aligned}
-      &(v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 =               \\ &-i\frac{e_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}
+      &(v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 =               \\ &-i\frac{q_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}
           [-\frac{m_j}{T_j}\omega + \frac{k_\theta}{\omega_{cj}}\frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2 - \frac{3}{2})\eta_j]]      \\
-      \Rightarrow\; &(v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 = \\ &-i\frac{e_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}
+      \Rightarrow\; &(v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 = \\ &-i\frac{q_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}
           [\omega - \frac{k_\theta T_j m_j}{q_j B m_j}\frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2 - \frac{3}{2})\eta_j]]f_M             \\
-      \Rightarrow\; &(-v_\parallel\partial_l + i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 = \\ &i\frac{e_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}
+      \Rightarrow\; &(-v_\parallel\partial_l + i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 = \\ &i\frac{q_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}
           [\omega - \omega_{*j}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2- \frac{3}{2})\eta_j]]f_M
    \end{aligned}
    \end{equation}
 
    \begin{equation}
       \Rightarrow\; (-v_\parallel\partial_l + i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0
-      = i\frac{e_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}[\omega - \omega_{*j}^T]f_M,
+      = i\frac{q_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}[\omega - \omega_{*j}^T]f_M,
    \end{equation}
    %
 with the following definition,
@@ -444,13 +441,13 @@ Now, (3.2.13) and (3.2.14) allow the left-hand side of (3.2.10) to be rewritten 
 Finally, we can solve for $\delta\widetilde{H}$ explicitly by replacing the left-hand side of (3.2.10) with (3.2.15), giving
 the perturbed, non-adiabatic distribution function for ions,
    \begin{equation}
-      \delta\widetilde{H}_0 = \frac{e_i}{T_i}J_0(z_i)\delta\widetilde{\Phi}
+      \delta\widetilde{H}_0 = \frac{q_i}{T_i}J_0(z_i)\delta\widetilde{\Phi}
                                       f_M\frac{\omega-\omega_{*i}^T}{\omega-\bar{\omega}_{di}},
    \end{equation}
    %
 or, converting back to $\bm{x}$ coordinates using (3.1.12) for the velocity-space integration to get $n_j$,
    \begin{equation}
-      \delta\widetilde{H}_0(\bm{x}) = \frac{e_i}{T_i}J_0(z_i)\delta\widetilde{\Phi}(\bm{x})
+      \delta\widetilde{H}_0(\bm{x}) = \frac{q_i}{T_i}J_0(z_i)\delta\widetilde{\Phi}(\bm{x})
                                       f_M\frac{\omega-\omega_{*i}^T}{\omega-\bar{\omega}_{di}}e^{iz\sin\alpha}\;.
    \end{equation}
    %
@@ -458,10 +455,10 @@ Note that again the arbitrary choice in the direction of $\bm{k}_\perp$ is invok
 integrated over again when the distribution function is integrated over velocity-space to give the flux.
 
 \subsection{Quasi-linear Anomalous Flux}
-   \quad We can now plug our perturbed distribution functions into the quasi-linear estimate for anomalous transport, (2.1.4). For a
-system of ions and electrons with no impurities, the total perturbed distribution functions is given as,
+   \quad We can now plug our perturbed distribution functions into the quasi-linear estimate for radial flux, (2.1.4). For a
+system of ions and electrons with no impurities, the total perturbed distribution function is given as,
    \begin{equation}
-      \delta \widetilde{f_i} = \frac{q_i}{T_i}\delta\widetilde{\Phi}f_M + \delta\widetilde{H}_0
+      \delta \widetilde{f_i} = -\frac{q_i}{T_i}\delta\widetilde{\Phi}f_M + \delta\widetilde{H}_0
    \end{equation}
 
 
