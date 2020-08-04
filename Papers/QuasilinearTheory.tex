@@ -55,7 +55,7 @@ is considered a plausible candidate for explaining this anomalous transport.
 
 \subsection{Distribution Function}
    \quad Perhaps the most important piece of information used here is the particle distribution function - the function that describes the
-probability of finding particles at a certain position with a certain velocity in 6-D phase space. The distribution function is taken to be
+probability of finding particles at a certain position with a certain velocity in 6-D phase-space. The distribution function is taken to be
 the standard adiabatic form for now, with plans to update the perturbed distribution function with gyrokinetic effects as well as with trapped
 or passing particle dynamics as necessary. We start by assuming a Maxwellian distribution modified by a potential term and with $T_j$ represented
 in terms of energy, i.e. $k_B T_j \Rightarrow T_j$,
@@ -63,7 +63,7 @@ in terms of energy, i.e. $k_B T_j \Rightarrow T_j$,
       f_{0,j} = n_j\left(\frac{m_j}{2\pi T_j}\right)^{3/2}e^{-\frac{m_j \epsilon^*_j}{T_j}}
               = f_{M,j}e^{-\frac{q_j\delta\Phi}{T_j}} \simeq f_{M,j}(1-\frac{q_j\delta\Phi}{T_j}),
    \end{equation}
-   
+   %
    \begin{equation}
       \Phi = \delta\Phi
    \end{equation}
@@ -80,6 +80,38 @@ or, more generally as given by Frieman and Chen\cite{FriemanChen},
       \delta f_j = -\frac{q_j}{m_j}\delta\Phi\partial_{\epsilon^*}f_{0,j}\;.
    \end{equation}
    %
+We also assume a condition for quasi-neutrality, which states that as a whole the plasma remains charge-neutral,
+   \begin{equation}
+      \sum\limits_{j}q_j n_j = 0,
+   \end{equation}
+   %
+where the density $n_j$ is defined as the integration of the distribution function over velocity space,
+   \begin{equation}
+      n_j = \int f_j d^{3}v\;.
+   \end{equation}
+   %
+Liouville's theorem gives, using Hamiltonian theory, the time-evolution of the phase-space distribution function of a species, namely\cite{WessonD},
+   \begin{equation}
+      \frac{df_j(\bm{x},\bm{p},t)}{dt} = \frac{\partial f_j}{\partial t}
+                                       + \frac{\partial f_j}{\partial \bm{x}}\frac{\partial \bm{x}}{\partial t}
+                                       + \frac{\partial f_j}{\partial \bm{p}}\frac{\partial \bm{p}}{\partial t} = 0.                     
+   \end{equation}
+   %
+(1.2.7) can be used to get the Vlasov equation\cite{WessonD}, which uses the Lorentz force law to determine the time-evolution
+of the distribution function for a species in a plasma,
+   \begin{equation}
+      \frac{\partial f_j}{\partial t} + \bm{v}_j\cdot\nabla f_j + \frac{q_j}{m_j}(\bm{E} + \bm{v_j}\times\bm{B})\cdot\nabla_v f_j = 0\;.
+   \end{equation}
+   %
+It is trivial to show that a Maxwellian distribution satisfies (1.2.7). In the case of allowing collisions/interactions between species the
+Vlasov equation is amended to the Fokker-Planck equation which contains on the right hand side terms for interactions between each pair of species\cite{WessonD},
+   \begin{equation}
+      \frac{\partial f_j}{\partial t} + \bm{v}_j\cdot\nabla f_j
+      + \frac{q_j}{m_j}(\bm{E} + \bm{v_j}\times\bm{B})\cdot\nabla_v f_j = \left(\frac{\partial f_j}{\partial t}\right)_c.
+   \end{equation}
+   %
+Note that when (1.2.9) is summed over all species, the pairs of collision terms will cancel due to Newton's $3^{rd}$ law,
+giving again $0$ on the right-hand side.
 
 \subsection{Tokamak Geometry}
    \quad For the tokamak geometry, we consider, for simplicity, an axisymmetric, large aspect-ratio, circular tokamak.
@@ -99,13 +131,13 @@ magnitude, magnetic field unit vector, and toroidal gradient terms can be writte
       B \equiv \sqrt{\bm{B}\cdot\bm{B}} = \sqrt{B_0^2[(1-\epsilon\cos\theta)^2 + (\frac{\epsilon}{q})\strut^2]} =
           B_0\sqrt{1-2\epsilon\cos\theta} \simeq B_0(1-\epsilon\cos\theta),
    \end{equation}
-
+   %
    \begin{equation}
       \bm{\hat{b}} \equiv \frac{\bm{B}}{B} = \frac{\frac{\epsilon}{q}\bm{\hat{e}}_\theta + (1-\epsilon\cos\theta)\bm{\hat{e}}_\zeta}
                      {1-\epsilon\cos\theta} \simeq \frac{\epsilon}{q}(1+\epsilon\cos\theta)\bm{\hat{e}}_\theta + 
                      \bm{\hat{e}}_\zeta \simeq \frac{\epsilon}{q}\bm{\hat{e}}_\theta + \bm{\hat{e}}_\zeta,
    \end{equation}
-
+   %
    \begin{equation}
       \nabla = \partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta +
                \frac{1}{R}\partial_\zeta\bm{\hat{e}}_\zeta = \partial_r\bm{\hat{e}}_r   +
@@ -124,7 +156,7 @@ quantity. Within our plasma description, the density and velocity contributing t
    \begin{equation}
       n = \langle n \rangle + \delta n,
    \end{equation}
-
+   %
    \begin{equation}
       \bm{v} = \delta \bm{v},
    \end{equation}
@@ -136,7 +168,7 @@ the effects of linear perturbations and so assume the form,
    \end{equation}
 
 \subsection{Anomalous Transport}
-   \quad (2.0.1) and (2.0.2) together give a possibility for the anomalous transport, namely,
+   \quad (2.0.1) and (2.0.2) together give a possibility for the anomalous turbulent transport, namely,
    \begin{equation}
       \Gamma_r = \langle\delta v_r \delta n\rangle_\theta,
    \end{equation}
@@ -149,32 +181,48 @@ perturbed distribution function integrated over all velocity space, and the pert
 where the perturbed $\bm{E}$ field and the background $\bm{B}$ field are used. Taking the poloidal average and bringing the drift
 velocity into the velocity-space integral, we get the following result for the quasi-linear particle flux, 
    \begin{equation}
-      \Gamma_r = \langle\int_{-\infty}^{\infty}\delta f \frac{\delta\bm{E}\times\bm{\hat{b}}}{B} d^{3}v\rangle_\theta
-               = \frac{1}{2\pi}\int_{0}^{2\pi} \int_{-\infty}^{\infty}\delta f \frac{\delta E_\theta}{B}d\theta d^{3}v \;.
+      \Gamma_r = \langle\int\delta f \frac{\delta\bm{E}\times\bm{\hat{b}}}{B} d^{3}v\rangle_\theta
+               = \frac{1}{2\pi}\int_{0}^{2\pi} \int\delta f \frac{\delta E_\theta}{B}d\theta d^{3}v \;.
    \end{equation}
    %
 Note there is a subtle point that only the $\theta$-component of $\delta E$ remains because we have dropped the term of
 $\mathcal{O}(\epsilon)$ in the cross product with (1.9). For quasi-linear theory, equations will be linearized
 and a Fourier transform can be taken to give a flux for each mode,
    \begin{equation}
-      \Gamma_{r,k} = \frac{1}{2\pi}\int_{0}^{2\pi} \int_{-\infty}^{\infty}\delta\widetilde{f}
-                     \frac{(-\nabla_\theta(\delta\widetilde{\Phi}))}{B}d\theta d^{3}v
-                   = -\frac{ik_\theta}{2\pi B}\int_{0}^{2\pi}\int_{-\infty}^{\infty}\delta\widetilde{f}
-                     \delta\widetilde{\Phi}d\theta d^{3}v,
+      \Gamma_r = \frac{1}{2\pi}\int_{0}^{2\pi} \int\delta\widetilde{f}
+                    \frac{(-\nabla_\theta(\delta\widetilde{\Phi}))}{B}d\theta d^{3}v
+               = -\frac{ik_\theta}{2\pi B}\int_{0}^{2\pi}\int\delta\widetilde{f}
+                    \delta\widetilde{\Phi}d\theta d^{3}v,
    \end{equation}
    %
-which can be made more general by allowing $\delta\widetilde{f}$ and $\delta\widetilde{\Phi}$ to be complex when calculating a real flux
-value, i.e.,
+where a $\sim$ over a quantity represents a Fourier mode. (2.1.3) can be made more general by allowing $\delta\widetilde{f}$ and $\delta\widetilde{\Phi}$
+to be complex when calculating a real flux value. Given the following complex relations, the flux can be rewritten,
    \begin{equation}
-      \Gamma_{r,k} = -\frac{ik_\theta}{2\pi B}\int_{0}^{2\pi}\int_{-\infty}^{\infty} (\delta\widetilde{f}^*\delta\widetilde{\Phi}
-                     + \delta\widetilde{f}\delta\widetilde{\Phi}^*)d\theta d^{3}v\;.
+      \operatorname{\mathbb{I}m}\{\delta\widetilde{f}\delta\widetilde{\Phi}\} = \operatorname{\mathbb{I}m}\{(a+ib)(c+id)\}
+         = bc + ad,
+   \end{equation}
+   %
+   \begin{equation}
+   \begin{aligned}
+      \delta\widetilde{f}^*\delta\widetilde{\Phi} + \delta\widetilde{f}\delta\widetilde{\Phi}^*
+         &= [(a-ib)(c+id) + (a+ib)(c-id)]             \\
+         &= [ac-ibc+iad+bd+ac+ibc-iad+bd] = 2[ac+bd], \\
+      \delta\widetilde{f}^*\delta\widetilde{\Phi} - \delta\widetilde{f}\delta\widetilde{\Phi}^*
+         &= [(a-ib)(c+id) - (a+ib)(c-id)]             \\
+         &= [ac-ibc+iad+bd-ac-ibc+iad-bd] = 2i[ad-bc],
+   \end{aligned}
+   \end{equation}
+   %
+   \begin{equation}
+      \Gamma_r = -\frac{ik_\theta}{2\pi B}\int_{0}^{2\pi}\int(\delta\widetilde{f}^*\delta\widetilde{\Phi}
+                 - \delta\widetilde{f}\delta\widetilde{\Phi}^*)d\theta d^{3}v\;.
    \end{equation}
 
 
 \section{Gyrokinetics}
    \quad Gyrokinetics provides a framework to study plasma behavior on perpendicular scales comparable to that of the
 particle gyroradius $\rho$ and frequencies much lower than the particle cyclotron frequencies $\omega_c$. This model assumes
-the following: $\rho \ll L$, with L the characteristic macroscopic plasma scale; $\omega \ll \omega_{ci} \ll \omega_{ce}$;
+the following: $\rho \ll L$, with L the characteristic macroscopic plasma scale; $\omega \ll \omega_{c,i} \ll \omega_{ce}$;
 and $k_\perp \rho_i \sim 1$\cite{GyroKinAstr}. The trajectory of these particles is decomposed into a slow guiding center motion
 along the field line and a fast circular motion around the field line. The gyrokinetic Vlasov equation is found by converting the
 standard Vlasov equation to guiding center coordinates $\bm{X}$ and $\bm{V}$ and averaging over the gyrophase angle $\alpha
@@ -183,7 +231,7 @@ standard Vlasov equation to guiding center coordinates $\bm{X}$ and $\bm{V}$ and
       \bm{X} = \bm{x} + \frac{\bm{v}\times\bm{\hat{b}}}{\omega_c} = \bm{x} + \frac{\bm{v}_\perp}{\omega_c}
              = \bm{x} + \bm{\rho},
    \end{equation}
-
+   %
    \begin{equation}
       \bm{V} = \bm{V}(\epsilon^*, \mu, \alpha) = \dot{\bm{X}},
    \end{equation}
@@ -205,11 +253,11 @@ where,
    \begin{equation}
       \delta F_a = \delta\Phi[\frac{\partial}{\partial\epsilon^*} + \frac{\partial}{B\partial\mu}]F_0, 
    \end{equation}
-   
+   %
    \begin{equation}
       \delta G_0 = -\frac{q}{m}\langle\delta\Phi\rangle_\alpha\frac{\partial F_0}{B\partial\mu} + \delta H_0,
    \end{equation}
-
+   %
    \begin{equation}
       \langle\ldots\rangle_\alpha = \frac{1}{2\pi}\int_{0}^{2\pi}(\ldots)d\alpha\;.
    \end{equation}
@@ -229,14 +277,14 @@ equation for a species j\cite{FriemanChen},
         \partial_t\delta H_0 + v_\parallel\nabla_{X_\parallel}\delta H_0 +
         (\bm{v}_d + \frac{\bm{\hat{b}}\times\nabla_X\langle\delta\Phi\rangle_\alpha}{B})\cdot\nabla_X\delta H_0 \\
       = -\frac{q_j}{m_j}[\partial_t\langle\delta\Phi\rangle_\alpha\partial_{\epsilon^*} f_M
-        -\frac{1}{\omega_{cj}}(\nabla_X\langle\delta\Phi\rangle_\alpha\times\bm{\hat{b}})\cdot\nabla_X f_M],
+        -\frac{1}{\omega_{c,j}}(\nabla_X\langle\delta\Phi\rangle_\alpha\times\bm{\hat{b}})\cdot\nabla_X f_M],
    \end{aligned}
    \end{equation}
    %
 where $\bm{v}_d$, the sum of magnetic curvature and gradient drift terms, is defined as,
    \begin{equation}
    \begin{aligned}
-      \bm{v}_d = \frac{v_\parallel^2 + \frac{1}{2} v_\perp^2}{\omega_{cj}}\frac{\bm{B}\times\nabla B}{B^2},
+      \bm{v}_d = \frac{v_\parallel^2 + \frac{1}{2} v_\perp^2}{\omega_{c,j}}\frac{\bm{B}\times\nabla B}{B^2},
    \end{aligned}
    \end{equation}
    %
@@ -272,13 +320,13 @@ The second and third terms on the left-hand side of (3.1.6) can be simplified to
          \simeq \frac{v_\parallel}{q R}(\partial_\theta + q\partial_\zeta) = v_\parallel\frac{\partial}{\partial l},
    \end{aligned}
    \end{equation}
-
+   %
    \begin{equation}
    \begin{aligned}
-      \bm{v}_d\cdot\nabla_X = \bm{v}_d\cdot\nabla &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{cj}}
+      \bm{v}_d\cdot\nabla_X = \bm{v}_d\cdot\nabla &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{c,j}}
       (\sin\theta\bm{\hat{e}}_r + \cos\theta\bm{\hat{e}}_\theta)
       \cdot(\partial_r\bm{\hat{e}}_r + \frac{1}{r}\partial_\theta\bm{\hat{e}}_\theta) \\
-      &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{cj}R_0}(\sin\theta\partial_r + \frac{\cos\theta}{r}\partial_\theta),
+      &= -\frac{v_\parallel^2 + \frac{1}{2}v_\perp^2}{\omega_{c,j}R_0}(\sin\theta\partial_r + \frac{\cos\theta}{r}\partial_\theta),
    \end{aligned}
    \end{equation}
    %
@@ -316,106 +364,107 @@ $\bm{v}_\perp$ in the gyrokinetic introduction above. This leads to the followin
 for gyrophase-averages,
    \begin{equation}
    \begin{aligned}
-      \langle A(\bm{x})\rangle_\alpha &= \frac{1}{2\pi}\int_{0}^{2\pi}\bar{A}(\bm{X},\bm{V},k_\perp)e^{-i k_\perp\rho\sin\alpha} d\alpha \\
-                                      &= J_0(k_\perp \rho) A(\bm{X}) = J_0(\frac{k_\perp v_{\perp}}{\omega_c})A(\bm{X}) \\
-                                      &= J_0(z)A(\bm{X}),
+      \langle A(\bm{x})\rangle_\alpha &= \frac{1}{2\pi}\int_{0}^{2\pi}\bar{A}(\bm{X},\bm{V},k_\perp)e^{-iz\sin\alpha} d\alpha \\
+                                      &= J_0(z) A(\bm{X}) = J_0(z)A(\bm{X}) = J_0(z)A(\bm{X}),
    \end{aligned}
    \end{equation}
    %
 with the following definition for the zeroth-order Bessel function,
    \begin{equation}
-      J_0(z) = \frac{1}{2\pi}\int_{0}^{2\pi}e^{-iz\sin\alpha}d\alpha\;.
+      J_0(z) = \frac{1}{2\pi}\int_{0}^{2\pi}e^{\pm iz\sin\alpha}d\alpha\;.
    \end{equation}
 
 \subsection{Gyrokinetic Distribution Function}
    \quad We can simplify (3.1.6) further by plugging in (3.1.9), (3.1.10), and (3.1.15) and then taking the Fourier transform, giving,
    \begin{equation}
    \begin{aligned}
-      (-i\omega\delta + v_\parallel\frac{\partial}{\partial l} + i \bm{v}_d\cdot\bm{k}_X)\delta\widetilde{H}_0 &=
-      -\frac{q_j}{m_j}[-i\omega J_0(z_j)\delta\widetilde{\Phi}\partial_{\epsilon^*}f_M \\
-      -\frac{i}{\omega_{cj}}J_0(z_j)\delta\widetilde{\Phi}(\bm{k}\times\bm{\hat{b}})\cdot\frac{d}{dr} f_M\bm{\hat{e}}_r] &=
-      i\frac{q_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{cj}}\frac{d}{dr}]f_M,
+      (-i\omega + v_\parallel\frac{\partial}{\partial l} + i \bm{v}_d\cdot\bm{k}_X)\delta\widetilde{H}_0 &=
+      -\frac{q_j}{m_j}[-i\omega J_0(z_j)\delta\widetilde{\Phi}\partial_{\epsilon^*}f_{M,j} \\
+      -\frac{i}{\omega_{c,j}}J_0(z_j)\delta\widetilde{\Phi}(\bm{k}\times\bm{\hat{b}})\cdot\frac{d}{dr} f_{M,j}\bm{\hat{e}}_r] &=
+      i\frac{q_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{c,j}}\frac{d}{dr}]f_{M,j},
    \end{aligned}
    \end{equation}
-
+   %
    \begin{equation}
       \Rightarrow\; (v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 =
-      i\frac{q_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{cj}}\frac{d}{dr}]f_M,
+      i\frac{q_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}[\omega\partial_{\epsilon^*} + \frac{k_\theta}{\omega_{c,j}}\frac{d}{dr}]f_{M,j},
    \end{equation}
    %
 with the following definitions,
    \begin{equation}
    \begin{aligned}
-      \bar{\omega}_{dj} &\equiv -\bm{v}_d\cdot\bm{k} = \frac{k_\theta(v_\parallel^2 + \frac{1}{2}v_\perp^2)}{\omega_{cj}R_0}(\cos\theta
+      \bar{\omega}_{dj} &\equiv -\bm{v}_d\cdot\bm{k} = \frac{k_\theta(v_\parallel^2 + \frac{1}{2}v_\perp^2)}{\omega_{c,j}R_0}(\cos\theta
                                 + \frac{k_r}{k_\theta}\sin\theta) \\
-                        &= \frac{\omega_{dj}}{2}(\left(\frac{v_\parallel}{v_{Tj}}\right)^2 + \frac{1}{2}\left(\frac{v_\perp}{v_{Tj}}\right)^2)
+                        &= \frac{\omega_{d,j}}{2}(\left(\frac{v_\parallel}{v_{T,j}}\right)^2 + \frac{1}{2}\left(\frac{v_\perp}{v_{T,j}}\right)^2)
                            (\cos\theta + \hat{s}\theta\sin\theta),  
    \end{aligned}
    \end{equation}
-
+   %
    \begin{equation}
       \bm{k}\times\bm{\hat{b}} = (k_r\bm{\hat{e}}_r + k_\theta\bm{\hat{e}}_\theta + k_\zeta\bm{\hat{e}}_\zeta)\times
       (\frac{\epsilon}{q}\bm{\hat{e}}_\theta + \bm{\hat{e}}_\zeta) \simeq -k_r\bm{\hat{e}}_\theta + k_\theta\bm{\hat{e}}_r,
    \end{equation}
    %
-where $\partial_r = i k_\theta\hat{s}\theta \Rightarrow k_r = k_\theta\hat{s}\theta$, for magnetic shear $\hat{s}$\cite{HC}. $\omega_{dj}$ represents
+where $\partial_r = i k_\theta\hat{s}\theta \Rightarrow k_r = k_\theta\hat{s}\theta$, for magnetic shear $\hat{s}$\cite{HC}. $\omega_{d,j}$ represents
 the magnetic curvature drift frequency,
    \begin{equation}
-      \omega_{dj} \equiv 2\frac{n}{dn/dr}\frac{\omega_{*j}}{R_0},
+      \omega_{d,j} \equiv 2\frac{n}{dn/dr}\frac{\omega_{*,j}}{R_0} = 2\frac{k_\theta T_j}{q_j B R_0},
    \end{equation}
    %
-and $\omega_{*j}$ the diamagnetic drift frequency,
+and $\omega_{*,j}$ the diamagnetic drift frequency,
    \begin{equation}
-      \omega_{*j} \equiv \frac{k_\theta T_j}{q_j B}\frac{1}{n}\frac{dn}{dr}\;.
+      \omega_{*,j} \equiv \frac{k_\theta T_j}{q_j B}\frac{1}{n}\frac{dn}{dr}\;.
    \end{equation}
    %
-Note that $f_M$ depends only on r due to it being a function of $n_j(r)$ and $T_j(r)$ which are only changing across the circular
+Note that $f_{M,j}$ depends only on r due to it being a function of $n_j(r)$ and $T_j(r)$ which are only changing across the circular
 flux-surfaces - therefore only functions of radius. Next, we can simplify further by plugging in the definition of the Maxwellian,
 giving the following values for derivatives,
    \begin{equation}
-      \partial_{\epsilon^*}f_M = -\frac{m_j}{T_j}n_j\left(\frac{m_j}{2\pi T_j}\right)^{3/2}e^{-\frac{m_j \epsilon^*}{T_j(r)}} =
-                                 -\frac{m_j}{T_j}f_M,
+      \partial_{\epsilon^*}f_{M,j} = -\frac{m_j}{T_j}n_j\left(\frac{m_j}{2\pi T_j}\right)^{3/2}e^{-\frac{m_j \epsilon^*}{T_j(r)}} =
+                                 -\frac{m_j}{T_j}f_{M,j},
    \end{equation}
-   
+   %
    \begin{equation}
    \begin{aligned}
-      \frac{d}{dr}f_M &= \frac{dn}{dr}\frac{d}{dn}f_M + \frac{dT}{dr}\frac{d}{dT}f_M = 
+      \frac{d}{dr}f_{M,j} &= \frac{dn}{dr}\frac{d}{dn}f_{M,j} + \frac{dT}{dr}\frac{d}{dT}f_{M,j} = 
                          \frac{dn}{dr}e^{-\frac{m_j \epsilon^*}{T_j(r)}} + 
                          \frac{dT}{dr}\frac{du}{dT}\frac{d}{du}[n_j\left(\frac{m_j u(T(r))}{2\pi}\right)^{3/2}e^{-m_j \epsilon^* u(T_j(r))}] \\
-                      &= \frac{1}{n}\frac{dn}{dr}f_M + \frac{dT}{dr}\frac{du}{dT}n_j[\frac{3}{2}\left(\frac{m_ju}{2\pi}\right)^{1/2}
+                      &= \frac{1}{n}\frac{dn}{dr}f_{M,j} + \frac{dT}{dr}\frac{du}{dT}n_j[\frac{3}{2}\left(\frac{m_ju}{2\pi}\right)^{1/2}
                          \left(\frac{m_j}{2\pi}\right) - m_j\epsilon^*\left(\frac{m_ju}{2\pi}\right)^{3/2}]e^{-m_j \epsilon^* u(T_j(r))} \\
-                      &= \frac{1}{n}\frac{dn}{dr}f_M + \frac{dT}{dr}\frac{du}{dT}[\frac{3}{2}u^{-1} - m_j\epsilon^*]f_M
-                       = [\frac{1}{n}\frac{dn}{dr} + \frac{dT}{dr}(-\frac{1}{T^2})(\frac{3}{2}u^{-1} - m_j\epsilon^*)]f_M \\
-                      &= [\frac{1}{n}\frac{dn}{dr} - \frac{1}{T}\frac{dT}{dr}(\frac{3}{2} - \frac{m_jv^2}{2T_j})]f_M
-                       = [\frac{1}{n}\frac{dn}{dr} - \frac{1}{T}\frac{dT}{dr}(\frac{3}{2} - \frac{v^2}{2v_{Tj}^2})]f_M \\
-                      &= \frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2 - \frac{3}{2})\eta_j]f_M,
+                      &= \frac{1}{n}\frac{dn}{dr}f_{M,j} + \frac{dT}{dr}\frac{du}{dT}[\frac{3}{2}u^{-1} - m_j\epsilon^*]f_{M,j}
+                       = [\frac{1}{n}\frac{dn}{dr} + \frac{dT}{dr}(-\frac{1}{T^2})(\frac{3}{2}u^{-1} - m_j\epsilon^*)]f_{M,j} \\
+                      &= [\frac{1}{n}\frac{dn}{dr} - \frac{1}{T}\frac{dT}{dr}(\frac{3}{2} - \frac{m_jv^2}{2T_j})]f_{M,j}
+                       = [\frac{1}{n}\frac{dn}{dr} - \frac{1}{T}\frac{dT}{dr}(\frac{3}{2} - \frac{v^2}{2v_{T,j}^2})]f_{M,j} \\
+                      &= \frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{T,j}}\right)^2 - \frac{3}{2})\eta_j]f_{M,j},
    \end{aligned}
    \end{equation}
    %
-given that $u = T^{-1}$, $du = -T^{-2}dT$, $v_{Tj} \equiv \sqrt{\frac{T_j}{m_j}}$, and $\eta_j \equiv \frac{n}{T}\frac{dT}{dn}$. Putting these
+given that $u = T^{-1}$, $du = -T^{-2}dT$, $v_{T,j} \equiv \sqrt{\frac{T_j}{m_j}}$, and $\eta_j \equiv \frac{n}{T}\frac{dT}{dn}$. Putting these
 derivatives into (3.2.2) then gives,
    \begin{equation}
    \begin{aligned}
       &(v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 =               \\ &-i\frac{q_j}{m_j}J_0(z_j)\delta\widetilde{\Phi}
-          [-\frac{m_j}{T_j}\omega + \frac{k_\theta}{\omega_{cj}}\frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2 - \frac{3}{2})\eta_j]]      \\
+          [-\frac{m_j}{T_j}\omega + \frac{k_\theta}{\omega_{c,j}}\frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{T,j}}\right)^2 - \frac{3}{2})\eta_j]]f_{M,j} \\
       \Rightarrow\; &(v_\parallel\partial_l - i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 = \\ &-i\frac{q_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}
-          [\omega - \frac{k_\theta T_j m_j}{q_j B m_j}\frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2 - \frac{3}{2})\eta_j]]f_M             \\
+          [\omega - \frac{k_\theta T_j m_j}{q_j B m_j}\frac{1}{n}\frac{dn}{dr}[1 + (\frac{1}{2}\left(\frac{v}{v_{T,j}}\right)^2 - \frac{3}{2})\eta_j]]f_{M,j}           \\
       \Rightarrow\; &(-v_\parallel\partial_l + i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0 = \\ &i\frac{q_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}
-          [\omega - \omega_{*j}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2- \frac{3}{2})\eta_j]]f_M
+          [\omega - \omega_{*,j}[1 + (\frac{1}{2}\left(\frac{v}{v_{T,j}}\right)^2- \frac{3}{2})\eta_j]]f_{M,j}
    \end{aligned}
    \end{equation}
-
+   %
    \begin{equation}
       \Rightarrow\; (-v_\parallel\partial_l + i(\omega - \bar{\omega}_{dj}))\delta\widetilde{H}_0
-      = i\frac{q_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}[\omega - \omega_{*j}^T]f_M,
+      = i\frac{q_j}{T_j}J_0(z_j)\delta\widetilde{\Phi}[\omega - \omega_{*,j}^T]f_{M,j},
    \end{equation}
    %
 with the following definition,
    \begin{equation}
-      \omega_{*j}^T \equiv \omega_{*j}[1 + (\frac{1}{2}\left(\frac{v}{v_{Tj}}\right)^2-\frac{3}{2})\eta_j]\;.
+      \omega_{*,j}^T \equiv \omega_{*,j}[1 + (\frac{1}{2}\left(\frac{v}{v_{T,j}}\right)^2-\frac{3}{2})\eta_j]\;.
    \end{equation}
    %
-Then (3.2.10) can be simplified further and solved for $\delta\widetilde{H}$ if a few physical assumptions are made for electron drift and ITG modes.
+
+\subsection{Physical Approximations}
+   \quad (3.2.10) can be simplified further and solved for $\delta\widetilde{H}_0$ if a few physical assumptions are made for electron drift and ITG modes.
 First off, trapped particle effects are neglected, i.e.,
    \begin{equation}
       \omega \gg \omega_{bj},
@@ -423,50 +472,128 @@ First off, trapped particle effects are neglected, i.e.,
    %
 for $\omega_{bj}$ as the bounce frequency. We also assume electrons move rapidly in response to the electrostatic potential,
    \begin{equation}
-      k_\parallel v_{Te} \gg \omega \gg k_\parallel v_{Ti},
+      k_\parallel v_{T,e} \gg \omega \gg k_\parallel v_{T,i},
    \end{equation}
    %
-noting that $v_{Tj} \simeq v_{\parallel j}$ since the majority of the velocity is in the parallel direction. Finally we assume that the frequency
+noting that $v_{T,j} \simeq v_{\parallel j}$ since the majority of the velocity is in the parallel direction. Finally we assume that the frequency
 associated with magnetic drifts of ions is much smaller than that of the perturbed modes,
    \begin{equation}
       \omega \gg \omega_{di}\;.
    \end{equation}
    %
-Now, (3.2.13) and (3.2.14) allow the left-hand side of (3.2.10) to be rewritten for ions as,
+Now, (3.3.2) and (3.3.3) allow the left-hand side of (3.2.10) to be rewritten for ions as,
    \begin{equation}
       i(\omega-\bar{\omega}_{di})(1+i\frac{v_\parallel}{\omega-\omega_{di}}\frac{\partial}{\partial l}) \simeq
       i(\omega-\bar{\omega}_{di})(1-\frac{k_\parallel v_{\parallel i}}{\omega}) \simeq i(\omega-\bar{\omega}_{di})\;.
    \end{equation}
    %
-Finally, we can solve for $\delta\widetilde{H}$ explicitly by replacing the left-hand side of (3.2.10) with (3.2.15), giving
+Finally, we can solve for $\delta\widetilde{H}_{0,i}$ explicitly by replacing the left-hand side of (3.2.10) with (3.3.4), giving
 the perturbed, non-adiabatic distribution function for ions,
    \begin{equation}
-      \delta\widetilde{H}_0 = \frac{q_i}{T_i}J_0(z_i)\delta\widetilde{\Phi}
-                                      f_M\frac{\omega-\omega_{*i}^T}{\omega-\bar{\omega}_{di}},
+      \delta\widetilde{H}_{0,i} = \frac{q_i}{T_i}J_0(z_i)\delta\widetilde{\Phi}
+                                      f_{M,i}\frac{\omega-\omega_{*i}^T}{\omega-\bar{\omega}_{di}},
    \end{equation}
    %
 or, converting back to $\bm{x}$ coordinates using (3.1.12) for the velocity-space integration to get $n_j$,
    \begin{equation}
-      \delta\widetilde{H}_0(\bm{x}) = \frac{q_i}{T_i}J_0(z_i)\delta\widetilde{\Phi}(\bm{x})
-                                      f_M\frac{\omega-\omega_{*i}^T}{\omega-\bar{\omega}_{di}}e^{iz\sin\alpha}\;.
+      \delta\widetilde{H}_{0,i}(\bm{x}) = \frac{q_i}{T_i}J_0(z_i)\delta\widetilde{\Phi}(\bm{x})
+                                      f_{M,i}\frac{\omega-\omega_{*i}^T}{\omega-\bar{\omega}_{di}}e^{iz\sin\alpha}\;.
    \end{equation}
    %
 Note that again the arbitrary choice in the direction of $\bm{k}_\perp$ is invokable because $\alpha$ must be
-integrated over again when the distribution function is integrated over velocity-space to give the flux.
+integrated over again when the distribution function is integrated over velocity-space to give the flux. We continue
+to treat electrons as adiabatic for now.
 
-\subsection{Quasi-linear Anomalous Flux}
-   \quad We can now plug our perturbed distribution functions into the quasi-linear estimate for radial flux, (2.1.4). For a
-system of ions and electrons with no impurities, the total perturbed distribution function is given as,
+\subsection{Quasi-linear Flux}
+   \quad We can now plug our perturbed distribution functions into the quasi-linear estimate for radial flux, (2.1.6). The total
+distribution functions are now given as,
    \begin{equation}
-      \delta \widetilde{f_i} = -\frac{q_i}{T_i}\delta\widetilde{\Phi}f_M + \delta\widetilde{H}_0
+      \delta \widetilde{f}_j = -\frac{q_j}{T_j}\delta\widetilde{\Phi}f_{M,j} + \delta\widetilde{H}_{0,j},
+   \end{equation}
+   %
+where $\delta H_0 = 0$ for adiabatic electrons. Plugging into (2.1.6) then gives,
+   \begin{equation}
+   \begin{aligned}
+      \Gamma_{r,j} = -\frac{ik_\theta}{2\pi B}\int_{0}^{2\pi}d\theta\int d^3v
+            [&\frac{q_j}{T_j}\delta\widetilde{\Phi}\delta\widetilde{\Phi}^*f_{M,j}(1+J_0(z_j)\frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}}e^{-iz\sin\alpha}) \\
+             & + \frac{q_j}{T_j}\delta\widetilde{\Phi}\delta\widetilde{\Phi}^*f_{M,j}(1+J_0(z_j)\frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}}e^{iz\sin\alpha})]\;.
+   \end{aligned}
+   \end{equation}
+   %
+Ignoring the adiabatic perturbation because it can't lead to a real flux due to the $i$ out front and simplifying the integral over $\alpha$ with
+(3.1.16) then gives,
+   \begin{equation}
+   \begin{aligned}
+      \Gamma_{r,j} &= -\frac{ik_\theta}{B}\frac{q_j}{T_j}\lvert\delta\widetilde{\Phi}\rvert^2\int_{0}^{2\pi}d\theta\int_{-\infty}^{\infty}dv_\parallel
+                      \int_{0}^{\infty}v_\perp dv_\perp J_0^2(\frac{k_\perp v_\perp}{\omega_{c,j}})
+                      [\frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}} + \frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}}]f_{M,j} \\
+                   & 
+                      \begin{aligned} \;=
+                      -\frac{ik_\theta}{B}\frac{q_j}{T_j}\lvert\delta\widetilde{\Phi}\rvert^2\left(\frac{m_j}{2\pi T_j}\right)^{3/2}
+                      \int_{0}^{2\pi}d\theta\int_{-\infty}^{\infty}dv_\parallel e^{-\frac{v_\parallel^2}{v_{T,j}^2}}
+                      \int_{0}^{\infty}v_\perp dv_\perp e^{-\frac{v_\perp^2}{v_{T,j}^2}}
+                      J_0^2(\frac{k_\perp v_\perp}{\omega_{c,j}})\times \\
+                      [\frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}}
+                       + \frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}}]
+                      \end{aligned}
+   \end{aligned}
+   \end{equation}
+
+\subsection{Quasi-neutrality Condition}
+   \quad Taking adiabatic electrons and kinetic ions with the quasi-neutrality condition (1.2.5) gives,
+   \begin{equation}
+      q_e n_e + q_i n_i = 0 \Rightarrow -e n_e + e n_i = 0 \Rightarrow n_e = n_i
+   \end{equation}
+   %
+   \begin{equation}
+   \begin{aligned}
+      \Rightarrow \int(f_{M,e}-\frac{q_e}{T_e}\delta\widetilde{\Phi}f_{M,e})d^3v
+                 &= \int(f_{M,i} - \frac{q_i}{T_i}\delta\widetilde{\Phi}f_{M,i} + \delta\widetilde{H}_{0,i})d^3v \\
+      \Rightarrow n_0 + \frac{e}{T_e}n_0\delta\widetilde{\Phi}
+                 &= n_0 - \frac{e}{T_i}n_0\delta\widetilde{\Phi} + \int\delta\widetilde{H}_{0,i}d^3v
+   \end{aligned}
+   \end{equation}
+   %
+   \begin{equation}
+   \begin{aligned}
+      \Rightarrow  en_0\delta\widetilde{\Phi}(\frac{1}{T_e} + \frac{1}{T_i})
+                &= \frac{e}{T_i}\delta\widetilde{\Phi}\int_{-\infty}^{\infty}dv_\parallel\int_{0}^{\infty}v_\perp dv_\perp
+                   J_0(\frac{k_\perp v_\perp}{\omega_{c,i}})\frac{\omega - \omega_{*i}^T}{\omega - \bar{\omega}_{di}}f_{M,i}\int_{0}^{2\pi}e^{-iz\sin\alpha}d\alpha \\
+      \Rightarrow n_0(\frac{1}{T_e} + \frac{1}{T_i}) &= \frac{2\pi}{T_i}\int_{-\infty}^{\infty}dv_\parallel\int_{0}^{\infty}v_\perp dv_\perp
+                  J_0^2(\frac{k_\perp v_\perp}{\omega_{c,i}})\frac{\omega - \omega_{*i}^T}{\omega - \bar{\omega}_{di}}f_{M,i} \\
+      \Rightarrow n_0(\frac{T_i}{T_e} + 1) &= \frac{1}{\sqrt{2\pi}}\left(\frac{m_i}{T_i}\right)^{3/2}\int_{-\infty}^{\infty}dv_\parallel e^{-\frac{v_\parallel^2}{2v^2_{T,i}}}
+                  \int_{0}^{\infty}v_\perp dv_\perp J_0^2(\frac{k_\perp v_\perp}{\omega_{c,i}})\frac{\omega - \omega_{*i}^T}{\omega - \bar{\omega}_{di}}e^{-\frac{v_\perp^2}{2v^2_{T,i}}}\;.
+   \end{aligned}
    \end{equation}
 
 
 \section{Comparison to Simulation}
+   Information about simulations.
 
 \subsection{Impurities}
+   \quad A third species, the impurity term, can easily be added to the above theory. The radial flux for the impurity ion is calculated the same way as for
+the main ion species, and the basic quasi-neutrality condition has to be changed to the following,
+   \begin{equation}
+      n_e = n_i + Z_In_I,
+   \end{equation}
+   %
+with $Z_I$ the charge of the impurity. (4.1.1) leads to an updated form of (3.5.2) with an impurity contribution,
+   \begin{equation}
+   \begin{aligned}
+      \Rightarrow n_e + \frac{e}{T_e}n_e\delta\widetilde{\Phi} = n_i - \frac{e}{T_i}n_i\delta\widetilde{\Phi} + \int\delta\widetilde{H}_{0,i}d^3v
+                      + Z_In_I - \frac{Z_Ie}{T_I}n_I\delta\widetilde{\Phi} + \int\delta\widetilde{H}_{0,I}d^3v\;.
+   \end{aligned}
+   \end{equation}
+   %
+The lowest order terms will cancel as before, giving an updated version of (3.5.3),
+   \begin{equation}
+      n_0(\frac{1}{T_e} + \frac{1}{T_i} + \frac{Z_I}{T_I}) = \frac{1}{\sqrt{2\pi}}\sum\limits_{ions}Z_j\left(\frac{m_j}{T_j}\right)^{3/2}
+         \int_{-\infty}^{\infty}dv_\parallel e^{-\frac{v_\parallel^2}{2v^2_{T,j}}}
+         \int_{0}^{\infty}v_\perp dv_\perp J_0^2(\frac{k_\perp v_\perp}{\omega_{c,j}})
+         \frac{\omega - \omega_{*,j}^T}{\omega - \bar{\omega}_{dj}}e^{-\frac{v_\perp^2}{2v_{T,j}^2}}\;.
+   \end{equation} 
 
-\subsection{GENE Normalization}
+\subsection{Normalization}
 
 
 \begin{thebibliography}{0}
@@ -481,6 +608,7 @@ system of ions and electrons with no impurities, the total perturbed distributio
    \bibitem{GyroKinAstr} G.G. Howes, S.C. Cowley, W. Dorland, G.W. Hammett, E. Quataert, and A.A. Schekochihin.
                          Astrophysical gyrokinetics: Basic equations and linear theory. ApJ, \textbf{651}(1):590, (2006).
    \bibitem{HC} See Haotian...
+   \bibitem{WessonD} Wesson J., \& Campbell D. J., \textit{Tokamaks} (Oxford: Clarendon Press, 2004), p.55-56
    %\bibitem{HazMeiss} R. D. Hazeltine, J. D. Meiss \textit{Plasma Confinement} (Dover Publications, 2003), p.36-43
 
 \end{thebibliography}
