@@ -72,6 +72,12 @@ flux   = np.zeros((numImpurities, len(kthetaRhoi)))
 flux_i = np.zeros((numImpurities, len(kthetaRhoi)))
 phi   = 50/474 #Stolen from GENE ITG imp. cases. Multiplied to go to general normalization not GENE's rho* version.
 
+siUnits = True
+if (cgsUnits):
+   m_i = m_i * 1.6726219*10**-24
+   mI  = mI  * m_i
+   me  = m_e * m_i
+
 for i, species in enumerate(speciesNames):
    #Gather response function data for each impurity and the main ion.
    zI   = allData[i][0]
