@@ -26,57 +26,69 @@ def complex_quadrature(func, xa, xb, ya, yb, **kwargs):
    imag_integral = dblquad(imag_func, xa, xb, ya, yb, **kwargs)
    return (real_integral[0] + 1j*imag_integral[0], real_integral[1:], imag_integral[1:])
 
-growthData = []
-adiabaticData = '../geneScripts/GoerlerITG/adiabaticScan.log'
-kineticData   = '../geneScripts/GoerlerITG/kineticScan.log'
-[kthetaRhoi, omegaReal, gamma] = readGrowthRates(kineticData, growthData)
+adiabaticPureFile     = '../geneScripts/GoerlerImpLin/scanfiles0000/scan.log'
+adiabaticProtImpFile  = '../geneScripts/GoerlerImpLin/scanfiles0001/scan.log'
+adiabaticNeonImpFile  = '../geneScripts/GoerlerImpLin/scanfiles0002/scan.log'
+adiabaticTungImpFile  = '../geneScripts/GoerlerImpLin/scanfiles0003/scan.log'
+adiabaticPure     = readGrowthRates(adiabaticPureFile)
+adiabaticProtImp  = readGrowthRates(adiabaticProtImpFile)
+adiabaticNeonImp  = readGrowthRates(adiabaticNeonImpFile)
+adiabaticTungImp  = readGrowthRates(adiabaticTungImpFile)
+linearGrowthData = [adiabaticPure, adiabaticProtImp, adiabaticNeonImp, adiabaticTungImp]
 
 #Geometric data.
 R     = 1    #Major radius of tokamak.
 Lref  = R    #To match GENE with omn/omt.
 s     = .837 #Shear parameter - s-hat
-theta = 0    #Poloidal angle (TODO: Degrees or radians?)
 #Shared data for allocating data arrays.
 L_T      = Lref/6.96 #L_T for ions and electrons - Lref/omt.
-zI       = [1, 6, 4, 10, 15, 31, 40]
-mI       = [1, 8, 9.021820, 20.179700, 39.948, 95.95, 183.84]
+zI       = [1, 10, 40]
+mI       = [1, 20.179700, 183.84]
 nI       = .001 #Impurity density / elec density.
 m_i      = 1
 m_e      = 5.4551*10**-4 #m_e / m_i technically.
+z_e      = -1
+z_i      = -z_e
 
 #Load data
 #Species indices: i = main ion, e = electron, I = impurity
-#Data indices: 0 = z, 1 = m (amu), 2 = n (n_e), 3 = L_T, 4 = L_n , 5 = f, 6 = mu
+#Data indices: 0 = z, 1 = m (amu), 2 = n (n_e), 3 = L_T, 4 = L_n
 #f = z*n/n_e, mu = sqrt(m_i/m_I)
 #Data for each main species
-ionDensities   = [.999, .994, .996, .99, .985, .969, .96]
-ionDensGrads   = [Lref/2.2222222, Lref/2.2334, Lref/2.2289157, Lref/2.424242, Lref/2.2538071, Lref/2.2910217, Lref/2.3125] #L_n for ions - Lref/omn.
-mainIonData    = [ 1,   m_i,  ionDensities,   L_T, ionDensGrads, ionDensities,     1] #Protons
-electronData   = [-1,   m_e,  1,              L_T, Lref/2.22,    1, np.sqrt(m_i/m_e)] #Note: L_T,e always equal to L_T,i according to this theory.
+ionDensities   = [.999, .99, .96]
+ionDensGrads   = [Lref/2.2222222, Lref/2.424242, Lref/2.3125] #L_n for imps - Lref/omn.
+mainIonData    = [z_i,  m_i,  ionDensities,   L_T, ionDensGrads, ionDensities,     1] #Protons
+electronData   = [z_e,  m_e,  1,              L_T, Lref/2.22,    1, np.sqrt(m_i/m_e)] #Note: L_T,e always equal to L_T,i according to this theory.
 
 #Impurity data.
-protonData     = [zI[0], mI[0], nI, np.inf, np.inf, zI[0]*nI, np.sqrt(m_i/mI[0])]
-customData     = [zI[1], mI[1], nI, np.inf, np.inf, zI[1]*nI, np.sqrt(m_i/mI[1])]
-berylliumData  = [zI[2], mI[2], nI, np.inf, np.inf, zI[2]*nI, np.sqrt(m_i/mI[2])]
-neonData       = [zI[3], mI[3], nI, np.inf, np.inf, zI[3]*nI, np.sqrt(m_i/mI[3])]
-argonData      = [zI[4], mI[4], nI, np.inf, np.inf, zI[4]*nI, np.sqrt(m_i/mI[4])]
-molybdenumData = [zI[5], mI[5], nI, np.inf, np.inf, zI[5]*nI, np.sqrt(m_i/mI[5])]
-tungstenData   = [zI[6], mI[6], nI, np.inf, np.inf, zI[6]*nI, np.sqrt(m_i/mI[6])]
+protonData     = [zI[0], mI[0], nI, np.inf, np.inf]
+neonData       = [zI[1], mI[1], nI, np.inf, np.inf]
+tungstenData   = [zI[2], mI[2], nI, np.inf, np.inf]
 #Store all data together, put ions and e at the end.
-allData = [protonData, customData, berylliumData, neonData, argonData, molybdenumData, tungstenData, mainIonData, electronData]
-speciesNames = ["proton", "custom", "beryllium", "neon", "argon", "molybdenum", "tungsten", "main ion", "electrons"]
-numImpurities = 7
-R_I    = np.zeros((numImpurities, len(kthetaRhoi)), dtype=complex)
-R_i    = np.zeros((numImpurities, len(kthetaRhoi)), dtype=complex)
+allData = [protonData, neonData, tungstenData, mainIonData, electronData]
+speciesNames = ["proton", "neon", "tungsten", "main ion", "electrons"]
+numImpurities = allData - 2
 flux   = np.zeros((numImpurities, len(kthetaRhoi)))
 flux_i = np.zeros((numImpurities, len(kthetaRhoi)))
+
 phi   = 50/474 #Stolen from GENE ITG imp. cases. Multiplied to go to general normalization not GENE's rho* version.
 
-siUnits = True
+#Average over theta. Dependence only in curvature/gradient drift velocity term. 1/2pi already in moved to other terms.
+thetaFunc     = lambda x: np.cos(x) + s*x*np.sin(x)
+thetaIntegral = quad(thetaFunc, 0, 2*np.pi)
+
+cgsUnits = True
 if (cgsUnits):
-   m_i = m_i * 1.6726219*10**-24
+   m_i = m_i * 1.6726219*10**-24 #grams
    mI  = mI  * m_i
    me  = m_e * m_i
+   z_e = z_e * 4.8*10**-10 #cgs, stat-couloumbs
+   z_i = -z_e
+   zI = zI * z_i
+   T_e = 1.6*10**-9 #ergs - 1keV
+   T_i = T_e
+   T_I = .1*T_e
+   B = 10000 #Gauss - 1 Tesla
 
 for i, species in enumerate(speciesNames):
    #Gather response function data for each impurity and the main ion.
@@ -96,46 +108,33 @@ for i, species in enumerate(speciesNames):
    
    print('imp: ' + speciesNames[i])
 
-   # y = vPerp, x = vPar - will evaluate y integral first.
-   for j, kthRho in enumerate(kthetaRhoi):
-      omega        = omegaReal[j] + 1j*gamma[j]
-      oStarI       = lambda y, x: kthRho * (1/LnI  + (y**2 + x**2 - 3)/(L_TI*2)) #omega_star,I - Eq. (10)
-      oStar_i      = lambda y, x: kthRho * (1/Ln_i + (y**2 + x**2 - 3)/(L_T*2))
-      oD_I         = lambda y, x: (2*kthRho/(zI*R))  * ((y**2)/4 + (x**2)/2)*(np.cos(theta) + s*theta*np.sin(theta)) #omega_d,I - Eq. (11)
-      oDi          = lambda y, x: (2*kthRho/(z_i*R)) * ((y**2)/4 + (x**2)/2)*(np.cos(theta) + s*theta*np.sin(theta))
-      omegaTerm    = lambda y, x: (zI*omega  + oStarI(y,x))/(omega  + oD_I(y,x))
-      omegaTerm_i  = lambda y, x: (z_i*omega + oStar_i(y,x))/(omega + oDi(y,x))
-      xTerm        = lambda x: scipy.exp(-1*(x**2)/2)   #vPar  int.
-      yTerm        = lambda y: y*scipy.exp(-1*(y**2)/2) #vPerp int.
-      besselTerm   = lambda y: scipy.special.jv(0, kthRho*y/(zI*muI))**2
-      besselTerm_i = lambda y: scipy.special.jv(0, kthRho*y/(z_i*mu_i))**2
-
-      func     = lambda y, x: xTerm(x)*yTerm(y)*besselTerm(y)*omegaTerm(y,x)
-      result   = complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)
-      func_i   = lambda y, x: xTerm(x)*yTerm(y)*besselTerm_i(y)*omegaTerm_i(y,x)
-      result_i = complex_quadrature(func_i, -scipy.inf, scipy.inf, 0, scipy.inf)
-
-      #Simplified functions - eqn 17.
-      #oStar_nI  = kthRho/LnI
-      #oStar_ni  = kthRho/Ln_i
-      #oStar_T   = kthRho/L_T
-      #oStar_pI  = oStar_nI + oStar_T
-      #oStar_pi  = oStar_ni + oStar_T
-      #o_d       = kthRho*2/R
-      #R_I[i][j] = fI * (oStar_nI/omega - (o_d/omega)*(1 + oStar_pI/(zI*omega)) - (kthRho/muI)**2 * 
-      #            ((1 + oStar_pI/omega) - (3/2)*(1 + (oStar_pI + oStar_T)/(zI*omega))))
-      #R_i[i][j] = f_i * (oStar_ni/omega - (o_d/omega)*(1 + oStar_pI/(z_i*omega)) - (kthRho/mu_i)**2 * 
-      #            ((1 + oStar_pi/omega) - (3/2)*(1 + (oStar_pi + oStar_T)/(z_i*omega))))
-
-      
-      #Response function for impurities.
-      R_I[i][j]  = -zI*fI + (fI/np.sqrt(2*np.pi))*result[0]
-      flux[i][j] = np.real(R_I[i][j] * kthRho * phi**2 * 1j)
-      R_i[i][j]  = -z_i*f_i + (f_i/np.sqrt(2*np.pi))*result_i[0]
-      flux_i[i][j] = np.real(R_i[i][j] * kthRho * phi**2 * 1j)
-      print('i: '     + str(j))
-      print(flux[i][j])
-      print(flux_i[i][j])
+#   # y = vPerp, x = vPar - will evaluate y integral first.
+#   for j, kthRho in enumerate(kthetaRhoi):
+#      omega        = omegaReal[j] + 1j*gamma[j]
+#      oStarI       = lambda y, x: kthRho * (1/LnI  + (y**2 + x**2 - 3)/(L_TI*2)) #omega_star,I - Eq. (10)
+#      oStar_i      = lambda y, x: kthRho * (1/Ln_i + (y**2 + x**2 - 3)/(L_T*2))
+#      oD_I         = lambda y, x: (2*kthRho/(zI*R))  * ((y**2)/4 + (x**2)/2) * thetaIntegral #omega_d,I - Eq. (11)
+#      oDi          = lambda y, x: (2*kthRho/(z_i*R)) * ((y**2)/4 + (x**2)/2) * thetaIntegral
+#      omegaTerm    = lambda y, x: (zI*omega  + oStarI(y,x))/(omega  + oD_I(y,x))
+#      omegaTerm_i  = lambda y, x: (z_i*omega + oStar_i(y,x))/(omega + oDi(y,x))
+#      xTerm        = lambda x: scipy.exp(-1*(x**2)/2)   #vPar  int.
+#      yTerm        = lambda y: y*scipy.exp(-1*(y**2)/2) #vPerp int.
+#      besselTerm   = lambda y: scipy.special.jv(0, kthRho*y/(zI*muI))**2
+#      besselTerm_i = lambda y: scipy.special.jv(0, kthRho*y/(z_i*mu_i))**2
+#
+#      func     = lambda y, x: xTerm(x)*yTerm(y)*besselTerm(y)*omegaTerm(y,x)
+#      result   = complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)
+#      func_i   = lambda y, x: xTerm(x)*yTerm(y)*besselTerm_i(y)*omegaTerm_i(y,x)
+#      result_i = complex_quadrature(func_i, -scipy.inf, scipy.inf, 0, scipy.inf)
+#      
+#      #Response function for impurities.
+#      R_I[i][j]  = -zI*fI + (fI/np.sqrt(2*np.pi))*result[0]
+#      flux[i][j] = np.real(R_I[i][j] * kthRho * phi**2 * 1j)
+#      R_i[i][j]  = -z_i*f_i + (f_i/np.sqrt(2*np.pi))*result_i[0]
+#      flux_i[i][j] = np.real(R_i[i][j] * kthRho * phi**2 * 1j)
+#      print('i: '     + str(j))
+#      print(flux[i][j])
+#      print(flux_i[i][j])
 
 
 dirName = 'GoerlerImpurities'
@@ -145,8 +144,6 @@ else:
    shutil.rmtree(dirName)
    os.makedirs(dirName)
 
-np.savez_compressed(dirName + '/R_i.npz',         R_i)
-np.savez_compressed(dirName + '/R_I.npz',         R_I)
 np.savez_compressed(dirName + '/flux.npz',       flux)
-np.savez_compressed(dirName + '/growthData.npz', [kthetaRhoi, omegaReal, gamma])
 np.savez_compressed(dirName + '/species.npz',    speciesNames[:-2])
+np.savez_compressed(dirName + '/growthData.npz', linearGrowthData)

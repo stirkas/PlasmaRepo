@@ -13,10 +13,10 @@ dataType  = 0 #Particle flux.
 avgFlux   = []
 stdDev    = []
 ions      = ["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{+15}$", "Mo$^{+31}$", "W$^{+40}$"]
-dataFiles = ["./GoerlerImpurities/nrgsummary_proton.dat",     "./GoerlerImpurities/nrgsummary_custom.dat",
-             "./GoerlerImpurities/nrgsummary_beryllium.dat",  "./GoerlerImpurities/nrgsummary_neon.dat",
-             "./GoerlerImpurities/nrgsummary_argon.dat",      "./GoerlerImpurities/nrgsummary_molybdenum.dat",
-             "./GoerlerImpurities/nrgsummary_tungsten.dat"]
+kineticDataFiles = ["./GoerlerImpurities/nrgsummary_proton.dat",     "./GoerlerImpurities/nrgsummary_custom.dat",
+                    "./GoerlerImpurities/nrgsummary_beryllium.dat",  "./GoerlerImpurities/nrgsummary_neon.dat",
+                    "./GoerlerImpurities/nrgsummary_argon.dat",      "./GoerlerImpurities/nrgsummary_molybdenum.dat",
+                    "./GoerlerImpurities/nrgsummary_tungsten.dat"]
 qmRat     = [1/1, 6/8, 4/9.0121820, 10/20.17970, 15/39.948, 31/95.95, 40/183.84]
 startT    = [.53, .64, .37, .16, .16, .13, .16] #% location to start at. For ignoring linear phase.
 ltRat     = [6.96, 6.96, 6.96, 6.96, 6.96, 6.96, 6.96] #Ratio of R/L_T = omt to normalize flux different from GENE.
@@ -35,7 +35,7 @@ stdDevAd  = []
 
 for i,ion in enumerate(ions):
    data = []
-   readFlux(dataFiles[i], data) 
+   readFlux(kineticDataFiles[i], data) 
    [t, fluxData] = getData(dataType, data)
    startIndex = math.ceil(startT[i]*len(fluxData)) #Get index closest to startT fraction of total time.
    fluxData = fluxData[startIndex:]
@@ -55,13 +55,13 @@ for i, ion in enumerate(adiabaticIons):
    avgFluxAd.append(getAverageVal(fluxDataAd))
    stdDevAd.append(getStdDev(fluxDataAd))
 
-#Plot ion points and best fit line.
+#Plot kinetic ion points and best fit line.
 fig, ax = plt.subplots()
 plt.scatter(qmRat, avgFlux)
 plt.errorbar(qmRat, avgFlux, yerr=stdDev, linestyle="None")
 
 for i, txt in enumerate(ions):
-    ax.annotate(txt, (qmRat[i], avgFlux[i] - stdDev[i])) #Offset y for readibility.
+    ax.annotate(txt, (qmRat[i], avgFlux[i] - stdDev[i])) #Offset y for readability.
 
 #Generate line of best fit.
 qmRatNew = np.linspace(qmRat[len(qmRat)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
@@ -74,7 +74,7 @@ plt.scatter(qmRatAd, avgFluxAd, color='red')
 plt.errorbar(qmRatAd, avgFluxAd, yerr=stdDevAd, linestyle="None", color='red')
 
 for i, txt in enumerate(adiabaticIons):
-    ax.annotate(txt, (qmRatAd[i], avgFluxAd[i] - stdDevAd[i])) #Offset y for readibility.
+    ax.annotate(txt, (qmRatAd[i], avgFluxAd[i] - stdDevAd[i])) #Offset y for readability.
 
 #Generate line of best fit.
 qmRatAdNew = np.linspace(qmRatAd[len(qmRatAd)-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
@@ -89,5 +89,5 @@ plt.xlabel("[q/m] / [q/m]$_{H^+}$", fontsize=textSize)
 plt.ylabel("<$\\Gamma$$_{ES}$>",    fontsize=textSize)
 plt.tight_layout()
 plt.legend(loc='upper left')
-#plt.show()
 plt.savefig('./GoerlerImpurities/FluxPlotAdKin.pdf')
+plt.show()

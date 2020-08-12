@@ -5,7 +5,8 @@ import numpy as np
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
 
-def readGrowthRates(fileName, data):
+def readGrowthRates(fileName):
+   data = []
    f = open(fileName, 'r')
 
    for line in f.readlines():
@@ -42,7 +43,7 @@ if __name__ == "__main__":
 
    for i, run in enumerate(runs):
       data = []
-      [kyRhoi, gamma, omega] = readGrowthRates(dataFiles[i], data)
+      [kyRhoi, gamma, omega] = readGrowthRates(dataFiles[i])
    
       scaleFactor = 1.05
       axs[0].plot(kyRhoi, gamma, marker='*', label=runs[i])
