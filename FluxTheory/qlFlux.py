@@ -56,15 +56,13 @@ s     = .837 #Shear parameter - s-hat
 #Shared data for allocating data arrays.
 zIall    = np.array([1, 10, 40], dtype = float)
 mIall    = np.array([1, 20.179700, 183.84], dtype=float)
-n_e      = 1   # #/m^3
+n_e      = 1
 nI       = .001*n_e #Impurity density / elec density.
 m_i      = 1
 m_e      = 5.4551*10**-4 #m_e / m_i technically.
 z_e      = -1
 z_i      = -z_e
-c        = 3*10**8 #Speed of light
-B        = 1 #Tesla
-Te       = 1 #Joules - 1keV
+Te       = 1 # 1keV = Tref.
 
 Ti   = Te
 T_I  = .1*Te
@@ -130,6 +128,7 @@ for i, species in enumerate(speciesNames):
    rhostar_i = (vTi/cyc_i)/Lref
    phi = phi*rhostar_i*Ti/np.abs(z_e) #Normalize back to SI.
 
+   #Loop over phi since it is missing the highest kthetaRho term so will not break on last term.
    #y = vPerp, x = vPar - will evaluate y integral first.
    for j, phiMode in enumerate(phi):
 
