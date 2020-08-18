@@ -45,10 +45,8 @@ ampSpectraFiles = ['../geneScripts/GoerlerImpurities/ampSpectraAdProtons.dat',
 adiabatic = True
 numModes  = 0
 if (adiabatic):
-   numModes = 16
    linearGrowthData = [adiabaticProtImp, adiabaticNeonImp, adiabaticTungImp, adiabaticPure]
 else:
-   numModes = 23
    linearGrowthData = 0
 numModes = numModes - 1 #Remove last mode because phi mode data starts from krho = 0
 
@@ -58,7 +56,7 @@ s     = .837 #Shear parameter - s-hat
 #Shared data for allocating data arrays.
 zIall    = np.array([1, 10, 40], dtype = float)
 mIall    = np.array([1, 20.179700, 183.84], dtype=float)
-n_e      = 10**19   # #/m^3
+n_e      = 1   # #/m^3
 nI       = .001*n_e #Impurity density / elec density.
 m_i      = 1
 m_e      = 5.4551*10**-4 #m_e / m_i technically.
@@ -66,22 +64,7 @@ z_e      = -1
 z_i      = -z_e
 c        = 3*10**8 #Speed of light
 B        = 1 #Tesla
-Te       = 1.6*10**-16 #Joules - 1keV
-
-#Allow for non-normalized units.
-cgsUnits = True
-if (cgsUnits):
-   m_i   = m_i * 1.6726219*10**-24 #grams
-   mIall = mIall  * m_i
-   me    = m_e * m_i
-   z_e   = z_e * 4.8*10**-10 #cgs, stat-couloumbs
-   z_i   = -z_e
-   zIall = zIall * z_i
-   Te    = Te*10**7 #Joules to ergs
-   B     = B*10000 #Gauss - 1 Tesla
-   c     = c*100
-   R     = R*100
-   n_e   = n_e*10^-6
+Te       = 1 #Joules - 1keV
 
 Ti   = Te
 T_I  = .1*Te
@@ -148,40 +131,39 @@ for i, species in enumerate(speciesNames):
    phi = phi*rhostar_i*Ti/np.abs(z_e) #Normalize back to SI.
 
    #y = vPerp, x = vPar - will evaluate y integral first.
-   for j, kthRho in enumerate(kthetaRhoi):
-      if (j==1):
-         break
+   for j, phiMode in enumerate(phi):
 
-      omega        = (omegaReal[j] + 1j*gamma[j])*(cyc_i/rhostar_i) #Convert from GENE to SI.
-      oStarT_I     = lambda y, x: kthRho * (vT_I/c) * (rhoI/rho_i)  * ((-1/LnI)  - (1/2)*((y/vT_I)**2 + (x/vT_I)**2 - 3)*(1/L_TI)) #omega^T_star,I
-      oStarT_i     = lambda y, x: kthRho * (vTi/c)  * (rho_i/rho_i) * ((-1/Ln_i) - (1/2)*((y/vTi)**2  + (x/vTi)**2  - 3)*(1/L_T))
-      obarD_I      = lambda y, x: kthRho/R * (vT_I/c) * (rhoI/rho_i)  * ((1/2)*((y/vT_I)**2) + ((x/vT_I)**2)) * thetaIntegral #\bar{omega}_d,I
-      obarDi       = lambda y, x: kthRho/R * (vTi/c)  * (rho_i/rho_i) * ((1/2)*((y/vTi)**2)  + ((x/vTi)**2))  * thetaIntegral
-      omegaTerm    = lambda y, x: (np.conj(omega) - oStarT_I(y,x))/(np.conj(omega) - obarD_I(y,x)) + (omega - oStarT_I(y,x))/(omega - obarD_I(y,x))
+      omega        = (omegaReal[j] + 1j*gamma[j])
+      oStarT_I     = lambda y, x: -kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * R*((1/LnI) + (1/2)*((y**2)((vTi/vT_I)**2) + (x**2)((vTi/vT_I)**2) - 3)*(1/L_TI))
+      oStarT_i     = lambda y, x: -kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * R*((1/LnI) + (1/2)*((y**2)((vTi/vTi)**2)  + (x**2)((vTi/vTi)**2)  - 3)*(1/L_T))
+      obarD_I      = lambda y, x:  kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * ((1/2)*(y**2)  + (x**2)) * ((vTi/vT_I)**2) * thetaIntegral
+      obarDi       = lambda y, x:  kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * ((1/2)*(y**2)  + (x**2)) * ((vTi/vTi)**2)  * thetaIntegral
+      omegaTermI   = lambda y, x: (np.conj(omega) - oStarT_I(y,x))/(np.conj(omega) - obarD_I(y,x)) + (omega - oStarT_I(y,x))/(omega - obarD_I(y,x))
       omegaTerm_i  = lambda y, x: (np.conj(omega) - oStarT_i(y,x))/(np.conj(omega) - obarDi(y,x))  + (omega - oStarT_i(y,x))/(omega - obarDi(y,x)) 
-      xTerm_i      = lambda x:   scipy.exp(-1*(x/(2*vTi))**2)
-      yTerm_i      = lambda y: y*scipy.exp(-1*(y/(2*vTi))**2)
-      xTermI       = lambda x:   scipy.exp(-1*(x/(2*vT_I))**2)
-      yTermI       = lambda y: y*scipy.exp(-1*(y/(2*vT_I))**2)
-      besselTerm   = lambda y: scipy.special.jv(0, kthRho * (y/vTi)**2 * (cyc_i/cycI))
-      besselTerm_i = lambda y: scipy.special.jv(0, kthRho * (y/vTi)**2 * (cyc_i/cyc_i))
-      constantTermI  = kthRho * (z_i*zI/(c*vTi*m_i*T_I)) * phi[j]**2 * (mI/(2*np.pi*T_I))**(3/2) * nI
-      constantTerm_i = kthRho * (z_i*z_i/(c*vTi*m_i*Ti)) * phi[j]**2 * (m_i/(2*np.pi*Ti))**(3/2) * n_i
+      xTerm_i      = lambda x:   scipy.exp(-(1/2)*(x**2)(vTi/vTi)**2)
+      yTerm_i      = lambda y: y*scipy.exp(-(1/2)*(y**2)(vTi/vTi)**2)
+      xTermI       = lambda x:   scipy.exp(-(1/2)*(x**2)(vTi/vT_I)**2)
+      yTermI       = lambda y: y*scipy.exp(-(1/2)*(y**2)(vTi/vT_I)**2)
+      besselTermI  = lambda y: scipy.special.jv(0, kthetaRho[j] * y *  (cyc_i/cycI))**2
+      besselTerm_i = lambda y: scipy.special.jv(0, kthetaRho[j] * y * (cyc_i/cyc_i))**2
+      constantTermI  = -kthetaRho[j] * zI  * (T_i/T_I) * nI  * phiMode**2 * (1/(2*np.pi))**(3/2) * (vTi/vT_I)**3
+      constantTerm_i = -kthetaRho[j] * z_i * (T_i/T_i) * n_i * phiMode**2 * (1/(2*np.pi))**(3/2) * (vTi/vTi)**3
    
-      func     = lambda y, x: constantTermI*xTermI(x)*yTermI(y)*besselTerm(y)*omegaTerm(y,x)
+      func     = lambda y, x: constantTermI*xTermI(x)*yTermI(y)*besselTermI(y)*omegaTermI(y,x)
       result   = complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)
       func_i   = lambda y, x: constantTerm_i*xTerm_i(x)*yTerm_i(y)*besselTerm_i(y)*omegaTerm_i(y,x)
       result_i = complex_quadrature(func_i, -scipy.inf, scipy.inf, 0, scipy.inf)
 
-      print(np.real(result[0]))
-      print(np.real(result_i[0]))
+      print(kthetaRhoi[j])
+      #print(np.real(result[0]))
+      #print(np.real(result_i[0]))
 
-dirName = 'GoerlerImpurities'
-if not os.path.exists(dirName):
-    os.makedirs(dirName)
-else:
-   shutil.rmtree(dirName)
-   os.makedirs(dirName)
+#dirName = 'GoerlerImpurities'
+#if not os.path.exists(dirName):
+#    os.makedirs(dirName)
+#else:
+#   shutil.rmtree(dirName)
+#   os.makedirs(dirName)
 
 #np.savez_compressed(dirName + '/flux.npz',       flux)
 #np.savez_compressed(dirName + '/species.npz',    speciesNames[:-2])

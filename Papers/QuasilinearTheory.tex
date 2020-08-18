@@ -697,10 +697,14 @@ where omt and omn are values defined by GENE\cite{GENE}. GENE outputs values in 
    \end{aligned}
    \end{equation}
    %
-where $Z_j$ is the charge factor for a species and $e=q_i$ if the main ion is a proton, and the normalized forms for (3.2.5) and (3.2.6) become,
+where $Z_j$ is the charge factor for a species and $e=q_i$ if the main ion is a proton, and the normalized forms for (3.2.3), (3.2.5), and (3.2.6) become,
    \begin{equation}
-      \omega_{G_{d,j}} = \omega_{d,j}/(v_{T,i}/R_0) = 2k_\perp\rho_i\frac{cT_j}{\rho_iq_jBR_0}\frac{R_0}{v_{T,i}} =
-                         2k_\perp\rho_i\frac{v_{T,j}}{v_{T,i}}\frac{\rho_j}{\rho_i},
+      \omega_{G_{d,j}} = \omega_{d,j}/(v_{T,i}/R_0) = 2k_\theta\rho_i\frac{cT_j}{\rho_iq_jBR_0}\frac{R_0}{v_{T,i}} =
+                         2k_\theta\rho_i\frac{v_{T,j}}{v_{T,i}}\frac{\rho_j}{\rho_i},
+   \end{equation}
+   \begin{equation}
+      \bar{\omega}_{G_{d,j}} = \frac{\omega_{G_{d,j}}}{2}(v_{G_\parallel}^2 + \frac{1}{2}v_{G_\perp}^2)
+                               \left(\frac{v_{T,i}}{v_{T,j}}\right)^2(\cos\theta + \hat{s}\theta\sin\theta)
    \end{equation}
    %
    \begin{equation}
