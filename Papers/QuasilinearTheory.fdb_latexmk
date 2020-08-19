@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1597776273 "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.tex" "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.pdf" "QuasilinearTheory" 1597776289
+["pdflatex"] 1597810214 "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.tex" "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.pdf" "QuasilinearTheory" 1597810827
   "/etc/texmf/web2c/texmf.cnf" 1581302440 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.aux" 1597776274 2097 d09a31d942c9c680b4f2a2fdf9afb385 ""
-  "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.tex" 1597776288 45978 c73e34c75d4de66f249716ee81e94c42 ""
+  "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.aux" 1597810214 2097 d09a31d942c9c680b4f2a2fdf9afb385 ""
+  "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.tex" 1597810827 45980 fb7344eb6b68df8d822c3cecf3916852 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1480098698 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1480098698 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -109,11 +109,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1581304821 2700761 ac0584cc9514ab21918550a6948c4ee2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1581304851 4126505 80dbf0447577103115828e6845e6643e ""
-  "QuasilinearTheory.aux" 1597776274 2097 d09a31d942c9c680b4f2a2fdf9afb385 ""
-  "QuasilinearTheory.tex" 1597776288 45978 c73e34c75d4de66f249716ee81e94c42 ""
+  "QuasilinearTheory.aux" 1597810214 2097 d09a31d942c9c680b4f2a2fdf9afb385 ""
+  "QuasilinearTheory.tex" 1597810827 45980 fb7344eb6b68df8d822c3cecf3916852 ""
   (generated)
-  "QuasilinearTheory.log"
   "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.pdf"
-  "QuasilinearTheory.pdf"
+  "QuasilinearTheory.log"
   "QuasilinearTheory.aux"
   "/home/stirkas/Workspace/PlasmaRepo/Papers/QuasilinearTheory.log"
+  "QuasilinearTheory.pdf"
