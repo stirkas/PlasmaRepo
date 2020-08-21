@@ -28,14 +28,12 @@ def complex_quadrature(func, xa, xb, ya, yb, **kwargs):
    imag_integral = dblquad(imag_func, xa, xb, ya, yb, **kwargs)
    return (real_integral[0] + 1j*imag_integral[0], real_integral[1:], imag_integral[1:])
 
-adiabaticPureFile     = '../geneScripts/GoerlerImpLin/scanfiles0000/scan.log'
 adiabaticProtImpFile  = '../geneScripts/GoerlerImpLin/scanfiles0001/scan.log'
 adiabaticNeonImpFile  = '../geneScripts/GoerlerImpLin/scanfiles0002/scan.log'
 adiabaticTungImpFile  = '../geneScripts/GoerlerImpLin/scanfiles0003/scan.log'
 adiabaticProtImp  = readGrowthRates(adiabaticProtImpFile)
 adiabaticNeonImp  = readGrowthRates(adiabaticNeonImpFile)
 adiabaticTungImp  = readGrowthRates(adiabaticTungImpFile)
-adiabaticPure     = readGrowthRates(adiabaticPureFile)
 
 ampSpectraFiles = ['../geneScripts/GoerlerImpurities/AmpSpectraProtonImpAdEl.dat',
                    '../geneScripts/GoerlerImpurities/AmpSpectraNeonImpAdEl.dat',
@@ -51,9 +49,8 @@ else:
 numModes = numModes - 1 #Remove last mode because phi mode data starts from krho = 0
 
 #Geometric data.
-R     = 1    #Major radius of tokamak. Data files say 1.65 though...
+R     = 1    #Major radius of tokamak.
 s     = .837 #Shear parameter - s-hat
-B     = 1    #Background field.
 #Shared data for allocating data arrays.
 zIall    = np.array([1, 10, 40], dtype = float)
 mIall    = np.array([1, 20.179700, 183.84], dtype=float)
@@ -90,18 +87,17 @@ allData = [protonData, neonData, tungstenData, mainIonData, electronData]
 speciesNames = ["proton", "neon", "tungsten", "main ion", "electrons"]
 numImpurities = len(allData) - 2 #2 for main ion species and electrons.
 
-kthetaRhoi = linearGrowthData[3][0] #Grab lowest index from any data set. kth*rho same for all.
-#Technically tung ad longer than rest. But gamma and omega go to 0 for higher ky*rho than the 16th.
 flux   = np.zeros(numImpurities)
 flux_i = np.zeros(numImpurities)
 
-#Average over theta. Dependence only in curvature/gradient drift velocity term. 1/2pi already in moved to other terms.
-thetaFunc     = lambda x: np.cos(x) + s*x*np.sin(x)
-thetaIntegral = quad(thetaFunc, 0, 2*np.pi)[0] #0 takes only the real part. Since this integral should just be real.
+eta = 0 #Ballooning angle. Phi peaks at 0 so use 0 for now.
 
 for i, species in enumerate(speciesNames):
    if (i == numImpurities): #Kick out early once we're passed all impurities.
       break
+
+   print('------')
+   print(species)
 
    kthetaRhoi = linearGrowthData[i][0]
    omegaReal  = linearGrowthData[i][1]
@@ -119,7 +115,7 @@ for i, species in enumerate(speciesNames):
 
    cyc_i = (z_i)/(m_i) #Cyc freq. #Dont need B or c because cyc freq always shows up in ratios of main ion cyc freq and consts will cancel.
    rho_i = vTi/cyc_i
-   Ln_i  = allData[numImpurities][4][i]
+   Ln_i  = allData[numImpurities][4][i] #numImp == main ion index.
    n_i   = ionDensities[i]
 
    #Load phi from GENE here for the specific run. Then split by mode.
@@ -133,41 +129,45 @@ for i, species in enumerate(speciesNames):
       omega        = (omegaReal[j] + 1j*gamma[j])
       oStarT_I     = lambda y, x: -kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * R*((1/LnI) + (1/2)*((y**2)*((vTi/vT_I)**2) + (x**2)*((vTi/vT_I)**2) - 3)*(1/L_TI))
       oStarT_i     = lambda y, x: -kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * R*((1/LnI) + (1/2)*((y**2)*((vTi/vTi)**2)  + (x**2)*((vTi/vTi)**2)  - 3)*(1/L_T))
-      obarD_I      = lambda y, x:  kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * ((1/2)*(y**2)  + (x**2)) * ((vTi/vT_I)**2) * thetaIntegral
-      obarDi       = lambda y, x:  kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * ((1/2)*(y**2)  + (x**2)) * ((vTi/vTi)**2)  * thetaIntegral
+      obarD_I      = lambda y, x:  kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * ((1/2)*(y**2)  + (x**2)) * ((vTi/vT_I)**2) * (np.cos(eta) + s*eta*np.sin(eta))
+      obarDi       = lambda y, x:  kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * ((1/2)*(y**2)  + (x**2)) * ((vTi/vTi)**2)  * (np.cos(eta) + s*eta*np.sin(eta))
       omegaTermI   = lambda y, x: (np.conj(omega) - oStarT_I(y,x))/(np.conj(omega) - obarD_I(y,x)) + (omega - oStarT_I(y,x))/(omega - obarD_I(y,x))
       omegaTerm_i  = lambda y, x: (np.conj(omega) - oStarT_i(y,x))/(np.conj(omega) - obarDi(y,x))  + (omega - oStarT_i(y,x))/(omega - obarDi(y,x)) 
       xTerm_i      = lambda x:   scipy.exp((-1/2)*(x**2)*((vTi/vTi)**2))
       yTerm_i      = lambda y: y*scipy.exp((-1/2)*(y**2)*((vTi/vTi)**2))
       xTermI       = lambda x:   scipy.exp((-1/2)*(x**2)*((vTi/vT_I)**2))
       yTermI       = lambda y: y*scipy.exp((-1/2)*(y**2)*((vTi/vT_I)**2))
-      besselTermI  = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y *  (cyc_i/cycI))**2
-      besselTerm_i = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y * (cyc_i/cyc_i))**2
-      constantTermI  = -kthetaRhoi[j] * zI  * (Ti/T_I) * nI  * phiMode**2 * (1/(2*np.pi))**(3/2) * (vTi/vT_I)**3
-      constantTerm_i = -kthetaRhoi[j] * z_i * (Ti/Ti)  * n_i * phiMode**2 * (1/(2*np.pi))**(3/2) * (vTi/vTi)**3
+      besselTermI  = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y *  (cyc_i/cycI) * np.sqrt(1 + (s*eta)**2))**2
+      besselTerm_i = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y * (cyc_i/cyc_i) * np.sqrt(1 + (s*eta)**2))**2
+      constantTermI  = -kthetaRhoi[j] * zI  * (Ti/T_I) * nI  * phiMode**2 * (1/(2*np.pi))**(1/2) * (vTi/vT_I)**3
+      constantTerm_i = -kthetaRhoi[j] * z_i * (Ti/Ti)  * n_i * phiMode**2 * (1/(2*np.pi))**(1/2) * (vTi/vTi)**3
 
       func     = lambda y, x: constantTermI*xTermI(x)*yTermI(y)*besselTermI(y)*omegaTermI(y,x)
-      result   = complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)
+      result   = np.real(complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)[0])
       func_i   = lambda y, x: constantTerm_i*xTerm_i(x)*yTerm_i(y)*besselTerm_i(y)*omegaTerm_i(y,x)
-      result_i = complex_quadrature(func_i, -scipy.inf, scipy.inf, 0, scipy.inf)
+      result_i = np.real(complex_quadrature(func_i, -scipy.inf, scipy.inf, 0, scipy.inf)[0])
 
-      flux[i]   = flux[i]   + np.real(result[0])
-      flux_i[i] = flux_i[i] + np.real(result_i[0])
+      flux[i]   = flux[i]   + result
+      flux_i[i] = flux_i[i] + result_i
+      print(kthetaRhoi[j])
 
+for i, species in enumerate(speciesNames):
+   if (i==numImpurities):
+      break
    print('-------')
-   print(speciesNames[i])
+   print(species)
    print(flux[i])
    print(flux_i[i])
-   print('-------')
 
-dirName = 'GoerlerImpurities'
-if not os.path.exists(dirName):
-    os.makedirs(dirName)
-else:
-   shutil.rmtree(dirName)
-   os.makedirs(dirName)
-
-np.savez_compressed(dirName + '/flux.npz',       flux)
-np.savez_compressed(dirName + 'flux_i.npz',    flux_i)
-np.savez_compressed(dirName + '/species.npz',    speciesNames[:-2])
-np.savez_compressed(dirName + '/growthData.npz', linearGrowthData)
+#Save data off.
+#dirName = 'GoerlerImpurities'
+#if not os.path.exists(dirName):
+#    os.makedirs(dirName)
+#else:
+#   shutil.rmtree(dirName)
+#   os.makedirs(dirName)
+#
+#np.savez_compressed(dirName + '/flux.npz',       flux)
+#np.savez_compressed(dirName + '/flux_i.npz',     flux_i)
+#np.savez_compressed(dirName + '/impSpecies.npz', speciesNames[:-2])
+#np.savez_compressed(dirName + '/growthData.npz', linearGrowthData)

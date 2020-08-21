@@ -28,7 +28,7 @@ def readGrowthRates(fileName):
       omega.append(float(dataArray[2]))
       #TODO: Add more modes if necessary.
 
-   return [kyRhoi, gamma, omega]
+   return [kyRhoi, omega, gamma]
 
 if __name__ == "__main__":
    runs = ['adElPure', 'adElProt', 'adElNeon', 'adElTung', 'kinElPure', 'kinElProt', 'kinElTung']
@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
    for i, run in enumerate(runs):
       data = []
-      [kyRhoi, gamma, omega] = readGrowthRates(dataFiles[i])
+      [kyRhoi, omega, gamma] = readGrowthRates(dataFiles[i])
    
       scaleFactor = 1.05
       axs[0].plot(kyRhoi, gamma, marker='*', label=runs[i])
