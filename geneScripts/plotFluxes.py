@@ -14,11 +14,11 @@ from plotFlux import getStdDev
 allowGeneralInput = False #Accept input for all other flags.
 allowParamInput   = False #Accept tokamak param. input.
 #Data type flag. Set one or both true. For kinetic, adiabatic, or both electron data.
-adiabaticData = False
+adiabaticData = True
 kineticData   = True
 #Normalization flags. Set at most one true. None gives GENE norm.
 impNormFlag = False #Convert GENE norm to nicer impurity norm using L_T and n_imp.
-expNormFlag = True  #Convert GENE norm to experimental norm.
+expNormFlag = False #Convert GENE norm to experimental norm.
 #Flux data types
 particleFlux = 0
 heatFlux     = 1
@@ -58,7 +58,7 @@ adiabaticDataSet = [["H$^+$", "Ne$^{+10}$", "W$^{+40}$"],
                      "./GoerlerImpurities/nrgsummary_tungsten_ad.dat"],
                     [1/1, 10/20.17970, 40/183.84],
                     [.001, .001, .001],
-                    [.114, .25, .118],
+                    [.114, .143, .125],
                     [6.96, 6.96, 6.96],
                     "adiabatic",
                     "red",

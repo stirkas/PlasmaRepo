@@ -13,6 +13,8 @@ from scipy.integrate import quad
 from scipy.integrate import dblquad
 import time
 
+#TODO: Add ballooning/ambipolairty to QL theory.
+
 #Do this to import from geneScripts
 sys.path.append('../geneScripts')
 from plotGrowthRates import readGrowthRates
@@ -43,45 +45,43 @@ ampSpectraFiles = ['../geneScripts/GoerlerImpurities/AmpSpectraProtonImpAdEl.dat
 adiabatic = True
 numModes  = 0
 if (adiabatic):
-   linearGrowthData = [adiabaticProtImp, adiabaticNeonImp, adiabaticTungImp, adiabaticPure]
+   linearGrowthData = [adiabaticProtImp, adiabaticNeonImp, adiabaticTungImp]
 else:
-   linearGrowthData = 0
+   linearGrowthData = 0 #Read kinetic data when ready.
 numModes = numModes - 1 #Remove last mode because phi mode data starts from krho = 0
 
 #Geometric data.
-R     = 1    #Major radius of tokamak.
-s     = .837 #Shear parameter - s-hat
+s        = .837 #Shear parameter - s-hat
 #Shared data for allocating data arrays.
-zIall    = np.array([1, 10, 40], dtype = float)
-mIall    = np.array([1, 20.179700, 183.84], dtype=float)
-n_e      = 1
-nI       = .001*n_e #Impurity density / elec density.
-m_i      = 1
-m_e      = 5.4551*10**-4 #m_e / m_i technically.
-z_e      = -1
-z_i      = -z_e
-Te       = 1 # 1keV = Tref.
-
-Ti   = Te
-T_I  = .1*Te
-vTi  = np.sqrt(Ti/m_i)
-Lref = R         #To match GENE with omn/omt.
-L_T  = Lref/6.96 #L_T for ions and electrons - Lref/omt.
+n_e   = 1 #Normalize to n_e = 1.
+nI    = .001*n_e #Impurity density / elec density really.
+m_i   = 1
+m_e   = 5.4462*10**-4 #m_e / m_i really. Same # used in GENE params.
+z_e   = -1
+z_i   = -z_e
+Ti    = 1    #Ion temperature = reference temp.
+Te    = Ti 
+T_I   = .1*Ti
+vTi   = np.sqrt(Ti/m_i)
+zIall = np.array([1, 10, 40], dtype = float)          #Norm to main ion charge.
+mIall = np.array([1, 20.179700, 183.84], dtype=float) #Norm to main ion mass.
 
 #Load data
 #Species indices: i = main ion, e = electron, I = impurity
-#Data indices: 0 = z, 1 = m (amu), 2 = n (n_e), 3 = L_T, 4 = L_n
-#f = z*n/n_e, mu = sqrt(m_i/m_I)
+#Data indices: 0 = z, 1 = m (amu), 2 = n (n_e)
 #Data for each main species
 ionDensities   = np.array([.999, .99, .96])*n_e
-ionLn          = [Lref/2.2222222, Lref/2.424242, Lref/2.3125, Lref/2.22] #L_n for imps - Lref/omn. No imps last.
-mainIonData    = [z_i, m_i, ionDensities, L_T,     ionLn] #Protons
-electronData   = [z_e, m_e, 1,            L_T, Lref/2.22]
+omn_i          = np.array([2.2222222, 2.2424242, 2.3125])
+omt_i          = 6.96
+omnI           = 0
+omtI           = 0
+mainIonData    = [z_i, m_i, ionDensities] #Protons for main ion.
+electronData   = [z_e, m_e,            1]
 
 #Impurity data.
-protonData     = [zIall[0], mIall[0], nI, np.inf, np.inf]
-neonData       = [zIall[1], mIall[1], nI, np.inf, np.inf]
-tungstenData   = [zIall[2], mIall[2], nI, np.inf, np.inf]
+protonData     = [zIall[0], mIall[0], nI]
+neonData       = [zIall[1], mIall[1], nI]
+tungstenData   = [zIall[2], mIall[2], nI]
 #Store all data together, put ions and e at the end.
 allData = [protonData, neonData, tungstenData, mainIonData, electronData]
 speciesNames = ["proton", "neon", "tungsten", "main ion", "electrons"]
@@ -107,15 +107,12 @@ for i, species in enumerate(speciesNames):
    zI   = allData[i][0]
    mI   = allData[i][1]
    nI   = allData[i][2]
-   L_TI = allData[i][3]
-   LnI  = allData[i][4]
    vT_I = np.sqrt(T_I/mI)
    cycI = zI/(mI) #Cyc freq. #Dont need B or c because cyc freq always shows up in ratios of main ion cyc freq and consts will cancel.
    rhoI = vT_I/cycI
 
    cyc_i = (z_i)/(m_i) #Cyc freq. #Dont need B or c because cyc freq always shows up in ratios of main ion cyc freq and consts will cancel.
    rho_i = vTi/cyc_i
-   Ln_i  = allData[numImpurities][4][i] #numImp == main ion index.
    n_i   = ionDensities[i]
 
    #Load phi from GENE here for the specific run. Then split by mode.
@@ -127,12 +124,12 @@ for i, species in enumerate(speciesNames):
    #y = vPerp, x = vPar - will evaluate y integral first.
    for j, phiMode in enumerate(phi):
       omega        = (omegaReal[j] + 1j*gamma[j])
-      oStarT_I     = lambda y, x: -kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * R*((1/LnI) + (1/2)*((y**2)*((vTi/vT_I)**2) + (x**2)*((vTi/vT_I)**2) - 3)*(1/L_TI))
-      oStarT_i     = lambda y, x: -kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * R*((1/LnI) + (1/2)*((y**2)*((vTi/vTi)**2)  + (x**2)*((vTi/vTi)**2)  - 3)*(1/L_T))
+      oStarT_I     = lambda y, x: -kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * (omnI     + (1/2)*((y**2)*((vTi/vT_I)**2) + (x**2)*((vTi/vT_I)**2) - 3)*omtI)
+      oStarT_i     = lambda y, x: -kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * (omn_i[i] + (1/2)*((y**2)*((vTi/vTi)**2)  + (x**2)*((vTi/vTi)**2)  - 3)*omt_i)
       obarD_I      = lambda y, x:  kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * ((1/2)*(y**2)  + (x**2)) * ((vTi/vT_I)**2) * (np.cos(eta) + s*eta*np.sin(eta))
       obarDi       = lambda y, x:  kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * ((1/2)*(y**2)  + (x**2)) * ((vTi/vTi)**2)  * (np.cos(eta) + s*eta*np.sin(eta))
       omegaTermI   = lambda y, x: (np.conj(omega) - oStarT_I(y,x))/(np.conj(omega) - obarD_I(y,x)) + (omega - oStarT_I(y,x))/(omega - obarD_I(y,x))
-      omegaTerm_i  = lambda y, x: (np.conj(omega) - oStarT_i(y,x))/(np.conj(omega) - obarDi(y,x))  + (omega - oStarT_i(y,x))/(omega - obarDi(y,x)) 
+      omegaTerm_i  = lambda y, x: (np.conj(omega) - oStarT_i(y,x))/(np.conj(omega) - obarDi(y,x))  + (omega - oStarT_i(y,x))/(omega - obarDi(y,x))
       xTerm_i      = lambda x:   scipy.exp((-1/2)*(x**2)*((vTi/vTi)**2))
       yTerm_i      = lambda y: y*scipy.exp((-1/2)*(y**2)*((vTi/vTi)**2))
       xTermI       = lambda x:   scipy.exp((-1/2)*(x**2)*((vTi/vT_I)**2))

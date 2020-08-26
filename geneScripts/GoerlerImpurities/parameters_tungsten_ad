@@ -1,15 +1,12 @@
 &parallelization
-n_procs_s =   -1
-n_procs_v =   -1
-n_procs_w =   -1
-n_procs_x =   -1
-n_procs_y =   -1
-n_procs_z =   -1
-n_procs_sim = -1
+n_procs_s =   2
+n_procs_v =   8
+n_procs_w =   4
+n_procs_x =   1
+n_procs_y =   1
+n_procs_z =   1
+n_procs_sim =     64
 /
-
-!n_parallel_sims = 1
-!n_procs_sim = 1
 
 &box
 n_spec =    2
@@ -22,13 +19,15 @@ nw0    =    8
 kymin =   0.50000000E-01
 lv    =   3.00000    
 lw    =   9.00000    
-lx    =   125.628    
+lx    =   119.474    
+nexc  = 5
+adapt_lx = F
 /
 
 &in_out
-diagdir = './/'
+diagdir = './///'
 
-read_checkpoint  = T
+read_checkpoint  = F
 write_checkpoint = T
 
 istep_field  =     100
@@ -44,14 +43,20 @@ write_std = T
 &general
 nonlinear =   T
 comp_type = 'IV'
-!perf_vec  =  1 2 1 1 1 1 2 1 2
-calc_dt = .t.
+perf_vec  =  1 1 1 1 1 1 1 1 1
+nblocks   =      16
+hypz_opt =   F
+hypz_compensation =   F
 
-timelim    =      14300
+timescheme = 'RK4'
+dt_max     =   0.3180E-01
+courant    =     1.25
+
+timelim    =       7100
 ntimesteps =    1000000
 simtimelim =   0.1000E+05
 
-beta       =    .1E-3    
+beta       =    0.0000000    
 debye2     =    0.0000000    
 collision_op = 'none'
 
@@ -68,41 +73,51 @@ q0       =    1.4100000
 shat     =   0.83700000    
 trpeps   =   0.18000000    
 major_R  =    1.0000000    
+dpdx_term= 'gradB_eq_curv'
+dpdx_pm  =    0.0000000    
+norm_flux_projection  = F
 sign_Ip_CW =       1
 sign_Bt_CW =       1
 /
 
 &species
 name   = 'ions'
-omn    =    2.2222222   
+omn    =    2.3125000    
 omt    =    6.9600000    
 
 mass   =    1.0000000    
 temp   =    1.0000000    
-dens   =    0.9990000    
+dens   =   0.96000000    
 charge =  1
 /
 
-!&species
-!name   = 'electrons'
-!omn    =    2.2200000    
-!omt    =    0.0000000    
-!
-!mass   =    0.54462000E-03
-!temp   =    1.0000000    
-!dens   =    1.0000000    
-!charge = -1
-!/
-
 &species
-name = 'tungsten'
-omn  = 0
-omt  = 0
+name   = 'tungsten'
+omn    =    0.0000000    
+omt    =    0.0000000    
 
-mass = 183.840
-temp = 0.1
-dens = 0.001
+mass   =    183.84000    
+temp   =   0.10000000    
+dens   =   0.10000000E-02
 charge = 40
+/
+
+&info
+number of computed time steps =       0
+time for initial value solver =      9.487
+calc_dt = F
+nltdt_off = F
+init_time =     1.2885
+n_fields = 1
+n_moms   =  6
+nrgcols  = 10
+lx =   119.474    
+ly =   125.664    
+PRECISION  = DOUBLE
+ENDIANNESS = LITTLE
+OMP_NUM_THREADS =   1
+GIT_BRANCH = 99cb2288a6551c5603747aa82515c8dd8044d664                    
+RELEASE = 1.8 - patch 1
 /
 
 &units
