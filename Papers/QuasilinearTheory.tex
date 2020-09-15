@@ -179,7 +179,7 @@ quantity. Within our plasma description, the density and velocity contributing t
 where $\langle ... \rangle$ represents a flux-surface average, and $\delta \bm{v}$ represents velocity fluctuations. We are interested in
 the effects of linear perturbations and so assume the form,   
    \begin{equation}
-      A(x,t) = A_0e^{-i\omega t + i\bm{k}\cdot\bm{x}} 
+      A(x,t) = A_0e^{-i\omega t + i\bm{k}\cdot\bm{x}}\;.
    \end{equation}
 
 \subsection{Anomalous Transport}
@@ -220,7 +220,7 @@ where the $\frac{1}{2}$ has been absorbed into the real magnitude $\widetilde{A}
 the terms in (2.1.3) and dropping real terms  in the integral due to the $i$ out front gives the final result for the flux,
 
    \begin{equation}
-      \Gamma_r = \frac{ik_\theta c}{2\pi B}\int_{0}^{2\pi}\int(\delta\widetilde{f}^*\delta\widetilde{\Phi}-\delta\widetilde{f}\delta\widetilde{\Phi}^*)d\theta d^{3}v\;.
+      \Gamma_r = \frac{ik_\theta c}{2\pi B}\int_{0}^{2\pi}\int(\delta\widetilde{f}\delta\widetilde{\Phi}^*-\delta\widetilde{f}^*\delta\widetilde{\Phi})d\theta d^{3}v\;.
    \end{equation}
    %
 
@@ -526,9 +526,9 @@ distribution functions are now given as,
 where $\delta H_0 = 0$ for adiabatic electrons. Plugging into (2.1.5) then gives,
    \begin{equation}
    \begin{aligned}
-      \Gamma_{r,j} = -\frac{ik_\theta c}{2\pi B}\int_{0}^{2\pi}d\theta\int d^3v
-            [&\frac{q_j}{T_j}\delta\widetilde{\Phi}\delta\widetilde{\Phi}^*f_{M,j}(1+J_0(z_j)\frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}}e^{-iz\sin\alpha}) \\
-             & + \frac{q_j}{T_j}\delta\widetilde{\Phi}\delta\widetilde{\Phi}^*f_{M,j}(1+J_0(z_j)\frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}}e^{iz\sin\alpha})]\;.
+      \Gamma_{r,j} = \frac{ik_\theta c}{2\pi B}\int_{0}^{2\pi}d\theta\int d^3v
+            [&\frac{q_j}{T_j}\delta\widetilde{\Phi}\delta\widetilde{\Phi}^*f_{M,j}(-1+J_0(z_j)\frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}}e^{-iz\sin\alpha}) \\
+             & - \frac{q_j}{T_j}\delta\widetilde{\Phi}\delta\widetilde{\Phi}^*f_{M,j}(-1+J_0(z_j)\frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}}e^{iz\sin\alpha})]\;.
    \end{aligned}
    \end{equation}
    %
@@ -536,17 +536,17 @@ Ignoring the adiabatic perturbation because it can't lead to a real flux due to 
 (3.1.16) then gives,
    \begin{equation}
    \begin{aligned}
-      \Gamma_{r,j} &= -\frac{ik_\theta c}{B}\frac{q_j}{T_j}\lvert\delta\widetilde{\Phi}\rvert^2\int_{0}^{2\pi}d\theta\int_{-\infty}^{\infty}dv_\parallel
+      \Gamma_{r,j} &= \frac{ik_\theta c}{B}\frac{q_j}{T_j}\lvert\delta\widetilde{\Phi}\rvert^2\int_{0}^{2\pi}d\theta\int_{-\infty}^{\infty}dv_\parallel
                       \int_{0}^{\infty}v_\perp dv_\perp J_0^2(\frac{k_\perp v_\perp}{\omega_{c,j}})
-                      [\frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}} + \frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}}]f_{M,j} \\
+                      [\frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}} - \frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}}]f_{M,j} \\
                    & 
                       \begin{aligned} \;=
-                      -\frac{ik_\theta c}{B}\frac{n_{j,0}q_j}{T_j}\lvert\delta\widetilde{\Phi}\rvert^2\left(\frac{m_j}{2\pi T_j}\right)^{3/2}
+                      \frac{ik_\theta c}{B}\frac{n_{j,0}q_j}{T_j}\lvert\delta\widetilde{\Phi}\rvert^2\left(\frac{m_j}{2\pi T_j}\right)^{3/2}
                       \int_{0}^{2\pi}d\theta\int_{-\infty}^{\infty}dv_\parallel e^{-\frac{v_\parallel^2}{2v_{T,j}^2}}
                       \int_{0}^{\infty}v_\perp dv_\perp e^{-\frac{v_\perp^2}{2v_{T,j}^2}} \\
                       \times J_0^2(\frac{k_\perp v_\perp}{\omega_{c,j}})
-                      [\frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}}
-                       + \frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}}]
+                      [\frac{\omega-\omega^T_{*,j}}{\omega-\bar{\omega}_{d,j}}
+                       - \frac{\omega^*-\omega^T_{*,j}}{\omega^*-\bar{\omega}_{d,j}}]
                       \end{aligned}
    \end{aligned}
    \end{equation}
@@ -556,7 +556,7 @@ Ignoring the adiabatic perturbation because it can't lead to a real flux due to 
    \begin{equation}
    \begin{aligned}
       q_en_e     + q_in_i     &= 0 \\
-      q_en_{e,0} + q_in_{i,0} = 0 \Rightarrow -en_{e,0} + en_{i,0} &= 0 \Rightarrow n_{e,0} = n_{i,0} = n_0,
+      q_en_{e,0} + q_in_{i,0}  = 0 \Rightarrow -en_{e,0} + en_{i,0} &= 0 \Rightarrow n_{e,0} = n_{i,0} = n_0,
    \end{aligned}
    \end{equation}
    %
@@ -659,41 +659,41 @@ where omt and omn are values defined by GENE\cite{GENE}. GENE outputs values in 
 (3.4.3) needs to be converted to the following normalized form using (5.1.1)-(5.1.4),
    \begin{equation}
    \begin{aligned}
-      \Gamma_{r,j} =  &-ik_\theta\rho_i\frac{cq_jn_e}{\rho_iBT_j}\frac{n_{j,0}}{n_e}(\frac{T_i\rho_i^*}{e})^2\lvert\frac{e\delta\widetilde{\Phi}}{T_i\rho_i^*}\rvert^2
+      \Gamma_{r,j} =  &\;ik_\theta\rho_i\frac{cq_jn_e}{\rho_iBT_j}\frac{n_{j,0}}{n_e}(\frac{T_i\rho_i^*}{e})^2\lvert\frac{e\delta\widetilde{\Phi}}{T_i\rho_i^*}\rvert^2
                       \left(\frac{1}{2\pi}\right)^{3/2}\left(\frac{m_j}{T_j}\right)^{3/2}\int_{0}^{2\pi}d\theta\int_{-\infty}^{\infty}
                       v_{T,i}\frac{dv_\parallel}{v_{T,i}}e^{-\frac{v_\parallel^2}{2v_{T,i}^2}\frac{v_{T,i}^2}{v_{T,j}^2}}\\
                       &\int_{0}^{\infty}v_{T,i}^2\frac{v_\perp}{v_{T,i}}\frac{dv_\perp}{v_{T,i}}e^{-\frac{v_\perp^2}{2v_{T,i}^2}\frac{v_{T,i}^2}{v_{T,j}^2}}
                       J_0^2(k_\perp\rho_i \frac{v_\perp v_{T,i}}{v_{T,i}\rho_i\omega_{c,j}}) \\
-                      &\times[\frac{\omega^*/(v_{T,i}/R_0)-\omega^T_{*,j}/(v_{T,i}/R_0)}{\omega^*/(v_{T,i}/R_0)-\bar{\omega}_{d,j}/(v_{T,i}/R_0)}
-                             + \frac{\omega/(v_{T,i}/R_0)-\omega^T_{*,j}/(v_{T,i}/R_0)}{\omega/(v_{T,i}/R_0)-\bar{\omega}_{d,j}/(v_{T,i}/R_0)}]
+                      &\times[\frac{\omega/(v_{T,i}/R_0)-\omega^T_{*,j}/(v_{T,i}/R_0)}{\omega/(v_{T,i}/R_0)-\bar{\omega}_{d,j}/(v_{T,i}/R_0)}
+                             - \frac{\omega^*/(v_{T,i}/R_0)-\omega^T_{*,j}/(v_{T,i}/R_0)}{\omega^*/(v_{T,i}/R_0)-\bar{\omega}_{d,j}/(v_{T,i}/R_0)}]
                        \frac{v_{T,i}/R_0}{v_{T,i}/R_0} \\
-                   =  &-ik_\theta\rho_i\frac{cT_iZ_j}{eB\rho_i}\frac{T_i}{T_j}\frac{n_{j,0}}{n_e}(n_e\rho_i^{*2})\lvert\delta\widetilde{\Phi}_G\rvert^2
+                   =  &\;ik_\theta\rho_i\frac{cT_iZ_j}{eB\rho_i}\frac{T_i}{T_j}\frac{n_{j,0}}{n_e}(n_e\rho_i^{*2})\lvert\delta\widetilde{\Phi}_G\rvert^2
                        \left(\frac{1}{2\pi}\right)^{3/2}\left(\frac{v_{T,i}}{v_{T,j}}\right)^3\int_{0}^{2\pi}d\theta\int_{-\infty}^{\infty}
                        dv_{G_\parallel}e^{-\frac{1}{2}\frac{v_{T,i}^2}{v_{T,j}^2}{v_{G_\parallel}^2}} \\
                       &\int_{0}^{\infty}v_{G_\perp}dv_{G_\perp}e^{-\frac{1}{2}\frac{v_{T,i}^2}{v_{T,j}^2}v_{G_\perp}^2}
                        J_0^2(k_\perp\rho_iv_{G_\perp}\frac{\omega_{c,i}}{\omega_{c,j}})
-                       [\frac{\omega_G^*-\omega^T_{G_{*,j}}}{\omega_G^*-\bar{\omega}_{G_{d,j}}}
-                       + \frac{\omega_G-\omega^T_{G_{*,j}}}{\omega_G-\bar{\omega}_{G_{d,j}}}] \\
-                   =  &-ik_\theta\rho_iZ_j\frac{T_i}{T_j}\frac{n_{j,0}}{n_e}(n_ev_{T,i}\rho_i^{*2})\lvert\delta\widetilde{\Phi}_G\rvert^2
+                       [\frac{\omega_G-\omega^T_{G_{*,j}}}{\omega_G-\bar{\omega}_{G_{d,j}}}
+                       - \frac{\omega_G^*-\omega^T_{G_{*,j}}}{\omega_G^*-\bar{\omega}_{G_{d,j}}}] \\
+                   =  &\;ik_\theta\rho_iZ_j\frac{T_i}{T_j}\frac{n_{j,0}}{n_e}(n_ev_{T,i}\rho_i^{*2})\lvert\delta\widetilde{\Phi}_G\rvert^2
                        \left(\frac{1}{2\pi}\right)^{3/2}\left(\frac{v_{T,i}}{v_{T,j}}\right)^3\int_{0}^{2\pi}d\theta\int_{-\infty}^{\infty}
                        dv_{G_\parallel}e^{-\frac{1}{2}\frac{v_{T,i}^2}{v_{T,j}^2}{v_{G_\parallel}^2}} \\
                       &\int_{0}^{\infty}v_{G_\perp}dv_{G_\perp}e^{-\frac{1}{2}\frac{v_{T,i}^2}{v_{T,j}^2}v_{G_\perp}^2}
                        J_0^2(k_\perp\rho_iv_{G_\perp}\frac{\omega_{c,i}}{\omega_{c,j}})
-                       [\frac{\omega_G^*-\omega^T_{G_{*,j}}}{\omega_G^*-\bar{\omega}_{G_{d,j}}}
-                       + \frac{\omega_G-\omega^T_{G_{*,j}}}{\omega_G-\bar{\omega}_{G_{d,j}}}], \\
+                       [\frac{\omega_G-\omega^T_{G_{*,j}}}{\omega_G-\bar{\omega}_{G_{d,j}}}
+                       - \frac{\omega_G^*-\omega^T_{G_{*,j}}}{\omega_G^*-\bar{\omega}_{G_{d,j}}}], \\
    \end{aligned}
    \end{equation}
    %
    \begin{equation}
    \begin{aligned}
       \Rightarrow    \frac{\Gamma_{r,j}}{(n_ev_{T,i}\rho_i^{*2})} = \Gamma_{GB_{r,j}} =
-                    &-ik_\theta\rho_iZ_j\frac{T_i}{T_j}\frac{n_{j,0}}{n_e}\lvert\delta\widetilde{\Phi}_G\rvert^2
+                    &ik_\theta\rho_iZ_j\frac{T_i}{T_j}\frac{n_{j,0}}{n_e}\lvert\delta\widetilde{\Phi}_G\rvert^2
                      \left(\frac{1}{2\pi}\right)^{3/2}\left(\frac{v_{T,i}}{v_{T,j}}\right)^3\int_{0}^{2\pi}d\theta \\
                     &\int_{-\infty}^{\infty}dv_{G_\parallel}e^{-\frac{1}{2}\frac{v_{T,i}^2}{v_{T,j}^2}{v_{G_\parallel}^2}}
                      \int_{0}^{\infty}v_{G_\perp}dv_{G_\perp}e^{-\frac{1}{2}\frac{v_{T,i}^2}{v_{T,j}^2}v_{G_\perp}^2} \\
                     &\times J_0^2(k_\perp\rho_iv_{G_\perp}\frac{\omega_{c,i}}{\omega_{c,j}})
-                     [\frac{\omega_G^*-\omega^T_{G_{*,j}}}{\omega_G^*-\bar{\omega}_{G_{d,j}}}
-                     + \frac{\omega_G-\omega^T_{G_{*,j}}}{\omega_G-\bar{\omega}_{G_{d,j}}}],
+                     [\frac{\omega_G-\omega^T_{G_{*,j}}}{\omega_G-\bar{\omega}_{G_{d,j}}}
+                     - \frac{\omega_G^*-\omega^T_{G_{*,j}}}{\omega_G^*-\bar{\omega}_{G_{d,j}}}],
    \end{aligned}
    \end{equation}
    %
