@@ -133,6 +133,7 @@ for i, species in enumerate(speciesNames):
 
    #Loop over phi since it is missing the highest kthetaRho term so will not break on last term.
    #y = vPerp, x = vPar - will evaluate y integral first.
+<<<<<<< HEAD
    #for j, phiMode in enumerate(phiImp):
 
    j=3
@@ -149,8 +150,8 @@ for i, species in enumerate(speciesNames):
    yTermI       = lambda y: y*scipy.exp((-1/2)*(y**2)*((vTi/vT_I)**2))
    besselTermI  = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y *  (cyc_i/cycI) * np.sqrt(1 + (s*eta)**2))**2
    besselTerm_i = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y * (cyc_i/cyc_i) * np.sqrt(1 + (s*eta)**2))**2
-   constantTermI  = 1j * kthetaRhoi[j] * zI  * (Ti/T_I) * nI  * phiImp[j]**2 * (1/(2*np.pi))**(1/2) * (vTi/vT_I)**3
-   constantTerm_i = 1j * kthetaRhoi[j] * z_i * (Ti/Ti)  * n_i * phiImp[j]**2 * (1/(2*np.pi))**(1/2) * (vTi/vTi)**3
+   constantTermI  = .5j * kthetaRhoi[j] * zI  * (Ti/T_I) * (mI/m_i)  * nI  * phiImp[j]**2 * (1/(2*np.pi))**(1/2) * (vTi/vT_I)**3
+   constantTerm_i = .5j * kthetaRhoi[j] * z_i * (Ti/Ti)  * (m_i/m_i) * n_i * phiImp[j]**2 * (1/(2*np.pi))**(1/2) * (vTi/vTi)**3
    func     = lambda y, x: constantTermI*xTermI(x)*yTermI(y)*besselTermI(y)*omegaTermI(y,x)
    result   = complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)[0]
    func_i   = lambda y, x: constantTerm_i*xTerm_i(x)*yTerm_i(y)*besselTerm_i(y)*omegaTerm_i(y,x)
@@ -160,7 +161,6 @@ for i, species in enumerate(speciesNames):
    #print(kthetaRhoi[j])
 
 ampSpectra = [12,9,15]
-
 for i, species in enumerate(speciesNames):
    if (i==numImpurities):
       break
