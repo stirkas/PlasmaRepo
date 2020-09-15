@@ -133,7 +133,6 @@ for i, species in enumerate(speciesNames):
 
    #Loop over phi since it is missing the highest kthetaRho term so will not break on last term.
    #y = vPerp, x = vPar - will evaluate y integral first.
-<<<<<<< HEAD
    #for j, phiMode in enumerate(phiImp):
 
    j=3
@@ -144,10 +143,10 @@ for i, species in enumerate(speciesNames):
    obarDi       = lambda y, x:  kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * ((1/2)*(y**2)  + (x**2)) * ((vTi/vTi)**2)  * (np.cos(eta) + s*eta*np.sin(eta))
    omegaTermI   = lambda y, x: (omega - oStarT_I(y,x))/(omega - obarD_I(y,x)) - (np.conj(omega) - oStarT_I(y,x))/(np.conj(omega) - obarD_I(y,x))
    omegaTerm_i  = lambda y, x: (omega - oStarT_i(y,x))/(omega - obarDi(y,x))  - (np.conj(omega) - oStarT_i(y,x))/(np.conj(omega) - obarDi(y,x))
-   xTerm_i      = lambda x:   scipy.exp((-1/2)*(x**2)*((vTi/vTi)**2))
-   yTerm_i      = lambda y: y*scipy.exp((-1/2)*(y**2)*((vTi/vTi)**2))
-   xTermI       = lambda x:   scipy.exp((-1/2)*(x**2)*((vTi/vT_I)**2))
-   yTermI       = lambda y: y*scipy.exp((-1/2)*(y**2)*((vTi/vT_I)**2))
+   xTerm_i      = lambda x: x**2*scipy.exp((-1/2)*(x**2)*((vTi/vTi)**2))
+   yTerm_i      = lambda y: y**3*scipy.exp((-1/2)*(y**2)*((vTi/vTi)**2))
+   xTermI       = lambda x: x**2*scipy.exp((-1/2)*(x**2)*((vTi/vT_I)**2))
+   yTermI       = lambda y: y**3*scipy.exp((-1/2)*(y**2)*((vTi/vT_I)**2))
    besselTermI  = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y *  (cyc_i/cycI) * np.sqrt(1 + (s*eta)**2))**2
    besselTerm_i = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y * (cyc_i/cyc_i) * np.sqrt(1 + (s*eta)**2))**2
    constantTermI  = .5j * kthetaRhoi[j] * zI  * (Ti/T_I) * (mI/m_i)  * nI  * phiImp[j]**2 * (1/(2*np.pi))**(1/2) * (vTi/vT_I)**3
@@ -166,7 +165,7 @@ for i, species in enumerate(speciesNames):
       break
    print('-------')
    print(species)
-   print(flux[i])#*((15/phi[2][j])**2))
+   #print(flux[i])#*((15/phi[2][j])**2))
    print(flux_i[i])#*((15/phi[2][j])**2))
 
 #Save data off.
