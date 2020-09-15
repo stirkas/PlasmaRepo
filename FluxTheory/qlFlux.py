@@ -136,8 +136,8 @@ for i, species in enumerate(speciesNames):
       yTermI       = lambda y: y*scipy.exp((-1/2)*(y**2)*((vTi/vT_I)**2))
       besselTermI  = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y *  (cyc_i/cycI) * np.sqrt(1 + (s*eta)**2))**2
       besselTerm_i = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y * (cyc_i/cyc_i) * np.sqrt(1 + (s*eta)**2))**2
-      constantTermI  = -kthetaRhoi[j] * zI  * (Ti/T_I) * nI  * phiMode**2 * (1/(2*np.pi))**(1/2) * (vTi/vT_I)**3
-      constantTerm_i = -kthetaRhoi[j] * z_i * (Ti/Ti)  * n_i * phiMode**2 * (1/(2*np.pi))**(1/2) * (vTi/vTi)**3
+      constantTermI  = .5 * -kthetaRhoi[j] * zI  * (Ti/T_I) * (mI/m_i)  * nI  * phiMode**2 * (1/(2*np.pi))**(1/2) * (vTi/vT_I)**3
+      constantTerm_i = .5 * -kthetaRhoi[j] * z_i * (Ti/Ti)  * (m_i/m_i) * n_i * phiMode**2 * (1/(2*np.pi))**(1/2) * (vTi/vTi)**3
 
       func     = lambda y, x: constantTermI*xTermI(x)*yTermI(y)*besselTermI(y)*omegaTermI(y,x)
       result   = np.real(complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)[0])
