@@ -15,9 +15,7 @@ def readFlux(fileName, data):
             data.append(line.split())
    f.close()
 
-def plotFlux(dataPath,fluxVal,title='FluxData',plot=False,save=False,savefile=None):
-   data = []
-   readFlux(dataPath, data)
+def getData(fluxVal, data):
    t = [] #time
    g = [] #particle flux
    q = [] #heat flux
@@ -38,12 +36,38 @@ def plotFlux(dataPath,fluxVal,title='FluxData',plot=False,save=False,savefile=No
    elif (fluxVal == 2):
       outputData = p
 
+   return [t, outputData]
+
+def plotFlux(dataPath,fluxVal,title='FluxData',plot=False,save=False,savefile=None):
+   data = []
+   readFlux(dataPath, data)
+   [t, outputData] = getData(fluxVal, data)
+
    plt.plot(t, outputData)
    
    if (plot):
       plt.show()
    if (save):
       plt.savefig(savefile + '.pdf')
+
+def getAverageVal(data):
+   average = 0
+   for datum in data:
+      average = average + datum
+   average = average/len(data)
+
+   return average
+
+def getStdDev(data):
+   stdDev = 0
+   avg = getAverageVal(data)
+
+   for datum in data:
+      stdDev = stdDev + (datum - avg)**2
+   stdDev = stdDev/len(data)
+   stdDev = np.sqrt(stdDev)
+
+   return stdDev
 
 if __name__ == "__main__":
    parser = argparse.ArgumentParser("Script for plotting/saving GENE ASCII flux output.")

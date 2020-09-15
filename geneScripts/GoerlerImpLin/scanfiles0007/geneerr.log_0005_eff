@@ -1,0 +1,730 @@
+ MPI_THREAD_SINGLE initialized.
+ 
+*****************************************************
+***** This is GENE 11 (release 1.8 - patch 1) *******
+***** GIT branch hash: 99cb228                *******
+***** GIT master hash:                        *******
+*****************************************************
+ 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+no which_ev given in parameters, using jd
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+no which_ev given in parameters, using jd
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+no which_ev given in parameters, using jd
+adapted autoparallelization ranges to optimize preconditioner
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+adapted autoparallelization ranges to optimize preconditioner
+no which_ev given in parameters, using jd
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+no which_ev given in parameters, using jd
+Using a maximum of  1300.00 MB per core.
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+adapted autoparallelization ranges to optimize preconditioner
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+WARNING: no dpdx_term treatment defined!!
+         Setting dpdx_term = 'gradB_eq_curv' ... 
+adapted autoparallelization ranges to optimize preconditioner
+no which_ev given in parameters, using jd
+decreasing nx0 by 1 to have all kx physical for full matrix computations
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+Using a maximum of  1300.00 MB per core.
+adapted autoparallelization ranges to optimize preconditioner
+N for parallel boundary condition: 1
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+N for parallel boundary condition: 1
+Kinetic electrons and ions
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+ 
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+ 
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+ 
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+N for parallel boundary condition: 1
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+double precision computation
+parallel direction: 4th order Arakawa scheme
+  jacobian to the power of  2.000E+00 in z
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+ 
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+N for parallel boundary condition: 1
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+N for parallel boundary condition: 1
+N for parallel boundary condition: 1
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+Kinetic electrons and ions
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+Kinetic electrons and ions
+ 
+N for parallel boundary condition: 1
+N for parallel boundary condition: 1
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+double precision computation
+parallel direction: 4th order Arakawa scheme
+Kinetic electrons and ions
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+*************************************************************
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+N for parallel boundary condition: 1
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+double precision computation
+parallel direction: 4th order Arakawa scheme
+=========== hyper diffusion ============
+hyp_z =      2.000
+hyp_v =      0.200
+ 
+recurrence times for the different species:
+ions       :   22.95490
+tungsten   :  984.22710
+electrons  :    0.53570
+Kinetic electrons and ions
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+*************************************************************
+Starting eigenvalue computation with PETSC-3.9.3/SLEPc-3.9.2
+*************************************************************
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+ 
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+ 
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+EV solver/preconditioner: jd / asm
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+using    0 test vectors with length    380928, i.e.    0.00MB
+  jacobian to the power of  2.000E+00 in z
+precision:   0.1000E-03
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+ 
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+ 
+initialization: alm                 
+  all kx, ky modes equally excited,
+  jacobian to the power of  2.000E+00 in z
+ 
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+EV solver/preconditioner: jd / asm
+using    0 test vectors with length    380928, i.e.    0.00MB
+precision:   0.1000E-03
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+--------------------------------------------------------------
+
+Creating explicit representation of the linear operator without the field part
+Rank of the linear operator:   380928
+Memory requirements:    18.89 MB per core
+Time to build explicit L_g:     1.79
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.83
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.83
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.79
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.79
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+Time to build explicit L_g:     1.80
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   6 blocks per processor
+Time to build explicit L_g:     1.79
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   6 blocks per processor
+Time to build explicit L_g:     1.95
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.91
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.94
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.95
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.94
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.93
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.92
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.93
+
+--------------------------------------------------------------
+
+Time to build explicit L_g:     1.95
+
+--------------------------------------------------------------
+
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+using additive Schwarz preconditioning with   6 blocks per processor
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.505 sec
+******************************************************
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.530 sec
+******************************************************
+Time for GENE simulation:     18.886 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.537 sec
+******************************************************
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.548 sec
+******************************************************
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+Time for GENE simulation:     18.966 sec
+time for eigenvalue computation:     9.568 sec
+******************************************************
+Time for GENE simulation:     19.012 sec
+Time for GENE simulation:     18.852 sec
+Time for GENE simulation:     18.924 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.268 sec
+******************************************************
+Time for GENE simulation:     19.203 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.278 sec
+******************************************************
+Time for GENE simulation:     19.233 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.249 sec
+******************************************************
+Time for GENE simulation:     19.526 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.282 sec
+******************************************************
+Time for GENE simulation:     19.356 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.327 sec
+******************************************************
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.337 sec
+******************************************************
+time for eigenvalue computation:     9.345 sec
+******************************************************
+Time for GENE simulation:     19.430 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+Time for GENE simulation:     19.455 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.355 sec
+******************************************************
+time for eigenvalue computation:     9.361 sec
+******************************************************
+Time for GENE simulation:     19.600 sec
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+time for eigenvalue computation:     9.378 sec
+******************************************************
+number of iterations:    10
+calculated      0 eigenvectors
+***NO EIGENVALUES CALCULATED***
+Time for GENE simulation:     19.516 sec
+time for eigenvalue computation:     9.304 sec
+******************************************************
+Time for GENE simulation:     19.595 sec
+Time for GENE simulation:     19.656 sec
+Time for GENE simulation:     19.586 sec
+Total wallclock time for GENE:     20.001 sec
+Percentage of idle time at the end of the scan due to load imbalancing:      1.485 %

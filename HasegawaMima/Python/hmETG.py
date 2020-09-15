@@ -166,7 +166,7 @@ elif (initialCase == 5):
    #Normalize phi from GENE to Haotians ETG eqns. Just involves a factor of rho_star.
    #Transpose because in a plot y is rows and x is columns.
    # 136, 485, 601
-   phi = genePhi[136,:,:]/474
+   phi = genePhi[136,:,:]*.003 #rhostar for my GENE runs is .003.
    phi = np.transpose(phi)
 
    #Finally, interpolate to get a more symmetric grid so HM code works better.
