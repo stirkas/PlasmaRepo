@@ -19,7 +19,9 @@ struct SimParams
    double mRat     = 0; //(m_e/m_i)
    double rnByRhoI = 0; //(r_n/rho_i), rho == gyroradius.
    //(grad_x(n_e)/n_e) = -1/r_n
-   //(grad_x(T_e)/T_e) = -1/r_t  
+   //(grad_x(T_e)/T_e) = -1/r_t
+
+   bool loadGENE = false; //Possibility for loading data from GENE ASCII output.
 };
 
 } //Close namespace.
