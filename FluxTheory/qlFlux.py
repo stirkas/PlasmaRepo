@@ -165,8 +165,8 @@ for i, species in enumerate(speciesNames):
       break
    print('-------')
    print(species)
-   #print(flux[i])#*((15/phi[2][j])**2))
-   print(flux_i[i])#*((15/phi[2][j])**2))
+   print(flux[i]*((15/phi[2][j])**2))
+   print(np.real(flux_i[i])*((15/phi[2][j])**2))
 
 #Save data off.
 #dirName = 'GoerlerImpurities'
