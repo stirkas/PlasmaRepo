@@ -834,10 +834,10 @@ Using this notation, though I'll drop the $\bm{k}$ subscript at this point, we c
    \begin{equation}
    \begin{aligned}
       \widetilde{f}(-\nabla_{\theta}\widetilde{\Phi})
-         &= (\widetilde{f}+\widetilde{f}^*)(-\nabla_{\theta}(\widetilde{\Phi} + \widetilde{\Phi}^*))
-          = ik_{\theta}(\widetilde{f}+\widetilde{f}^*)(\widetilde{\Phi}^* - \widetilde{\Phi}) \\
-         &= ik_{\theta}[(\frac{A}{2}e^{i\psi}e^{-i\omega t + i\bm{k}\cdot\bm{x}} + \frac{A}{2}e^{-i\psi}e^{i\omega t - i\bm{k}\cdot\bm{x}})
-                        (\frac{B}{2}e^{i\phi}e^{-i\omega t + i\bm{k}\cdot\bm{x}} - \frac{B}{2}e^{-i\phi}e^{i\omega t - i\bm{k}\cdot\bm{x}})] \\
+         &= \frac{1}{4}(\widetilde{f}+\widetilde{f}^*)(-\nabla_{\theta}(\widetilde{\Phi} + \widetilde{\Phi}^*))
+          = ik_{\theta}\frac{1}{4}(\widetilde{f}+\widetilde{f}^*)(\widetilde{\Phi}^* - \widetilde{\Phi}) \\
+         &= ik_{\theta}\frac{1}{4}[(Ae^{i\psi}e^{-i\omega t + i\bm{k}\cdot\bm{x}} + Ae^{-i\psi}e^{i\omega t - i\bm{k}\cdot\bm{x}})
+                        (Be^{i\phi}e^{-i\omega t + i\bm{k}\cdot\bm{x}} - Be^{-i\phi}e^{i\omega t - i\bm{k}\cdot\bm{x}})] \\
          &= ik_{\theta}\frac{AB}{4}[(e^{i(\psi-\phi)} - e^{-i(\psi-\phi)}) + (e^{i[2(\omega t - \bm{k}\cdot\bm{x})-(\psi+\phi)]} - e^{-i[2(\omega t - \bm{k}\cdot\bm{x})-(\psi+\phi)]})] \\
          &= ik_{\theta}\frac{AB}{2}[i\sin(\psi-\phi) + i\sin(2(\omega t-\bm{k}\cdot\bm{x})-(\psi-\phi))]\;,
    \end{aligned}
@@ -860,8 +860,9 @@ from Appendix B, we get that the second $\sin$ term in (A.4) will disappear beca
       \langle ...\rangle_x = \frac{1}{2\pi}\int_0^{2\pi}\sin(ax+b)dx = 0,\quad a\in\mathbb{Z}_+,\mathbb{Z}_-
    \end{equation}
    %
-where $x$ in the integral above can be replaced with either $\theta$ or $\zeta$ when flux-surface averaging. This means we need only include two of the terms in the
-first line of (A.4), namely $[\widetilde{\Phi}^*\widetilde{f} - \widetilde{f^*}\widetilde{\Phi}]$, proving equation (2.1.4).
+where $x$ in the integral above can be replaced with either $\theta$ or $\zeta$ when flux-surface averaging, and $a$ would be $m$ or $n$, the toroidal or poloidal mode number.
+This means we need only include two of the terms in the first line of (A.4), namely $[\widetilde{\Phi}^*\widetilde{f} - \widetilde{f^*}\widetilde{\Phi}]$,
+proving equation (2.1.4).
 
 \subsection{Ballooning Representation}
 
