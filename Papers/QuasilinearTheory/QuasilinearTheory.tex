@@ -21,12 +21,11 @@
 \usepackage{color}
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=  true,
-    linktoc   =  true,
-    citecolor = black,
-    filecolor = black,
-    linkcolor = black,
-    urlcolor  = black
+    colorlinks =  true,
+    citecolor  = black,
+    filecolor  = black,
+    linkcolor  = black,
+    urlcolor   = black
 }
 
 \numberwithin{equation}{subsection}
@@ -201,33 +200,33 @@ to be a main spatially-averaged part which varies slowly with time compared to t
 quantity. Within our plasma description, the density and velocity contributing to the flux are written as, 
    %
    \begin{equation}
-      n = \langle n \rangle + \delta n,
+      n = \langle n \rangle_s + \delta n,
    \end{equation}
    %
    \begin{equation}
       \bm{v} = \delta \bm{v},
    \end{equation}
    %
-where $\langle ... \rangle$ represents a flux-surface average, and $\delta \bm{v}$ represents velocity fluctuations.
+where $\langle ... \rangle_s$ represents a flux-surface average, and terms with $\delta$ tacked on represent fluctuations.
 
 \subsection{Anomalous Transport}
    \quad (2.0.1) and (2.0.2) together give a possibility for the anomalous turbulent transport, namely,
    %
    \begin{equation}
-      \Gamma_r = \langle\delta v_r \delta n\rangle_\theta,
+      \Gamma_r = \langle\delta v_r \delta n\rangle_s,
    \end{equation}
    %
-noting that we are considering flow in the radial direction, so averaging over the poloidal angle when considering the tokamak
-geometry described in the following section. The lowest order term is second-order in perturbed quantities because
-$\langle \langle n \rangle \delta v_r \rangle = \langle n \rangle \langle \delta v_r \rangle = 0$, since the average of an averaged
-quantity is itself, and the average of truly random fluctuations is zero. The density perturbation can be written in terms of a
-perturbed distribution function integrated over all velocity space, and the perturbed velocity as an $\bm{E}\times\bm{B}$ drift
+noting that we are considering flow in the radial direction, so averaging over the poloidal and toroidal angles (the flux surface)
+when considering the tokamak geometry described in the following section. The lowest order term is second-order in perturbed quantities
+because $\langle \langle n \rangle_s \delta v_r \rangle_s = \langle n \rangle_s \langle \delta v_r \rangle_s = 0$, since the average of
+an averaged quantity is itself, and the average of truly random fluctuations is zero. The density perturbation can be written in terms
+of a perturbed distribution function integrated over all velocity space, and the perturbed velocity as an $\bm{E}\times\bm{B}$ drift
 where the perturbed $\bm{E}$ field and the background $\bm{B}$ field are used. Taking the poloidal average and bringing the drift
 velocity into the velocity-space integral, we get the following result for the quasi-linear particle flux, 
    %
    \begin{equation}
-      \Gamma_r = \langle\int\delta f \frac{c}{B}(\delta\bm{E}\times\bm{\hat{b}}) d^{3}v\rangle_\theta
-               = \frac{c}{2\pi}\int_{0}^{2\pi} \int\delta f \frac{\delta E_\theta}{B}d\theta d^{3}v \;.
+      \Gamma_r = \langle\int\delta f \frac{c}{B}(\delta\bm{E}\times\bm{\hat{b}}) d^{3}v\rangle_s
+               = \frac{c}{2\pi}\int_{0}^{2\pi} \int\delta f \frac{\delta E_\theta}{B}d\theta d\zeta d^{3}v \;.
    \end{equation}
    %
 Note there is a subtle point that only the $\theta$-component of $\delta E$ remains because we have dropped the term of
@@ -236,7 +235,7 @@ and a Fourier transform can be taken to give a flux for each mode,
    %
    \begin{equation}
       \Gamma_r = \frac{c}{2\pi}\int_{0}^{2\pi} \int\delta\widetilde{f}
-                    \frac{(-\nabla_\theta(\delta\widetilde{\Phi}))}{B}d\theta d^{3}v,
+                    \frac{(-\nabla_\theta(\delta\widetilde{\Phi}))}{B}d\theta d\zeta d^{3}v,
    \end{equation}
    %
 where a $\sim$ over a quantity represents a Fourier mode. (2.1.3) can be made more general by allowing $\delta\widetilde{f}$ and $\delta\widetilde{\Phi}$
@@ -244,7 +243,7 @@ to be complex when calculating a real flux value. Plugging the results from Appe
 the terms in (2.1.3) gives the final result for the flux,
    %
    \begin{equation}
-      \Gamma_r = \frac{ik_\theta c}{2\pi B}\int_{0}^{2\pi}\int(\delta\widetilde{f}\delta\widetilde{\Phi}^*-\delta\widetilde{f}^*\delta\widetilde{\Phi})d\theta d^{3}v\;.
+      \Gamma_r = \frac{ik_\theta c}{2\pi B}\int_{0}^{2\pi}\int(\delta\widetilde{f}\delta\widetilde{\Phi}^*-\delta\widetilde{f}^*\delta\widetilde{\Phi})d\theta d\zeta d^{3}v\;.
    \end{equation}
    %
 
@@ -422,6 +421,9 @@ with the following definition for the zeroth-order Bessel function,
       J_0(z) = \frac{1}{2\pi}\int_{0}^{2\pi}e^{\pm iz\sin\alpha}d\alpha\;.
    \end{equation}
    %
+You can try $\bm{k}_{\perp}$ equally in $\bm{\hat{e}}_1$ and $\bm{\hat{e}}_2$ and see that the integral (3.1.14) ends up over
+
+\noindent$e^{-iz(\frac{1}{\sqrt{2}}\sin\alpha + \frac{1}{\sqrt{2}}\cos\alpha)}$, which still results in $J_0(z)$.
 
 \subsection{Gyrokinetic Distribution Function}
    \quad We can simplify (3.1.6) further by plugging in (3.1.9), (3.1.10), and (3.1.15) and then taking the Fourier transform, giving,
@@ -823,22 +825,21 @@ and in order to deal with complex variables we can choose to use the general not
    %
    \begin{equation}
       \mathbb{R}e\{\widetilde{A}\} = \frac{1}{2}(\widetilde{A} + c.c.) = \frac{1}{2}(\widetilde{A} + \widetilde{A}^*)
-                                   =   \widetilde{A}_{0,\bm{k}}e^{-i\omega t + i\bm{k}\cdot\bm{x}}
-                                     + \widetilde{A}_{0,\bm{k}}e^{i\omega t -i\bm{k}\cdot\bm{x}},
+                                   =   \frac{1}{2}\widetilde{A}_{0,\bm{k}}e^{-i\omega t + i\bm{k}\cdot\bm{x}}
+                                     + \frac{1}{2}\widetilde{A}_{0,\bm{k}}e^{i\omega t -i\bm{k}\cdot\bm{x}},
    \end{equation}
    %
-where the $\frac{1}{2}$ has been absorbed into the real magnitude $\widetilde{A}_{0,\bm{k}}$. Using this notation, though I'll drop the $\bm{k}$ subscript
-at this point, we can find that the term $\widetilde{f}(-\nabla_{\theta}\widetilde{\Phi})$ reduces to,
+Using this notation, though I'll drop the $\bm{k}$ subscript at this point, we can find that the term $\widetilde{f}(-\nabla_{\theta}\widetilde{\Phi})$ reduces to,
    %
    \begin{equation}
    \begin{aligned}
       \widetilde{f}(-\nabla_{\theta}\widetilde{\Phi})
-         &= (\widetilde{f}+\widetilde{f}^*)(-\nabla_{\theta}(\widetilde{\Phi} + \widetilde{\Phi}^*))
-          = ik_{\theta}(\widetilde{f}+\widetilde{f}^*)(\widetilde{\Phi}^* - \widetilde{\Phi}) \\
-         &= ik_{\theta}[(Ae^{i\psi}e^{-i\omega t + i\bm{k}\cdot\bm{x}} + Ae^{-i\psi}e^{i\omega t - i\bm{k}\cdot\bm{x}})
+         &= \frac{1}{4}(\widetilde{f}+\widetilde{f}^*)(-\nabla_{\theta}(\widetilde{\Phi} + \widetilde{\Phi}^*))
+          = ik_{\theta}\frac{1}{4}(\widetilde{f}+\widetilde{f}^*)(\widetilde{\Phi}^* - \widetilde{\Phi}) \\
+         &= ik_{\theta}\frac{1}{4}[(Ae^{i\psi}e^{-i\omega t + i\bm{k}\cdot\bm{x}} + Ae^{-i\psi}e^{i\omega t - i\bm{k}\cdot\bm{x}})
                         (Be^{i\phi}e^{-i\omega t + i\bm{k}\cdot\bm{x}} - Be^{-i\phi}e^{i\omega t - i\bm{k}\cdot\bm{x}})] \\
-         &= ik_{\theta}AB[(e^{i(\psi-\phi)} - e^{-i(\psi-\phi)}) + (e^{i[2(\omega t - \bm{k}\cdot\bm{x})-(\psi+\phi)]} - e^{-i[2(\omega t - \bm{k}\cdot\bm{x})-(\psi+\phi)]})] \\
-         &= ik_{\theta}AB[2i\sin(\psi-\phi) + 2i\sin(2(\omega t-\bm{k}\cdot\bm{x})-(\psi-\phi))]\;,
+         &= ik_{\theta}\frac{AB}{4}[(e^{i(\psi-\phi)} - e^{-i(\psi-\phi)}) + (e^{i[2(\omega t - \bm{k}\cdot\bm{x})-(\psi+\phi)]} - e^{-i[2(\omega t - \bm{k}\cdot\bm{x})-(\psi+\phi)]})] \\
+         &= ik_{\theta}\frac{AB}{2}[i\sin(\psi-\phi) + i\sin(2(\omega t-\bm{k}\cdot\bm{x})-(\psi-\phi))]\;,
    \end{aligned}
    \end{equation}
    %
@@ -852,21 +853,16 @@ where $\widetilde{f}$ and $\widetilde{\Phi}$ have been expanded using (A.1) and 
       \widetilde{\Phi} = Be^{i\phi}e^{-i\omega t + i\bm{k}\cdot\bm{x}}\;.
    \end{equation}
    %
-Alternatively, you can write,
+If we consider the flux-surface average, over $\theta$ and $\zeta$, from the flux equation (2.1.3), and take into account the form of $\widetilde{\Phi}$ in toroidal coordinates
+from Appendix B, we get that the second $\sin$ term in (A.4) will disappear because,
    %
    \begin{equation}
-   \begin{aligned}
-      \widetilde{f}(-\nabla_{\theta}\widetilde{\Phi})
-         &= (\widetilde{f}+\widetilde{f}^*)(-\nabla_{\theta}(\widetilde{\Phi} + \widetilde{\Phi}^*))
-          = ik_{\theta}(\widetilde{f}+\widetilde{f}^*)(\widetilde{\Phi}^* - \widetilde{\Phi}) \\
-         &= ik_{\theta}[(a+ib) + (a-ib)][(c-id) - (c+id)] \\
-         &= ik_{\theta}[2ac-2ac + 2ibc - 2ibc + 2iad + 2iad + 2bd - 2bd] \\
-         &= ik_{\theta}[4iad]
-   \end{aligned}
+      \langle ...\rangle_x = \frac{1}{2\pi}\int_0^{2\pi}\sin(ax+b)dx = 0,\quad a\in\mathbb{Z}_+,\mathbb{Z}_-
    \end{equation}
    %
-Therefore, to calculate the real component of the flux we should take only the part of the expression in brackets which is complex in (A.4)
-or (A.7). This seems to show all 4 terms are necessary...
+where $x$ in the integral above can be replaced with either $\theta$ or $\zeta$ when flux-surface averaging, and $a$ would be $m$ or $n$, the toroidal or poloidal mode number.
+This means we need only include two of the terms in the first line of (A.4), namely $[\widetilde{\Phi}^*\widetilde{f} - \widetilde{f^*}\widetilde{\Phi}]$,
+proving equation (2.1.4).
 
 \subsection{Ballooning Representation}
 
