@@ -92,18 +92,22 @@ flux_i = np.zeros(numImpurities, dtype=complex)
 
 eta = 0 #Ballooning angle. Phi peaks at 0 so use 0 for now.
 #Peaked phi at 0 eta for each mode for each impurity.
-phi = [[.8, .45,  .125, .225, .25, .2,   .125, .04, .05, .04, .02, .04, .02,  .04, .06],
-       [.4, .225, .45,  .15,  .15, .125, .07,  .2,  .04, .04, .04, .04, .05,  .05, .015],
-       [.1, .285, .12,  .25,  .06, .2,   .08,  .07, .04, .05, .04, .02, .015, .02, .015]]
-      
+#phi = [[.8, .45,  .125, .225, .25, .2,   .125, .04, .05, .04, .02, .04, .02,  .04, .06],
+#       [.4, .225, .45,  .15,  .15, .125, .07,  .2,  .04, .04, .04, .04, .05,  .05, .015],
+#       [.1, .285, .12,  .25,  .06, .2,   .08,  .07, .04, .05, .04, .02, .015, .02, .015]]
+
+#If not using ballooning spectra, integrate theta dependence.
+thetaFunc = lambda x: (1/(2*np.pi))*(np.cos(x) - s*x*np.sin(x))
+thetaInt  = quad(thetaFunc, 0, 2*np.pi)[0]
+
 ampSpectra = []
 
 for i, species in enumerate(speciesNames):
    if (i == numImpurities): #Kick out early once we're passed all impurities.
       break
 
-   #print('------')
-   #print(species)
+   print('------')
+   print(species)
 
    kthetaRhoi = linearGrowthData[i][0]
    omegaReal  = linearGrowthData[i][1]
@@ -122,51 +126,50 @@ for i, species in enumerate(speciesNames):
    n_i   = ionDensities[i]
 
    #Phi for ballooning angle spectra.
-   phiImp = phi[i] #Drop krho = 0 term.
+   #phiImp = phi[i] #Drop krho = 0 term.
    
    #Load phi from GENE here for the specific run. Then split by mode.
    ampSpectra = readAmpSpectra(ampSpectraFiles[i])
    phiAmpImp  = np.array(ampSpectra[1][1])
    ampSpectra.append(phiAmpImp[1:])
 
-   #print(phiAmpImp[1:])
-
    #Loop over phi since it is missing the highest kthetaRho term so will not break on last term.
    #y = vPerp, x = vPar - will evaluate y integral first.
-   #for j, phiMode in enumerate(phiImp):
+   for j, phiMode in enumerate(phiAmpImp):
+      omega        = (omegaReal[j] + 1j*gamma[j])
+      oStarT_I     = lambda y, x: -kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * (omnI     + (1/2)*((y**2)*((vTi/vT_I)**2) + (x**2)*((vTi/vT_I)**2) - 3)*omtI)
+      oStarT_i     = lambda y, x: -kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * (omn_i[i] + (1/2)*((y**2)*((vTi/vTi)**2)  + (x**2)*((vTi/vTi)**2)  - 3)*omt_i)
+      obarD_I      = lambda y, x:  kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * ((1/2)*(y**2)  + (x**2)) * ((vTi/vT_I)**2) * thetaInt #(np.cos(eta) + s*eta*np.sin(eta)) For ballooning modes.
+      obarDi       = lambda y, x:  kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * ((1/2)*(y**2)  + (x**2)) * ((vTi/vTi)**2)  * thetaInt #(np.cos(eta) + s*eta*np.sin(eta)) For ballooning modes.
+      omegaTermI   = lambda y, x: (omega - oStarT_I(y,x))/(omega - obarD_I(y,x)) - (np.conj(omega) - oStarT_I(y,x))/(np.conj(omega) - obarD_I(y,x))
+      omegaTerm_i  = lambda y, x: (omega - oStarT_i(y,x))/(omega - obarDi(y,x))  - (np.conj(omega) - oStarT_i(y,x))/(np.conj(omega) - obarDi(y,x))
+      xTerm_i      = lambda x: x**2*scipy.exp((-1/2)*(x**2)*((vTi/vTi)**2))
+      yTerm_i      = lambda y: y**3*scipy.exp((-1/2)*(y**2)*((vTi/vTi)**2))
+      xTermI       = lambda x: x**2*scipy.exp((-1/2)*(x**2)*((vTi/vT_I)**2))
+      yTermI       = lambda y: y**3*scipy.exp((-1/2)*(y**2)*((vTi/vT_I)**2))
+      besselTermI  = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y *  (cyc_i/cycI) * np.sqrt(1 + (s*eta)**2))**2
+      besselTerm_i = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y * (cyc_i/cyc_i) * np.sqrt(1 + (s*eta)**2))**2
+      constantTermI  = .5j * kthetaRhoi[j] * zI  * (Ti/T_I) * (mI/m_i)  * nI  * phiMode**2 * (1/(2*np.pi))**(1/2) * (vTi/vT_I)**3 #phiImp[j] for ballooning modes.
+      constantTerm_i = .5j * kthetaRhoi[j] * z_i * (Ti/Ti)  * (m_i/m_i) * n_i * phiMode**2 * (1/(2*np.pi))**(1/2) * (vTi/vTi)**3  #phiImp[j] for ballooning modes.
+      func     = lambda y, x: constantTermI*xTermI(x)*yTermI(y)*besselTermI(y)*omegaTermI(y,x)
+      result   = complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)[0]
+      func_i   = lambda y, x: constantTerm_i*xTerm_i(x)*yTerm_i(y)*besselTerm_i(y)*omegaTerm_i(y,x)
+      result_i = complex_quadrature(func_i, -scipy.inf, scipy.inf, 0, scipy.inf)[0]
+      flux[i]   = flux[i]   + result
+      flux_i[i] = flux_i[i] + result_i
+      print(kthetaRhoi[j])
 
-   j=3
-   omega        = (omegaReal[j] + 1j*gamma[j])
-   oStarT_I     = lambda y, x: -kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * (omnI     + (1/2)*((y**2)*((vTi/vT_I)**2) + (x**2)*((vTi/vT_I)**2) - 3)*omtI)
-   oStarT_i     = lambda y, x: -kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * (omn_i[i] + (1/2)*((y**2)*((vTi/vTi)**2)  + (x**2)*((vTi/vTi)**2)  - 3)*omt_i)
-   obarD_I      = lambda y, x:  kthetaRhoi[j] * (vT_I/vTi) * (rhoI/rho_i)  * ((1/2)*(y**2)  + (x**2)) * ((vTi/vT_I)**2) * (np.cos(eta) + s*eta*np.sin(eta))
-   obarDi       = lambda y, x:  kthetaRhoi[j] * (vTi/vTi)  * (rho_i/rho_i) * ((1/2)*(y**2)  + (x**2)) * ((vTi/vTi)**2)  * (np.cos(eta) + s*eta*np.sin(eta))
-   omegaTermI   = lambda y, x: (omega - oStarT_I(y,x))/(omega - obarD_I(y,x)) - (np.conj(omega) - oStarT_I(y,x))/(np.conj(omega) - obarD_I(y,x))
-   omegaTerm_i  = lambda y, x: (omega - oStarT_i(y,x))/(omega - obarDi(y,x))  - (np.conj(omega) - oStarT_i(y,x))/(np.conj(omega) - obarDi(y,x))
-   xTerm_i      = lambda x: x**2*scipy.exp((-1/2)*(x**2)*((vTi/vTi)**2))
-   yTerm_i      = lambda y: y**3*scipy.exp((-1/2)*(y**2)*((vTi/vTi)**2))
-   xTermI       = lambda x: x**2*scipy.exp((-1/2)*(x**2)*((vTi/vT_I)**2))
-   yTermI       = lambda y: y**3*scipy.exp((-1/2)*(y**2)*((vTi/vT_I)**2))
-   besselTermI  = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y *  (cyc_i/cycI) * np.sqrt(1 + (s*eta)**2))**2
-   besselTerm_i = lambda y: scipy.special.jv(0, kthetaRhoi[j] * y * (cyc_i/cyc_i) * np.sqrt(1 + (s*eta)**2))**2
-   constantTermI  = .5j * kthetaRhoi[j] * zI  * (Ti/T_I) * (mI/m_i)  * nI  * phiImp[j]**2 * (1/(2*np.pi))**(1/2) * (vTi/vT_I)**3
-   constantTerm_i = .5j * kthetaRhoi[j] * z_i * (Ti/Ti)  * (m_i/m_i) * n_i * phiImp[j]**2 * (1/(2*np.pi))**(1/2) * (vTi/vTi)**3
-   func     = lambda y, x: constantTermI*xTermI(x)*yTermI(y)*besselTermI(y)*omegaTermI(y,x)
-   result   = complex_quadrature(func, -scipy.inf, scipy.inf, 0, scipy.inf)[0]
-   func_i   = lambda y, x: constantTerm_i*xTerm_i(x)*yTerm_i(y)*besselTerm_i(y)*omegaTerm_i(y,x)
-   result_i = complex_quadrature(func_i, -scipy.inf, scipy.inf, 0, scipy.inf)[0]
-   flux[i]   = flux[i]   + result
-   flux_i[i] = flux_i[i] + result_i
-   #print(kthetaRhoi[j])
-
-ampSpectra = [12,9,15]
+#Normalize ballooning peak in terms of amp spectra peak.
+#ampSpectra = [12,9,15]
 for i, species in enumerate(speciesNames):
    if (i==numImpurities):
       break
    print('-------')
    print(species)
-   print(flux[i]*((15/phi[2][j])**2))
-   print(np.real(flux_i[i])*((15/phi[2][j])**2))
+   print(flux[i])
+   print(flux_i[i])
+   #print(flux[i]*((15/phi[2][j])**2))
+   #print(np.real(flux_i[i])*((15/phi[2][j])**2))
 
 #Save data off.
 #dirName = 'GoerlerImpurities'
