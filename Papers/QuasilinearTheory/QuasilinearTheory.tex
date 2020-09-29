@@ -864,7 +864,32 @@ where $x$ in the integral above can be replaced with either $\theta$ or $\zeta$ 
 This means we need only include two of the terms in the first line of (A.4), namely $[\widetilde{\Phi}^*\widetilde{f} - \widetilde{f^*}\widetilde{\Phi}]$,
 proving equation (2.1.4).
 
+\newpage{}
+
 \subsection{Ballooning Representation}
+
+We take,
+   %
+   \begin{equation}
+      \widetilde{\Phi} = \sum_{m=0}^\infty e^{im\theta}\int_{-\infty}^\infty\widetilde{g}(\eta)e^{-i(m-n_0q(r))\eta}d\eta e^{-i\omega t + in\zeta},
+   \end{equation}
+   %
+then $\widetilde{\Phi}\widetilde{\Phi}^*$ in the quasi-linear flux expression becomes,
+   %
+   \begin{equation}
+      \widetilde{\Phi}\widetilde{\Phi}^* = \sum_{m,m'=0}^{\infty}e^{i(m-m')\theta}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}
+      \widetilde{g}(\eta)\widetilde{g}^*(\eta')e^{i(m'-n_0q(r))\eta'}e^{-i(m-n_0q(r))\eta}d\eta d\eta'\;.
+   \end{equation}
+   %
+We can simplify this with the definition of the $\delta$-function,
+   %
+   \begin{equation}
+   \begin{aligned}
+      \delta(x-x') &= \frac{1}{2\pi}\int_{-\infty}^{\infty}e^{ik(x-x')}dk, \\
+      \delta(x-x') &= \frac{1}{2\pi}\sum_{k=-\infty}^{\infty}e^{ik(x-x')}\;.
+   \end{aligned}
+   \end{equation}
+   %
 
 \newpage{}
 
