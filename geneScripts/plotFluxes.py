@@ -41,11 +41,11 @@ impurityNorm     = "ImpNorm"
 geneNorm         = "GB" #GyroBohm norm.
 
 #Data sets.
-kineticDataSet =   [["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{+15}$", "Mo$^{+31}$", "W$^{+40}$"],
-                    ["./GoerlerImpurities/nrgsummary_proton.dat",     "./GoerlerImpurities/nrgsummary_custom.dat",
-                     "./GoerlerImpurities/nrgsummary_beryllium.dat",  "./GoerlerImpurities/nrgsummary_neon.dat",
-                     "./GoerlerImpurities/nrgsummary_argon.dat",      "./GoerlerImpurities/nrgsummary_molybdenum.dat",
-                     "./GoerlerImpurities/nrgsummary_tungsten.dat"],
+kineticImpData =   [["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{+15}$", "Mo$^{+31}$", "W$^{+40}$"],
+                    ["./GoerlerImpurities/nrgsummary_protonImp.dat",     "./GoerlerImpurities/nrgsummary_customImp.dat",
+                     "./GoerlerImpurities/nrgsummary_berylliumImp.dat",  "./GoerlerImpurities/nrgsummary_neonImp.dat",
+                     "./GoerlerImpurities/nrgsummary_argonImp.dat",      "./GoerlerImpurities/nrgsummary_molybdenumImp.dat",
+                     "./GoerlerImpurities/nrgsummary_tungstenImp.dat"],
                     [1/1, 6/8, 4/9.0121820, 10/20.17970, 15/39.948, 31/95.95, 40/183.84],
                     [.001, .001, .001, .001, .001, .001, .001],
                     [.53, .64, .37, .16, .16, .13, .16],
@@ -53,6 +53,7 @@ kineticDataSet =   [["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{
                     "kinetic",
                     "steelblue",
                     "red"]
+kineticDataSet   = [kineticImpData]
 adiabaticDataSet = [["H$^+$", "Ne$^{+10}$", "W$^{+40}$"],
                     ["./GoerlerImpurities/nrgsummary_proton_ad.dat", "./GoerlerImpurities/nrgsummary_neon_ad.dat",
                      "./GoerlerImpurities/nrgsummary_tungsten_ad.dat"],
