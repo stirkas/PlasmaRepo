@@ -13,8 +13,8 @@ from plotFlux import getStdDev
 #User input flags - just change these input flags if you want to ignore every choice until runtime.
 allowGeneralInput = False #Accept input for all other flags.
 allowParamInput   = False #Accept tokamak param. input.
-#Data type flag. Set one or both true. For kinetic, adiabatic, or both electron data.
-adiabaticData = True
+#Data type flag. Set only one.
+adiabaticData = False
 kineticData   = True
 #Normalization flags. Set at most one true. None gives GENE norm.
 impNormFlag = False #Convert GENE norm to nicer impurity norm using L_T and n_imp.
@@ -35,12 +35,46 @@ omt       = 5
 dataSet   = 6
 dataSetColor = 7
 dataFitColor = 8
+invertX      = 9
+invertY      = 10
+title        = 11
+species = ['Bulk Ions', 'Electrons', 'Impurities']
 #Normalization types
 experimentalNorm = "ExpNorm"
 impurityNorm     = "ImpNorm"
 geneNorm         = "GB" #GyroBohm norm.
 
 #Data sets.
+kineticIonData =   [["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{+15}$", "Mo$^{+31}$", "W$^{+40}$"],
+                    ["./GoerlerImpurities/nrgsummary_protonIon.dat",     "./GoerlerImpurities/nrgsummary_customIon.dat",
+                     "./GoerlerImpurities/nrgsummary_berylliumIon.dat",  "./GoerlerImpurities/nrgsummary_neonIon.dat",
+                     "./GoerlerImpurities/nrgsummary_argonIon.dat",      "./GoerlerImpurities/nrgsummary_molybdenumIon.dat",
+                     "./GoerlerImpurities/nrgsummary_tungstenIon.dat"],
+                    [1/1, 6/8, 4/9.0121820, 10/20.17970, 15/39.948, 31/95.95, 40/183.84],
+                    [.001, .001, .001, .001, .001, .001, .001],
+                    [.53, .64, .37, .16, .16, .13, .16],
+                    [6.96, 6.96, 6.96, 6.96, 6.96, 6.96, 6.96],
+                    "kinetic",
+                    "steelblue",
+                    "red",
+                    True,
+                    False,
+                    species[0]]
+kineticElData =    [["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{+15}$", "Mo$^{+31}$", "W$^{+40}$"],
+                    ["./GoerlerImpurities/nrgsummary_protonEl.dat",     "./GoerlerImpurities/nrgsummary_customEl.dat",
+                     "./GoerlerImpurities/nrgsummary_berylliumEl.dat",  "./GoerlerImpurities/nrgsummary_neonEl.dat",
+                     "./GoerlerImpurities/nrgsummary_argonEl.dat",      "./GoerlerImpurities/nrgsummary_molybdenumEl.dat",
+                     "./GoerlerImpurities/nrgsummary_tungstenEl.dat"],
+                    [1/1, 6/8, 4/9.0121820, 10/20.17970, 15/39.948, 31/95.95, 40/183.84],
+                    [.001, .001, .001, .001, .001, .001, .001],
+                    [.53, .64, .37, .16, .16, .13, .16],
+                    [6.96, 6.96, 6.96, 6.96, 6.96, 6.96, 6.96],
+                    "kinetic",
+                    "steelblue",
+                    "red",
+                    True,
+                    False,
+                    species[1]]
 kineticImpData =   [["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{+15}$", "Mo$^{+31}$", "W$^{+40}$"],
                     ["./GoerlerImpurities/nrgsummary_protonImp.dat",     "./GoerlerImpurities/nrgsummary_customImp.dat",
                      "./GoerlerImpurities/nrgsummary_berylliumImp.dat",  "./GoerlerImpurities/nrgsummary_neonImp.dat",
@@ -52,18 +86,38 @@ kineticImpData =   [["H$^+$", "Custom$^{+6}$", "Be$^{+4}$", "Ne$^{+10}$", "Ar$^{
                     [6.96, 6.96, 6.96, 6.96, 6.96, 6.96, 6.96],
                     "kinetic",
                     "steelblue",
-                    "red"]
-kineticDataSet   = [kineticImpData]
-adiabaticDataSet = [["H$^+$", "Ne$^{+10}$", "W$^{+40}$"],
-                    ["./GoerlerImpurities/nrgsummary_proton_ad.dat", "./GoerlerImpurities/nrgsummary_neon_ad.dat",
-                     "./GoerlerImpurities/nrgsummary_tungsten_ad.dat"],
+                    "red",
+                    True,
+                    True,
+                    species[2]]
+kineticDataSet   = [kineticIonData, kineticElData, kineticImpData]
+adiabaticIonData = [["H$^+$", "Ne$^{+10}$", "W$^{+40}$"],
+                    ["./GoerlerImpurities/nrgsummary_protonIon_ad.dat", "./GoerlerImpurities/nrgsummary_neonIon_ad.dat",
+                     "./GoerlerImpurities/nrgsummary_tungstenIon_ad.dat"],
                     [1/1, 10/20.17970, 40/183.84],
                     [.001, .001, .001],
                     [.114, .143, .125],
                     [6.96, 6.96, 6.96],
                     "adiabatic",
                     "red",
-                    "blue"]
+                    "blue",
+                    True,
+                    False,
+                    species[0]]
+adiabaticImpData = [["H$^+$", "Ne$^{+10}$", "W$^{+40}$"],
+                    ["./GoerlerImpurities/nrgsummary_protonImp_ad.dat", "./GoerlerImpurities/nrgsummary_neonImp_ad.dat",
+                     "./GoerlerImpurities/nrgsummary_tungstenImp_ad.dat"],
+                    [1/1, 10/20.17970, 40/183.84],
+                    [.001, .001, .001],
+                    [.114, .143, .125],
+                    [6.96, 6.96, 6.96],
+                    "adiabatic",
+                    "red",
+                    "blue",
+                    True,
+                    True,
+                    species[2]]
+adiabaticDataSet = [adiabaticIonData, adiabaticImpData]
 
 #Accept user input before running main routine.
 # Parameters are all obtained from Callen Nuc. Fusion 2010 by Scott
@@ -123,7 +177,7 @@ def getExpFactor():
    return factor
 
 #Function for reading and plotting data set.
-def readAndPlotFlux(ionData):
+def readAndPlotFlux(ionData, axis):
    #Read flux data from files - see data sets below for indices.
    ionNames        = ionData[names]
    ionFiles        = ionData[files]
@@ -134,8 +188,11 @@ def readAndPlotFlux(ionData):
    ionDataSet      = ionData[dataSet]
    ionDataSetColor = ionData[dataSetColor]
    ionDataFitColor = ionData[dataFitColor]
-   avgFlux    = []
-   stdDev     = []
+   invertDataX     = ionData[invertX]
+   invertDataY     = ionData[invertY]
+   dataTitle       = ionData[title]
+   avgFlux         = []
+   stdDev          = []
 
    #Read flux data.
    for i,ion in enumerate(ionNames):
@@ -152,49 +209,59 @@ def readAndPlotFlux(ionData):
       stdDev.append(getStdDev(fluxData))
    
    #Plot ion points.
-   plt.scatter(ion_qmRats, avgFlux, color=ionDataSetColor)
-   plt.errorbar(ion_qmRats, avgFlux, yerr=stdDev, linestyle="None", color=ionDataSetColor)
+   axis.scatter(ion_qmRats, avgFlux, color=ionDataSetColor)
+   axis.errorbar(ion_qmRats, avgFlux, yerr=stdDev, linestyle="None", color=ionDataSetColor)
 
    for i, txt in enumerate(ionNames):
-       ax.annotate(txt, (ion_qmRats[i], avgFlux[i] - stdDev[i])) #Offset y for readability.
+       axis.annotate(txt, (ion_qmRats[i], avgFlux[i] - stdDev[i])) #Offset y for readability.
 
    #Generate line of best fit.
    ion_qmRatsNew = np.linspace(ion_qmRats[-1]/1.5, 1, 100) #Note: Extend low end a little past last point.
    coeffs = poly.polyfit(ion_qmRats, avgFlux, 1)
    ffit   = poly.polyval(ion_qmRatsNew, coeffs)
-   plt.plot(ion_qmRatsNew, ffit, color=ionDataFitColor, label=ionDataSet)
+   axis.plot(ion_qmRatsNew, ffit, color=ionDataFitColor, label=ionDataSet)
 
    textSize = 12
    largeTextSize = 16
-   plt.xlabel("[q/m] / [q/m]$_{H^+}$", fontsize=textSize)
+   axis.set_xlabel("[q/m] / [q/m]$_{H^+}$", fontsize=textSize)
    if (expNormFlag):
-      plt.ylabel("$v_{pinch}$ (m/s)",  fontsize=textSize)
+      axis.set_ylabel("$v_{pinch}$ (m/s)",  fontsize=textSize)
    elif (impNormFlag):
-      plt.ylabel("$\\frac{<\\Gamma>}{n_Iv_{Ti}(\\rho_i/L_{Ti})^2}$", fontsize=largeTextSize)
+      axis.set_ylabel("$\\frac{<\\Gamma>}{n_Iv_{Ti}(\\rho_i/L_{Ti})^2}$", fontsize=largeTextSize)
    else:
-      plt.ylabel("<$\\Gamma$$_{GB}$>", fontsize=textSize)
+      axis.set_ylabel("<$\\Gamma$$_{GB}$>", fontsize=textSize)
+   
+   if (invertDataX):
+      axis.invert_xaxis()
+   if (invertDataY):
+      axis.invert_yaxis()
+
+   axis.set_title(dataTitle)
+   axis.grid()
 
 #Main routine starts.
 
 #Create figure and plot data.
-fig, ax = plt.subplots()
 if (kineticData):
-   readAndPlotFlux(kineticDataSet)
-if (adiabaticData):
-   readAndPlotFlux(adiabaticDataSet)
+   fig, axs = plt.subplots(1, len(kineticDataSet))
+   fig.set_figheight(6)
+   fig.set_figwidth(12)
+   for i in range(len(kineticDataSet)):
+      readAndPlotFlux(kineticDataSet[i], axs[i])
+   axs[1].set_xlim(axs[0].get_xlim())
+   axs[1].set_ylim(axs[0].get_ylim())
+elif (adiabaticData):
+   fig, axs = plt.subplots(1, len(adiabaticDataSet))
+   for i in range(len(adiabaticDataSet)):
+      readAndPlotFlux(adiabaticDataSet[i], axs[i])
 
 label  = ""
-if (kineticData and adiabaticData):
-   plt.legend(loc='upper left')
-   plt.title("Electrostatic ITG Impurity Pinch\n[$n_I=.001n_e, T_I=.1T_i=.1T_e$]")
-elif (adiabaticData):
-   plt.title("Electrostatic ITG Impurity Pinch - Adiabatic Electrons\n[$n_I=.001n_e, T_I=.1T_i=.1T_e$]")
+if (adiabaticData):
+   fig.suptitle("Electrostatic ITG Impurity Pinch - Adiabatic Electrons\n[$n_I=.001n_e, T_I=.1T_i=.1T_e$]")
 elif (kineticData):
-   plt.title("Electrostatic ITG Impurity Pinch - Kinetic Electrons\n[$n_I=.001n_e, T_I=.1T_i=.1T_e$]")
+   fig.suptitle("Electrostatic ITG Impurity Pinch - Kinetic Electrons\n[$n_I=.001n_e, T_I=.1T_i=.1T_e$]")
 
-plt.gca().invert_xaxis()
-plt.gca().invert_yaxis()
-plt.tight_layout()
+fig.tight_layout(rect=[0, 0.03, 1, 0.93])
 
 #Get norm type in string form for file saving.
 normType = ""
@@ -205,9 +272,7 @@ elif (expNormFlag):
 else:
    normType = geneNorm
 
-if (kineticData and adiabaticData):
-   plt.savefig('./GoerlerImpurities/FluxPlotAdKinEl' + normType + '.pdf')
-elif (adiabaticData):
+if (adiabaticData):
    plt.savefig('./GoerlerImpurities/FluxPlotAdEl'    + normType + '.pdf')
 elif (kineticData):
    plt.savefig('./GoerlerImpurities/FluxPlotKinEl'   + normType + '.pdf')
