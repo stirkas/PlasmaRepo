@@ -14,8 +14,8 @@ from plotFlux import getStdDev
 allowGeneralInput = False #Accept input for all other flags.
 allowParamInput   = False #Accept tokamak param. input.
 #Data type flag. Set only one.
-adiabaticData = False
-kineticData   = True
+adiabaticData = True
+kineticData   = False
 #Normalization flags. Set at most one true. None gives GENE norm.
 impNormFlag = False #Convert GENE norm to nicer impurity norm using L_T and n_imp.
 expNormFlag = False #Convert GENE norm to experimental norm.
