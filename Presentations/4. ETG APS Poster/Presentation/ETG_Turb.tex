@@ -2,11 +2,10 @@
 \usetheme{Madrid}
 \usepackage[english]{babel}
 \title{ETG Turbulence Isotropization}
-\author[S. Tirkas]{Stefan Tirkas}
+\author[S. Tirkas]{Stefan Tirkas\inst{1}\texorpdfstring{\\}\and Hoatian Chen\inst{1}\and Gabriele Merlo\inst{2}\and Scott Parker\inst{1}}
 \institute[CIPS]{
-    CIPS%
-    \\%
-    University of Colorado, Boulder%
+    \inst{1}CIPS, University of Colorado, Boulder\and
+    \inst{2}University of Texas, Austin
 } 
 \date{\today}
 \logo{\includegraphics[width=.2\linewidth]{Images/BoulderLogo.png}}
@@ -80,7 +79,7 @@
    \end{frame}
 
    \begin{frame}{Hasegawa-Mima Equations}
-      \quad We start with the fluid continuity and momentum equations, where we have already taken the ion approximations discussed
+      \quad We start with the fluid continuity and momentum equations and $\tau = T_e/T_i$, where we have already taken the ion approximations discussed
    on the previous slide:
       \begin{equation}
          \frac{\partial n_e}{\partial t} + \nabla\cdot\left(n_e\vec{v}_e\right) = 0,
@@ -117,23 +116,45 @@
    \end{frame}
 
    \begin{frame}{Hasegawa-Mima Equations}
-      \quad Finally we drop the parallel gradient term since $k_{\parallel}^2/k_{\perp}^2 \sim \epsilon^2$, and simplify the bracketed expression to find the final
-      form of our model,
+      \quad Finally we drop the parallel gradient term since $k_{\parallel}^2/k_{\perp}^2 \sim \epsilon^2$, and simplify the bracketed expression for a 2-D slab geometry to find the final
+   form of our model,
+      \begin{equation}
+      \begin{aligned}
+         \partial_t[\Phi-\frac{1+\tau}{2\tau}\zeta] &= \frac{(1+\tau)(1+\eta_e)}{4\tau}\zeta_y + \frac{1+\eta_e}{2\tau}\phi_y \\
+                                                    &+ \frac{(1+\tau)^2}{\tau}\frac{r_n}{4\rho_e}[\Phi_x\zeta_y-\zeta_x\Phi_y],
+      \end{aligned}
+      \end{equation}
+   where $\zeta = \nabla^2\Phi$.
    \end{frame}
 
    \begin{frame}{Pseudo-Spectral Solver}
-      \quad Equation () is solved numerically using the pseudo-spectral method with a 4th-order Runge-Kutta time advancement. We take the Fourier transform of the equation, but
-   leave the non-linear terms in real space. We can solve for $\zeta_{x,y}$ and $\Phi_{x,y}$ in Fourier space, inverse transform to real space, take the necessary non-linear products,
-   and transform the final result back to Fourier space to carry out the time advancement.
+      \begin{itemize}
+         \item Equation (6) is solved numerically using the pseudo-spectral method.
+            \begin{itemize}
+               \item Fourier transform the equations and get $\zeta=(k_x^2 + k_y^2)\Phi$.
+               \item Inverse Fourier transform $\zeta_{x,y}$ and $\Phi_{x,y}$ back into real space.
+               \item Calculate the non-linear products between $\zeta$ and $\Phi$ in real space and then Fourier transform the
+               products so they can be added to the other Fourier terms.
+               \item Time advance $\Phi$ discretely.
+            \end{itemize}
+         \vspace{5mm}
+         \item Time advancement is done using the $4^{th}$ order Runge-Kutta method.
+         \vspace{5mm}
+         \item The Hasegawa-Mima equations will conserve generalized energy and enstrophy values as a 2-d incompressible fluid conserves
+         the kinetic energy and enstrophy of the fluid.
+      \end{itemize}
    \end{frame}
 
    \begin{frame}{ETG H-M Results}
-      \includegraphics[scale=.25]{Images/hmPhiETG_init.pdf}
-      \includegraphics[scale=.25]{Images/hmPhiETG_iso.pdf}
+      \includegraphics[height=.4\textheight, width=.7\textwidth]{Images/hmPhiETG_init.pdf}
+      %
+      \includegraphics[height=.4\textheight, width=.7\textwidth]{Images/hmPhiETG_iso.pdf}
    \end{frame}
 
    \begin{frame}{GENE ETG Streamer Test}
-      
+      \includegraphics[height=.4\textheight,width=.8\textwidth]{Images/hmETG_geneInit.png}
+      %
+      \includegraphics[height=.4\textheight,width=.8\textwidth]{Images/hmETG_geneIso.png}
    \end{frame}
 
    \begin{frame}{Effects of Isotropization}
