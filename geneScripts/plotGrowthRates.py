@@ -37,8 +37,8 @@ if __name__ == "__main__":
                 './GoerlerImpLin/scanfiles0004/scan.log', './GoerlerImpLin/scanfiles0005/scan.log',
                 './GoerlerImpLin/scanfiles0007/scan.log']
 
-   runs = runs[4]
-   dataFiles = dataFiles[4]
+   runs = runs[:4]
+   dataFiles = dataFiles[:4]
 
    fig,axs = plt.subplots(2,1)
 
