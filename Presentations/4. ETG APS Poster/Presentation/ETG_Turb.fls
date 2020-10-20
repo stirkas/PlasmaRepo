@@ -242,6 +242,10 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel-english/english.ldf
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux
 OUTPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux
@@ -325,6 +329,7 @@ INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Present
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/ITG_Instability.png
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/ITG_Instability.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/LinearITG_KinEl_GrowthRates.pdf
@@ -377,10 +382,9 @@ INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Present
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso.png
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
-INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
-INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
-INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
-INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
+INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/zonalFlow.pdf
+INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/zonalFlow.pdf
+INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/zonalFlow.pdf
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
@@ -398,6 +402,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
