@@ -37,10 +37,11 @@ if __name__ == "__main__":
    #             './GoerlerImpLin/scanfiles0004/scan.log', './GoerlerImpLin/scanfiles0005/scan.log',
    #             './GoerlerImpLin/scanfiles0007/scan.log']
 
-   runs = runs[:4]
-   dataFiles = dataFiles[:4]
-   #runs = ['ETG']
-   #dataFiles = ['./GoerlerETG/scanGoerlerETG.log']
+   #runs = runs[:4]
+   #dataFiles = dataFiles[:4]
+
+   runs = ['ETG']
+   dataFiles = ['./GoerlerETG/scanGoerlerETG.log']
 
    fig,axs = plt.subplots(2,1)
 
@@ -50,16 +51,16 @@ if __name__ == "__main__":
    
       scaleFactor = 1.05
       axs[0].plot(kyRhoi, gamma, marker='*', label=runs[i])
-      axs[0].set_xlabel('k$_y$$\\rho_e$')
+      axs[0].set_xlabel('k$_y$$\\rho_i$')
       axs[0].set_ylabel('$\\gamma$')
       axs[0].grid()
       axs[1].plot(kyRhoi, omega, marker='*', label=runs[i])
-      axs[1].set_xlabel('k$_y$$\\rho_e$')
+      axs[1].set_xlabel('k$_y$$\\rho_i$')
       axs[1].set_ylabel('$\\omega$')
       axs[1].grid()
    
    #plt.legend(loc='upper right')
    plt.suptitle('ETG Mode Frequencies')
-   #plt.tight_layout()
-   plt.savefig('GrowthRates_ETG.pdf')
+   fig.tight_layout(rect=[0, 0.03, 1, 0.95])
+   plt.savefig('./GoerlerETG/GrowthRates_ETG.pdf')
    plt.show()

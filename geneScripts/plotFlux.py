@@ -42,8 +42,14 @@ def plotFlux(dataPath,fluxVal,title='FluxData',plot=False,save=False,savefile=No
    data = []
    readFlux(dataPath, data)
    [t, outputData] = getData(fluxVal, data)
-
+   
    plt.plot(t, outputData)
+   
+   plt.title(title, fontsize=16)
+   plt.xlabel('$t\\;/\\;(L_{ref}/c_s)$', fontsize=16)
+   plt.ylabel('$\\langle Q_{ES}\\rangle$', fontsize=16)
+   plt.grid()
+   plt.tight_layout()
    
    if (plot):
       plt.show()
@@ -70,7 +76,7 @@ def getStdDev(data):
    return stdDev
 
 if __name__ == "__main__":
-   parser = argparse.ArgumentParser("Script for plotting/saving GENE ASCII flux output.")
+   parser = argparse.ArgumentParser("Script for plotting/saving GENE ASCII flux output. Add x,y labels manually.")
    parser.add_argument("dataPath",         help="Path to data file.")
    fv = parser.add_argument("fluxVal",     help="0=particle, 1=heat, 2=momentum", type=int)
    parser.add_argument("-t", "--title",    help="Plot title. Involving particle species for instance.")

@@ -27,8 +27,8 @@ def plotFlux(caseNumber, dataArray, labels, kmins):
    ax1 = fig.add_subplot(211)
    ax2 = fig.add_subplot(212, sharex=ax1)
 
-   title = 'k$_{x,min}$=' + kmins[0] + ', k$_{y,min}$=' + kmins[1]
-   plt.suptitle('k$_{x,min}$=1.24, k$_{y,min}$=29.68', fontsize=smallText, y=.995)
+   #title = 'k$_{x,min}\\rho_i$=' + kmins[0] + ', k$_{y,min}\\rho_i$=' + kmins[1]
+   #plt.suptitle('k$_{x,min}\\rho_i$='+kmins[0] + ', k$_{y,min}\\rho_i$='+kmins[1], fontsize=smallText, y=.995)
 
    fig.text(0.5, 0.01, "t / ($L_{ref}$/$c_s$)", ha='center', fontsize=smallText)
    fig.text(0.01, 0.5, "|$\\phi$|", va='center', rotation='vertical', fontsize=smallText)
@@ -70,26 +70,32 @@ def plotFlux(caseNumber, dataArray, labels, kmins):
    fig.legend(axisList,labels=labels,loc='upper right', fontsize=smallerText, framealpha=1)
 
    plt.tight_layout()
+   plt.savefig('./modes' + str(caseNumber) + '.pdf')
    plt.show()
-   #plt.savefig('./modes' + str(caseNumber) + '.pdf')
 
 data1 = []
 data2 = []
 data3 = []
 data4 = []
-caseNumber = '15'
-readPhiModes('./kx0ky1_00' + str(caseNumber) + '.dat', data1)
-readPhiModes('./kx2ky0_00' + str(caseNumber) + '.dat', data2)
-#readPhiModes('./kx4ky0_00' + str(caseNumber) + '.dat', data3)
-#readPhiModes('./kx5ky0_00' + str(caseNumber) + '.dat', data4)
-dataArr = np.array([data1, data2])
 
-labelOne    = 'k$_{y,i}$ = 1'
-labelTwo    = 'k$_{x,i}$ = 2'
+#Zonal flow folder scans.
+#caseNumber = '15'
+#readPhiModes('.zonalScan/kx0ky1_00' + str(caseNumber) + '.dat', data1)
+#readPhiModes('.zonalScan/kx2ky0_00' + str(caseNumber) + '.dat', data2)
+#readPhiModes('.zonalScan/kx4ky0_00' + str(caseNumber) + '.dat', data3)
+#readPhiModes('.zonalScan/kx5ky0_00' + str(caseNumber) + '.dat', data4)
+#labelOne    = 'k$_{y,i}$ = 1'
+#labelTwo    = 'k$_{x,i}$ = 2'
 #labelThree  = 'k$_{x,i}$ = 4'
 #labelFour   = 'k$_{x,i}$ = 5'
-labelArr = np.array([labelOne, labelTwo])
+#kmins = ['1.24','21.2'] #[kxmin, kymin]
 
-kmins = ['1.24','21.2'] #[kxmin, kymin]
+#Original zonal scans.
+caseNumber = 11
+kmins = ['1.24', '2.12']
+labelArr = np.array(['k$_x\\rho_i$=4.955', 'k$_y\\rho_i$=6.36'])
+readPhiModes('./timetraceelectrons_0011_0.dat', data1)
+readPhiModes('./timetraceelectrons_0011_1.dat', data2)
+dataArr = np.array([data1, data2])
 
 plotFlux(caseNumber, dataArr, labelArr, kmins)

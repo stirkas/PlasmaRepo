@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.10.18)  20 OCT 2020 13:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.10.18)  1 NOV 2020 22:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -709,7 +709,7 @@ LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input l
  (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
-<Images/BoulderLogo.png, id=36, 356.33125pt x 142.5325pt>
+<Images/BoulderLogo.png, id=40, 356.33125pt x 142.5325pt>
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
 Package pdftex.def Info: Images/BoulderLogo.png  used on input line 16.
@@ -726,33 +726,33 @@ Package pdftex.def Info: Images/BoulderLogo.png  used on input line 20.
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 35.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 34.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [3
 
 ]
-<Images/ITG_Instability.png, id=133, 602.25pt x 557.08125pt>
+<Images/ITG_Instability.png, id=136, 602.25pt x 557.08125pt>
 File: Images/ITG_Instability.png Graphic file (type png)
 <use Images/ITG_Instability.png>
-Package pdftex.def Info: Images/ITG_Instability.png  used on input line 42.
+Package pdftex.def Info: Images/ITG_Instability.png  used on input line 41.
 (pdftex.def)             Requested size: 180.67639pt x 167.12566pt.
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 42.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 41.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [4
 
  </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/ITG_Instability.png>]
-<Images/LinearITG_KinEl_GrowthRates.pdf, id=164, 867.24pt x 433.62pt>
+<Images/LinearITG_KinEl_GrowthRates.pdf, id=167, 867.24pt x 433.62pt>
 File: Images/LinearITG_KinEl_GrowthRates.pdf Graphic file (type pdf)
 <use Images/LinearITG_KinEl_GrowthRates.pdf>
 Package pdftex.def Info: Images/LinearITG_KinEl_GrowthRates.pdf  used on input line 57.
-(pdftex.def)             Requested size: 164.30092pt x 78.14085pt.
-<Images/GrowthRates_ETG.pdf, id=165, 462.52798pt x 346.89601pt>
+(pdftex.def)             Requested size: 164.30092pt x 91.16875pt.
+<Images/GrowthRates_ETG.pdf, id=168, 462.52798pt x 346.89601pt>
 File: Images/GrowthRates_ETG.pdf Graphic file (type pdf)
 <use Images/GrowthRates_ETG.pdf>
 Package pdftex.def Info: Images/GrowthRates_ETG.pdf  used on input line 57.
-(pdftex.def)             Requested size: 164.30403pt x 123.23099pt.
+(pdftex.def)             Requested size: 164.30797pt x 117.21262pt.
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
 Package pdftex.def Info: Images/BoulderLogo.png  used on input line 57.
@@ -763,19 +763,19 @@ Package pdftex.def Info: Images/BoulderLogo.png  used on input line 57.
 
 pdfTeX warning: pdflatex (file /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/GrowthRates_ETG.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<Images/etgHeatFlux.pdf, id=288, 889.32243pt x 603.25375pt>
+<Images/etgHeatFlux.pdf, id=291, 462.52798pt x 346.89601pt>
 File: Images/etgHeatFlux.pdf Graphic file (type pdf)
 <use Images/etgHeatFlux.pdf>
-Package pdftex.def Info: Images/etgHeatFlux.pdf  used on input line 73.
-(pdftex.def)             Requested size: 177.86133pt x 120.6486pt.
-<Images/genePhiETG_sat2.pdf, id=289, 867.24pt x 433.62pt>
+Package pdftex.def Info: Images/etgHeatFlux.pdf  used on input line 74.
+(pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
+<Images/genePhiETG_sat2.pdf, id=292, 867.24pt x 433.62pt>
 File: Images/genePhiETG_sat2.pdf Graphic file (type pdf)
 <use Images/genePhiETG_sat2.pdf>
-Package pdftex.def Info: Images/genePhiETG_sat2.pdf  used on input line 73.
+Package pdftex.def Info: Images/genePhiETG_sat2.pdf  used on input line 74.
 (pdftex.def)             Requested size: 173.44493pt x 86.72246pt.
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 73.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 74.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [6
 
@@ -785,7 +785,7 @@ pdfTeX warning: pdflatex (file /home/stirkas/Workspace/PlasmaRepo/Presentations/
 >]
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 89.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 91.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [7
 
@@ -799,93 +799,119 @@ Package pdftex.def Info: Images/BoulderLogo.png  used on input line 106.
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 122.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 124.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [9
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 139.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 136.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [10
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 157.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 153.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [11
 
 ]
-File: Images/BoulderLogo.png Graphic file (type png)
-<use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 169.
-(pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
- [12
-
-]
-File: Images/BoulderLogo.png Graphic file (type png)
-<use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 187.
-(pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
- [13
-
-]
-<Images/hmPhiETG_init.pdf, id=545, 867.24pt x 433.62pt>
+<Images/hmPhiETG_init.pdf, id=535, 867.24pt x 433.62pt>
 File: Images/hmPhiETG_init.pdf Graphic file (type pdf)
 <use Images/hmPhiETG_init.pdf>
-Package pdftex.def Info: Images/hmPhiETG_init.pdf  used on input line 205.
+Package pdftex.def Info: Images/hmPhiETG_init.pdf  used on input line 176.
 (pdftex.def)             Requested size: 239.5967pt x 112.0041pt.
-<Images/hmPhiETG_iso.pdf, id=546, 867.24pt x 433.62pt>
+<Images/hmPhiETG_iso.pdf, id=536, 867.24pt x 433.62pt>
 File: Images/hmPhiETG_iso.pdf Graphic file (type pdf)
 <use Images/hmPhiETG_iso.pdf>
-Package pdftex.def Info: Images/hmPhiETG_iso.pdf  used on input line 205.
+Package pdftex.def Info: Images/hmPhiETG_iso.pdf  used on input line 176.
 (pdftex.def)             Requested size: 239.5967pt x 112.0041pt.
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 205.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 176.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
- [14
+ [12
 
  </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmPhiETG_init.pdf> </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmPhiETG_iso.pdf
 
 pdfTeX warning: pdflatex (file /home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmPhiETG_iso.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<Images/hmETG_geneInit.png, id=624, 1003.75pt x 501.875pt>
+<Images/hmETG_geneInit.png, id=613, 1003.75pt x 501.875pt>
 File: Images/hmETG_geneInit.png Graphic file (type png)
 <use Images/hmETG_geneInit.png>
-Package pdftex.def Info: Images/hmETG_geneInit.png  used on input line 220.
+Package pdftex.def Info: Images/hmETG_geneInit.png  used on input line 191.
 (pdftex.def)             Requested size: 239.60306pt x 104.18689pt.
-<Images/hmETG_geneIso.png, id=625, 1003.75pt x 501.875pt>
+<Images/hmETG_geneIso.png, id=614, 1003.75pt x 501.875pt>
 File: Images/hmETG_geneIso.png Graphic file (type png)
 <use Images/hmETG_geneIso.png>
-Package pdftex.def Info: Images/hmETG_geneIso.png  used on input line 220.
+Package pdftex.def Info: Images/hmETG_geneIso.png  used on input line 191.
 (pdftex.def)             Requested size: 239.60306pt x 104.18689pt.
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 220.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 191.
+(pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
+ [13
+
+ </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit.png (PNG copy)> </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso.png (PNG copy)>]
+<Images/zonalFlow.pdf, id=642, 433.62pt x 433.62pt>
+File: Images/zonalFlow.pdf Graphic file (type pdf)
+<use Images/zonalFlow.pdf>
+Package pdftex.def Info: Images/zonalFlow.pdf  used on input line 209.
+(pdftex.def)             Requested size: 195.1272pt x 195.1272pt.
+File: Images/BoulderLogo.png Graphic file (type png)
+<use Images/BoulderLogo.png>
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 209.
+(pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
+ [14
+
+ </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/zonalFlow.pdf>]
+<Images/FourWavePlot.pdf, id=709, 462.52798pt x 346.89601pt>
+File: Images/FourWavePlot.pdf Graphic file (type pdf)
+<use Images/FourWavePlot.pdf>
+Package pdftex.def Info: Images/FourWavePlot.pdf  used on input line 235.
+(pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
+File: Images/BoulderLogo.png Graphic file (type png)
+<use Images/BoulderLogo.png>
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 235.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [15
 
- </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit.png (PNG copy)> </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso.png (PNG copy)>]
-<Images/zonalFlow.pdf, id=651, 433.62pt x 433.62pt>
-File: Images/zonalFlow.pdf Graphic file (type pdf)
-<use Images/zonalFlow.pdf>
-Package pdftex.def Info: Images/zonalFlow.pdf  used on input line 240.
-(pdftex.def)             Requested size: 151.76927pt x 151.76927pt.
+ </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/FourWavePlot.pdf>]
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 240.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 241.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [16
 
- </home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/zonalFlow.pdf>]
+]
 File: Images/BoulderLogo.png Graphic file (type png)
 <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png  used on input line 246.
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 255.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [17
+
+]
+File: Images/BoulderLogo.png Graphic file (type png)
+<use Images/BoulderLogo.png>
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 268.
+(pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
+ [18
+
+]
+File: Images/BoulderLogo.png Graphic file (type png)
+<use Images/BoulderLogo.png>
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 285.
+(pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
+ [19
+
+]
+File: Images/BoulderLogo.png Graphic file (type png)
+<use Images/BoulderLogo.png>
+Package pdftex.def Info: Images/BoulderLogo.png  used on input line 288.
+(pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
+ [20
 
 ]
 \tf@nav=\write6
@@ -897,27 +923,27 @@ Package pdftex.def Info: Images/BoulderLogo.png  used on input line 246.
 \tf@snm=\write8
 \openout8 = `ETG_Turb.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 290.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 290.
  (/home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 248.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 290.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 290.
 Package rerunfilecheck Info: File `ETG_Turb.out' has not changed.
-(rerunfilecheck)             Checksum: B68D0AF32A482F998B8734D9090BADD2;220.
+(rerunfilecheck)             Checksum: 5F5789E06261CC40EB3764F0EB787D2B;263.
  ) 
 Here is how much of TeX's memory you used:
- 18687 strings out of 492982
- 355431 string characters out of 6134895
- 438874 words of memory out of 5000000
- 21790 multiletter control sequences out of 15000+600000
+ 18709 strings out of 492982
+ 355733 string characters out of 6134895
+ 437874 words of memory out of 5000000
+ 21804 multiletter control sequences out of 15000+600000
  14478 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,15n,61p,874b,642s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,15n,61p,874b,720s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "/home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.pdf" (17 pages, 1371478 bytes).
+Output written on "/home/stirkas/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.pdf" (20 pages, 1411694 bytes).
 PDF statistics:
- 788 PDF objects out of 1000 (max. 8388607)
- 577 compressed objects within 6 object streams
- 39 named destinations out of 1000 (max. 500000)
- 166 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 945 PDF objects out of 1000 (max. 8388607)
+ 670 compressed objects within 7 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 179 words of extra memory for PDF output out of 10000 (max. 10000000)
 
