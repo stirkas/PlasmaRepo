@@ -29,7 +29,7 @@
          modes (ETG), and trapped electron modes (TEM).
          \vspace{5mm}
          \item Low-frequency drift wave turbulence is largely responsible for the anomalous transport of plasma particles
-         across magnetic field lines.
+         across magnetic field lines \cite{Horton}.
       \end{itemize}
    \end{frame}
 
@@ -45,11 +45,12 @@
       \column{0.6\textwidth}
          \begin{figure}
             \includegraphics[width=.8\textwidth, height=.35\textheight]{Images/LinearITG_KinEl_GrowthRates.pdf}
+            \\
             \includegraphics[width=.8\textwidth, height=.45\textheight]{Images/GrowthRates_ETG.pdf}
          \end{figure}
       \column{0.4\textwidth}
          \begin{itemize}
-            \item Successful reproduction of Goerler benchmark with kinetic ions and electrons.
+            \item Successful reproduction of G\"{o}rler benchmark with kinetic ions and electrons \cite{Gorler}.
             \vspace{10mm}
             \item Conversion of ITG to ETG flux-tube case prior to running non-linear simulations.
          \end{itemize}
@@ -61,6 +62,7 @@
       \column{0.5\textwidth}
          \begin{figure}
             \hspace*{-.3cm}\includegraphics[scale=.3]{Images/etgHeatFlux.pdf}
+            \\
             \hspace*{-.3cm}\includegraphics[scale=.2]{Images/genePhiETG_sat2.pdf}
          \end{figure}
       \column{0.5\textwidth}
@@ -86,7 +88,7 @@
             \item Adiabatic ions.
             \item Isothermal equation of state, with $\delta P_e = \delta n_eT_e\;(\delta T_e=0)$.
          \end{itemize}
-         \item Shown to cause isotropic behavior for long wavelength modes as well as an inverse energy-cascade.
+         \item Shown to cause isotropic behavior for long wavelength modes as well as an inverse energy-cascade \cite{Hasegawa}.
       \end{itemize}
    \end{frame}
 
@@ -101,8 +103,8 @@
             m_e\frac{d\vec{v}_e}{dt} = \left(1+\tau\right)e\nabla\delta\Phi - \frac{e}{c}\vec{v}_e\times\vec{B}-\frac{\nabla P_e}{n_e}\;.
       \end{equation}
       %
-      \quad Then $\vec{v}_e$ is solved for using (2) and plugged into (1), dropping terms higher order than $\epsilon$,
-      to get a final PDE describing the evolution of $\delta\Phi$. The derivation is carried out in the appendix.
+      \quad Then $\vec{v}_e$ is solved for using (2) and plugged into (1), dropping terms higher order than $\epsilon$
+      to get a final PDE describing the evolution of $\delta\Phi$. The derivation is carried out in Appendix A.
    \end{frame}
 
    \begin{frame}{Hasegawa-Mima Equations}
@@ -110,7 +112,7 @@
       \begin{equation}
       \begin{aligned}
          \Phi    = \frac{e\delta\Phi}{T_i},&\; -\frac{1}{r_n}=\frac{\partial_x n_e}{n_e},\; -\frac{1}{r_t}=\frac{\partial_x T_e}{T_e},\; \eta_e=\frac{r_n}{r_t},\; \\
-         \rho_e &= \sqrt{\frac{\tau m_e}{m_i}}\rho_i,\; \vec{x} = \frac{\vec{x}}{\rho_e},\; t=\frac{\rho_e}{r_n}\omega_{ce}t
+         \rho_e &= \sqrt{\frac{\tau m_e}{m_i}}\rho_i,\; \vec{x} = \frac{\vec{x}}{\rho_e},\; t=\frac{\rho_e}{r_n}\omega_{ce}t,
       \end{aligned}
       \end{equation}
    and plugging into (10) gives the form of the H-M ETG model,
@@ -132,14 +134,14 @@
                                                     &+ \frac{(1+\tau)^2}{\tau}\frac{r_n}{4\rho_e}[\Phi_x\zeta_y-\zeta_x\Phi_y],
       \end{aligned}
       \end{equation}
-   where $\zeta = \nabla^2\Phi$ and $x,y$ subscripts denote partial derivatives. Cite: The nonlinear term, due to the $E\times B$ drift, is responsible for isotropizing the turbulence.
+   where $\zeta = \nabla^2\Phi$ and $x,y$ subscripts denote partial derivatives. The non-linear term can be viewed as a curl in k-space which leads to isotropization.
    \end{frame}
 
    \begin{frame}{Pseudo-Spectral Solver}
       \begin{itemize}
          \item Equation (6) is solved numerically using the pseudo-spectral method.
             \begin{itemize}
-               \item Fourier transform the equation and get $\zeta=(k_x^2 + k_y^2)\Phi$.
+               \item Fourier transform the equation and get $\zeta=-(k_x^2 + k_y^2)\Phi$.
                \item Inverse Fourier transform $\zeta_{x,y}$ and $\Phi_{x,y}$ back into real space.
                \item Calculate the non-linear products between $\zeta$ and $\Phi$ in real space and then Fourier transform the
                products so they can be added to the other terms in Fourier space.
@@ -148,7 +150,7 @@
          \vspace{5mm}
          \item Time advancement is done using the $4^{th}$ order Runge-Kutta method.
          \vspace{5mm}
-         \item The pseudo-spectral method requires aliasing of modes due to non-linear terms.
+         \item The pseudo-spectral method requires de-aliasing of modes due to non-linear terms. This is explored in Appendix B.
       \end{itemize}
    \end{frame}
 
@@ -159,12 +161,13 @@
             \begin{figure}
                \vspace*{-.5cm}
                \includegraphics[height=.43\textheight, width=\textwidth]{Images/hmPhiETG_init.pdf}
+               \\
                \includegraphics[height=.43\textheight, width=\textwidth]{Images/hmPhiETG_iso.pdf}
             \end{figure}
          \column{0.3\textwidth}
             \begin{itemize}
                \vspace*{-1cm}
-               \item Results of H-M code. Initial condition (above) isotropizes at later time (below).
+               \item Results of H-M code. Initial condition (above) isotropizes at late time (below).
                \item Parameters:
                   \begin{itemize}
                      \item $\tau=1$
@@ -180,12 +183,13 @@
          \column{0.7\textwidth}
             \begin{figure}
                \includegraphics[height=.4\textheight,width=\textwidth]{Images/hmETG_geneInit.png}
+               \\
                \includegraphics[height=.4\textheight,width=\textwidth]{Images/hmETG_geneIso.png}
             \end{figure}
          \column{0.3\textwidth}
             \begin{itemize}
-               \item Test of GENE saturated ETG results into H-M code. Initial conditions (above) isotropize at later times (below).
-               \item Inverse energy cascade observed.
+               \item Test of GENE saturated ETG results into H-M code. Initial condition (above) isotropizes at late time (below).
+               \item Inverse energy cascade observed as well.
             \end{itemize}
       \end{columns}
    \end{frame}
@@ -208,28 +212,33 @@
       \end{columns}
    \end{frame}
 
-   \begin{frame}{Four-Wave Model}
-      \begin{itemize}
-         \item $[\partial_{t}+\gamma_{z}(1+d_{z}k_{z}^{2}\rho_{e}^{2})]\chi_{z}A_{z}\nonumber =
-                \sqrt{\pi/2} W k_{z}^{3}\rho_{e}^{3}(A_{+}A^{*}_{0}a_{n}^{*}-A^{*}_{-}A_{0}a_{n})$,
-         \item$[\partial_{t}+ i\Delta-\gamma_{s}]A_{+}=-W k_{z}\rho_{e}A_{z}A_{0}/\sqrt{2\pi}$,
-         \item$[\partial_{t}+ i\Delta-\gamma_{s}]A_{-}=W k_{z}\rho_{e}A^{*}_{z}A_{0}/\sqrt{2\pi}$,
-         \item\quad\quad\;$[\partial_{t}-\gamma_{n}]A_{0}\;=-W k_{z}\rho_{e}( A_{z}A_{-}-A^{*}_{z}A_{+})/\sqrt{2\pi}$,
-         \item\quad$(\partial_{t}-2\gamma_{n})|A_{0}|^{2}\!=(2\gamma_{s}-\partial_{t})(|A_{+}|^{2}+|A_{-}|^{2})$.
-      \end{itemize}
+   \begin{frame}{Four-Wave Weak Turbulence Model}
+      \vspace*{-1cm}
+      \begin{equation}
+      \begin{aligned}
+         (\partial_{t}+\gamma_{z}(1+d_{z}k_{z}^{2}\rho_{e}^{2}))\chi_{z}A_{z}\nonumber &=
+         \sqrt{\pi/2} W k_{z}^{3}\rho_{e}^{3}(A_{+}A^{*}_{0}a_{n}^{*}-A^{*}_{-}A_{0}a_{n}),         \\
+         [\partial_{t}+ i\Delta-\gamma_{s}]A_{+}&=-W k_{z}\rho_{e}A_{z}A_{0}/\sqrt{2\pi},           \\
+         [\partial_{t}+ i\Delta-\gamma_{s}]A_{-}&=W k_{z}\rho_{e}A^{*}_{z}A_{0}/\sqrt{2\pi},        \\
+         [\partial_{t}-\gamma_{n}]A_{0}&=-W k_{z}\rho_{e}( A_{z}A_{-}-A^{*}_{z}A_{+})/\sqrt{2\pi},  \\
+         (\partial_{t}-2\gamma_{n})|A_{0}|^{2}&=(2\gamma_{s}-\partial_{t})(|A_{+}|^{2}+|A_{-}|^{2}) \\
+      \end{aligned}
+      \end{equation}
       \begin{columns}
-      \column{.6\textwidth}
-         \begin{figure}
-            \vspace*{-.6cm}\includegraphics[scale=.4]{Images/FourWavePlot.pdf}
-         \end{figure}
-      \column{.4\textwidth}
-         \vspace{-.6cm}
+      \hspace{1cm}
+      \column{.5\textwidth}
          \begin{itemize}
             \item $A_z\equiv$ Zonal Flow Amp.
             \item $A_{\pm}\equiv$ Sideband Amp.'s
             \item $A_0\equiv$ ETG Pump Wave
-            \item $\Pi\equiv$ Rectangle fn.
+            \item $a_n\equiv$ Parallel coupling fn.
+         \end{itemize}
+      \column{.4\textwidth}
+         \begin{itemize}
             \item $W\equiv$ Bandwidth
+            \item $\gamma_{z,n,s}\equiv$ Growth rates
+            \item $\chi_z\equiv$ Susceptibility
+            \item $k_z\equiv$ radial k
          \end{itemize}
       \end{columns}
    \end{frame}
@@ -237,16 +246,17 @@
    \section*{References}
       \begin{frame}{References}
           \begin{thebibliography}{0}
+             \bibitem{Horton} W. Horton, Rev. Mod. Phys. \textbf{71}, 735 (1999).
              \bibitem{Beer} M. A. Beer, \textit{Ph.D. Thesis - Gyrofluid Models of Turbulent Transport in Tokamaks}, Princeton University (1994).
+             \bibitem{Gorler} T. G\"{o}rler \textit{et al}, Phys. Plasmas \textbf{23}, 072503 (2016).
              \bibitem{Howard} N.T. Howard \textit{et al} 2016 Nucl. Fusion \textbf{56} 014004
-             \bibitem{HM1} Hasegawa
-             \bibitem{HM2} Hasegawa
+             \bibitem{Hasegawa} A. Hasegawa and Y. Kodama, Phys. Rev. Lett. \textbf{41}, 1470 (1978).
           \end{thebibliography}
       \end{frame}
 
    \section*{Appendix}
 
-   \begin{frame}{App. A: H-M Fluid Model}
+   \begin{frame}{Appendix A: H-M Fluid Model}
       \quad We break up (2) into parallel and perpendicular components by taking a dot product with $\hat{b}$ to find,
       \begin{equation}
          \frac{d\vec{v}_{e,\parallel}}{dt} = (1+\tau)\frac{e}{m_e}\partial_t^{-1}\nabla_{\parallel}\delta\Phi \Rightarrow v_{\parallel}
@@ -258,7 +268,7 @@
       \end{equation}
    \end{frame}
 
-   \begin{frame}{App. A: H-M Fluid Model}
+   \begin{frame}{Appendix A: H-M Fluid Model}
       \quad Then we can split up $\vec{v}_e$ by ordering
       \begin{equation}
       \begin{aligned}
@@ -266,29 +276,30 @@
          \vec{v}_{e,1} &= \vec{v}_{\perp,1} = -\frac{1}{\omega_{c,e}}(\partial_t+\vec{v}_{e,0}\cdot\nabla)(\hat{b}\times\vec{v}_{e,0}) \\
                        &\simeq \frac{e(1+\tau)}{m_e\omega_{c,e}^2}\partial_t\nabla_{\perp}\delta\Phi - [\frac{\vec{b}\times\nabla P_e}{n_e}\cdot\nabla_{\perp}]
                                \frac{e(1+\tau)}{m_e^2\omega_{c,e}^3}\nabla_{\perp}\delta\Phi \\
-                       &+      \frac{e^2(1+\tau)^2}{m_e^2\omega_{c,e}^3}[\hat{b}\times\nabla_{\perp}\Phi\cdot\nabla_{\perp}]\nabla_{\perp}\delta\Phi\;.
+                       &+      \frac{e^2(1+\tau)^2}{m_e^2\omega_{c,e}^3}[\hat{b}\times\nabla_{\perp}\delta\Phi\cdot\nabla_{\perp}]\nabla_{\perp}\delta\Phi\;.
       \end{aligned}
       \end{equation}
    \end{frame}
 
-   \begin{frame}{App. A: H-M Fluid Model}
-      \quad Now, with incompressibility, $\nabla\cdot\vec{v}_{e,0,\perp}=0$ and so (1) becomes,
+   \begin{frame}{Appendix A: H-M Fluid Model}
+      \quad Now, with incompressibility to lowest order, $\nabla\cdot\vec{v}_{e,0,\perp}=0$ and so (1) becomes,
       \begin{equation}
          \partial_t\delta n_e+n_e\nabla\cdot(v_{\parallel} + \vec{v}_{e,1}) + \nabla\delta n_e\cdot\vec{v}_D+(1+\tau)\delta n_e\cdot\vec{v}_E = 0,
       \end{equation}
       and plugging in $\delta n_e=\delta n_i$, we find that to order $\epsilon$,
+      \vspace{-2mm}
       \begin{equation}
       \begin{aligned}
          &-n_e\partial_t\frac{e\delta\Phi}{T_i} + n_e(1+\tau)\frac{e}{m_e}\partial_t^{-1}\nabla_{\parallel}^2\delta\Phi
          + \frac{en_e(1+\tau)}{m_e\omega_{c,e}^2}\partial_t\nabla_{\perp}^2\delta\Phi \\
          &- \frac{e(1+\tau)}{m_e^2\omega_{c,e}^3}[\hat{b}\times\nabla P_e\cdot\nabla_{\perp}]\nabla_{\perp}^2\delta\Phi
          + \frac{e^2n_e(1+\tau)^2}{m_e^2\omega_{c,e}^3}[\hat{b}\times\nabla_{\perp}\delta\Phi\cdot\nabla_{\perp}]\nabla_{\perp}^2\delta\Phi \\
-         &+ \nabla_{\perp}\frac{e\delta\Phi}{T_i}\cdot\frac{\hat{b}\times\nabla P_e}{m_e\omega_{c,e}} + (1+\tau)\frac{e}{m_e\omega_{c,e}}\nabla n_e\cdot\hat{b}\times\nabla\Phi = 0\;.
+         &+ \nabla_{\perp}\frac{e\delta\Phi}{T_i}\cdot\frac{\hat{b}\times\nabla P_e}{m_e\omega_{c,e}} + \frac{e(1+\tau)}{m_e\omega_{c,e}}\nabla n_e\cdot\hat{b}\times\nabla\Phi = 0\;.
       \end{aligned}
       \end{equation}
    \end{frame}
 
-   \begin{frame}{App. B: Pseudo-Spectral Aliasing}
+   \begin{frame}{Appendix B: Pseudo-Spectral De-Aliasing}
    \end{frame}
 
 \end{document}
