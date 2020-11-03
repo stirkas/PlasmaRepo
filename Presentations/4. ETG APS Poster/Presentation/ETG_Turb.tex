@@ -35,8 +35,8 @@
 
    \begin{frame}{Ion-Temperature-Gradient Mode Growth}
       \begin{figure}
-         \includegraphics[scale=0.3]{Images/ITG_Instability.png}
-         \caption{Simple picture of ITG instability.}
+         \includegraphics[scale=.7]{Images/ITG_Instability_Cropped.pdf}
+         \caption{Simple picture of ITG instability \cite{Beer}.}
       \end{figure}
    \end{frame}
 
@@ -68,7 +68,7 @@
             \item ETG turbulence in toroidal gyrokinetic simulations is associated with radially elongated "streamers".
             \vspace{5mm}
             \item Multiscale turbulence simulations have shown that streamers dominate electron heat flux and lead
-            to experimental tokamak heat flux values.
+            to experimental tokamak heat flux values \cite{Howard}.
          \end{itemize}
       \end{columns}
    \end{frame}
@@ -132,7 +132,7 @@
                                                     &+ \frac{(1+\tau)^2}{\tau}\frac{r_n}{4\rho_e}[\Phi_x\zeta_y-\zeta_x\Phi_y],
       \end{aligned}
       \end{equation}
-   where $\zeta = \nabla^2\Phi$ and $x,y$ subscripts denote partial derivatives. Cite: The nonlinear term, due to the polarization drift, is responsible for isotropizing the turbulence.
+   where $\zeta = \nabla^2\Phi$ and $x,y$ subscripts denote partial derivatives. Cite: The nonlinear term, due to the $E\times B$ drift, is responsible for isotropizing the turbulence.
    \end{frame}
 
    \begin{frame}{Pseudo-Spectral Solver}
@@ -235,9 +235,13 @@
    \end{frame}
 
    \section*{References}
-      %\nocite{Djairo} \nocite{PhilPanof} \nocite{Fleming} \nocite{Shankar}
       \begin{frame}{References}
-          %\printbibliography
+          \begin{thebibliography}{0}
+             \bibitem{Beer} M. A. Beer, \textit{Ph.D. Thesis - Gyrofluid Models of Turbulent Transport in Tokamaks}, Princeton University (1994).
+             \bibitem{Howard} N.T. Howard \textit{et al} 2016 Nucl. Fusion \textbf{56} 014004
+             \bibitem{HM1} Hasegawa
+             \bibitem{HM2} Hasegawa
+          \end{thebibliography}
       \end{frame}
 
    \section*{Appendix}
