@@ -1,0 +1,11 @@
+{
+	"folders": [
+      {
+         "path": "./"
+      }
+   ],
+	"settings": {
+		"razor.disabled": true,
+		"cmake.sourceDirectory": "../PlasmaRepo/HasegawaMima/C"
+	}
+}
