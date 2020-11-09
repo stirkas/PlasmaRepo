@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2020.11.2)  2 NOV 2020 22:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2020.11.2)  9 NOV 2020 01:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -535,23 +535,25 @@ Package caption Info: beamer document class.
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
+) (/usr/share/texlive/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty
+Package: anyfontsize 2007/11/22 anyfontsize.sty by pts
 ) (/home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux)
 \openout1 = `ETG_Turb.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -613,7 +615,7 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 14.
+Package hyperref Info: Link coloring OFF on input line 15.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -621,62 +623,62 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count162
 )
-LaTeX Info: Redefining \ref on input line 14.
-LaTeX Info: Redefining \pageref on input line 14.
-LaTeX Info: Redefining \nameref on input line 14.
+LaTeX Info: Redefining \ref on input line 15.
+LaTeX Info: Redefining \pageref on input line 15.
+LaTeX Info: Redefining \nameref on input line 15.
  (/home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.out) (/home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.out)
 \@outlinefile=\write5
 \openout5 = `ETG_Turb.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 14.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 15.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 14.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 15.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 14.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 14.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 14.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 14.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 15.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 14.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 14.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 14.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 15.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 14.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 14.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 14.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 15.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 14.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 14.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 15.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 14.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 15.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 14.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 14.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 14.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 14.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 14.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 15.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 14.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 14.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 15.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 15.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 14.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 15.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 14.
+(Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 15.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 14.
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on input line 15.
  (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-basic-dictionary/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bibliography-dictionary/translator-bibliography-dictionary-English.dict
@@ -690,90 +692,85 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 14.
+LaTeX Info: Redefining \includegraphics on input line 15.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (/home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.nav)
-LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 17.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+LaTeX Font Info:    Try loading font information for U+msb on input line 17.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input line 16.
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input line 17.
  (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-)
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 16.
-
-<Images/BoulderLogo.png, id=32, 356.33125pt x 142.5325pt>
+) <Images/BoulderLogo.png, id=44, 356.33125pt x 142.5325pt>
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 16.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 17.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png>] (/home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.toc)
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 20.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 21.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [2
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 34.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 35.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [3
 
-] <Images/ITG_Instability_Cropped.pdf, id=130, 431.6938pt x 271.91689pt>
+] <Images/ITG_Instability_Cropped.pdf, id=145, 431.6938pt x 271.91689pt>
 File: Images/ITG_Instability_Cropped.pdf Graphic file (type pdf)
  <use Images/ITG_Instability_Cropped.pdf>
-Package pdftex.def Info: Images/ITG_Instability_Cropped.pdf used on input line 41.
+Package pdftex.def Info: Images/ITG_Instability_Cropped.pdf used on input line 42.
 (pdftex.def)             Requested size: 302.1836pt x 190.34052pt.
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 41.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 42.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [4
 
- </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/ITG_Instability_Cropped.pdf>] <Images/LinearITG_KinEl_GrowthRates.pdf, id=167, 867.24pt x 433.62pt>
+ </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/ITG_Instability_Cropped.pdf>] <Images/LinearITG_KinEl_GrowthRates.pdf, id=178, 867.24pt x 433.62pt>
 File: Images/LinearITG_KinEl_GrowthRates.pdf Graphic file (type pdf)
  <use Images/LinearITG_KinEl_GrowthRates.pdf>
-Package pdftex.def Info: Images/LinearITG_KinEl_GrowthRates.pdf used on input line 58.
+Package pdftex.def Info: Images/LinearITG_KinEl_GrowthRates.pdf used on input line 59.
 (pdftex.def)             Requested size: 164.30092pt x 91.16875pt.
- <Images/GrowthRates_ETG.pdf, id=168, 462.52798pt x 346.89601pt>
+ <Images/GrowthRates_ETG.pdf, id=179, 462.52798pt x 346.89601pt>
 File: Images/GrowthRates_ETG.pdf Graphic file (type pdf)
  <use Images/GrowthRates_ETG.pdf>
-Package pdftex.def Info: Images/GrowthRates_ETG.pdf used on input line 58.
+Package pdftex.def Info: Images/GrowthRates_ETG.pdf used on input line 59.
 (pdftex.def)             Requested size: 164.30797pt x 117.21262pt.
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 58.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 59.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [5
 
  </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/LinearITG_KinEl_GrowthRates.pdf> </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/GrowthRates_ETG.pdf
 
 pdfTeX warning: pdflatex (file /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/GrowthRates_ETG.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] <Images/etgHeatFlux.pdf, id=293, 462.52798pt x 346.89601pt>
+>] <Images/etgHeatFlux.pdf, id=302, 462.52798pt x 346.89601pt>
 File: Images/etgHeatFlux.pdf Graphic file (type pdf)
  <use Images/etgHeatFlux.pdf>
-Package pdftex.def Info: Images/etgHeatFlux.pdf used on input line 76.
+Package pdftex.def Info: Images/etgHeatFlux.pdf used on input line 77.
 (pdftex.def)             Requested size: 138.75946pt x 104.0696pt.
- <Images/genePhiETG_sat2.pdf, id=294, 867.24pt x 433.62pt>
+ <Images/genePhiETG_sat2.pdf, id=303, 867.24pt x 433.62pt>
 File: Images/genePhiETG_sat2.pdf Graphic file (type pdf)
  <use Images/genePhiETG_sat2.pdf>
-Package pdftex.def Info: Images/genePhiETG_sat2.pdf used on input line 76.
+Package pdftex.def Info: Images/genePhiETG_sat2.pdf used on input line 77.
 (pdftex.def)             Requested size: 173.44493pt x 86.72246pt.
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 76.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 77.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [6
 
@@ -783,125 +780,121 @@ pdfTeX warning: pdflatex (file /home/den/Workspace/PlasmaRepo/Presentations/4. E
 >]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 93.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 94.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [7
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 108.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 109.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [8
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 126.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 127.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [9
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 138.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 139.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [10
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 155.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 156.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [11
 
-] <Images/hmPhiETG_init.pdf, id=541, 867.24pt x 433.62pt>
+] <Images/hmPhiETG_init.pdf, id=546, 867.24pt x 433.62pt>
 File: Images/hmPhiETG_init.pdf Graphic file (type pdf)
  <use Images/hmPhiETG_init.pdf>
-Package pdftex.def Info: Images/hmPhiETG_init.pdf used on input line 179.
+Package pdftex.def Info: Images/hmPhiETG_init.pdf used on input line 180.
 (pdftex.def)             Requested size: 239.5967pt x 112.0041pt.
- <Images/hmPhiETG_iso.pdf, id=542, 867.24pt x 433.62pt>
+ <Images/hmPhiETG_iso.pdf, id=547, 867.24pt x 433.62pt>
 File: Images/hmPhiETG_iso.pdf Graphic file (type pdf)
  <use Images/hmPhiETG_iso.pdf>
-Package pdftex.def Info: Images/hmPhiETG_iso.pdf used on input line 179.
+Package pdftex.def Info: Images/hmPhiETG_iso.pdf used on input line 180.
 (pdftex.def)             Requested size: 239.5967pt x 112.0041pt.
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 179.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 180.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [12
 
  </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmPhiETG_init.pdf> </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmPhiETG_iso.pdf
 
 pdfTeX warning: pdflatex (file /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmPhiETG_iso.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] <Images/hmETG_geneInit.png, id=619, 1003.75pt x 501.875pt>
-File: Images/hmETG_geneInit.png Graphic file (type png)
- <use Images/hmETG_geneInit.png>
-Package pdftex.def Info: Images/hmETG_geneInit.png used on input line 195.
+>] <Images/hmETG_geneInit2.pdf, id=624, 1003.75pt x 501.875pt>
+File: Images/hmETG_geneInit2.pdf Graphic file (type pdf)
+ <use Images/hmETG_geneInit2.pdf>
+Package pdftex.def Info: Images/hmETG_geneInit2.pdf used on input line 196.
 (pdftex.def)             Requested size: 239.60306pt x 104.18689pt.
- <Images/hmETG_geneIso.png, id=620, 1003.75pt x 501.875pt>
-File: Images/hmETG_geneIso.png Graphic file (type png)
- <use Images/hmETG_geneIso.png>
-Package pdftex.def Info: Images/hmETG_geneIso.png used on input line 195.
+ <Images/hmETG_geneIso2.pdf, id=625, 1003.75pt x 501.875pt>
+File: Images/hmETG_geneIso2.pdf Graphic file (type pdf)
+ <use Images/hmETG_geneIso2.pdf>
+Package pdftex.def Info: Images/hmETG_geneIso2.pdf used on input line 196.
 (pdftex.def)             Requested size: 239.60306pt x 104.18689pt.
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 195.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 196.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [13
 
- </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit.png (PNG copy)> </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso.png (PNG copy)>] <Images/zonalFlow.pdf, id=648, 433.62pt x 433.62pt>
+ </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit2.pdf> </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso2.pdf
+
+pdfTeX warning: pdflatex (file /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] <Images/zonalFlow.pdf, id=748, 433.62pt x 433.62pt>
 File: Images/zonalFlow.pdf Graphic file (type pdf)
  <use Images/zonalFlow.pdf>
-Package pdftex.def Info: Images/zonalFlow.pdf used on input line 213.
+Package pdftex.def Info: Images/zonalFlow.pdf used on input line 214.
 (pdftex.def)             Requested size: 195.1272pt x 195.1272pt.
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 213.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 214.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [14
 
  </home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/zonalFlow.pdf>]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 244.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 245.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [15
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 255.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 272.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [16
 
- </usr/share/texlive/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf>]
+]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 269.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 285.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [17
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 282.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 304.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [18
 
 ]
 File: Images/BoulderLogo.png Graphic file (type png)
  <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 300.
+Package pdftex.def Info: Images/BoulderLogo.png used on input line 318.
 (pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
  [19
-
-]
-File: Images/BoulderLogo.png Graphic file (type png)
- <use Images/BoulderLogo.png>
-Package pdftex.def Info: Images/BoulderLogo.png used on input line 303.
-(pdftex.def)             Requested size: 68.45801pt x 27.38158pt.
- [20
 
 ]
 \tf@nav=\write6
@@ -913,32 +906,27 @@ Package pdftex.def Info: Images/BoulderLogo.png used on input line 303.
 \tf@snm=\write8
 \openout8 = `ETG_Turb.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 320.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 320.
  (/home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 305.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 320.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 320.
 Package rerunfilecheck Info: File `ETG_Turb.out' has not changed.
-(rerunfilecheck)             Checksum: 79FDC7A7092FDAC05E880306E18ECE87;175.
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 1.0pt have occurred.
-
+(rerunfilecheck)             Checksum: 851262A56923F85BE6153C492DDD13A3;359.
  ) 
 Here is how much of TeX's memory you used:
- 18691 strings out of 493013
- 356379 string characters out of 6135682
- 437264 words of memory out of 5000000
- 21750 multiletter control sequences out of 15000+600000
- 14828 words of font info for 54 fonts, out of 8000000 for 9000
+ 18679 strings out of 493013
+ 356277 string characters out of 6135682
+ 437273 words of memory out of 5000000
+ 21741 multiletter control sequences out of 15000+600000
+ 14478 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,60p,869b,720s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,16n,62p,869b,720s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on "/home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.pdf" (20 pages, 1487222 bytes).
+Output written on "/home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.pdf" (19 pages, 1635368 bytes).
 PDF statistics:
- 939 PDF objects out of 1000 (max. 8388607)
- 673 compressed objects within 7 object streams
- 51 named destinations out of 1000 (max. 500000)
- 158 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1001 PDF objects out of 1200 (max. 8388607)
+ 703 compressed objects within 8 object streams
+ 45 named destinations out of 1000 (max. 500000)
+ 182 words of extra memory for PDF output out of 10000 (max. 10000000)
 

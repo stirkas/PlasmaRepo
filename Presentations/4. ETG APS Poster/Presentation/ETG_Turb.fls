@@ -246,6 +246,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux
 OUTPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/ETG_Turb.aux
@@ -314,6 +316,7 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/sansmathaccent/mathkerncmssi8.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
@@ -373,12 +376,12 @@ INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentatio
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmPhiETG_iso.pdf
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
-INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit.png
-INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit.png
-INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit.png
-INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso.png
-INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso.png
-INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso.png
+INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit2.pdf
+INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit2.pdf
+INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneInit2.pdf
+INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso2.pdf
+INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso2.pdf
+INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/hmETG_geneIso2.pdf
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/zonalFlow.pdf
@@ -386,10 +389,6 @@ INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentatio
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/zonalFlow.pdf
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
-INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
-INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png
 INPUT /home/den/Workspace/PlasmaRepo/Presentations/4. ETG APS Poster/Presentation/Images/BoulderLogo.png

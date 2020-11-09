@@ -2,6 +2,7 @@
 \usetheme{Madrid}
 \usepackage[english]{babel}
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{anyfontsize} %Scale all fonts to get rid of error with substitutions.
 \title{ETG Turbulence Isotropization}
 \author[S. Tirkas]{Stefan Tirkas\inst{1}\texorpdfstring{\\}\and Hoatian Chen\inst{1}\and Gabriele Merlo\inst{2}\and Scott Parker\inst{1}}
 \institute[CIPS]{
@@ -29,14 +30,14 @@
          modes (ETG), and trapped electron modes (TEM).
          \vspace{5mm}
          \item Low-frequency drift wave turbulence is largely responsible for the anomalous transport of plasma particles
-         across magnetic field lines \cite{Horton}.
+         across magnetic field lines (Horton 1999).
       \end{itemize}
    \end{frame}
 
    \begin{frame}{Ion-Temperature-Gradient Mode Growth}
       \begin{figure}
          \includegraphics[scale=.7]{Images/ITG_Instability_Cropped.pdf}
-         \caption{Simple picture of ITG instability \cite{Beer}.}
+         \caption{Picture of ITG instability (Beer 1994).}
       \end{figure}
    \end{frame}
 
@@ -50,7 +51,7 @@
          \end{figure}
       \column{0.4\textwidth}
          \begin{itemize}
-            \item Successful reproduction of G\"{o}rler benchmark with kinetic ions and electrons \cite{Gorler}.
+            \item Successful reproduction of G\"{o}rler benchmark with kinetic ions and electrons (G\"{o}rler 2016).
             \vspace{10mm}
             \item Conversion of ITG to ETG flux-tube case prior to running non-linear simulations.
          \end{itemize}
@@ -70,7 +71,7 @@
             \item ETG turbulence in toroidal gyrokinetic simulations is associated with radially elongated "streamers".
             \vspace{5mm}
             \item Multiscale turbulence simulations have shown that streamers dominate electron heat flux and lead
-            to experimental tokamak heat flux values \cite{Howard}.
+            to experimental tokamak heat flux values (Howard 2016).
          \end{itemize}
       \end{columns}
    \end{frame}
@@ -88,7 +89,7 @@
             \item Adiabatic ions.
             \item Isothermal equation of state, with $\delta P_e = \delta n_eT_e\;(\delta T_e=0)$.
          \end{itemize}
-         \item Shown to cause isotropic behavior for long wavelength modes as well as an inverse energy-cascade \cite{Hasegawa}.
+         \item Shown to cause isotropic behavior for long wavelength modes as well as an inverse energy-cascade (Hasegawa 1978).
       \end{itemize}
    \end{frame}
 
@@ -104,7 +105,7 @@
       \end{equation}
       %
       \quad Then $\vec{v}_e$ is solved for using (2) and plugged into (1), dropping terms higher order than $\epsilon$
-      to get a final PDE describing the evolution of $\delta\Phi$. The derivation is carried out in Appendix A.
+      to get a final PDE describing the evolution of $\delta\Phi$. The derivation is carried out in the Appendix A.
    \end{frame}
 
    \begin{frame}{Hasegawa-Mima Equations}
@@ -182,9 +183,9 @@
       \begin{columns}
          \column{0.7\textwidth}
             \begin{figure}
-               \includegraphics[height=.4\textheight,width=\textwidth]{Images/hmETG_geneInit.png}
+               \includegraphics[height=.4\textheight,width=\textwidth]{Images/hmETG_geneInit2.pdf}
                \\
-               \includegraphics[height=.4\textheight,width=\textwidth]{Images/hmETG_geneIso.png}
+               \includegraphics[height=.4\textheight,width=\textwidth]{Images/hmETG_geneIso2.pdf}
             \end{figure}
          \column{0.3\textwidth}
             \begin{itemize}
@@ -243,18 +244,20 @@
       \end{columns}
    \end{frame}
 
-   \section*{References}
-      \begin{frame}{References}
-          \begin{thebibliography}{0}
-             \bibitem{Horton} W. Horton, Rev. Mod. Phys. \textbf{71}, 735 (1999).
-             \bibitem{Beer} M. A. Beer, \textit{Ph.D. Thesis - Gyrofluid Models of Turbulent Transport in Tokamaks}, Princeton University (1994).
-             \bibitem{Gorler} T. G\"{o}rler \textit{et al}, Phys. Plasmas \textbf{23}, 072503 (2016).
-             \bibitem{Howard} N.T. Howard \textit{et al} 2016 Nucl. Fusion \textbf{56} 014004
-             \bibitem{Hasegawa} A. Hasegawa and Y. Kodama, Phys. Rev. Lett. \textbf{41}, 1470 (1978).
-          \end{thebibliography}
-      \end{frame}
+   %Kept refs for personal use. Just cite in parenthesis in poster.
+   %\section*{References}
+   %   \begin{frame}{References}
+      %       \begin{thebibliography}{0}
+         %          \bibitem{Horton} W. Horton, Rev. Mod. Phys. \textbf{71}, 735 (1999).
+         %          \bibitem{Beer} M. A. Beer, \textit{Ph.D. Thesis - Gyrofluid Models of Turbulent Transport in Tokamaks}, Princeton University (1994).
+         %          \bibitem{Gorler} T. G\"{o}rler \textit{et al}, Phys. Plasmas \textbf{23}, 072503 (2016).
+         %          \bibitem{Howard} N.T. Howard \textit{et al} 2016 Nucl. Fusion \textbf{56} 014004
+         %          \bibitem{Hasegawa} A. Hasegawa and Y. Kodama, Phys. Rev. Lett. \textbf{41}, 1470 (1978).
+         %       \end{thebibliography}
+         %   \end{frame}
 
-   \section*{Appendix}
+   \section{Appendix}
+   \subsection{A: H-M Fluid Model}
 
    \begin{frame}{Appendix A: H-M Fluid Model}
       \quad We break up (2) into parallel and perpendicular components by taking a dot product with $\hat{b}$ to find,
@@ -282,7 +285,8 @@
    \end{frame}
 
    \begin{frame}{Appendix A: H-M Fluid Model}
-      \quad Now, with incompressibility to lowest order, $\nabla\cdot\vec{v}_{e,0,\perp}=0$ and so (1) becomes,
+      \vspace*{-5mm}
+      \quad Now, with incompressibility and to lowest order, $\nabla\cdot\vec{v}_{e,0,\perp}=0$ and so (1) becomes,
       \begin{equation}
          \partial_t\delta n_e+n_e\nabla\cdot(v_{\parallel} + \vec{v}_{e,1}) + \nabla\delta n_e\cdot\vec{v}_D+(1+\tau)\delta n_e\cdot\vec{v}_E = 0,
       \end{equation}
@@ -299,7 +303,18 @@
       \end{equation}
    \end{frame}
 
+   \subsection{B: Spectral De-Aliasing}
+
    \begin{frame}{Appendix B: Pseudo-Spectral De-Aliasing}
+      \vspace*{-3mm}
+         \quad Our Fourier transforms go as $e^{-ik_jz_n}$ with wave-vectors $k_j = 2\pi j/N\Delta,$ and grid points
+      $x_n = n\Delta,$ where $j=-N/2,...,N/2,$ and $n = 0,...,N-1.$ So the final form for our modes is $e^{-2\pi inj/N}.$
+      If we consider non-linear terms then we can take $j'=j+lN$ with $l=...,-1,0,1,...$, which will take $j$ out of the range well-resolved
+      by the Fourier transform. The extra term $e^{-2\pi iln} = 1$ results in the same values at our grid points. This means non-linear
+      terms can lead to biasing of lower, well-resolved modes via higher modes. To de-alias we choose the truncation (or 2/3) rule which
+      says to zero out modes between $[-N/2,-K]$ and $[K,N/2]$. That way if we have two modes $\vert j+k\vert >N/2$ the final mode is resolved
+      as $j+k-N$ which must be $<-K$ to be zeroed out. Since the largest allowed option is $K$ for each mode, we get $2K-N < -K \Rightarrow K<N/3$.
+      This means keeping 2/3 of the original modes when considering non-linear terms.
    \end{frame}
 
 \end{document}

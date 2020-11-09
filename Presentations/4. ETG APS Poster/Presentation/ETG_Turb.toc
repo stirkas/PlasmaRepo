@@ -2,3 +2,6 @@
 \beamer@sectionintoc {1}{Drift Wave Instabilities}{3}{0}{1}
 \beamer@sectionintoc {2}{Hasegawa-Mima Fluid Model}{7}{0}{2}
 \beamer@sectionintoc {3}{Zonal Flow Excitation}{14}{0}{3}
+\beamer@sectionintoc {4}{Appendix}{16}{0}{4}
+\beamer@subsectionintoc {4}{1}{A: H-M Fluid Model}{16}{0}{4}
+\beamer@subsectionintoc {4}{2}{B: Spectral De-Aliasing}{19}{0}{4}
