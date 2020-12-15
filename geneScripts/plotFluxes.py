@@ -5,9 +5,9 @@ import numpy.polynomial.polynomial as poly
 import math
 import matplotlib.pyplot as plt
 from plotFlux import readFlux
-from plotFlux import getAverageVal
-from plotFlux import getData
-from plotFlux import getStdDev
+from plotFlux import getFluxAverage
+from plotFlux import getFluxData
+from plotFlux import getFluxStdDev
 
 #Set data flags for script.
 #User input flags - just change these input flags if you want to ignore every choice until runtime.
@@ -198,15 +198,15 @@ def readAndPlotFlux(ionData, axis):
    for i,ion in enumerate(ionNames):
       allFluxData = []
       readFlux(ionFiles[i], allFluxData)
-      [t, fluxData] = getData(fluxType, allFluxData)
+      [t, fluxData] = getFluxData(fluxType, allFluxData)
       startIndex = math.ceil(ionStartTs[i]*len(fluxData)) #Get index closest to startT fraction of total time.
       fluxData = np.array(fluxData[startIndex:]) #Need to make a numpy array to perform multiplication by a scalar...
       if (expNormFlag):
          fluxData = fluxData*getExpFactor()
       elif (impNormFlag):
          fluxData = fluxData * ((1/ion_omts[i])**2) * (1/ionDensRats[i]) #Normalize flux for L_T and n_imp.
-      avgFlux.append(getAverageVal(fluxData))
-      stdDev.append(getStdDev(fluxData))
+      avgFlux.append(getFluxAverage(fluxData))
+      stdDev.append(getFluxStdDev(fluxData))
    
    #Plot ion points.
    axis.scatter(ion_qmRats, avgFlux, color=ionDataSetColor)

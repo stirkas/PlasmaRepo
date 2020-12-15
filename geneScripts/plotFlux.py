@@ -15,7 +15,7 @@ def readFlux(fileName, data):
             data.append(line.split())
    f.close()
 
-def getData(fluxVal, data):
+def getFluxData(fluxVal, data):
    t = [] #time
    g = [] #particle flux
    q = [] #heat flux
@@ -41,7 +41,7 @@ def getData(fluxVal, data):
 def plotFlux(dataPath,fluxVal,title='FluxData',plot=False,save=False,savefile=None):
    data = []
    readFlux(dataPath, data)
-   [t, outputData] = getData(fluxVal, data)
+   [t, outputData] = getFluxData(fluxVal, data)
    
    plt.plot(t, outputData)
    
@@ -56,7 +56,7 @@ def plotFlux(dataPath,fluxVal,title='FluxData',plot=False,save=False,savefile=No
    if (save):
       plt.savefig(savefile + '.pdf')
 
-def getAverageVal(data):
+def getFluxAverage(data):
    average = 0
    for datum in data:
       average = average + datum
@@ -64,9 +64,9 @@ def getAverageVal(data):
 
    return average
 
-def getStdDev(data):
+def getFluxStdDev(data):
    stdDev = 0
-   avg = getAverageVal(data)
+   avg = getFluxAverage(data)
 
    for datum in data:
       stdDev = stdDev + (datum - avg)**2
