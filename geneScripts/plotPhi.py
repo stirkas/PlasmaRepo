@@ -110,7 +110,8 @@ def plotPhi(nt,nx,nky,lx,ly,rDataPath,kDataPath,fluxfile=None,tRatio=10,version=
    readPhi(kDataPath, phikt, version)
 
    fluxData = []
-   if (os.path.exists(fluxfile) and os.path.getsize(fluxfile) > 0):
+   plotFlux = False
+   if (fluxfile != None and os.path.exists(fluxfile) and os.path.getsize(fluxfile) > 0):
       fluxType = 1 #0=g, 1=q, 2=p.
       readFlux(fluxfile, fluxData)
       fluxData = getFluxData(fluxType, fluxData)
@@ -130,8 +131,9 @@ def plotPhi(nt,nx,nky,lx,ly,rDataPath,kDataPath,fluxfile=None,tRatio=10,version=
          anim.save(savefile, writer=writer)
 
 plotPhi(1879, 192, 16, 5.63558, 2.96377,
-        './GoerlerZonalETG/kinIonPhi.dat', './GoerlerZonalETG/kinIonPhik.dat', fluxfile='./GoerlerZonalETG/kinIonFlux.dat',
-        save=True, savefile='./GoerlerZonalETG/phiZonalETGwFluxKinIon.mp4')
+        './GoerlerZonalETG/adIonPhi.dat', './GoerlerZonalETG/adIonPhik.dat', plot=True)
+        #, fluxfile='./GoerlerZonalETG/kinIonFlux.dat',
+        #save=True, savefile='./GoerlerZonalETG/phiZonalETGwFluxKinIon.mp4')
 
 if __name__ == "__main__":
    parser = argparse.ArgumentParser("Script for plotting/saving GENE ASCII phi/phik output.")
