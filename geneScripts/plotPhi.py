@@ -97,8 +97,8 @@ def plotPhi(nt,nx,nky,lx,ly,rDataPath,kDataPath,fluxfile=None,tRatio=10,version=
    nkyp = 2*nky - 1 #Num grid points in ky space. Not sure why - 1.
    nkx  = nx    - 1 #Not sure why GENE data has 1 less point for nkx.
    ny   = nky*2 + 1 #I think GENE uses 2 gridpoints per mode + origin(0).
-
-   phit  = np.zeros((nt,nx,ny))
+   
+   phit = np.zeros((nt,nkx,nkyp))
    phikt = np.zeros((nt,nkx,nkyp))
    xp = np.linspace(-lx/2, lx/2, nx)
    yp = np.linspace(-ly/2, ly/2, ny)
