@@ -2,3 +2,8 @@
 **\__pycache__
 **\bin
 **\build
+
+./geneScripts/GoerlerZonalETG/adIonPhi.dat
+./geneScripts/GoerlerZonalETG/adIonPhik.dat
+./geneScripts/GoerlerZonalETG/kinIonPhi.dat
+./geneScripts/GoerlerZonalETG/kinIonPhik.dat
