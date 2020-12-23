@@ -5,7 +5,7 @@
       }
    ],
 	"settings": {
-		"razor.disabled": true,
+      "razor.disabled": true,
 		"cmake.sourceDirectory": "../PlasmaRepo/HasegawaMima/C"
 	}
 }

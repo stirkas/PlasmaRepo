@@ -15,7 +15,7 @@ currentlySaving = False #Define globally so plotting routine sees if it changes.
 def readPhi(fileName, data, version=2):
    readingData    = False
    reachedPhiData = False
-   t = x = y = 0
+   t = x = 0
    f = open(fileName, 'r')
 
    if (version >= 2): #My old GENE files looked different.
