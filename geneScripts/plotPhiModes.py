@@ -18,7 +18,6 @@ def readPhiModes(fileName, data):
 
 def plotFlux(caseNumber, dataArray, labels, kmins):
    fig = plt.figure(num=None, figsize=(6,6), dpi=100)
-   padding   = 10
    bigText   = 20
    smallText = 14
    smallerText = 10
